@@ -1,0 +1,107 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+
+const slides = [
+  {
+    tema: 'Tema 1',
+    title: 'Introducción a Spring Boot',
+    file: '/teoria/diapos/SpringBoot_Tema1_2DAM (1).pptx',
+    points: [
+      'Por qué nace Spring Boot: autoconfiguración, Tomcat embebido y starters.',
+      'IoC y DI: eliminar new MotorGasolina() inyectando por constructor.',
+      '@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan.',
+      'Anatomía de src/main/java, src/main/resources y primer @RestController con @GetMapping.',
+    ],
+  },
+  {
+    tema: 'Tema 2',
+    title: 'Persistencia con JPA y mapeo de entidades',
+    file: '/teoria/diapos/SpringBoot_Tema2_2DAM (1).pptx',
+    points: [
+      'Impedance mismatch y qué es un ORM (JPA = norma, Hibernate = implementación).',
+      'H2 en memoria: ventajas para desarrollo rápido y cómo acceder a /h2-console.',
+      'Propiedades clave en application.properties (ddl-auto=update, show-sql=true).',
+      'Anotaciones @Entity, @Table, @Id, @GeneratedValue(IDENTITY) y @Column.',
+    ],
+  },
+  {
+    tema: 'Tema 3',
+    title: 'Spring Data JPA y Repositorios',
+    file: '/teoria/diapos/SpringBoot_Tema3_2DAM.pptx',
+    points: [
+      'Definición de interfaces Repository extendiendo JpaRepository<Entidad, Long>.',
+      'Métodos CRUD heredados: save(), findById(), findAll(), deleteById(), count().',
+      'Consultas derivadas: existsByCorreo(String) y findBy...().',
+      'Verificación automática al arranque usando CommandLineRunner.',
+    ],
+  },
+  {
+    tema: 'Tema 4',
+    title: 'Capa de Servicio y Controladores REST',
+    file: '/teoria/diapos/SpringBoot_Tema4_2DAM.pptx',
+    points: [
+      'Separación Controller → Service → Repository.',
+      'Verbos HTTP: GET, POST (201 Created / 409 Conflict), PUT, PATCH y DELETE.',
+      'Uso de ResponseEntity<?> para controlar estados 200 OK y 404 Not Found.',
+      'Extracción de parámetros con @PathVariable y deserialización JSON con @RequestBody.',
+    ],
+  },
+  {
+    tema: 'Tema 5',
+    title: 'Relaciones Uno a Uno y Lombok',
+    file: '/teoria/diapos/SpringBoot_Tema5_2DAM (1).pptx',
+    points: [
+      'Lombok (@Data, @NoArgsConstructor, @AllArgsConstructor) y Annotation Processors.',
+      '@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER) + @JoinColumn.',
+      'Lado propietario (el que tiene la FK) vs lado inverso.',
+      'Cómo actualizar relaciones 1:1 en PUT y PATCH sin duplicar registros.',
+    ],
+  },
+  {
+    tema: 'Tema 6',
+    title: 'Relaciones Uno a Muchos (@OneToMany)',
+    file: '/teoria/diapos/SpringBoot_Tema6_2DAM.pptx',
+    points: [
+      'Por qué la FK siempre va en @ManyToOne y @OneToMany usa mappedBy.',
+      'FetchType.LAZY vs EAGER, cascade = ALL y orphanRemoval = true.',
+      'Cómo provocar y solucionar el StackOverflowError (@ToString.Exclude y @JsonIgnore/@JsonIgnoreProperties).',
+      'Setter personalizado para que Postman enlace hijos al padre automáticamente.',
+    ],
+  },
+];
+---
+
+<DocsLayout
+  title="Diapositivas de Clase (.pptx)"
+  description="Resumen de puntos clave de las 6 presentaciones vistas en clase con enlace directo de descarga."
+  section="Teoría · Diapositivas"
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {slides.map((s) => (
+      <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5 flex flex-col justify-between gap-4">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
+              {s.tema}
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">.pptx</span>
+          </div>
+          <h2 class="text-lg font-bold text-white mb-2">{s.title}</h2>
+          <ul class="list-disc pl-4 space-y-1 text-xs sm:text-sm text-slate-300">
+            {s.points.map((pt) => (
+              <li>{pt}</li>
+            ))}
+          </ul>
+        </div>
+        <a
+          href={s.file}
+          download
+          class="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold border border-slate-700 transition"
+        >
+          <span>Descargar PowerPoint</span>
+        </a>
+      </div>
+    ))}
+  </div>
+</DocsLayout>
+

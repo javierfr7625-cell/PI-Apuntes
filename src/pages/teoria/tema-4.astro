@@ -1,0 +1,133 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const serviceCode = `@Service
+public class EstudianteService {
+
+    private final EstudianteRepository estudianteRepository;
+
+    public EstudianteService(EstudianteRepository estudianteRepository) {
+        this.estudianteRepository = estudianteRepository;
+    }
+
+    public List<Estudiante> listarTodos() {
+        return estudianteRepository.findAll();
+    }
+
+    public Optional<Estudiante> buscarPorId(Long id) {
+        return estudianteRepository.findById(id);
+    }
+
+    public Estudiante guardarEstudiante(Estudiante estudiante) {
+        return estudianteRepository.save(estudiante);
+    }
+
+    public void eliminarEstudiante(Long id) {
+        estudianteRepository.deleteById(id);
+    }
+
+    public boolean existsByCorreo(String correo) {
+        return estudianteRepository.existsByCorreo(correo);
+    }
+}`;
+
+const controllerCode = `@RestController
+@RequestMapping("/api/v1/estudiantes")
+public class EstudianteController {
+
+    private final EstudianteService estudianteService;
+
+    public EstudianteController(EstudianteService estudianteService) {
+        this.estudianteService = estudianteService;
+    }
+
+    @GetMapping
+    public List<Estudiante> obtenerTodos() {
+        return estudianteService.listarTodos();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> obtenerPorId(@PathVariable Long id) {
+        return estudianteService.buscarPorId(id)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Collections.singletonMap("mensaje", "El estudiante no existe")));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> crearEstudiante(@RequestBody Estudiante estudiante) {
+        if (estudianteService.existsByCorreo(estudiante.getCorreo())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(Collections.singletonMap("mensaje", "El correo ya está registrado"));
+        }
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(estudianteService.guardarEstudiante(estudiante));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizarCompleto(
+            @PathVariable Long id,
+            @RequestBody Estudiante datos) {
+        return estudianteService.buscarPorId(id)
+                .<ResponseEntity<?>>map(existente -> {
+                    existente.setNombre(datos.getNombre());
+                    existente.setEdad(datos.getEdad());
+                    existente.setCorreo(datos.getCorreo());
+                    return ResponseEntity.ok(estudianteService.guardarEstudiante(existente));
+                })
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Collections.singletonMap("mensaje", "El estudiante no existe")));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarEstudiante(@PathVariable Long id) {
+        if (estudianteService.buscarPorId(id).isPresent()) {
+            estudianteService.eliminarEstudiante(id);
+            return ResponseEntity.ok(Collections.singletonMap("mensaje", "Usuario borrado"));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Collections.singletonMap("mensaje", "El estudiante no existe"));
+    }
+}`;
+---
+
+<DocsLayout
+  title="Tema 4: Capa de Servicio y Controladores REST"
+  description="Desacoplamiento en 3 capas (Controller, Service, Repository), inyección por constructor, ResponseEntity y manejo de códigos HTTP 200, 201, 404 y 409."
+  section="Teoría · Tema 4"
+>
+  <div class="flex flex-wrap gap-3 mb-4">
+    <a href="/teoria/SpringBoot- Tema 4.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+      Descargar PDF Tema 4
+    </a>
+  </div>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Arquitectura en Capas</h2>
+    <ul class="list-disc pl-5 space-y-1 text-sm">
+      <li><strong>controller/:</strong> Recibe peticiones HTTP, extrae <code>@PathVariable</code> / <code>@RequestBody</code> y construye <code>ResponseEntity</code>.</li>
+      <li><strong>service/:</strong> Contiene lógica de negocio y transacciones (<code>@Service</code>). No conoce HTTP.</li>
+      <li><strong>repository/:</strong> Acceso directo a base de datos con Spring Data JPA.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Capa de Servicio (@Service)</h2>
+    <CodeBlock code={serviceCode} lang="java" filename="EstudianteService.java" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">3. Controlador REST y ResponseEntity</h2>
+    <Callout type="exam" title="Control del 404 Not Found">
+      <p>
+        Cuando trabajamos con <code>Optional&lt;T&gt;</code> en <code>GET /&#123;id&#125;</code> o <code>PUT /&#123;id&#125;</code>, usamos:
+        <code>.&lt;ResponseEntity&lt;?&gt;&gt;map(ResponseEntity::ok).orElseGet(() -&gt; ResponseEntity.status(HttpStatus.NOT_FOUND).body(...))</code>.
+        El cast genérico <code>.&lt;ResponseEntity&lt;?&gt;&gt;map(...)</code> evita errores de inferencia de tipos en Java cuando el <code>ok()</code> devuelve una entidad y el <code>notFound()</code> devuelve un <code>Map</code> de mensaje.
+      </p>
+    </Callout>
+    <CodeBlock code={controllerCode} lang="java" filename="EstudianteController.java" />
+  </section>
+</DocsLayout>
+

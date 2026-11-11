@@ -1,0 +1,97 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const cursoCode = `@Entity
+@Table(name = "cursos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre_curso", nullable = false, length = 100)
+    private String nombreCurso;
+
+    @Column(name = "creditos")
+    private int creditos;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profesor_id", nullable = false)
+    @ToString.Exclude
+    @JsonIgnore
+    private Profesor profesor;
+}`;
+
+const profesorCode = `@Entity
+@Table(name = "profesores")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Profesor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 50)
+    private String nombre;
+
+    @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    @JsonIgnoreProperties("profesor")
+    private List<Curso> cursos = new ArrayList<>();
+
+    public void agregarCurso(Curso curso) {
+        cursos.add(curso);
+        curso.setProfesor(this);
+    }
+
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
+        if (cursos != null) {
+            for (Curso curso : cursos) {
+                curso.setProfesor(this);
+            }
+        }
+    }
+}`;
+---
+
+<DocsLayout
+  title="Tema 6: Relaciones Uno a Muchos (@OneToMany)"
+  description="Lado propietario (@ManyToOne) vs lado inverso (@OneToMany + mappedBy), orphanRemoval, FetchType.LAZY, prevención de bucles infinitos y setter personalizado para Postman."
+  section="Teoría · Tema 6"
+>
+  <div class="flex flex-wrap gap-3 mb-4">
+    <a href="/teoria/SpringBoot- Tema 6.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+      Descargar PDF Tema 6
+    </a>
+  </div>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Lado Propietario vs Lado Inverso</h2>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm">
+      <li><strong>Lado Propietario (<code>@ManyToOne</code>):</strong> Es la tabla hija (ej. <code>Curso</code> o <code>Cliente</code>). Lleva siempre <code>@JoinColumn(name = "profesor_id")</code> y suele usar <code>fetch = FetchType.LAZY</code>.</li>
+      <li><strong>Lado Inverso (<code>@OneToMany</code>):</strong> Es la entidad padre que tiene el <code>List&lt;...&gt;</code>. Usa <code>mappedBy = "profesor"</code> (nombre exacto de la variable en la otra clase), <code>cascade = CascadeType.ALL</code> y <code>orphanRemoval = true</code>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Cortar bucles infinitos y sincronizar Postman</h2>
+    <Callout type="warning" title="Los dos errores más comunes en 1:N">
+      <ol class="list-decimal pl-5 space-y-1">
+        <li><strong>Bucle infinito (StackOverflowError):</strong> Ocurre si <code>Profesor</code> serializa/imprime <code>cursos</code> y cada <code>Curso</code> vuelve a imprimir <code>profesor</code>. Se evita con <code>@ToString.Exclude</code> y <code>@JsonIgnore</code> o <code>@JsonIgnoreProperties</code>.</li>
+        <li><strong>Clave foránea NULL al insertar por JSON:</strong> Cuando Postman envía un JSON con la lista anidada, Jackson crea los hijos con su campo padre a <code>null</code>. Al añadir el setter personalizado <code>setCursos(...)</code>, cada hijo recibe automáticamente <code>curso.setProfesor(this)</code>.</li>
+      </ol>
+    </Callout>
+
+    <CodeBlock code={cursoCode} lang="java" filename="Curso.java (Lado @ManyToOne)" />
+    <CodeBlock code={profesorCode} lang="java" filename="Profesor.java (Lado @OneToMany)" />
+  </section>
+</DocsLayout>
+

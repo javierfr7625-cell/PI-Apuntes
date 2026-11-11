@@ -1,0 +1,59 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const jsonEjemplo = `{
+  "nombre": "Innovación",
+  "planta": 3,
+  "empleados": [
+    {
+      "nombre": "Laura Gómez",
+      "puestos": "Arquitecta Java",
+      "credencial": {
+        "codigo": "TECH-001",
+        "nivelSeguridad": "ALTO"
+      }
+    }
+  ]
+}`;
+---
+
+<DocsLayout
+  title="Tema 7: Proyecto TechCorp (Reto 1:1 + 1:N)"
+  description="Caso práctico integrador previo al examen: Departamento (1:N) → Empleado (1:1) → Credencial usando Lombok, @Transactional y persistencia en cascada desde Postman."
+  section="Teoría · Tema 7"
+>
+  <div class="flex flex-wrap gap-3 mb-4">
+    <a href="/teoria/SpringBoot- Tema 7.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+      Descargar PDF Tema 7
+    </a>
+    <a href="/ejercicios/pi-spring" class="px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-xs font-bold text-emerald-300 border border-emerald-500/30">
+      Ver Código Resuelto (piSpring)
+    </a>
+  </div>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Planteamiento del Reto (TechCorp Solutions)</h2>
+    <p>
+      El Tema 7 plantea un escenario idéntico en estructura al examen final (y al simulacro de <strong>Taller Don Juan</strong>): recibimos un correo de una empresa solicitando modelar:
+    </p>
+    <ul class="list-disc pl-5 space-y-1.5 text-sm my-3">
+      <li><strong>Departamento ↔ Empleado (1:N):</strong> Un departamento tiene múltiples empleados, pero cada empleado pertenece estrictamente a un único departamento.</li>
+      <li><strong>Empleado ↔ Credencial (1:1):</strong> Cada empleado dispone obligatoriamente de una única credencial física con código único y nivel de seguridad.</li>
+      <li><strong>Alta integrada en cascada:</strong> Poder enviar desde Postman un departamento completo con sus empleados y credenciales en una única petición <code>POST</code>.</li>
+    </ul>
+
+    <Callout type="exam" title="Comparativa directa: Tema 7 vs Simulacro Taller Don Juan">
+      <p>
+        Observa que el patrón es exactamente el mismo:
+        <br />
+        <code>Departamento (1:N) → Empleado (1:1) → Credencial</code> equivale exactamente a
+        <code>Taller (1:N) → Cliente (1:1) → Coche</code>.
+      </p>
+    </Callout>
+
+    <CodeBlock code={jsonEjemplo} lang="json" filename="POST /api/departamentos (Ejemplo Postman)" />
+  </section>
+</DocsLayout>
+

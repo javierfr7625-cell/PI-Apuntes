@@ -1,0 +1,103 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const perfilCode = `@Entity
+@Table(name = "perfil_academico")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PerfilAcademico {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "biografia", length = 250)
+    private String biografia;
+
+    @Column(name = "nivel_ingles", length = 20)
+    private String nivelIngles;
+
+    public PerfilAcademico(String biografia, String nivelIngles) {
+        this.biografia = biografia;
+        this.nivelIngles = nivelIngles;
+    }
+}`;
+
+const estudianteRelacionCode = `@Entity
+@Table(name = "estudiantes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Estudiante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 50)
+    private String nombre;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "perfil_id", referencedColumnName = "id")
+    private PerfilAcademico perfilAcademico;
+}`;
+
+const put1a1Code = `if (estudianteDatos.getPerfilAcademico() != null) {
+    if (estudianteExistente.getPerfilAcademico() != null) {
+        // Actualizamos el expediente existente manteniendo su ID
+        estudianteExistente.getPerfilAcademico()
+            .setNivelIngles(estudianteDatos.getPerfilAcademico().getNivelIngles());
+        estudianteExistente.getPerfilAcademico()
+            .setBiografia(estudianteDatos.getPerfilAcademico().getBiografia());
+    } else {
+        // Primera vez que se asigna
+        estudianteExistente.setPerfilAcademico(estudianteDatos.getPerfilAcademico());
+    }
+} else {
+    // Si llega null en PUT, se desvincula la relación
+    estudianteExistente.setPerfilAcademico(null);
+}`;
+---
+
+<DocsLayout
+  title="Tema 5: Relaciones Uno a Uno y Lombok"
+  description="Simplificación de entidades con Lombok (@Data, @NoArgsConstructor, @AllArgsConstructor) y mapeo 1:1 con @OneToOne, @JoinColumn y CascadeType.ALL."
+  section="Teoría · Tema 5"
+>
+  <div class="flex flex-wrap gap-3 mb-4">
+    <a href="/teoria/SpringBoot- Tema 5.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+      Descargar PDF Tema 5
+    </a>
+  </div>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Lombok en Entidades JPA</h2>
+    <ul class="list-disc pl-5 space-y-1 text-sm">
+      <li><code>@Data</code>: Genera getters, setters, <code>toString()</code>, <code>equals()</code> y <code>hashCode()</code>.</li>
+      <li><code>@NoArgsConstructor</code>: Genera el constructor vacío obligatorio para JPA/Hibernate.</li>
+      <li><code>@AllArgsConstructor</code>: Genera constructor con todos los campos (incluido <code>id</code>).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Relación @OneToOne y @JoinColumn</h2>
+    <p>
+      La entidad que declara <code>@JoinColumn</code> es el <strong>lado propietario</strong> y crea físicamente la columna de clave foránea en su tabla SQL. Con <code>cascade = CascadeType.ALL</code>, al guardar o borrar la entidad padre se guarda o borra automáticamente la hija.
+    </p>
+    <CodeBlock code={perfilCode} lang="java" filename="PerfilAcademico.java" />
+    <CodeBlock code={estudianteRelacionCode} lang="java" filename="Estudiante.java (con relación 1:1)" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">3. Actualizar una relación 1:1 en PUT</h2>
+    <Callout type="tip" title="Mantener el ID en actualización 1:1">
+      <p>
+        En el <code>PUT</code>, si el registro ya tenía una entidad asociada en 1:1, modificamos sus atributos directamente (<code>getPerfilAcademico().set...</code>) para conservar su mismo <code>id</code> en lugar de crear una fila duplicada.
+      </p>
+    </Callout>
+    <CodeBlock code={put1a1Code} lang="java" filename="Fragmento PUT en Controller" />
+  </section>
+</DocsLayout>
+

@@ -1,0 +1,1796 @@
+1
+00:00:08,800 --> 00:00:12,869
+Habíamos visto hasta
+ahora, la API, las entidades,
+
+2
+00:00:12,893 --> 00:00:16,800
+como trabajar con el
+repositorio que nos ofrecía
+
+3
+00:00:16,801 --> 00:00:23,520
+el CRUD a la base de datos, habíamos visto
+como trabajar con los controladores y los
+
+4
+00:00:23,521 --> 00:00:27,616
+servicios para las
+diferentes capas, habíamos
+
+5
+00:00:27,640 --> 00:00:31,292
+visto los endpoints
+que podíamos generar
+
+6
+00:00:32,599 --> 00:00:36,532
+en el controlador,
+habíamos visto luego como
+
+7
+00:00:36,556 --> 00:00:40,412
+montar relaciones entre
+entidades, habíamos
+
+8
+00:00:41,480 --> 00:00:49,480
+visto relación 1 a 1 y vamos a continuar
+esa senda hoy con las relaciones 1 a N, es
+
+9
+00:00:49,481 --> 00:00:57,240
+decir, una entidad tendrá una relación con
+otra entidad de tal manera que un elemento
+
+10
+00:00:59,280 --> 00:01:07,280
+tendrá varios elementos de la otra, yo voy
+a tener por ejemplo un usuario que puede
+
+11
+00:01:08,019 --> 00:01:11,901
+tener muchos correos
+electrónicos de contacto
+
+12
+00:01:11,925 --> 00:01:15,732
+o muchos teléfonos de
+contacto o puede tener
+
+13
+00:01:16,120 --> 00:01:19,921
+un profesor que tiene
+muchos alumnos, son
+
+14
+00:01:19,945 --> 00:01:24,132
+relaciones en las que
+una parte es dominante,
+
+15
+00:01:27,720 --> 00:01:31,885
+el uno y la otra es la
+parte esclava o la parte
+
+16
+00:01:31,909 --> 00:01:35,732
+inversa, que será el
+muchos. Para gestionar
+
+17
+00:01:37,480 --> 00:01:41,468
+esto obviamente tenemos
+que tener en la parte
+
+18
+00:01:41,492 --> 00:01:45,492
+del uno una colección
+de elementos del muchos
+
+19
+00:02:04,179 --> 00:02:07,527
+mientras que en el muchos
+tendremos un objeto del uno.
+
+20
+00:02:07,551 --> 00:02:09,491
+Vamos a decir que un estudiante
+
+21
+00:02:24,120 --> 00:02:28,069
+va a tener un estudiante,
+vamos a poner asignaturas,
+
+22
+00:02:28,093 --> 00:02:32,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+23
+00:02:44,940 --> 00:02:48,478
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+24
+00:02:48,502 --> 00:02:52,052
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+25
+00:03:10,220 --> 00:03:11,558
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+26
+00:03:11,582 --> 00:03:13,662
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+27
+00:03:13,960 --> 00:03:17,948
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+28
+00:03:17,972 --> 00:03:21,972
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+29
+00:03:25,430 --> 00:03:29,243
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+30
+00:03:29,267 --> 00:03:33,092
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+31
+00:03:39,260 --> 00:03:42,198
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+32
+00:03:42,222 --> 00:03:45,172
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+33
+00:03:52,865 --> 00:03:56,840
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+34
+00:03:56,864 --> 00:04:00,852
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+35
+00:04:06,610 --> 00:04:09,073
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+36
+00:04:09,097 --> 00:04:11,572
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+37
+00:04:11,573 --> 00:04:15,228
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+38
+00:04:15,252 --> 00:04:18,920
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+39
+00:04:18,921 --> 00:04:22,868
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+40
+00:04:22,892 --> 00:04:26,852
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+41
+00:04:27,000 --> 00:04:30,988
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+42
+00:04:31,012 --> 00:04:35,012
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+43
+00:04:35,640 --> 00:04:39,628
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+44
+00:04:39,652 --> 00:04:43,652
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+45
+00:04:44,360 --> 00:04:48,348
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+46
+00:04:48,372 --> 00:04:52,372
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+47
+00:04:53,400 --> 00:04:57,388
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+48
+00:04:57,412 --> 00:05:01,412
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+49
+00:05:02,025 --> 00:05:05,220
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+50
+00:05:05,244 --> 00:05:08,452
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+51
+00:05:08,453 --> 00:05:12,028
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+52
+00:05:12,052 --> 00:05:15,652
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+53
+00:05:15,665 --> 00:05:19,200
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+54
+00:05:19,224 --> 00:05:22,772
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+55
+00:05:24,640 --> 00:05:28,528
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+56
+00:05:28,552 --> 00:05:32,452
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+57
+00:05:33,190 --> 00:05:36,643
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+58
+00:05:36,667 --> 00:05:40,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+59
+00:05:41,470 --> 00:05:44,983
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+60
+00:05:45,007 --> 00:05:48,532
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+61
+00:05:49,320 --> 00:05:52,428
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+62
+00:05:52,452 --> 00:05:55,572
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+63
+00:05:58,410 --> 00:06:00,573
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+64
+00:06:00,597 --> 00:06:02,767
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+65
+00:06:02,768 --> 00:06:05,748
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+66
+00:06:05,772 --> 00:06:08,772
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+67
+00:06:08,773 --> 00:06:12,308
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+68
+00:06:12,332 --> 00:06:15,892
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+69
+00:06:16,630 --> 00:06:19,763
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+70
+00:06:19,787 --> 00:06:22,932
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+71
+00:06:23,370 --> 00:06:26,733
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+72
+00:06:26,757 --> 00:06:30,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+73
+00:06:31,070 --> 00:06:33,583
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+74
+00:06:33,607 --> 00:06:36,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+75
+00:06:36,128 --> 00:06:39,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+76
+00:06:39,132 --> 00:06:42,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+77
+00:06:42,128 --> 00:06:45,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+78
+00:06:45,132 --> 00:06:48,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+79
+00:06:48,170 --> 00:06:51,133
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+80
+00:06:51,157 --> 00:06:54,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+81
+00:06:54,370 --> 00:06:57,233
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+82
+00:06:57,257 --> 00:07:00,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+83
+00:07:00,470 --> 00:07:03,283
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+84
+00:07:03,307 --> 00:07:06,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+85
+00:07:06,820 --> 00:07:09,458
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+86
+00:07:09,482 --> 00:07:12,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+87
+00:07:12,420 --> 00:07:15,258
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+88
+00:07:15,282 --> 00:07:18,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+89
+00:07:18,170 --> 00:07:21,133
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+90
+00:07:21,157 --> 00:07:24,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+91
+00:07:24,128 --> 00:07:27,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+92
+00:07:27,132 --> 00:07:30,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+93
+00:07:30,128 --> 00:07:33,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+94
+00:07:33,132 --> 00:07:36,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+95
+00:07:36,195 --> 00:07:39,145
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+96
+00:07:39,169 --> 00:07:42,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+97
+00:07:42,128 --> 00:07:45,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+98
+00:07:45,132 --> 00:07:48,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+99
+00:07:48,128 --> 00:07:51,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+100
+00:07:51,132 --> 00:07:54,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+101
+00:07:54,128 --> 00:07:57,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+102
+00:07:57,132 --> 00:08:00,132
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+103
+00:08:01,820 --> 00:08:03,958
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+104
+00:08:03,982 --> 00:08:06,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+105
+00:08:06,128 --> 00:08:09,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+106
+00:08:09,132 --> 00:08:12,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+107
+00:08:12,128 --> 00:08:15,108
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+108
+00:08:15,132 --> 00:08:18,127
+vamos a poner asignaturas,
+vamos a poner asignaturas,
+
+109
+00:08:18,128 --> 00:08:20,887
+y ahora tenemos que
+decirles la relación que
+
+110
+00:08:20,911 --> 00:08:23,158
+tenemos, yo estoy
+en una relación desde
+
+111
+00:08:23,159 --> 00:08:28,120
+asignatura, ¿qué relación
+tengo con el profesor?
+
+112
+00:08:31,370 --> 00:08:35,332
+Estoy en la asignatura, si
+hacemos un one to many le estamos
+
+113
+00:08:35,356 --> 00:08:39,132
+diciendo que una asignatura
+va a tener muchos profesores,
+
+114
+00:08:42,519 --> 00:08:45,613
+pero yo no quiero eso,
+quiero total many to one,
+
+115
+00:08:45,637 --> 00:08:49,132
+porque quiero vincular una
+asignatura con un profesor.
+
+116
+00:08:54,444 --> 00:08:58,232
+Vale, la many to one
+tenemos que ponerle el fetch,
+
+117
+00:08:58,256 --> 00:09:02,132
+que es el tipo de, cómo
+se va a hacer esa relación,
+
+118
+00:09:02,619 --> 00:09:10,120
+de tipo lazy, para que
+se haga automáticamente.
+
+119
+00:09:14,669 --> 00:09:17,962
+Lo otro que tenemos que hacer
+es, como decías, que vincula una
+
+120
+00:09:17,986 --> 00:09:21,132
+tabla con otra a la hora de
+hacer una relación one to many.
+
+121
+00:09:26,669 --> 00:09:33,120
+Que vincula una tabla con otra cuando
+tenemos una relación one to many?
+
+122
+00:09:33,121 --> 00:09:37,120
+La foránea, vale, la foranqui.
+
+123
+00:09:41,120 --> 00:09:45,201
+Esto quiere decir que yo voy a
+tener en la tabla asignatura, vale,
+
+124
+00:09:45,225 --> 00:09:49,132
+un ID que tiene que vincularse
+con el ID del profesor asignado.
+
+125
+00:09:49,919 --> 00:09:52,389
+Si el profesor uno es
+el que está dando la
+
+126
+00:09:52,413 --> 00:09:55,132
+asignatura, el profesor
+dos, el profesor tres,
+
+127
+00:09:55,344 --> 00:09:58,120
+es decir, ¿qué profesor da esa asignatura?
+
+128
+00:09:58,121 --> 00:10:05,120
+Eso lo tenemos que montar
+con la foránea, con el join column.
+
+129
+00:10:07,120 --> 00:10:10,921
+Vale, al join column
+le tenéis que dar el
+
+130
+00:10:10,945 --> 00:10:15,132
+nombre, pues en este
+caso será "Profesor ID".
+
+131
+00:10:16,019 --> 00:10:20,120
+Además, vamos a decirle
+que es inolable, falsa.
+
+132
+00:10:21,469 --> 00:10:26,120
+¿El referencia al column nine no se pone?
+
+133
+00:10:26,121 --> 00:10:27,120
+¿El qué?
+
+134
+00:10:27,121 --> 00:10:29,120
+El referencia al column nine.
+
+135
+00:10:30,119 --> 00:10:31,120
+No, no es faltando.
+
+136
+00:10:36,019 --> 00:10:43,120
+Vale, luego además quiero que
+no haya recursión infinita, ¿vale?
+
+137
+00:10:48,120 --> 00:10:52,390
+Esto quiere decir que yo no
+quiero que cuando muestre
+
+138
+00:10:52,414 --> 00:10:56,132
+una asignatura me salga
+el profesor, ¿por qué?
+
+139
+00:10:56,819 --> 00:11:00,120
+Porque, imaginaros, yo estoy
+mostrando a los profesores, ¿vale?
+
+140
+00:11:00,419 --> 00:11:05,120
+Los profesores tienen
+una asignatura vinculada.
+
+141
+00:11:05,619 --> 00:11:10,120
+Tengo una asignatura,
+vale, o muchas asignaturas.
+
+142
+00:11:13,369 --> 00:11:20,120
+Esa asignatura luego, si
+muestro el profesor, ¿qué ocurre?
+
+143
+00:11:20,219 --> 00:11:22,120
+Que aparece el profesor.
+
+144
+00:11:22,121 --> 00:11:24,120
+Ahí aparecería el profesor.
+
+145
+00:11:24,121 --> 00:11:27,120
+Ese profesor volverían a
+aparecer las asignaturas.
+
+146
+00:11:27,419 --> 00:11:30,120
+Esas asignaturas volverían
+a aparecer el profesor.
+
+147
+00:11:30,121 --> 00:11:31,121
+¿Qué tengo ahí?
+
+148
+00:11:31,719 --> 00:11:33,120
+Un bucle infinito.
+
+149
+00:11:33,121 --> 00:11:35,120
+Un bucle infinito, ¿vale?
+
+150
+00:11:35,121 --> 00:11:39,120
+Lo que es un stack overflow, por
+fallo de memoria, por bucle infinito.
+
+151
+00:11:39,619 --> 00:11:43,120
+Para evitar eso tenemos
+que hacer dos cosas.
+
+152
+00:11:43,419 --> 00:11:50,120
+Una para vincularlo a la hora de trabajar
+con la información directamente en JSON,
+
+153
+00:11:54,669 --> 00:11:58,615
+es decir, cuando trabajamos
+en Postman o trabajemos
+
+154
+00:11:58,639 --> 00:12:02,132
+como una API normal,
+esto es, un JSON ignore.
+
+155
+00:12:04,120 --> 00:12:12,120
+Y la otra es que en el Tuestring
+nos excluyan este campo.
+
+156
+00:12:12,244 --> 00:12:14,120
+Esto es de Lombok.
+
+157
+00:12:14,170 --> 00:12:17,120
+¿Vale? Conozco que Lombok
+por defecto hace el Tuestring.
+
+158
+00:12:17,121 --> 00:12:19,892
+Entonces para que ese
+Tuestring no incluya al
+
+159
+00:12:19,916 --> 00:12:23,132
+profesor y no tener el
+bucle infinito, lo excluimos.
+
+160
+00:12:29,569 --> 00:12:33,120
+¿Y el excluir el que podría estar
+también pago por tu ampoule?
+
+161
+00:12:33,669 --> 00:12:35,120
+¿Que la queremos mostrar?
+
+162
+00:12:35,319 --> 00:12:38,146
+Sí, claro, para cualquier
+campo que no queráis
+
+163
+00:12:38,170 --> 00:12:41,132
+mostrar lo podéis poner
+en tu Tuestring.excluir.
+
+164
+00:12:41,819 --> 00:12:45,120
+¿Y el JSON ignore que le escuadres?
+
+165
+00:12:53,369 --> 00:12:57,232
+El JSON ignore es para que no
+nos ponga el campo a la hora de dar
+
+166
+00:12:57,256 --> 00:13:01,132
+la respuesta dentro de las peticiones
+que devolvemos con el JSON.
+
+167
+00:13:01,219 --> 00:13:03,082
+Es decir, por ejemplo,
+cuando hacemos con Postman,
+
+168
+00:13:03,106 --> 00:13:05,132
+que hacemos la petición y
+nos devuelve la información,
+
+169
+00:13:05,133 --> 00:13:09,120
+pues en JSON que no
+nos devuelva ese campo.
+
+170
+00:13:09,121 --> 00:13:13,132
+De tal manera que cuando busquemos profesores
+nos saldrá su listada de asignaturas,
+
+171
+00:13:13,133 --> 00:13:18,120
+nos saldrá su nombre y sus créditos,
+pero no nos saldrá otra vez el profesor.
+
+172
+00:13:18,344 --> 00:13:21,120
+Porque ya lo hemos mostrado previamente.
+
+173
+00:13:21,669 --> 00:13:27,120
+¿Vale? Siempre eso lo tenéis
+que poner en la parte esclava.
+
+174
+00:13:27,121 --> 00:13:30,608
+¿Vale? Acordaros en lo
+que es la parte del meni,
+
+175
+00:13:30,632 --> 00:13:34,132
+en donde vais a tener
+que poner ese JSON ignore.
+
+176
+00:13:39,069 --> 00:13:46,120
+El lazy es para que haga la parte
+de la relación de manera automática.
+
+177
+00:13:46,669 --> 00:13:50,120
+Es para que lo gestione
+de manera automática.
+
+178
+00:13:58,120 --> 00:14:06,120
+El private es un objeto de tipo profesor.
+
+179
+00:14:31,294 --> 00:14:34,120
+Vamos a tener que hacer
+el constructor también.
+
+180
+00:14:36,120 --> 00:14:44,120
+Vamos a tener que
+vincularlo con el profesor.
+
+181
+00:14:45,119 --> 00:14:50,120
+¿La parte de asignaturas está clara?
+
+182
+00:14:56,419 --> 00:15:02,120
+Vamos a hacer la parte del profesor.
+
+183
+00:15:07,120 --> 00:15:15,120
+Tenemos que añadirle a los datos
+que tenía la relación con la asignatura.
+
+184
+00:15:15,121 --> 00:15:21,120
+¿Qué tipo de relación tenemos?
+
+185
+00:15:23,120 --> 00:15:31,120
+Un profesor, muchas asignaturas.
+
+186
+00:15:41,219 --> 00:15:44,945
+El mapez by se establece
+con el nombre de la
+
+187
+00:15:44,969 --> 00:15:49,132
+variable de la clase con
+la que vamos a trabajar.
+
+188
+00:15:53,120 --> 00:16:01,120
+En nuestro caso, va a ser
+la variable de tipo profesor.
+
+189
+00:16:03,120 --> 00:16:06,872
+Si la hubiéramos llamado
+profesor nuevo, es esta
+
+190
+00:16:06,896 --> 00:16:11,132
+variable con la que estamos
+vinculando en el mapez by.
+
+191
+00:16:11,369 --> 00:16:17,120
+Nosotros la hemos llamado profesor.
+
+192
+00:16:28,119 --> 00:16:29,120
+Luego tenemos el cascade.
+
+193
+00:16:29,121 --> 00:16:33,120
+Para que haga operaciones en cadena.
+
+194
+00:16:33,121 --> 00:16:36,214
+Cuando hagamos una
+operación en el profesor,
+
+195
+00:16:36,238 --> 00:16:39,132
+¿qué tenemos que
+hacer con la asignatura?
+
+196
+00:16:45,120 --> 00:16:48,868
+Nosotros le vamos a decir
+que todas las operaciones que
+
+197
+00:16:48,892 --> 00:16:53,120
+hagamos en el profesor tendrán
+consecuencias en la asignatura.
+
+198
+00:16:53,121 --> 00:16:58,120
+Si actualizamos el profesor,
+se actualizará la asignatura.
+
+199
+00:17:02,419 --> 00:17:10,119
+Si borramos el profesor,
+se borrará la asignatura.
+
+200
+00:17:22,319 --> 00:17:30,120
+Esto es para que cuando borremos
+un elemento, no me deje huérfanos.
+
+201
+00:17:32,120 --> 00:17:40,120
+En nuestro caso, las asignaturas que
+dependan de él se borren automáticamente.
+
+202
+00:17:42,919 --> 00:17:50,120
+Por eso se llama Orphan Removal.
+
+203
+00:17:58,169 --> 00:18:02,120
+Aquí tenemos la lista.
+
+204
+00:18:22,120 --> 00:18:30,120
+Ahora tenemos que poner
+el private list de asignaturas.
+
+205
+00:18:38,169 --> 00:18:46,120
+En este caso, lo que tengo
+es una lista de asignaturas.
+
+206
+00:19:07,669 --> 00:19:14,120
+Necesitamos también un método
+especial para poder agregar las listas.
+
+207
+00:19:26,120 --> 00:19:34,120
+Ahora vamos a agregar las listas.
+
+208
+00:19:36,120 --> 00:19:44,120
+Vamos a agregar un public list.
+
+209
+00:20:04,419 --> 00:20:12,120
+Ahora vamos a agregar las listas.
+
+210
+00:20:18,144 --> 00:20:26,120
+Ahora vamos a agregar las listas.
+
+211
+00:20:48,144 --> 00:20:54,120
+Además, vamos a agregar las listas.
+
+212
+00:20:58,694 --> 00:21:06,120
+Ahora vamos a agregar las listas.
+
+213
+00:21:26,120 --> 00:21:34,120
+Ahora vamos a agregar las listas.
+
+214
+00:21:54,120 --> 00:22:02,120
+Ahora vamos a agregar las listas.
+
+215
+00:22:18,120 --> 00:22:26,120
+Ahora vamos a agregar las listas.
+
+216
+00:22:38,319 --> 00:22:46,120
+Ahora vamos a agregar las listas.
+
+217
+00:22:52,120 --> 00:23:00,120
+Ahora vamos a agregar las listas.
+
+218
+00:23:12,194 --> 00:23:20,120
+Ahora vamos a agregar las listas.
+
+219
+00:23:36,120 --> 00:23:44,120
+Ahora vamos a agregar las listas.
+
+220
+00:23:54,719 --> 00:24:02,120
+Ahora vamos a agregar las listas.
+
+221
+00:24:10,294 --> 00:24:18,120
+Ahora vamos a agregar las listas.
+
+222
+00:24:26,469 --> 00:24:34,120
+Ahora vamos a agregar las listas.
+
+223
+00:24:46,120 --> 00:24:54,120
+Ahora vamos a agregar las listas.
+
+224
+00:25:14,120 --> 00:25:22,120
+Ahora vamos a agregar las listas.
+
+225
+00:25:30,294 --> 00:25:38,120
+Ahora vamos a agregar las listas.
+
+226
+00:25:58,294 --> 00:26:06,120
+Ahora vamos a agregar las listas.
+
+227
+00:26:23,469 --> 00:26:30,120
+Ahora vamos a agregar las listas.
+
+228
+00:26:50,419 --> 00:26:58,120
+Ahora vamos a agregar las listas.
+
+229
+00:27:06,120 --> 00:27:14,120
+Ahora vamos a agregar las listas.
+
+230
+00:27:30,319 --> 00:27:38,120
+Ahora vamos a agregar las listas.
+
+231
+00:28:03,119 --> 00:28:04,439
+Ahora vamos a agregar las listas.
+
+232
+00:28:21,419 --> 00:28:28,120
+Ahora vamos a agregar las listas.
+
+233
+00:28:45,019 --> 00:28:52,120
+Ahora vamos a agregar las listas.
+
+234
+00:29:12,319 --> 00:29:20,120
+Ahora vamos a agregar las listas.
+
+235
+00:29:32,120 --> 00:29:40,120
+Ahora vamos a agregar las listas.
+
+236
+00:29:54,120 --> 00:30:02,120
+Ahora vamos a agregar las listas.
+
+237
+00:30:14,369 --> 00:30:22,120
+Ahora vamos a agregar las listas.
+
+238
+00:30:34,369 --> 00:30:42,120
+Ahora vamos a agregar las listas.
+
+239
+00:31:05,469 --> 00:31:10,120
+Ahora vamos a agregar las listas.
+
+240
+00:31:31,369 --> 00:31:38,120
+Ahora vamos a agregar las listas.
+
+241
+00:31:53,519 --> 00:31:58,120
+Ahora vamos a agregar las listas.
+
+242
+00:32:18,120 --> 00:32:26,120
+Ahora vamos a agregar las listas.
+
+243
+00:32:38,120 --> 00:32:46,120
+Ahora vamos a agregar las listas.
+
+244
+00:33:01,169 --> 00:33:08,120
+Ahora vamos a agregar las listas.
+
+245
+00:33:29,869 --> 00:33:36,120
+Ahora vamos a agregar las listas.
+
+246
+00:33:48,120 --> 00:33:56,120
+Ahora vamos a agregar las listas.
+
+247
+00:34:12,170 --> 00:34:20,120
+Ahora vamos a agregar las listas.
+
+248
+00:34:32,120 --> 00:34:40,120
+Ahora vamos a agregar las listas.
+
+249
+00:34:52,720 --> 00:35:00,120
+Ahora vamos a agregar las listas.
+
+250
+00:35:12,370 --> 00:35:20,120
+Ahora vamos a agregar las listas.
+
+251
+00:35:32,120 --> 00:35:40,120
+Ahora vamos a agregar las listas.
+
+252
+00:35:52,120 --> 00:36:00,120
+Ahora vamos a agregar las listas.
+
+253
+00:36:12,120 --> 00:36:20,120
+Ahora vamos a agregar las listas.
+
+254
+00:36:32,320 --> 00:36:40,120
+Ahora vamos a agregar las listas.
+
+255
+00:36:52,120 --> 00:37:00,120
+Ahora vamos a agregar las listas.
+
+256
+00:37:12,120 --> 00:37:20,120
+Ahora vamos a agregar las listas.
+
+257
+00:37:32,120 --> 00:37:40,120
+Ahora vamos a agregar las listas.
+
+258
+00:38:00,120 --> 00:38:08,120
+Ahora vamos a agregar las listas.
+
+259
+00:38:20,120 --> 00:38:28,120
+Ahora vamos a agregar las listas.
+
+260
+00:38:41,920 --> 00:38:48,120
+Ahora vamos a agregar las listas.
+
+261
+00:39:01,520 --> 00:39:08,120
+Ahora vamos a agregar las listas.
+
+262
+00:39:20,120 --> 00:39:28,120
+Ahora vamos a agregar las listas.
+
+263
+00:39:40,120 --> 00:39:48,120
+Ahora vamos a agregar las listas.
+
+264
+00:40:00,120 --> 00:40:08,120
+Ahora vamos a agregar las listas.
+
+265
+00:40:20,120 --> 00:40:28,120
+Ahora vamos a agregar las listas.
+
+266
+00:40:40,120 --> 00:40:48,120
+Ahora vamos a agregar las listas.
+
+267
+00:41:00,120 --> 00:41:08,120
+Ahora vamos a agregar las listas.
+
+268
+00:41:20,120 --> 00:41:28,120
+Ahora vamos a agregar las listas.
+
+269
+00:41:40,120 --> 00:41:48,120
+Ahora vamos a agregar las listas.
+
+270
+00:42:00,120 --> 00:42:08,120
+Ahora vamos a agregar las listas.
+
+271
+00:42:20,120 --> 00:42:28,120
+Ahora vamos a agregar las listas.
+
+272
+00:42:40,120 --> 00:42:48,120
+Ahora vamos a agregar las listas.
+
+273
+00:43:00,120 --> 00:43:08,120
+Ahora vamos a agregar las listas.
+
+274
+00:43:20,120 --> 00:43:28,120
+Ahora vamos a agregar las listas.
+
+275
+00:43:40,120 --> 00:43:48,120
+Ahora vamos a agregar las listas.
+
+276
+00:44:00,220 --> 00:44:08,120
+Ahora vamos a agregar las listas.
+
+277
+00:44:20,120 --> 00:44:28,120
+Ahora vamos a agregar las listas.
+
+278
+00:44:40,145 --> 00:44:48,120
+Ahora vamos a agregar las listas.
+
+279
+00:45:00,120 --> 00:45:08,120
+Ahora vamos a agregar las listas.
+
+280
+00:45:20,120 --> 00:45:28,120
+Ahora vamos a agregar las listas.
+
+281
+00:45:40,120 --> 00:45:48,120
+Ahora vamos a agregar las listas.
+
+282
+00:46:00,120 --> 00:46:08,120
+Ahora vamos a agregar las listas.
+
+283
+00:46:20,120 --> 00:46:28,120
+Ahora vamos a agregar las listas.
+
+284
+00:46:40,120 --> 00:46:48,120
+Ahora vamos a agregar las listas.
+
+285
+00:47:00,120 --> 00:47:08,120
+Ahora vamos a agregar las listas.
+
+286
+00:47:20,120 --> 00:47:28,120
+Ahora vamos a agregar las listas.
+
+287
+00:47:40,120 --> 00:47:48,120
+Ahora vamos a agregar las listas.
+
+288
+00:48:00,170 --> 00:48:08,120
+Ahora vamos a agregar las listas.
+
+289
+00:48:20,120 --> 00:48:28,120
+Ahora vamos a agregar las listas.
+
+290
+00:48:40,170 --> 00:48:48,120
+Ahora vamos a agregar las listas.
+
+291
+00:49:00,120 --> 00:49:08,120
+Ahora vamos a agregar las listas.
+
+292
+00:49:20,120 --> 00:49:28,120
+Ahora vamos a agregar las listas.
+
+293
+00:49:40,120 --> 00:49:48,120
+Ahora vamos a agregar las listas.
+
+294
+00:50:00,120 --> 00:50:08,120
+Ahora vamos a agregar las listas.
+
+295
+00:50:20,195 --> 00:50:28,120
+Ahora vamos a agregar las listas.
+
+296
+00:50:40,120 --> 00:50:48,120
+Ahora vamos a agregar las listas.
+
+297
+00:51:00,120 --> 00:51:08,120
+Ahora vamos a agregar las listas.
+
+298
+00:51:20,120 --> 00:51:28,120
+Ahora vamos a agregar las listas.
+
+299
+00:51:40,220 --> 00:51:48,120
+Ahora vamos a agregar las listas.
+
+300
+00:52:00,120 --> 00:52:08,120
+Ahora vamos a agregar las listas.
+
+301
+00:52:20,120 --> 00:52:28,120
+Ahora vamos a agregar las listas.
+
+302
+00:52:40,120 --> 00:52:48,120
+Ahora vamos a agregar las listas.
+
+303
+00:53:00,120 --> 00:53:08,120
+Ahora vamos a agregar las listas.
+
+304
+00:53:20,120 --> 00:53:28,120
+Ahora vamos a agregar las listas.
+
+305
+00:53:40,120 --> 00:53:48,120
+Ahora vamos a agregar las listas.
+
+306
+00:54:00,120 --> 00:54:08,120
+Ahora vamos a agregar las listas.
+
+307
+00:54:20,120 --> 00:54:28,120
+Ahora vamos a agregar las listas.
+
+308
+00:54:40,420 --> 00:54:48,120
+Ahora vamos a agregar las listas.
+
+309
+00:55:00,120 --> 00:55:08,120
+Ahora vamos a agregar las listas.
+
+310
+00:55:20,520 --> 00:55:28,120
+Ahora vamos a agregar las listas.
+
+311
+00:55:40,920 --> 00:55:48,120
+Ahora vamos a agregar las listas.
+
+312
+00:56:00,120 --> 00:56:08,120
+Ahora vamos a agregar las listas.
+
+313
+00:56:20,520 --> 00:56:28,120
+Ahora vamos a agregar las listas.
+
+314
+00:56:40,120 --> 00:56:48,120
+Ahora vamos a agregar las listas.
+
+315
+00:57:00,120 --> 00:57:08,120
+Ahora vamos a agregar las listas.
+
+316
+00:57:20,220 --> 00:57:28,120
+Ahora vamos a agregar las listas.
+
+317
+00:57:40,120 --> 00:57:48,120
+Ahora vamos a agregar las listas.
+
+318
+00:58:00,120 --> 00:58:08,120
+Ahora vamos a agregar las listas.
+
+319
+00:58:20,120 --> 00:58:28,120
+Ahora vamos a agregar las listas.
+
+320
+00:58:40,270 --> 00:58:48,120
+Ahora vamos a agregar las listas.
+
+321
+00:59:02,170 --> 00:59:08,120
+Ahora vamos a agregar las listas.
+
+322
+00:59:20,120 --> 00:59:28,120
+Ahora vamos a agregar las listas.
+
+323
+00:59:40,120 --> 00:59:48,120
+Ahora vamos a agregar las listas.
+
+324
+01:00:00,120 --> 01:00:08,120
+Ahora vamos a agregar las listas.
+
+325
+01:00:20,120 --> 01:00:28,120
+Ahora vamos a agregar las listas.
+
+326
+01:00:40,120 --> 01:00:48,120
+Ahora vamos a agregar las listas.
+
+327
+01:01:00,120 --> 01:01:08,120
+Ahora vamos a agregar las listas.
+
+328
+01:01:20,120 --> 01:01:28,120
+Ahora vamos a agregar las listas.
+
+329
+01:01:40,120 --> 01:01:48,120
+Ahora vamos a agregar las listas.
+
+330
+01:02:00,120 --> 01:02:08,120
+Ahora vamos a agregar las listas.
+
+331
+01:02:20,120 --> 01:02:28,120
+Ahora vamos a agregar las listas.
+
+332
+01:02:40,120 --> 01:02:48,120
+Ahora vamos a agregar las listas.
+
+333
+01:03:00,120 --> 01:03:08,120
+Ahora vamos a agregar las listas.
+
+334
+01:03:20,120 --> 01:03:28,120
+Ahora vamos a agregar las listas.
+
+335
+01:03:40,220 --> 01:03:48,120
+Ahora vamos a agregar las listas.
+
+336
+01:04:00,520 --> 01:04:08,120
+Ahora vamos a agregar las listas.
+
+337
+01:04:20,120 --> 01:04:28,120
+Ahora vamos a agregar las listas.
+
+338
+01:04:36,120 --> 01:04:44,120
+Ahora vamos a agregar las listas.
+
+339
+01:04:56,370 --> 01:05:04,120
+Ahora vamos a agregar las listas.
+
+340
+01:05:20,120 --> 01:05:28,120
+Ahora vamos a agregar las listas.
+
+341
+01:05:40,120 --> 01:05:48,120
+Ahora vamos a agregar las listas.
+
+342
+01:06:00,120 --> 01:06:08,120
+Ahora vamos a agregar las listas.
+
+343
+01:06:20,220 --> 01:06:28,120
+Ahora vamos a agregar las listas.
+
+344
+01:06:40,170 --> 01:06:48,120
+Ahora vamos a agregar las listas.
+
+345
+01:07:00,120 --> 01:07:08,120
+Ahora vamos a agregar las listas.
+
+346
+01:07:24,520 --> 01:07:32,120
+Ahora vamos a agregar las listas.
+
+347
+01:07:41,170 --> 01:07:48,120
+Ahora vamos a agregar las listas.
+
+348
+01:07:52,120 --> 01:08:00,120
+Ahora vamos a agregar las listas.
+
+349
+01:08:06,120 --> 01:08:14,120
+Ahora vamos a agregar las listas.
+
+350
+01:08:33,070 --> 01:08:34,390
+Ahora vamos a agregar las listas.
+
+351
+01:08:42,720 --> 01:08:50,120
+Ahora vamos a agregar las listas.
+
+352
+01:09:02,120 --> 01:09:10,120
+Ahora vamos a agregar las listas.
+
+353
+01:09:26,420 --> 01:09:34,120
+Ahora vamos a agregar las listas.
+
+354
+01:09:54,320 --> 01:10:02,120
+Ahora vamos a agregar las listas.
+
+355
+01:10:14,120 --> 01:10:22,120
+Ahora vamos a agregar las listas.
+
+356
+01:10:30,120 --> 01:10:38,120
+Ahora vamos a agregar las listas.
+
+357
+01:10:49,345 --> 01:10:54,120
+Ahora vamos a agregar las listas.
+
+358
+01:11:10,120 --> 01:11:18,120
+Ahora vamos a agregar las listas.
+
+359
+01:11:30,120 --> 01:11:38,120
+Ahora vamos a agregar las listas.
+
+360
+01:11:50,120 --> 01:11:58,120
+Ahora vamos a agregar las listas.
+
+361
+01:12:14,120 --> 01:12:22,120
+Ahora vamos a agregar las listas.
+
+362
+01:12:30,220 --> 01:12:38,120
+Ahora vamos a agregar las listas.
+
+363
+01:12:46,120 --> 01:12:54,120
+Ahora vamos a agregar las listas.
+
+364
+01:13:02,295 --> 01:13:10,120
+Ahora vamos a agregar las listas.
+
+365
+01:13:18,570 --> 01:13:26,120
+Ahora vamos a agregar las listas.
+
+366
+01:13:46,120 --> 01:13:54,120
+Ahora vamos a agregar las listas.
+
+367
+01:14:10,120 --> 01:14:18,120
+Ahora vamos a agregar las listas.
+
+368
+01:14:34,120 --> 01:14:42,120
+Ahora vamos a agregar las listas.
+
+369
+01:15:02,445 --> 01:15:10,120
+Ahora vamos a agregar las listas.
+
+370
+01:15:19,545 --> 01:15:26,120
+Ahora vamos a agregar las listas.
+
+371
+01:15:46,320 --> 01:15:54,120
+Ahora vamos a agregar las listas.
+
+372
+01:16:06,720 --> 01:16:14,120
+Ahora vamos a agregar las listas.
+
+373
+01:16:34,820 --> 01:16:42,120
+Ahora vamos a agregar las listas.
+
+374
+01:17:05,170 --> 01:17:10,120
+Ahora vamos a agregar las listas.
+
+375
+01:17:22,770 --> 01:17:30,120
+Ahora vamos a agregar las listas.
+
+376
+01:17:50,670 --> 01:17:58,120
+Ahora vamos a agregar las listas.
+
+377
+01:18:15,020 --> 01:18:22,120
+Ahora vamos a agregar las listas.
+
+378
+01:18:34,620 --> 01:18:42,120
+Ahora vamos a agregar las listas.
+
+379
+01:19:02,320 --> 01:19:10,120
+Ahora vamos a agregar las listas.
+
+380
+01:19:30,120 --> 01:19:38,120
+Ahora vamos a agregar las listas.
+
+381
+01:19:46,320 --> 01:19:54,120
+Ahora vamos a agregar las listas.
+
+382
+01:20:16,020 --> 01:20:22,120
+Ahora vamos a agregar las listas.
+
+383
+01:20:35,920 --> 01:20:42,120
+Ahora vamos a agregar las listas.
+
+384
+01:20:58,120 --> 01:21:06,120
+Ahora vamos a agregar las listas.
+
+385
+01:21:18,120 --> 01:21:26,120
+Ahora vamos a agregar las listas.
+
+386
+01:21:34,120 --> 01:21:42,120
+Ahora vamos a agregar las listas.
+
+387
+01:21:50,120 --> 01:21:58,120
+Ahora vamos a agregar las listas.
+
+388
+01:22:12,120 --> 01:22:20,120
+Ahora vamos a agregar las listas.
+
+389
+01:22:28,120 --> 01:22:36,120
+Ahora vamos a agregar las listas.
+
+390
+01:22:45,120 --> 01:22:52,120
+Ahora vamos a agregar las listas.
+
+391
+01:23:04,170 --> 01:23:08,120
+Ahora vamos a agregar las listas.
+
+392
+01:23:28,120 --> 01:23:36,120
+Ahora vamos a agregar las listas.
+
+393
+01:23:56,020 --> 01:24:00,120
+Ahora vamos a agregar las listas.
+
+394
+01:24:15,070 --> 01:24:16,390
+Ahora vamos a agregar las listas.
+
+395
+01:24:24,270 --> 01:24:32,120
+Ahora vamos a agregar las listas.
+
+396
+01:24:48,720 --> 01:24:56,120
+Ahora vamos a agregar las listas.
+
+397
+01:25:08,395 --> 01:25:16,120
+Ahora vamos a agregar las listas.
+
+398
+01:25:28,120 --> 01:25:36,120
+Ahora vamos a agregar las listas.
+
+399
+01:25:48,120 --> 01:25:56,120
+Ahora vamos a agregar las listas.
+
+400
+01:26:04,120 --> 01:26:12,120
+Ahora vamos a agregar las listas.
+
+401
+01:26:32,120 --> 01:26:40,120
+Ahora vamos a agregar las listas.
+
+402
+01:26:44,320 --> 01:26:52,120
+Ahora vamos a agregar las listas.
+
+403
+01:27:00,120 --> 01:27:08,120
+Ahora vamos a agregar las listas.
+
+404
+01:27:28,345 --> 01:27:36,120
+Ahora vamos a agregar las listas.
+

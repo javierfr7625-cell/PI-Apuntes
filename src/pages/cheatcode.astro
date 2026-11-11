@@ -1,0 +1,188 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import Callout from '../components/Callout.astro';
+import FileTreeNode from '../components/FileTreeNode.astro';
+import { cheatcodeProjects, type ProjectFile } from '../data/cheatcodeProjects';
+
+const defaultProject = cheatcodeProjects[0];
+const defaultFileId = defaultProject.files[0].id;
+
+function buildFilesMap(files: ProjectFile[]): Record<string, ProjectFile> {
+  const map: Record<string, ProjectFile> = {};
+  for (const f of files) map[f.id] = f;
+  return map;
+}
+---
+
+<DocsLayout
+  title="Super Cheatcode: Explorador de Proyectos"
+  description="Navega por la estructura real de carpetas y archivos de demo-spring, talleres-don-juan y piSpring como en IntelliJ IDEA. Haz clic en cualquier archivo para ver su código coloreado y su explicación debajo."
+  section="Super Cheatcode · Explorador IDE"
+>
+  <!-- Project Switcher Tabs -->
+  <div class="flex flex-wrap gap-2 pb-2" id="project-tabs">
+    {cheatcodeProjects.map((proj, idx) => (
+      <button
+        type="button"
+        data-project-tab={proj.id}
+        data-first-file={proj.files[0]?.id}
+        class={`project-tab-btn px-4 py-2.5 rounded-xl border text-left transition cursor-pointer ${
+          idx === 0
+            ? 'bg-cyan-500/15 border-cyan-500/40 text-cyan-200'
+            : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'
+        }`}
+      >
+        <div class="flex items-center gap-2">
+          <span class="font-mono font-bold text-sm">{proj.name}</span>
+          <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-300">
+            {proj.badge}
+          </span>
+        </div>
+        <div class="text-xs text-slate-400 mt-0.5">{proj.subtitle}</div>
+      </button>
+    ))}
+  </div>
+
+  <!-- IDE Explorer Split Panel -->
+  <div class="rounded-2xl border border-slate-800 bg-[#0b101b] shadow-2xl shadow-black/50 overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+    <!-- Left Pane: Collapsible Folder Tree -->
+    <aside class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-slate-800 bg-[#090d16] p-3 overflow-y-auto max-h-[420px] lg:max-h-[780px]">
+      <div class="flex items-center justify-between px-2 pb-2.5 mb-2 border-b border-slate-800/80">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+          Explorador de Archivos
+        </span>
+        <span class="text-[10px] font-mono text-slate-500">Click en archivo</span>
+      </div>
+
+      {cheatcodeProjects.map((proj, idx) => {
+        const filesMap = buildFilesMap(proj.files);
+        return (
+          <div
+            data-project-tree={proj.id}
+            class={`space-y-1 ${idx === 0 ? '' : 'hidden'}`}
+          >
+            {proj.tree.map((node) => (
+              <FileTreeNode
+                node={node}
+                filesMap={filesMap}
+                defaultActiveId={proj.files[0]?.id ?? ''}
+              />
+            ))}
+          </div>
+        );
+      })}
+    </aside>
+
+    <!-- Right Pane: Colored Code Viewer + Explanation below -->
+    <div class="lg:col-span-8 p-4 sm:p-6 overflow-y-auto max-h-[780px] bg-[#0c111d]">
+      {cheatcodeProjects.map((proj) =>
+        proj.files.map((file) => {
+          const isDefault = proj.id === defaultProject.id && file.id === defaultFileId;
+          return (
+            <div
+              data-file-panel={file.id}
+              data-owner-project={proj.id}
+              class={isDefault ? '' : 'hidden'}
+            >
+              <!-- Breadcrumb / File Header -->
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800/80">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="px-2 py-0.5 text-[10px] font-bold uppercase rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                    {proj.name}
+                  </span>
+                  <span class="text-xs font-mono text-slate-400 truncate">{file.path}</span>
+                </div>
+                {file.badge && (
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                    {file.badge}
+                  </span>
+                )}
+              </div>
+
+              <!-- Syntax-Highlighted Code Snippet -->
+              <CodeBlock code={file.code} lang={file.lang} filename={file.name} />
+
+              <!-- Explanation AFTER the snippet -->
+              <div class="mt-4 rounded-xl border border-slate-800 bg-slate-900/60 p-5 space-y-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  <span>{file.explanationTitle}</span>
+                </h3>
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-slate-300 leading-relaxed">
+                  {file.explanation.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+                {file.examTip && (
+                  <Callout type="exam" title="Tip de examen">
+                    <p>{file.examTip}</p>
+                  </Callout>
+                )}
+              </div>
+            </div>
+          );
+        })
+      )}
+    </div>
+  </div>
+
+  <script>
+    const projectTabs = document.querySelectorAll<HTMLButtonElement>('[data-project-tab]');
+    const projectTrees = document.querySelectorAll<HTMLElement>('[data-project-tree]');
+    const fileButtons = document.querySelectorAll<HTMLButtonElement>('[data-file-trigger]');
+    const filePanels = document.querySelectorAll<HTMLElement>('[data-file-panel]');
+
+    function activateFile(fileId: string) {
+      filePanels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.dataset.filePanel !== fileId);
+      });
+
+      fileButtons.forEach((btn) => {
+        const isActive = btn.dataset.fileTrigger === fileId;
+        btn.classList.toggle('bg-cyan-500/15', isActive);
+        btn.classList.toggle('text-cyan-300', isActive);
+        btn.classList.toggle('border-cyan-500/35', isActive);
+        btn.classList.toggle('font-semibold', isActive);
+        btn.classList.toggle('text-slate-300', !isActive);
+        btn.classList.toggle('border-transparent', !isActive);
+      });
+    }
+
+    function activateProject(projectId: string, firstFileId?: string) {
+      projectTabs.forEach((tab) => {
+        const isActive = tab.dataset.projectTab === projectId;
+        tab.classList.toggle('bg-cyan-500/15', isActive);
+        tab.classList.toggle('border-cyan-500/40', isActive);
+        tab.classList.toggle('text-cyan-200', isActive);
+        tab.classList.toggle('bg-slate-900/60', !isActive);
+        tab.classList.toggle('border-slate-800', !isActive);
+        tab.classList.toggle('text-slate-300', !isActive);
+      });
+
+      projectTrees.forEach((tree) => {
+        tree.classList.toggle('hidden', tree.dataset.projectTree !== projectId);
+      });
+
+      if (firstFileId) {
+        activateFile(firstFileId);
+      }
+    }
+
+    projectTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const projectId = tab.dataset.projectTab || '';
+        const firstFileId = tab.dataset.firstFile || '';
+        activateProject(projectId, firstFileId);
+      });
+    });
+
+    fileButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const fileId = btn.dataset.fileTrigger || '';
+        if (fileId) activateFile(fileId);
+      });
+    });
+  </script>
+</DocsLayout>
+

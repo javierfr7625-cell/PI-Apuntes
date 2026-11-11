@@ -1,0 +1,110 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+
+const temas = [
+  {
+    num: 1,
+    slug: 'tema-1',
+    title: 'Introducción a Spring Boot',
+    pdf: '/teoria/SpringBoot- Tema 1.pdf',
+    summary: 'Del ecosistema Spring tradicional a Spring Boot, IoC/DI, Spring Initializr, pom.xml, @SpringBootApplication y primer controlador REST.',
+    tags: ['@SpringBootApplication', '@RestController', '@GetMapping', '@RequestParam'],
+  },
+  {
+    num: 2,
+    slug: 'tema-2',
+    title: 'Persistencia con JPA y Mapeo de Entidades',
+    pdf: '/teoria/SpringBoot- Tema 2.pdf',
+    summary: 'ORM e impedance mismatch, JPA vs Hibernate, H2 en memoria, application.properties, H2ConsoleConfig y anotaciones @Entity/@Id/@Column.',
+    tags: ['@Entity', '@Table', '@Id', '@GeneratedValue', 'H2'],
+  },
+  {
+    num: 3,
+    slug: 'tema-3',
+    title: 'Spring Data JPA y Repositorios',
+    pdf: '/teoria/SpringBoot- Tema 3.pdf',
+    summary: 'Patrón Repository, herencia de JpaRepository<T, ID>, Query Methods (existsBy, findBy) y pruebas CRUD al arranque con CommandLineRunner.',
+    tags: ['@Repository', 'JpaRepository', 'CommandLineRunner', 'save/findAll'],
+  },
+  {
+    num: 4,
+    slug: 'tema-4',
+    title: 'Capa de Servicio y Controladores REST',
+    pdf: '/teoria/SpringBoot- Tema 4.pdf',
+    summary: 'Arquitectura en capas, @Service, @RestController, ResponseEntity, @PathVariable, @RequestBody y CRUD completo (GET, POST, PUT, PATCH, DELETE).',
+    tags: ['@Service', 'ResponseEntity', 'PUT', 'PATCH', '404 Not Found'],
+  },
+  {
+    num: 5,
+    slug: 'tema-5',
+    title: 'Relaciones Uno a Uno y Lombok',
+    pdf: '/teoria/SpringBoot- Tema 5.pdf',
+    summary: 'Integración de Lombok (@Data, @NoArgsConstructor, @AllArgsConstructor), @OneToOne, @JoinColumn, CascadeType.ALL y manejo en PUT/PATCH.',
+    tags: ['@OneToOne', '@JoinColumn', '@Data', 'CascadeType.ALL'],
+  },
+  {
+    num: 6,
+    slug: 'tema-6',
+    title: 'Relaciones Uno a Muchos (@OneToMany)',
+    pdf: '/teoria/SpringBoot- Tema 6.pdf',
+    summary: 'Lado propietario @ManyToOne vs lado inverso @OneToMany(mappedBy), orphanRemoval, FetchType.LAZY, @ToString.Exclude y setter personalizado para JSON.',
+    tags: ['@OneToMany', '@ManyToOne', 'mappedBy', 'orphanRemoval', '@ToString.Exclude'],
+  },
+  {
+    num: 7,
+    slug: 'tema-7',
+    title: 'Taller Práctico Desde Cero (TechCorp)',
+    pdf: '/teoria/SpringBoot- Tema 7.pdf',
+    summary: 'Enunciado integrador de empresa real: Departamento (1:N) → Empleado (1:1) → Credencial con @Transactional y persistencia en cascada.',
+    tags: ['Caso Real', '1:1 + 1:N', '@Transactional', 'Postman'],
+  },
+];
+---
+
+<DocsLayout
+  title="Teoría: Temas 1 al 7"
+  description="Apuntes completos extraídos del temario oficial de Spring Boot (Francisco Belda · Digitech FP) con snippets comentados y enlace directo a cada PDF original."
+  section="Teoría Oficial"
+>
+  <div class="grid grid-cols-1 gap-4">
+    {temas.map((t) => (
+      <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-cyan-500/40 transition">
+        <div class="space-y-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2 py-0.5 text-xs font-bold rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              Tema {t.num}
+            </span>
+            {t.tags.map((tag) => (
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h2 class="text-lg font-bold text-white">
+            <a href={`/teoria/${t.slug}`} class="hover:text-cyan-300 transition">
+              {t.title}
+            </a>
+          </h2>
+          <p class="text-sm text-slate-400">{t.summary}</p>
+        </div>
+
+        <div class="flex sm:flex-col gap-2 shrink-0">
+          <a
+            href={`/teoria/${t.slug}`}
+            class="px-3.5 py-2 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 text-xs font-bold text-center border border-cyan-500/30 transition"
+          >
+            Leer Apuntes
+          </a>
+          <a
+            href={t.pdf}
+            target="_blank"
+            class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold text-center border border-slate-700 transition"
+          >
+            Abrir PDF
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</DocsLayout>
+

@@ -1,0 +1,170 @@
+---
+import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { navigation } from '../data/navigation';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: string;
+}
+
+const {
+  title,
+  description = 'Apuntes de Proyecto Intermodular · Spring Boot + JPA',
+  section,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const flatPages = navigation.flatMap((g) => g.items);
+const normalize = (p: string) => (p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p);
+const currentIndex = flatPages.findIndex((item) => normalize(item.href) === normalize(currentPath));
+const prevPage = currentIndex > 0 ? flatPages[currentIndex - 1] : null;
+const nextPage = currentIndex >= 0 && currentIndex < flatPages.length - 1 ? flatPages[currentIndex + 1] : null;
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Apuntes Proyecto Intermodular</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="min-h-screen bg-[#090d16] text-slate-200 antialiased">
+    <!-- Top Navbar -->
+    <header class="sticky top-0 z-40 h-16 border-b border-slate-800/90 bg-[#090d16]/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            class="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800 border border-slate-800"
+            aria-label="Abrir menú"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <a href="/" class="flex items-center gap-2.5 group">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-slate-950 font-black text-sm shadow-md shadow-cyan-500/20">
+              SB
+            </div>
+            <div class="leading-tight">
+              <span class="font-bold text-slate-100 group-hover:text-cyan-300 transition block text-sm sm:text-base">
+                Proyecto Intermodular
+              </span>
+              <span class="text-[11px] text-slate-400 hidden sm:block">
+                Apuntes Spring Boot · JPA · REST
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="flex-1 flex justify-end items-center gap-3">
+          <SearchBar />
+          <a
+            href="/cheatcode"
+            class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500/25 transition shrink-0"
+          >
+            <span>Super Cheatcode</span>
+          </a>
+          <a
+            href="/simulacro/taller-don-juan"
+            class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-violet-500/15 text-violet-300 border border-violet-500/40 hover:bg-violet-500/25 transition shrink-0"
+          >
+            <span>Simulacro Examen</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden fixed inset-0 z-50 lg:hidden">
+      <div id="mobile-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-xs"></div>
+      <aside class="relative w-72 max-w-[85vw] h-full bg-[#0b101b] border-r border-slate-800 overflow-y-auto z-10">
+        <div class="flex items-center justify-between px-4 h-16 border-b border-slate-800">
+          <span class="font-bold text-slate-100">Navegación</span>
+          <button id="mobile-close-btn" type="button" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <Sidebar currentPath={currentPath} />
+      </aside>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto flex">
+      <!-- Desktop Sidebar -->
+      <aside class="hidden lg:block w-72 shrink-0 border-r border-slate-800/80 min-h-[calc(100vh-4rem)] sticky top-16 self-start max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <Sidebar currentPath={currentPath} />
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 min-w-0 px-4 sm:px-8 lg:px-12 py-8 sm:py-10">
+        <article class="max-w-4xl mx-auto prose-docs">
+          {section && (
+            <div class="mb-2 text-xs font-bold uppercase tracking-wider text-cyan-400">
+              {section}
+            </div>
+          )}
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+            {title}
+          </h1>
+          {description && (
+            <p class="text-base sm:text-lg text-slate-400 mb-8 leading-relaxed border-b border-slate-800/80 pb-6">
+              {description}
+            </p>
+          )}
+
+          <div class="space-y-6 text-slate-300 leading-relaxed">
+            <slot />
+          </div>
+
+          {(prevPage || nextPage) && (
+            <nav aria-label="Paginación de apuntes" class="mt-12 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {prevPage ? (
+                <a href={prevPage.href} class="group rounded-xl border border-slate-800 bg-slate-900/40 hover:border-cyan-500/40 p-4 transition">
+                  <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-cyan-400">← Anterior</div>
+                  <div class="text-sm font-bold text-slate-200 group-hover:text-white mt-1">{prevPage.title}</div>
+                </a>
+              ) : <div />}
+              {nextPage && (
+                <a href={nextPage.href} class="group rounded-xl border border-slate-800 bg-slate-900/40 hover:border-cyan-500/40 p-4 text-right transition">
+                  <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-cyan-400">Siguiente →</div>
+                  <div class="text-sm font-bold text-slate-200 group-hover:text-white mt-1">{nextPage.title}</div>
+                </a>
+              )}
+            </nav>
+          )}
+        </article>
+
+        <footer class="max-w-4xl mx-auto mt-16 pt-6 border-t border-slate-800/80 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-2">
+          <span>Proyecto Intermodular · 2.º DAM/DAW · Digitech FP</span>
+          <span>Spring Boot + Spring Data JPA + Hibernate + H2</span>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('mobile-close-btn');
+      const backdrop = document.getElementById('mobile-backdrop');
+      const drawer = document.getElementById('mobile-drawer');
+
+      const toggleDrawer = (open: boolean) => {
+        if (!drawer) return;
+        drawer.classList.toggle('hidden', !open);
+      };
+
+      menuBtn?.addEventListener('click', () => toggleDrawer(true));
+      closeBtn?.addEventListener('click', () => toggleDrawer(false));
+      backdrop?.addEventListener('click', () => toggleDrawer(false));
+    </script>
+  </body>
+</html>
+

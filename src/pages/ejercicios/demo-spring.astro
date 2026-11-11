@@ -1,0 +1,175 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const estudianteEntity = `package com.digitechfp.demo_spring.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "estudiante")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Estudiante {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre", nullable = false, length = 50)
+    private String nombre;
+
+    @Column(name = "correo", nullable = false, unique = true, length = 100)
+    private String correo;
+
+    @Column(name = "edad")
+    private int edad;
+
+    public Estudiante(String nombre, String correo, int edad) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.edad = edad;
+    }
+}`;
+
+const estudianteRepo = `package com.digitechfp.demo_spring.repository;
+
+import com.digitechfp.demo_spring.entity.Estudiante;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
+    boolean existsByCorreo(String correo);
+    Estudiante findByCorreo(String correo);
+}`;
+
+const saludoCode = `package com.digitechfp.demo_spring.controlller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class SaludoController {
+
+    public record InfoDTO(String curso, String centro, String profesor) {}
+
+    @GetMapping("/saludo")
+    public String saludar(@RequestParam(value = "nombre", defaultValue = "Mundo") String nombre) {
+        return "¡Hola, " + nombre + "! Bienvenido a la clase de spring Boot de DAM.";
+    }
+
+    @GetMapping("/info")
+    public InfoDTO info(
+            @RequestParam(value = "curso", defaultValue = "1º DAM") String curso,
+            @RequestParam(value = "centro", defaultValue = "Digitech") String centro,
+            @RequestParam(value = "profesor", defaultValue = "Francisco Belda") String profesor
+    ) {
+        return new InfoDTO(curso, centro, profesor);
+    }
+
+    @GetMapping("/suma")
+    public int suma(
+            @RequestParam(value = "a", defaultValue = "0") int a,
+            @RequestParam(value = "b", defaultValue = "0") int b
+    ) {
+        return a + b;
+    }
+}`;
+
+const profesorEntity = `package com.digitechfp.demo_spring.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "profesor")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Profesor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombreCompleto", nullable = false, length = 50)
+    private String nombreCompleto;
+
+    @Column(name = "especialidad", nullable = false, length = 100)
+    private String especialidad;
+
+    @Column(name = "experienciaAnios")
+    private int experienciaAnios;
+
+    public Profesor(String nombreCompleto, String especialidad, int experienciaAnios) {
+        this.nombreCompleto = nombreCompleto;
+        this.especialidad = especialidad;
+        this.experienciaAnios = experienciaAnios;
+    }
+}`;
+
+const estudianteControllerPatch = `@PatchMapping("/{id}")
+public ResponseEntity<?> actualizarParcial(
+        @PathVariable Long id,
+        @RequestBody Map<String, Object> campos) {
+    return estudianteService.buscarPorId(id)
+            .<ResponseEntity<?>>map(estudianteExistente -> {
+                campos.forEach((campo, valor) -> {
+                    switch (campo) {
+                        case "nombre":
+                            estudianteExistente.setNombre((String) valor);
+                            break;
+                        case "correo":
+                            estudianteExistente.setCorreo((String) valor);
+                            break;
+                        case "edad":
+                            estudianteExistente.setEdad(((Number) valor).intValue());
+                            break;
+                    }
+                });
+                Estudiante actualizado = estudianteService.guardarEstudiante(estudianteExistente);
+                return ResponseEntity.ok(actualizado);
+            })
+            .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("mensaje", "El estudiante no existe")));
+}`;
+---
+
+<DocsLayout
+  title="Ejercicio 1: Proyecto demo-spring"
+  description="Análisis del proyecto práctico de los Temas 1 al 4 (Estudiante y Profesor) con H2, CommandLineRunner y CRUD completo incluyendo PUT, PATCH y DELETE."
+  section="Ejercicios Resueltos · 1/2"
+>
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Estructura de demo-spring</h2>
+    <p class="text-sm">
+      Ubicado en <code>Ejercicios/demo-spring</code>. Implementa las entidades independientes <code>Estudiante</code> y <code>Profesor</code>, sus repositorios, servicios, controladores bajo <code>/api/v1/estudiantes</code> y <code>/api/v1/profesors</code>, además de <code>H2ConsoleConfig</code> e <code>InicializadorDatos</code>.
+    </p>
+
+    <CodeBlock code={estudianteEntity} lang="java" filename="entity/Estudiante.java" />
+    <CodeBlock code={profesorEntity} lang="java" filename="entity/Profesor.java" />
+    <CodeBlock code={estudianteRepo} lang="java" filename="repository/EstudianteRepository.java" />
+    <CodeBlock code={saludoCode} lang="java" filename="controlller/SaludoController.java (Ejercicios Tema 1: DTO y /suma)" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Actualización Parcial con PATCH</h2>
+    <p class="text-sm">
+      A diferencia del <code>PUT</code> (que exige enviar todos los campos del recurso), el método <code>PATCH</code> recibe un <code>Map&lt;String, Object&gt;</code> y modifica únicamente las claves presentes en el JSON recibido.
+    </p>
+    <Callout type="tip" title="Conversión segura de números en PATCH">
+      <p>
+        Cuando Jackson deserializa un número dentro de un <code>Map&lt;String, Object&gt;</code>, lo convierte en <code>Integer</code> o <code>Long</code> según el tamaño. Por eso en clase usamos <code>((Number) valor).intValue()</code> para evitar errores de casting.
+      </p>
+    </Callout>
+    <CodeBlock code={estudianteControllerPatch} lang="java" filename="controlller/EstudianteController.java (Fragmento PATCH)" />
+  </section>
+</DocsLayout>
+

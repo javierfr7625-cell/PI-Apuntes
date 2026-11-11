@@ -1,0 +1,81 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+
+const repoCode = `package com.educacion.demospring.repository;
+
+import com.educacion.demospring.model.Estudiante;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
+
+    boolean existsByCorreo(String correo);
+
+    Estudiante findByCorreo(String correo);
+}`;
+
+const runnerCode = `@Configuration
+public class InicializadorDatos {
+    @Bean
+    CommandLineRunner initData(EstudianteRepository estudianteRepository) {
+        return args -> {
+            Estudiante est1 = new Estudiante("Ana Gómez", "ana@digitechfp.com", 20);
+            estudianteRepository.save(est1);
+
+            for (Estudiante e : estudianteRepository.findAll()) {
+                System.out.println("- ID: " + e.getId() + " - " + e.getNombre());
+            }
+
+            Estudiante encontrado = estudianteRepository.findById(1L).orElseThrow();
+            encontrado.setNombre("Sara Gómez");
+            estudianteRepository.save(encontrado);
+
+            System.out.println("Total: " + estudianteRepository.count());
+            estudianteRepository.deleteById(1L);
+        };
+    }
+}`;
+---
+
+<DocsLayout
+  title="Tema 3: Spring Data JPA y Repositorios"
+  description="Patrón Repository, métodos CRUD automáticos de JpaRepository, Query Methods derivados por nombre y pruebas con CommandLineRunner."
+  section="Teoría · Tema 3"
+>
+  <div class="flex flex-wrap gap-3 mb-4">
+    <a href="/teoria/SpringBoot- Tema 3.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+      Descargar PDF Tema 3
+    </a>
+  </div>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. La interfaz JpaRepository&lt;Entidad, TipoID&gt;</h2>
+    <p>
+      Al crear una <strong>interfaz</strong> que extienda de <code>JpaRepository&lt;Estudiante, Long&gt;</code>, Spring Data JPA genera automáticamente en tiempo de ejecución todos los métodos CRUD básicos sin escribir SQL:
+    </p>
+    <ul class="list-disc pl-5 space-y-1 text-sm my-3">
+      <li><code>save(S entity)</code>: Inserta si el <code>id</code> es <code>null</code>; actualiza (UPDATE) si el <code>id</code> ya existe.</li>
+      <li><code>findById(Long id)</code>: Devuelve <code>Optional&lt;T&gt;</code> para evitar <code>NullPointerException</code>.</li>
+      <li><code>findAll()</code>: Devuelve <code>List&lt;T&gt;</code> con todos los registros.</li>
+      <li><code>existsById(Long id)</code>: Devuelve <code>boolean</code> comprobando si existe ese ID.</li>
+      <li><code>deleteById(Long id)</code> y <code>count()</code>.</li>
+    </ul>
+
+    <h3 class="text-lg font-semibold text-cyan-300 mt-4 mb-2">Métodos de consulta derivados (Query Methods)</h3>
+    <p class="text-sm">
+      Si necesitas buscar o comprobar existencia por otro campo (como <code>nombre</code> o <code>correo</code>), basta con declarar la firma siguiendo la convención <code>findByNombreCampo</code> o <code>existsByNombreCampo</code>:
+    </p>
+    <CodeBlock code={repoCode} lang="java" filename="EstudianteRepository.java" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Pruebas al arrancar con CommandLineRunner</h2>
+    <p>
+      Un bean <code>CommandLineRunner</code> se ejecuta justo después de arrancar el contexto de Spring Boot, ideal para insertar datos iniciales o verificar el repositorio en consola.
+    </p>
+    <CodeBlock code={runnerCode} lang="java" filename="InicializadorDatos.java" />
+  </section>
+</DocsLayout>
+

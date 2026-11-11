@@ -1,0 +1,7055 @@
+1
+00:00:01,830 --> 00:00:08,680
+nos viene a implementar la lógica
+de programación con sprint para
+
+2
+00:00:08,681 --> 00:00:15,560
+la lógica básica de un taller para ello
+nos han mandado el siguiente mail con la
+
+3
+00:00:15,561 --> 00:00:19,980
+información necesaria solicitud
+de desarrollo de happy restful para
+
+4
+00:00:19,981 --> 00:00:24,800
+talleres de reparación de coches
+progresan consultores va a hablar la
+
+5
+00:00:24,801 --> 00:00:29,200
+talleres de juan no sé qué mis
+estimados señores mediante la presente
+
+6
+00:00:29,201 --> 00:00:32,159
+nos dirigimos a ustedes con el
+fin de solicitar sus servicios para el
+
+7
+00:00:32,160 --> 00:00:36,280
+desarrollo de una api restful que
+permita la gestión integral de un
+
+8
+00:00:36,429 --> 00:00:39,440
+sistema de talleres de reparación de coches
+
+9
+00:00:39,889 --> 00:00:44,080
+descripción dice nuestra empresa
+requiere una solución robusta y
+
+10
+00:00:44,179 --> 00:00:47,440
+escalable que nos permita administrar
+de manera eficiente la gestión de nuestros
+
+11
+00:00:47,441 --> 00:00:54,400
+talleres cada taller tiene va a empezar
+cada taller tendrá clientes y cada
+
+12
+00:00:54,401 --> 00:00:59,080
+cliente tendrá un coche único asociado
+del taller sabemos el nombre la calle
+
+13
+00:00:59,081 --> 00:01:04,760
+el nombre del encargado de los clientes
+sabemos el nombre teléfono y código
+
+14
+00:01:04,761 --> 00:01:10,680
+postal de los coches sabemos el
+modelo matrícula y color todas además
+
+15
+00:01:10,829 --> 00:01:16,480
+necesitamos que tengan un id auto
+incremental para ello necesitamos una
+
+16
+00:01:16,481 --> 00:01:20,920
+api que exponga una serie de endpoints
+para realizar las siguientes operaciones
+
+17
+00:01:21,569 --> 00:01:26,560
+listar todos los talleres en barra api
+barra ue unos talleres todos buscar
+
+18
+00:01:26,561 --> 00:01:32,960
+talleres por id crear un nuevo taller
+actualizar la información de un taller y
+
+19
+00:01:32,961 --> 00:01:37,120
+eliminar un taller vale
+agradecemos de antemano sin interés
+
+20
+00:01:37,619 --> 00:01:42,480
+vale y nos piden clases necesarias con
+sus relaciones todo ello mapeado con jpa
+
+21
+00:01:42,481 --> 00:01:46,640
+los tres repositorios el servicio
+del taller con un cruz básico más las
+
+22
+00:01:46,789 --> 00:01:51,200
+funciones de buscar por id buscar por
+nombre existe por id existe por nombre
+
+23
+00:01:51,560 --> 00:01:59,560
+controlador y los endpoints con id
+devolverán un 404 si no lo encuentran hay
+
+24
+00:01:59,561 --> 00:02:04,920
+que mostrar un ejemplo del archivo
+json con el que se intertarían por vale
+
+25
+00:02:04,921 --> 00:02:05,964
+entonces lo primero
+que tenemos que hacer es
+
+26
+00:02:05,965 --> 00:02:09,880
+crear el proyecto como
+creamos el proyecto
+
+27
+00:02:14,805 --> 00:02:22,480
+sprint inicializados muy
+bien estos start punto spring
+
+28
+00:02:23,080 --> 00:02:29,680
+era era yo que pone aquí hoy
+
+29
+00:02:30,480 --> 00:02:37,200
+bueno sprint inicializados
+vale start.spring.io
+
+30
+00:02:37,600 --> 00:02:41,114
+entonces tenemos aquí el
+proyecto con maven java que es
+
+31
+00:02:41,189 --> 00:02:50,080
+lo que utilizamos en la
+versión que sea el con talleres
+
+32
+00:02:50,530 --> 00:02:57,760
+bueno esto es taller esto es digitec fp
+
+33
+00:02:58,160 --> 00:03:01,377
+vale har versión 21 me
+va bien dependencias
+
+34
+00:03:01,378 --> 00:03:11,560
+que necesitábamos
+para trabajar con esto jpa
+
+35
+00:03:12,060 --> 00:03:17,640
+el spin web
+
+36
+00:03:17,890 --> 00:03:21,640
+lombok
+
+37
+00:03:31,240 --> 00:03:39,240
+spin boot web tools h2 h2 para la
+base de datos y ya estaríamos no
+
+38
+00:03:43,880 --> 00:03:51,880
+vale y le vamos a generar esto
+nos creará el zip del taller muy bien
+
+39
+00:03:52,850 --> 00:03:56,920
+y vamos a esconderlo
+
+40
+00:04:00,270 --> 00:04:01,280
+en talleres
+
+41
+00:04:03,930 --> 00:04:09,880
+ese taller es el que me
+voy a tener que traer aquí
+
+42
+00:04:10,480 --> 00:04:17,040
+vamos a decirle que
+open en descargas talleres
+
+43
+00:04:26,730 --> 00:04:31,280
+vale y esto es el proyecto es un proyecto
+de maven con lo cual le decimos que
+
+44
+00:04:31,281 --> 00:04:36,120
+cargue el proyecto maven, lo de maven
+project, también podéis hacerlo desde la
+
+45
+00:04:36,270 --> 00:04:38,640
+derecha aquí
+
+46
+00:04:38,990 --> 00:04:41,880
+vale en maven
+
+47
+00:04:45,460 --> 00:04:50,160
+aquí lo pone cargará
+
+48
+00:04:51,060 --> 00:04:54,440
+vale entonces esto lo da el ser un
+proyecto maven lo que hace es poner el
+
+49
+00:04:54,441 --> 00:04:56,948
+pomex ml y descargar
+lo que toque, vale fíjate
+
+50
+00:04:56,949 --> 00:05:02,120
+que ahora ya nos ha
+puesto la md maven aquí
+
+51
+00:05:02,520 --> 00:05:06,920
+vale ya tenemos el proyecto lo
+primero es las configuraciones
+
+52
+00:05:06,921 --> 00:05:13,480
+con ferracendra base de datos
+etcétera etcétera donde se hacía eso
+
+53
+00:05:17,820 --> 00:05:24,920
+application properties es donde
+tenemos que establecer la conexión con
+
+54
+00:05:24,921 --> 00:05:26,601
+la base de datos
+porque al final que lo que
+
+55
+00:05:26,649 --> 00:05:32,600
+estamos montando acordaros
+que no es más que una
+
+56
+00:05:33,040 --> 00:05:41,000
+API y una API al final siempre tiene
+que tener detrás que una base de datos
+
+57
+00:05:41,300 --> 00:05:47,120
+vale entonces vamos a definir aquí
+pues esa información de la base de datos
+
+58
+00:05:47,520 --> 00:05:51,440
+vale entonces lo primero que tenemos
+que decir es la url de la base de datos
+
+59
+00:05:51,890 --> 00:05:58,680
+vale esto es screen data surfe url
+
+60
+00:06:00,710 --> 00:06:04,360
+vale esto es jdbc
+
+61
+00:06:05,070 --> 00:06:12,720
+puntos h2 puntos estamos trabajando
+con la base de datos en memoria por eso
+
+62
+00:06:12,721 --> 00:06:20,360
+utilizamos el mem si no utilicen
+el file y luego test database
+
+63
+00:06:20,860 --> 00:06:28,000
+vale luego del driver con el que
+vamos a conectar screen driver
+
+64
+00:06:29,480 --> 00:06:33,080
+esto es el driver
+
+65
+00:06:35,400 --> 00:06:43,400
+vale tenemos el ola las
+credenciales de login es username
+
+66
+00:06:43,401 --> 00:06:50,280
+poníamos el super
+administrador y el password
+
+67
+00:06:50,830 --> 00:06:53,560
+que le dejamos vacío
+
+68
+00:06:54,040 --> 00:07:00,000
+vale la parte consola no la
+vamos a utilizar pues lo otro es la
+
+69
+00:07:00,001 --> 00:07:05,880
+configuración de hibernate que era el
+urm que conectaba con la base de datos
+
+70
+00:07:06,380 --> 00:07:13,200
+que esto es spring database platform
+
+71
+00:07:14,400 --> 00:07:17,480
+y database platform
+
+72
+00:07:21,450 --> 00:07:23,920
+este es org
+
+73
+00:07:25,070 --> 00:07:27,600
+y m
+
+74
+00:07:29,400 --> 00:07:31,720
+bien
+
+75
+00:07:39,910 --> 00:07:46,360
+tenemos lo que queremos hacer
+que cuando arranque la aplicación
+
+76
+00:07:46,760 --> 00:07:48,880
+a
+
+77
+00:07:49,710 --> 00:07:55,600
+a esto es el ddl auto podemos que
+tenemos opciones crear crear y tirar la
+
+78
+00:07:55,601 --> 00:08:01,360
+anterior base de datos solo
+crear tirar la base de datos
+
+79
+00:08:01,760 --> 00:08:07,080
+y nosotros vamos a utilizar un date
+para que actualice si hemos modificado
+
+80
+00:08:07,880 --> 00:08:13,080
+cuando leemos al play detecta
+que hemos modificado los entidades
+
+81
+00:08:13,081 --> 00:08:19,080
+para modificar a las tablas de la
+base de datos pero si no lo dejará igual
+
+82
+00:08:19,330 --> 00:08:25,080
+y luego lo que hacemos es el show
+
+83
+00:08:25,130 --> 00:08:30,280
+esto para que veamos las
+transacciones que se van haciendo cuando
+
+84
+00:08:31,205 --> 00:08:33,622
+esto es sobre todo para
+eso para que veáis lo que se
+
+85
+00:08:33,623 --> 00:08:39,799
+hace por detrás no se le
+vamos haciendo los update
+
+86
+00:08:40,249 --> 00:08:47,680
+mal eso es un poco la configuración
+como tal lo indispensable es esto sí o sí
+
+87
+00:08:47,681 --> 00:08:57,560
+vale que tiene que estar esta es para
+que sepa que lenguaje estamos utilizando
+
+88
+00:08:57,561 --> 00:09:04,520
+y esto es para la creación que nos
+vuelva a hacer las bases de datos en
+
+89
+00:09:04,569 --> 00:09:08,120
+caso de que hayamos
+modificado las entidades
+
+90
+00:09:08,569 --> 00:09:12,760
+va en desablando de entidades
+lo primero que tenemos que hacer
+
+91
+00:09:12,984 --> 00:09:16,680
+precisamente que es nuestro proyecto
+
+92
+00:09:17,329 --> 00:09:22,360
+hacer la carpeta entity para definir
+las entidades que era una entidad
+
+93
+00:09:29,720 --> 00:09:37,720
+el objeto que definimos en java vale
+tenía vinculada a una tabla en la base
+
+94
+00:09:37,721 --> 00:09:42,920
+de datos en la entidad de esa
+vinculación de tal manera que estaba
+
+95
+00:09:42,921 --> 00:09:48,920
+diciendo que ese objeto que estábamos
+creando pues tenía una tabla asociada
+
+96
+00:09:48,921 --> 00:09:51,046
+entonces vamos aquí
+al taller y en el taller
+
+97
+00:09:51,047 --> 00:09:57,120
+vamos a hacer un nuevo
+paquete que sea entity
+
+98
+00:09:58,094 --> 00:10:01,560
+y si lo escribo mejor bien mejor
+
+99
+00:10:04,039 --> 00:10:06,440
+y
+
+100
+00:10:08,439 --> 00:10:15,640
+vale y qué entidades tenemos en
+este ejercicio en concreto me dice
+
+101
+00:10:16,459 --> 00:10:24,360
+tenemos taller tenemos
+clientes y tenemos coches
+
+102
+00:10:24,759 --> 00:10:32,120
+vamos a hacer lo vamos
+a tener y ojava class ayer
+
+103
+00:10:37,319 --> 00:10:44,720
+y ente y coche voy voy montando un poco
+
+104
+00:10:45,169 --> 00:10:47,600
+la estructura
+
+105
+00:10:48,099 --> 00:10:53,520
+vale tenemos que decirle
+que una entidad a roba entity
+
+106
+00:10:56,019 --> 00:10:58,520
+que más tenemos que hacer
+
+107
+00:11:00,569 --> 00:11:05,880
+la tabla vale le tenemos que decir
+cuál es la tabla donde va a estar esto va a
+
+108
+00:11:05,881 --> 00:11:11,880
+estar vinculado a una tabla pues
+entonces le decimos la tabla si yo os
+
+109
+00:11:11,881 --> 00:11:15,520
+obligo a poner el nombre pero acordaros
+que si no ponéis nombre os pondrá
+
+110
+00:11:15,521 --> 00:11:19,600
+automáticamente el nombre
+de la tabla el nombre de la clase
+
+111
+00:11:19,899 --> 00:11:26,360
+pero yo siempre os obligo a
+que me pongáis el nombre si
+
+112
+00:11:26,559 --> 00:11:30,360
+la cliente
+
+113
+00:11:33,040 --> 00:11:41,040
+o el art constructo el no
+art constructor y falta algo
+
+114
+00:11:41,489 --> 00:11:45,840
+exacto vale data para que nos monte
+los guettos y los setters muy importante
+
+115
+00:11:45,841 --> 00:11:49,680
+porque gracias a esos que tenés
+esos setters luego podemos hacer las
+
+116
+00:11:49,681 --> 00:11:56,440
+funciones de buscar por existe
+por vale que nos la estará jp
+
+117
+00:11:56,789 --> 00:12:03,800
+vale acordaros que ya al poner a roba
+entity vale esto se pone en rojo porque
+
+118
+00:12:08,400 --> 00:12:16,400
+era exacto hace falta una idea que es
+la clave primaria no la clave primaria la
+
+119
+00:12:16,401 --> 00:12:20,920
+puede llamar idea la puede llamar como
+quiera pero es clave primaria lo que lo
+
+120
+00:12:20,921 --> 00:12:25,080
+que necesita tú la puedes llamar código
+por ejemplo en el coche podría haber
+
+121
+00:12:25,279 --> 00:12:30,120
+puesto matrícula porque la matrícula
+ya es única pero para que sea auto
+
+122
+00:12:30,121 --> 00:12:33,600
+incremental y tener el vínculo auto
+incremental vale pues no lo hacemos
+
+123
+00:12:34,249 --> 00:12:37,480
+aunque luego la matrícula sea única
+
+124
+00:12:37,929 --> 00:12:44,520
+vale esto tenemos que decirle además
+que se genere auto incrementa en el
+
+125
+00:12:44,521 --> 00:12:50,480
+como estábamos hablando antes
+y hay varias estrategias de creación
+
+126
+00:12:50,680 --> 00:12:58,680
+auto incremental entonces yo dije
+que trabajamos con la de identidad
+
+127
+00:12:59,369 --> 00:13:03,040
+vale de tal manera que cada vez
+que intentara hacer una inserción lo
+
+128
+00:13:03,880 --> 00:13:11,880
+consiguiera uno generaba un
+nuevo id y aquí ya definí la variable
+
+129
+00:13:13,309 --> 00:13:20,660
+vale y ahora ya es poner los datos que
+tenga el taller que estamos haciendo que
+
+130
+00:13:23,159 --> 00:13:30,960
+tiene nombre calle y nombre
+del encargado ahí es una column
+
+131
+00:13:33,679 --> 00:13:39,080
+hay que decirle el nombre de la
+columna en este caso será nombre
+
+132
+00:13:39,929 --> 00:13:43,360
+y le podemos dar aquí el
+
+133
+00:13:45,309 --> 00:13:47,600
+lens
+
+134
+00:13:53,329 --> 00:13:59,280
+y el nombre a ver si es un
+nombre del taller con 50 nos parece
+
+135
+00:13:59,629 --> 00:14:02,960
+hay algo más que crees ponerle
+
+136
+00:14:06,059 --> 00:14:08,360
+el durable
+
+137
+00:14:09,809 --> 00:14:14,240
+la hable
+
+138
+00:14:16,769 --> 00:14:22,880
+y aquí poníamos el dato para ir a este
+
+139
+00:14:25,029 --> 00:14:30,840
+vale el otro que decía la
+calle y nombre del no sé quién
+
+140
+00:14:31,339 --> 00:14:34,520
+estén digamos aquí calle
+
+141
+00:14:36,419 --> 00:14:42,400
+los calles dirección creo que ponía
+los calles y nombre del encargado
+
+142
+00:14:43,400 --> 00:14:51,400
+la calle si que le voy a poner un
+poco más 150 y el nombre encargado
+
+143
+00:15:00,359 --> 00:15:03,360
+vale que le vamos a poner
+
+144
+00:15:04,259 --> 00:15:09,400
+por si acaso es felipe juan
+feilán de todos los santos
+
+145
+00:15:12,209 --> 00:15:18,960
+más que a veces vale vamos a
+hacer un poco lo mismo en taller
+
+146
+00:15:21,159 --> 00:15:31,000
+a entity o sea eso es el cliente
+
+147
+00:15:32,099 --> 00:15:35,040
+pues esto era el taller
+
+148
+00:15:37,079 --> 00:15:43,240
+en el puesto los datos del
+cliente del taller al cliente
+
+149
+00:15:43,589 --> 00:15:52,520
+vale ayer la tabla
+se crea por su bien
+
+150
+00:15:53,689 --> 00:16:01,640
+a la roba hoy a constructor
+a roba no a constructor
+
+151
+00:16:03,559 --> 00:16:08,040
+vale entonces el cliente es
+lo que tenemos que cambiar
+
+152
+00:16:08,659 --> 00:16:16,160
+el cliente me dice que tiene nombre
+teléfono y código postal nombre
+
+153
+00:16:16,709 --> 00:16:23,240
+que vamos a poner el teléfono
+no esperan el nombre si que tiene
+
+154
+00:16:23,939 --> 00:16:27,400
+nombre teléfono
+
+155
+00:16:30,469 --> 00:16:32,920
+no
+
+156
+00:16:33,569 --> 00:16:35,680
+y
+
+157
+00:16:44,309 --> 00:16:49,360
+podemos hacer el número
+teléfono tienen ser único
+
+158
+00:16:51,879 --> 00:16:58,280
+el número podemos hacer un
+estrés por el por si ponen el más y tal
+
+159
+00:16:58,729 --> 00:17:03,280
+vale y lo otro era el código postal
+
+160
+00:17:03,779 --> 00:17:06,280
+o y
+
+161
+00:17:09,369 --> 00:17:15,920
+o y o de código lo mismo lo dejamos
+también como stream porque hay
+
+162
+00:17:15,921 --> 00:17:20,160
+códigos postales en
+países que utilizan las letras
+
+163
+00:17:20,161 --> 00:17:29,040
+y no si sí puede tener varios por haber
+varios con el mismo está bueno y ya
+
+164
+00:17:29,339 --> 00:17:33,040
+no cabrón
+
+165
+00:17:43,989 --> 00:17:51,640
+si pero el coche es un
+coche un coche su cliente
+
+166
+00:17:55,560 --> 00:18:03,560
+esa es la persona que tiene el
+coche o el cliente que tiene el coche
+
+167
+00:18:03,561 --> 00:18:10,000
+vale se tiene el coche tiene su número
+teléfono puede ser vale en la vida real
+
+168
+00:18:10,001 --> 00:18:14,880
+vale tú tienes puedes tener dos coches
+por ejemplo que sea tu coche el de tu
+
+169
+00:18:14,881 --> 00:18:19,680
+pareja y los dos los tengas puesto a tu
+nombre en un taller pero no es el caso
+
+170
+00:18:19,840 --> 00:18:27,840
+aquí no tiene no se especifica luego
+nos lo dice dice que cada cliente tiene un
+
+171
+00:18:27,841 --> 00:18:31,520
+coche único asociado vale
+no es sólo va a tener un coche
+
+172
+00:18:31,521 --> 00:18:36,200
+como tal el cliente tiene un coche y
+el cliente tiene un número de teléfono
+
+173
+00:18:36,849 --> 00:18:39,244
+el mismo número no puede
+pertencer a más gente con lo
+
+174
+00:18:39,245 --> 00:18:43,680
+cual sólo puede aparecer
+una vez en la base de datos
+
+175
+00:18:44,029 --> 00:18:51,640
+vale eso como tal y falta el coche y me
+
+176
+00:18:52,889 --> 00:18:57,840
+si en taller si que estaba puesto
+taller al cliente lo he mirado también
+
+177
+00:18:57,989 --> 00:19:02,920
+estaba cliente que es donde lo sabemos
+real aquí creo que tengo puesto un día
+
+178
+00:19:02,969 --> 00:19:09,880
+que bien lo puesto aún
+esto faltaría hacer el entity
+
+179
+00:19:10,179 --> 00:19:12,880
+table
+
+180
+00:19:13,699 --> 00:19:17,200
+en coche
+
+181
+00:19:19,809 --> 00:19:24,361
+para el examen una vez
+tengáis hecho una clase
+
+182
+00:19:24,362 --> 00:19:30,400
+aprovechar y copiar
+pegar de esa clase a la otra
+
+183
+00:19:30,599 --> 00:19:36,000
+la primera así que la tenéis que hacer a
+mano pero la segunda y tercera las que
+
+184
+00:19:36,001 --> 00:19:42,240
+toquen vale las podéis ya copiar y pegar
+porque al final es lo mismo cambiando el
+
+185
+00:19:42,241 --> 00:19:47,240
+nombre y luego el nombre de las
+variables que vais a cambiar por ejemplo en
+
+186
+00:19:47,241 --> 00:19:51,760
+nuestro coche tenemos
+modelo matrícula y color
+
+187
+00:19:52,159 --> 00:19:56,480
+tendríamos en vez del
+nombre vamos a tener modelo
+
+188
+00:19:57,479 --> 00:20:04,200
+modelo lo puedo dejar igual
+no tendríamos la matrícula
+
+189
+00:20:08,160 --> 00:20:16,160
+matrícula que bueno con la
+perele 15 caracteres me vale y única
+
+190
+00:20:21,559 --> 00:20:23,960
+matrícula
+
+191
+00:20:26,859 --> 00:20:31,840
+e y el color
+
+192
+00:20:33,839 --> 00:20:34,840
+y
+
+193
+00:20:37,509 --> 00:20:44,760
+ya tenemos hecha lo que sería la
+primera parte que nos dice de las
+
+194
+00:20:45,209 --> 00:20:50,200
+bueno la parte básica de las entidades
+consultados hay que trabajar ahora a ver
+
+195
+00:20:50,201 --> 00:20:57,760
+qué relaciones tienen entre ellas
+entonces eso nos lo especifica aquí dice
+
+196
+00:20:57,761 --> 00:21:04,600
+cada taller tiene clientes vale un
+taller va a tener varios clientes y cada
+
+197
+00:21:04,601 --> 00:21:10,800
+cliente tiene un único coche asociado
+entonces tenemos por un lado el taller
+
+198
+00:21:10,801 --> 00:21:18,280
+con clientes o cuando me y luego tenemos
+clientes con coche que tendríamos una
+
+199
+00:21:18,281 --> 00:21:22,120
+guantanar vamos a hacerlo vamos a
+hacer los del cliente que es el que tiene a
+
+200
+00:21:22,121 --> 00:21:26,240
+todos y a partir de ahí
+trabajamos vale entonces
+
+201
+00:21:26,241 --> 00:21:32,520
+primero cliente que tenemos
+desde la parte del cliente
+
+202
+00:21:33,880 --> 00:21:41,880
+desde el cliente cual
+quereis hacer primero igual
+
+203
+00:21:51,369 --> 00:21:59,320
+y por eso cual quieres hacer primero
+1 2 1 1 2 1 2 1 con quien la tiene
+
+204
+00:22:00,729 --> 00:22:08,680
+el coche el 1 2 1 con el coche vale
+el cliente es la principal no si no hay
+
+205
+00:22:08,729 --> 00:22:14,720
+cliente en el coche así que le diremos al
+cliente que cuando lo borren cuando lo
+
+206
+00:22:15,000 --> 00:22:23,000
+actualicen hagamos lo que sea
+el coche al entes eso es el cascada
+
+207
+00:22:23,349 --> 00:22:27,080
+vamos a decirle el cascada
+
+208
+00:22:27,729 --> 00:22:31,400
+vamos a hacer también la parte del fecha
+
+209
+00:22:39,999 --> 00:22:41,000
+claro
+
+210
+00:22:41,299 --> 00:22:48,880
+y vamos a hacer el y cuando sabemos que
+tenemos que ponerlo es cuando sabemos
+
+211
+00:22:51,129 --> 00:22:54,760
+que tenemos que poner el y el liguer
+vale lo montaremos normalmente en las
+
+212
+00:22:54,761 --> 00:23:01,360
+relaciones 1 2 1 es decir
+porque es el que nos marca
+
+213
+00:23:02,520 --> 00:23:10,440
+cuando montemos cuando trabajemos con
+un con una entidad con el cliente en este
+
+214
+00:23:10,441 --> 00:23:16,320
+caso vale queremos que vinculé el coche
+asociado en las listas es donde haremos
+
+215
+00:23:16,321 --> 00:23:21,640
+el lazy porque no queremos que recorra
+todos los elementos de la lista para a
+
+216
+00:23:21,641 --> 00:23:26,760
+la hora de añadir entonces primero
+añade y luego ya mete el el id asociado
+
+217
+00:23:27,259 --> 00:23:31,360
+básicamente la única diferencia
+es que primero lo mete en uno
+
+218
+00:23:31,361 --> 00:23:37,520
+o meter el objeto y luego lo rellenan
+es un poco la diferencia entonces en el
+
+219
+00:23:37,521 --> 00:23:41,840
+1 2 1 no hay problema pero en el 1 2
+mini como si que tiene que sacar todo el
+
+220
+00:23:41,989 --> 00:23:45,600
+listado para que no relentice la aplicación
+
+221
+00:23:45,749 --> 00:23:48,080
+así que lo
+
+222
+00:23:49,609 --> 00:23:53,626
+vale 1 2 1 vale esto además
+tenemos que conectar
+
+223
+00:23:53,627 --> 00:24:01,920
+el cliente con el coche
+eso lo hacíamos con una
+
+224
+00:24:03,919 --> 00:24:07,880
+porque conectamos el cliente con el coche
+
+225
+00:24:09,089 --> 00:24:13,039
+no por ahí por aquí
+vale ya es foránea la
+
+226
+00:24:13,040 --> 00:24:19,880
+clave foránea vale que
+aquí la definíamos con
+
+227
+00:24:20,479 --> 00:24:26,840
+con qué notación con que la
+notación definíamos la clave foránea
+
+228
+00:24:28,219 --> 00:24:33,080
+pasa campeón y has luchado
+contra los piquetes y todo para llegar
+
+229
+00:24:33,279 --> 00:24:42,920
+ahora bien vas
+comprar algo de paso
+
+230
+00:24:43,069 --> 00:24:51,880
+las tiendas entonces con qué
+definíamos la clave foránea en speedboot
+
+231
+00:24:52,079 --> 00:25:03,480
+anotación casi el join bien el tipo el
+mal lo que es hoy en column en column
+
+232
+00:25:07,960 --> 00:25:15,960
+el que no notas si pero eso será para
+establecer la forma que como tal de
+
+233
+00:25:16,240 --> 00:25:24,240
+dejar persistance para montar una forma
+en que pero tal cual el join column vale
+
+234
+00:25:24,241 --> 00:25:28,280
+lo que está haciendo también es no
+sólo establece la clave foránea sino la
+
+235
+00:25:28,281 --> 00:25:33,840
+relación para que cuando saque el
+saque es los datos vale te saque también
+
+236
+00:25:33,841 --> 00:25:39,960
+estos datos asociados
+entonces te está haciendo un join
+
+237
+00:25:41,829 --> 00:25:47,800
+montamos un join column que
+viene de bien integrado el for en que y
+
+238
+00:25:47,801 --> 00:25:53,800
+precisamente por eso hay que
+especificarle el nombre de la columna
+
+239
+00:25:53,801 --> 00:26:01,200
+que los va a vincular en este caso la
+tenemos que llamar siempre como la otra
+
+240
+00:26:03,280 --> 00:26:11,280
+tabla con la que tiene relación en este
+caso coche y ponemos barra baja y vale
+
+241
+00:26:11,879 --> 00:26:14,640
+eso además
+
+242
+00:26:17,789 --> 00:26:25,440
+la referencia a la clave del
+otro lado que se va a llamar y
+
+243
+00:26:26,079 --> 00:26:34,880
+al decir el id de coche y
+ya ponemos la variable y
+
+244
+00:26:35,479 --> 00:26:39,440
+coche
+
+245
+00:27:04,559 --> 00:27:07,360
+vale relación 1 2 1
+
+246
+00:27:08,109 --> 00:27:15,560
+sí vale y la otra que
+teníamos en cliente cuál era
+
+247
+00:27:19,039 --> 00:27:26,240
+pero me y me y me y me y con quien el
+taller acordaros que muchos clientes un
+
+248
+00:27:26,241 --> 00:27:33,440
+taller vale pero un taller
+muchos clientes me ni tu guán
+
+249
+00:27:33,589 --> 00:27:40,720
+aquí es donde decíamos
+que hacíamos el fetch lazy
+
+250
+00:27:43,149 --> 00:27:48,920
+vale porque vamos a tener muchas
+referencias y no queremos que
+
+251
+00:27:49,369 --> 00:27:52,680
+que se vuelva loco buscar
+
+252
+00:27:54,129 --> 00:27:59,680
+en la principal es decir en el guantú
+guan cuál es la parte principal la parte
+
+253
+00:27:59,681 --> 00:28:05,000
+dominante y en el guantú meni o en el
+menín duan siempre en la parte del guantú
+
+254
+00:28:05,001 --> 00:28:10,040
+meni que es el que es la parte dominante
+vale si yo borro un taller pues quito
+
+255
+00:28:10,041 --> 00:28:14,160
+los clientes asociados al taller ahora
+si borró un cliente pues el taller tiene
+
+256
+00:28:14,161 --> 00:28:17,680
+otros clientes pues eso
+no voy a cargarme el taller
+
+257
+00:28:18,029 --> 00:28:23,240
+siempre la parte dominante de la
+redacción vale lo mismo tenéis que decir
+
+258
+00:28:23,389 --> 00:28:27,600
+cómo se juntan estas
+
+259
+00:28:28,349 --> 00:28:30,760
+estas tablas
+
+260
+00:28:31,159 --> 00:28:35,800
+y en este caso le tenemos
+que decir a la clave ajena
+
+261
+00:28:36,099 --> 00:28:38,760
+estamos
+
+262
+00:28:39,309 --> 00:28:43,960
+correcto estamos en la parte de
+
+263
+00:28:43,961 --> 00:28:48,160
+fijaros que en el guantú guan mal en
+yu en column lo establecemos en la parte
+
+264
+00:28:49,919 --> 00:28:57,320
+dominante que es el que va a tener
+el id de la tabla de la tabla es clava por
+
+265
+00:28:57,321 --> 00:29:03,040
+decir así pero en el meni to guan o en la
+redacción uno a muchos siempre va en la
+
+266
+00:29:03,041 --> 00:29:09,760
+parte es clava en la parte de
+muchos donde tenemos la clave ajena
+
+267
+00:29:10,109 --> 00:29:13,251
+porque se identificarán
+qué taller es el que
+
+268
+00:29:13,252 --> 00:29:18,760
+controla esta esta
+relación o este cliente
+
+269
+00:29:19,309 --> 00:29:22,800
+sí a ver
+
+270
+00:29:23,774 --> 00:29:28,280
+esto será el id
+
+271
+00:29:31,799 --> 00:29:34,080
+y el
+
+272
+00:29:34,479 --> 00:29:39,800
+aquí en estas además teníamos que hacer
+el dj son ignore porque acordaros que si
+
+273
+00:29:39,801 --> 00:29:45,320
+no había la redundancia
+cíclica vale y el bucle infinito
+
+274
+00:29:45,719 --> 00:29:51,200
+y bueno el tu estrés
+
+275
+00:29:51,549 --> 00:29:57,680
+punto es para lo mismo en la parte
+de la consola aunque la consola ya no la
+
+276
+00:29:57,681 --> 00:30:05,960
+utilizamos pero
+bueno para que no lo la
+
+277
+00:30:10,619 --> 00:30:16,920
+el no va a echar en el meni to guan el
+dj ignore siempre en el meni to guan vale
+
+278
+00:30:16,921 --> 00:30:22,680
+porque es el que va a hacer que cuando
+salga la información de son es decir
+
+279
+00:30:23,079 --> 00:30:29,000
+cuando tú vas de la respuesta
+vale el taller saque la información de
+
+280
+00:30:29,049 --> 00:30:34,120
+sus clientes pero los clientes no saquen
+el taller de nuevo porque si volverán
+
+281
+00:30:34,121 --> 00:30:38,560
+a sacar el taller el taller volverán a
+sacar los clientes los clientes el taller
+
+282
+00:30:38,561 --> 00:30:42,600
+el taller los clientes tenemos ahí un
+bucle infinito en descortamos con el
+
+283
+00:30:42,601 --> 00:30:49,400
+dj ignore el bucle infinito en este
+caso la relación la tenemos con taller
+
+284
+00:30:52,309 --> 00:30:54,480
+vas
+
+285
+00:30:58,549 --> 00:31:05,600
+vale pues lo tendríamos todo a
+falta de una cosa que nos faltaría
+
+286
+00:31:10,879 --> 00:31:18,880
+si se a ver el taller y el taller y el
+coche nos falta digo que en cliente en
+
+287
+00:31:18,881 --> 00:31:25,160
+cliente nos falta una cosa solo el
+constructor que constructor más falta
+
+288
+00:31:27,560 --> 00:31:35,560
+exacto había que hacer un constructor de
+todo menos el bueno hay realidad de todo
+
+289
+00:31:36,009 --> 00:31:38,360
+tiene nombre
+
+290
+00:31:47,839 --> 00:31:52,800
+también si hay casi nada de todo
+
+291
+00:31:59,199 --> 00:32:01,800
+valen
+
+292
+00:32:14,509 --> 00:32:22,760
+vale pues pasamos al taller o coche
+que creíste aquí el constructor este rápido
+
+293
+00:32:31,919 --> 00:32:38,080
+vale como es unidireccional
+vale no hace falta
+
+294
+00:32:43,069 --> 00:32:52,760
+vale tendríamos el taller al
+el taller si el taller que tiene
+
+295
+00:32:53,209 --> 00:32:56,280
+nación o anto meni
+
+296
+00:32:58,879 --> 00:33:03,600
+roba van to me
+
+297
+00:33:04,299 --> 00:33:08,640
+vale ya la relación cuando
+meni que le decimos
+
+298
+00:33:12,139 --> 00:33:16,080
+mapez by y aquí que teníamos que poner
+
+299
+00:33:17,479 --> 00:33:24,040
+el nombre de la variable con la
+que tenía relación es decir si estoy
+
+300
+00:33:24,041 --> 00:33:33,640
+haciendo un guantumeni del taller con quien
+estoy relacionando con cliente y cliente en
+
+301
+00:33:34,219 --> 00:33:41,920
+la relación me y tu van vale le he
+definido un nombre es decir no he
+
+302
+00:33:41,921 --> 00:33:46,840
+relacionado con ese taller de alguna
+manera es el nombre de la variable le
+
+303
+00:33:46,841 --> 00:33:51,400
+he puesto normalmente siempre ponemos
+el mismo nombre lo que sepáis que si
+
+304
+00:33:51,401 --> 00:33:55,280
+algún día cambia es el nombre y en
+vez de taller ponéis tallercito vale pues
+
+305
+00:33:55,281 --> 00:33:59,280
+en el otro lado aquí el mapeado
+lo tendrá que hacer tallercito
+
+306
+00:33:59,929 --> 00:34:06,040
+en nuestro caso como hemos puesto el
+mismo nombre pues es mapez by taller
+
+307
+00:34:11,080 --> 00:34:12,176
+vale y ahora sí estamos
+en la parte dominante
+
+308
+00:34:12,177 --> 00:34:18,440
+estamos en la parte del
+guantumeni y necesitamos
+
+309
+00:34:21,340 --> 00:34:26,960
+el cascada el cascada en la parte dominante
+
+310
+00:34:29,250 --> 00:34:35,000
+si el orfan removable que
+lo que hace es para que
+
+311
+00:34:35,500 --> 00:34:40,400
+si alguno de los hijos es decir alguno de
+los clientes se queda suelto vale porque
+
+312
+00:34:40,401 --> 00:34:44,920
+borraramos un taller por
+lo que sea que se lo cargue
+
+313
+00:34:45,570 --> 00:34:51,920
+es orfan removable el feche el
+lazy lo hemos puesto en el medit one
+
+314
+00:34:52,020 --> 00:34:54,692
+es el que se encarga
+de como tengo toda la
+
+315
+00:34:54,693 --> 00:35:01,120
+colección de elementos y
+cuando lo metan no quiero
+
+316
+00:35:01,600 --> 00:35:09,600
+revisarlos todos vale sino
+que al final ya lo insertó y hasta
+
+317
+00:35:13,990 --> 00:35:16,640
+eso lo hemos puesto en el guantumeni
+
+318
+00:35:16,840 --> 00:35:22,360
+en el guantumeni ponemos en el
+liger y en el meni 2.1 ponemos el
+
+319
+00:35:22,660 --> 00:35:26,640
+vale aquí tendríamos si queréis el 2 strip
+
+320
+00:35:30,550 --> 00:35:38,400
+y esto lo vamos a tener con
+una que vamos a tener aquí
+
+321
+00:35:39,070 --> 00:35:43,575
+vamos a tener una relación
+guantumeni con cliente desde yo
+
+322
+00:35:43,576 --> 00:35:49,040
+en mi taller que voy a tener
+una lista de clientes correcto
+
+323
+00:35:49,190 --> 00:35:55,600
+entonces vamos a ponerle que
+esto va a ser una lista de cliente
+
+324
+00:35:55,950 --> 00:35:58,440
+y en
+
+325
+00:36:01,690 --> 00:36:03,920
+el borde
+
+326
+00:36:08,610 --> 00:36:11,160
+no
+
+327
+00:36:13,290 --> 00:36:20,440
+en lista pero lo
+
+328
+00:36:21,940 --> 00:36:25,440
+porque la realista es un tipo de lista
+
+329
+00:36:26,480 --> 00:36:33,480
+la lista como tal vale es lo que trabaja
+
+330
+00:36:37,600 --> 00:36:43,720
+es primord vale lo que es jp a y bernard
+trabajan con dos elementos son dos
+
+331
+00:36:43,721 --> 00:36:50,880
+elementos genéricos que son la lista
+vale y el y el set el set es para listas
+
+332
+00:36:50,881 --> 00:36:54,520
+no ordenadas el list
+es para listas ordenadas
+
+333
+00:36:54,521 --> 00:36:59,320
+es como tal es depende cómo lo estaremos
+haciendo nosotros trabajamos sólo con
+
+334
+00:36:59,321 --> 00:37:03,720
+la parte no ordenada no lo hemos
+visto pero bueno existe también el que
+
+335
+00:37:03,721 --> 00:37:09,640
+podemos montarlo el mapeado con
+listas en ordenadas y dentro de las listas
+
+336
+00:37:09,641 --> 00:37:14,080
+ordenadas es decir dentro de clase lista
+y diferentes tipos de listas vosotros la
+
+337
+00:37:14,081 --> 00:37:17,720
+que conocéis de primero es el
+arraiglist es con la que trabajáis y
+
+338
+00:37:17,721 --> 00:37:21,960
+entonces por eso se inicializa como
+como arraiglist que es con la que estáis
+
+339
+00:37:21,961 --> 00:37:27,800
+acostumbrados es la más utilizada por
+decir así pero hay otros tipos de listas
+
+340
+00:37:31,040 --> 00:37:39,040
+es el list es porque por defecto el
+jpa lo monta trabaja con la listas y el
+
+341
+00:37:39,041 --> 00:37:43,400
+arraiglist es porque inicializamos con
+la lista que estáis más acostumbrados
+
+342
+00:37:44,200 --> 00:37:48,200
+y con la que más se
+utiliza que se la hay listas
+
+343
+00:37:49,100 --> 00:37:55,720
+vale vale al final son contenedores
+ordenados y diferentes pero no me ha
+
+344
+00:37:55,721 --> 00:37:59,560
+ponido a ver está el mismo estado
+que leís lo de contenedores ordenados
+
+345
+00:38:00,010 --> 00:38:02,720
+al iberes que hay
+
+346
+00:38:02,970 --> 00:38:07,594
+vale tenemos ahí ya la
+relación que tiene taller que es
+
+347
+00:38:07,595 --> 00:38:13,000
+la relación con cliente de
+guantúmeni que nos faltaría
+
+348
+00:38:13,200 --> 00:38:16,680
+porque la de guantúmeni
+si hay que hacer cosas
+
+349
+00:38:17,180 --> 00:38:20,240
+aparte del constructor aparte
+del constructor vale voy a hacer el
+
+350
+00:38:20,565 --> 00:38:25,640
+constructor constructor y
+que le ponga constructor
+
+351
+00:38:26,590 --> 00:38:27,640
+el nombre del líder
+
+352
+00:38:28,890 --> 00:38:33,600
+todo la lista la lista también
+
+353
+00:38:34,600 --> 00:38:39,040
+la lista no la lista la trabajamos aparte
+
+354
+00:38:39,540 --> 00:38:41,040
+vamos a ver la prueba
+
+355
+00:38:41,140 --> 00:38:43,040
+a ver
+
+356
+00:38:44,265 --> 00:38:49,560
+como trabajamos la lista aparte
+
+357
+00:38:49,660 --> 00:38:51,560
+una función para añadir el cliente
+
+358
+00:38:51,760 --> 00:38:57,880
+hacíamos dos funciones
+una esa para añadir el cliente
+
+359
+00:38:58,030 --> 00:39:00,880
+vamos a poner
+
+360
+00:39:00,980 --> 00:39:02,880
+public
+
+361
+00:39:03,230 --> 00:39:04,880
+void
+
+362
+00:39:05,180 --> 00:39:09,880
+añadir cliente para
+no poner la ñ agregar
+
+363
+00:39:10,130 --> 00:39:13,880
+agregar cliente anadil
+
+364
+00:39:14,830 --> 00:39:17,880
+anadil anadil
+
+365
+00:39:18,280 --> 00:39:23,880
+agregar cliente que nos van a
+tener que pasar un cliente obviamente
+
+366
+00:39:25,730 --> 00:39:31,280
+vale y que hacemos en esta
+función vamos a la lista clientes
+
+367
+00:39:31,880 --> 00:39:33,280
+clientes
+
+368
+00:39:34,155 --> 00:39:35,280
+punto ad
+
+369
+00:39:36,230 --> 00:39:37,280
+cliente
+
+370
+00:39:37,530 --> 00:39:39,280
+perfecto
+
+371
+00:39:39,530 --> 00:39:43,280
+y hacíamos algo más
+
+372
+00:39:43,680 --> 00:39:45,280
+actualizar la lista
+
+373
+00:39:47,380 --> 00:39:49,280
+actualizar la lista
+
+374
+00:39:52,280 --> 00:39:55,858
+vale he añadido al
+cliente en la lista pero
+
+375
+00:39:55,859 --> 00:40:03,280
+el cliente en la lista
+sabe cual es su taller
+
+376
+00:40:04,380 --> 00:40:07,280
+vale pues tenemos que poner el taller
+
+377
+00:40:07,630 --> 00:40:10,280
+y como le asigno el taller al cliente
+
+378
+00:40:11,230 --> 00:40:12,310
+con un parámetro de entrada
+
+379
+00:40:13,530 --> 00:40:16,280
+con un parámetro de entrada o que?
+
+380
+00:40:16,281 --> 00:40:22,280
+en la función le pongo el
+taller pero el taller ya se cual es
+
+381
+00:40:23,430 --> 00:40:26,280
+vale es el taller
+
+382
+00:40:27,030 --> 00:40:28,280
+si es en que clase estamos?
+
+383
+00:40:28,281 --> 00:40:34,280
+el taller vamos en taller si estoy
+invocando una clase una función de taller
+
+384
+00:40:34,830 --> 00:40:37,869
+significa que le estoy
+diciendo ya el taller
+
+385
+00:40:37,870 --> 00:40:40,280
+que es es el que esta
+invocando la función esta
+
+386
+00:40:40,830 --> 00:40:42,280
+si yo hago
+
+387
+00:40:42,805 --> 00:40:47,280
+agregar cliente eso tiene que venir
+de un taller taller punto agregar cliente
+
+388
+00:40:47,830 --> 00:40:49,460
+entiendes? es una
+instancia de taller la
+
+389
+00:40:49,484 --> 00:40:51,292
+que esta lanzando la
+función agregar cliente
+
+390
+00:40:51,293 --> 00:40:57,280
+sera esa instancia de taller a la
+que tengo que vincularle el cliente
+
+391
+00:40:57,980 --> 00:41:01,280
+vale y eso como lo hago?
+
+392
+00:41:01,530 --> 00:41:05,280
+yo tengo el cliente que me han pasado no?
+
+393
+00:41:06,430 --> 00:41:09,280
+cliente punto
+
+394
+00:41:12,230 --> 00:41:13,280
+el taller
+
+395
+00:41:13,655 --> 00:41:21,280
+y como le digo que es el taller
+que esta instanciando esta función?
+
+396
+00:41:22,030 --> 00:41:25,280
+con el dish que culito tengo
+
+397
+00:41:25,281 --> 00:41:31,280
+con dish vale le estoy diciendo que con
+la instancia que esta lanzando la función
+
+398
+00:41:31,630 --> 00:41:37,280
+es el que le estoy asignando el taller
+
+399
+00:41:37,555 --> 00:41:41,148
+vale entonces es el
+cliente que me pasa le
+
+400
+00:41:41,172 --> 00:41:45,902
+asigno el taller donde estoy
+lanzando la función vale?
+
+401
+00:41:45,903 --> 00:41:53,280
+vale muy bien esa es la idea del cliente
+lo otro que tenemos que modificar que es?
+
+402
+00:42:04,230 --> 00:42:13,280
+tiene que ver con la relación no la he
+borrado no que relación tiene el taller?
+
+403
+00:42:13,380 --> 00:42:15,280
+con el coche?
+
+404
+00:42:15,281 --> 00:42:17,280
+no el taller no tiene relación con el coche
+
+405
+00:42:18,430 --> 00:42:25,280
+un taller a muchos clientes entonces
+el taller tiene una lista de clientes
+
+406
+00:42:25,430 --> 00:42:28,991
+esa lista de clientes yo no
+puedo es un poco la misma lógica
+
+407
+00:42:29,015 --> 00:42:32,292
+es decir yo esa lista de
+clientes no puedo establecerla
+
+408
+00:42:32,480 --> 00:42:35,894
+y ya estan si me pasan una lista
+de clientes tengo que asegurarme
+
+409
+00:42:35,918 --> 00:42:39,292
+que toda esa lista de clientes que
+me han pasado que tengan que?
+
+410
+00:42:40,230 --> 00:42:43,280
+cliente
+
+411
+00:42:44,080 --> 00:42:46,995
+obviamente va a tener
+clientes si me han pasado una
+
+412
+00:42:47,019 --> 00:42:50,292
+lista de clientes o bueno
+puede ser vacia eso me da igual
+
+413
+00:42:50,530 --> 00:42:52,753
+pero que todos los
+clientes que tenga la
+
+414
+00:42:52,777 --> 00:42:55,292
+lista si tiene clientes
+que tienen que tener?
+
+415
+00:42:55,830 --> 00:42:58,280
+todos los clientes de esa
+lista que tienen que tener?
+
+416
+00:42:58,281 --> 00:43:02,280
+un taller y que taller
+concreto tienen que tener?
+
+417
+00:43:02,281 --> 00:43:03,281
+ese
+
+418
+00:43:10,280 --> 00:43:14,161
+ese el que este lanzando la distancia
+es decir el que este definiendo los
+
+419
+00:43:14,185 --> 00:43:19,280
+talleres o perdon los clientes vale tendra
+que decirles que este es su taller si
+
+420
+00:43:20,280 --> 00:43:28,280
+vale pues eso es un poco lo que tenemos que
+hacer es decir un public void set clientes
+
+421
+00:43:28,380 --> 00:43:33,280
+es decir el setter de
+la colección de clientes
+
+422
+00:43:35,530 --> 00:43:38,280
+vale por parámetro de entrada
+tiene que pasar el cliente no?
+
+423
+00:43:38,281 --> 00:43:41,280
+no clientes que es?
+
+424
+00:43:41,281 --> 00:43:44,280
+a la lista a la lista entonces
+que me tienen que pasar?
+
+425
+00:43:44,281 --> 00:43:47,280
+una lista una lista de clientes
+
+426
+00:43:47,680 --> 00:43:52,280
+lista de cliente
+
+427
+00:43:52,630 --> 00:43:55,280
+clientes
+
+428
+00:43:56,505 --> 00:44:02,280
+vale entonces que tenemos que hacer?
+
+429
+00:44:02,281 --> 00:44:09,280
+lo primero decirle que la lista que
+tengo yo es igual a la que me pasa
+
+430
+00:44:12,480 --> 00:44:15,940
+vale pero eso seria igual
+que lo que ya tenía es
+
+431
+00:44:15,964 --> 00:44:19,280
+decir eso es lo que
+hace el setter por defecto
+
+432
+00:44:19,281 --> 00:44:22,280
+yo quiero hacer algo mas
+que lo que hemos dicho que es
+
+433
+00:44:23,330 --> 00:44:25,280
+si tengo clientes
+
+434
+00:44:27,530 --> 00:44:29,280
+si clientes es distinto de nulo
+
+435
+00:44:29,530 --> 00:44:34,280
+vale si clientes es distinto de
+nulo es decir si tienes clientes
+
+436
+00:44:34,281 --> 00:44:36,280
+porque si no tengo clientes
+si es nulo me da igual
+
+437
+00:44:36,281 --> 00:44:41,280
+si es nulo se queda igual y muy bien
+me han pasado una lista nula y ya está
+
+438
+00:44:41,780 --> 00:44:43,280
+pero si tengo clientes
+
+439
+00:44:44,380 --> 00:44:46,280
+vale entonces que tenemos que hacer?
+
+440
+00:44:46,680 --> 00:44:51,280
+a cada cliente le tengo que
+decir que este es su taller
+
+441
+00:44:51,830 --> 00:44:54,819
+vale lo mismo que hemos
+hecho antes pero de manera
+
+442
+00:44:54,820 --> 00:44:59,280
+que lo tengan todos si
+tengo que recorrer el array
+
+443
+00:45:00,205 --> 00:45:01,280
+un for
+
+444
+00:45:01,480 --> 00:45:05,280
+por cada cliente
+
+445
+00:45:06,280 --> 00:45:08,280
+de clientes
+
+446
+00:45:12,130 --> 00:45:15,280
+que hacemos?
+
+447
+00:45:16,280 --> 00:45:19,280
+lo que tenemos que hacer con cada cliente
+
+448
+00:45:20,080 --> 00:45:25,280
+cliente punto settaller
+
+449
+00:45:25,980 --> 00:45:29,310
+lo mismo que hemos
+hecho al agregar un
+
+450
+00:45:29,334 --> 00:45:35,280
+cliente pero ahora lo hacemos
+en la colección entendéis?
+
+451
+00:45:36,680 --> 00:45:44,280
+vale a ver cuando yo antes que
+hemos añadido un nuevo cliente
+
+452
+00:45:44,281 --> 00:45:49,280
+no tienes claro no? yo al cliente
+le he dicho que este es su taller
+
+453
+00:45:49,530 --> 00:45:50,893
+vale entonces he añadido
+un nuevo cliente en
+
+454
+00:45:50,917 --> 00:45:52,606
+la lista y le he dicho
+que este es su taller
+
+455
+00:45:52,630 --> 00:45:54,280
+esa parte es clara no?
+
+456
+00:45:54,430 --> 00:45:58,280
+vale ahora lo que pasa es que me están
+dando una lista de clientes directamente
+
+457
+00:45:58,680 --> 00:46:03,280
+en vez de uno me están diciendo
+oye tu lista de clientes es esta
+
+458
+00:46:03,630 --> 00:46:05,280
+cambialo por la que tienes
+
+459
+00:46:05,930 --> 00:46:09,280
+vale entonces cojo esa lista de
+clientes y la cambio por la que tengo
+
+460
+00:46:10,130 --> 00:46:14,280
+pero a todos esos clientes igual que
+antes cuando he añadido un cliente
+
+461
+00:46:14,630 --> 00:46:17,280
+les tengo que decir que yo soy su taller
+
+462
+00:46:17,630 --> 00:46:20,280
+exacto dis
+
+463
+00:46:20,780 --> 00:46:23,580
+vale entonces para eso
+lo que tengo que hacer
+
+464
+00:46:23,604 --> 00:46:26,292
+es recorrer toda la
+lista que me han pasado
+
+465
+00:46:26,780 --> 00:46:31,280
+y decirle a todos los elementos
+de la lista que yo soy su taller
+
+466
+00:46:31,430 --> 00:46:34,280
+que dis es su taller
+
+467
+00:46:35,130 --> 00:46:36,280
+entiendes?
+
+468
+00:46:36,930 --> 00:46:43,280
+entonces recorro la lista obviamente
+tiene que tener datos para recorrerla
+
+469
+00:46:43,480 --> 00:46:50,280
+y a cada elemento de la lista le
+digo que yo que dis es su taller
+
+470
+00:46:51,130 --> 00:46:52,280
+eh?
+
+471
+00:46:53,130 --> 00:46:54,280
+Sonya, Adrián?
+
+472
+00:46:54,980 --> 00:46:57,280
+como vais?
+
+473
+00:47:01,180 --> 00:47:08,280
+vale con eso ya tenemos el taller,
+tenemos el cliente y tenemos el coche
+
+474
+00:47:08,780 --> 00:47:13,280
+vale esta era la primera
+parte del ejercicio
+
+475
+00:47:13,830 --> 00:47:20,280
+eh por aquí dice las claves necesarias con
+sus relaciones todo el idioma peado con jpa
+
+476
+00:47:20,281 --> 00:47:26,280
+muy bien siguiente
+paso los tres repositorios
+
+477
+00:47:26,830 --> 00:47:30,280
+vale pues vamos a
+hacer los tres repositorios
+
+478
+00:47:31,180 --> 00:47:33,280
+titiritiri
+
+479
+00:47:35,380 --> 00:47:37,280
+paquete
+
+480
+00:47:38,180 --> 00:47:41,280
+repositorio
+
+481
+00:47:42,580 --> 00:47:46,280
+vale como creo un repositorio?
+
+482
+00:47:47,330 --> 00:47:49,280
+java class y en vez de class interface
+
+483
+00:47:49,930 --> 00:47:53,280
+new java class en vez
+de java class interface
+
+484
+00:47:54,330 --> 00:48:01,280
+vamos a hacer los tres
+me de igual talle repositorio
+
+485
+00:48:02,980 --> 00:48:07,280
+a sony a como creo un repositorio?
+
+486
+00:48:10,230 --> 00:48:11,280
+iria arrojadlo
+
+487
+00:48:14,580 --> 00:48:17,832
+bueno estaba ahora con
+el como lo creaba otra vez
+
+488
+00:48:17,833 --> 00:48:26,280
+del archivo como creo
+el repositorio de coche?
+
+489
+00:48:27,780 --> 00:48:31,280
+vale he hecho el de taller
+como hago el de coche?
+
+490
+00:48:38,130 --> 00:48:40,280
+he hecho el repositorio
+de taller el fichero
+
+491
+00:48:44,830 --> 00:48:46,280
+que tengo que hacer? dime los pasos
+
+492
+00:48:50,230 --> 00:48:51,280
+ah digo el interface
+
+493
+00:48:53,530 --> 00:48:56,280
+osea como si fuera java class y coche
+
+494
+00:48:57,980 --> 00:49:02,280
+coche repositorio
+
+495
+00:49:03,730 --> 00:49:08,280
+y me queda el new java class
+
+496
+00:49:10,380 --> 00:49:13,280
+cliente repositorio
+
+497
+00:49:18,230 --> 00:49:24,280
+venga y ahora si en el repositorio
+que tenemos que hacer?
+
+498
+00:49:25,230 --> 00:49:29,280
+esto para todos ya
+
+499
+00:49:29,705 --> 00:49:35,280
+no no a ver era porque como os
+veia tan silencioso si tan concentrado
+
+500
+00:49:35,530 --> 00:49:38,280
+digo a ver si se me han dormido
+
+501
+00:49:38,680 --> 00:49:43,280
+vale entonces para todos
+como hacíamos el repositorio?
+
+502
+00:49:46,230 --> 00:49:47,280
+arrojad repositorio para decir repositorio
+
+503
+00:49:47,281 --> 00:49:50,280
+muy bien notacion de
+jpa arrojad repositorio
+
+504
+00:49:50,330 --> 00:49:53,280
+y que era lo otro que
+teniamos que hacer?
+
+505
+00:49:54,130 --> 00:49:56,280
+era que extienda
+
+506
+00:49:57,280 --> 00:49:59,280
+extienda cliente cliente no cliente
+
+507
+00:50:00,430 --> 00:50:04,280
+extiende a jpa repositorio y no a cliente
+
+508
+00:50:05,430 --> 00:50:16,280
+jpa repositorio que necesitaba
+para poder necesitaba el long
+
+509
+00:50:17,080 --> 00:50:21,280
+que era el tipo con el que iba
+a trabajar y que mas necesitaba
+
+510
+00:50:27,830 --> 00:50:34,280
+el jpa repositorio tiene
+que hacer referencia a que?
+
+511
+00:50:34,730 --> 00:50:41,280
+tiene que ser sobre alguien
+es decir a cliente a una entidad
+
+512
+00:50:41,281 --> 00:50:48,280
+entonces tiene que poder trabajar
+sobre una entidad para hacer las funciones
+
+513
+00:50:48,281 --> 00:50:53,280
+es decir va a montar un cruz para
+ello necesita una entidad referencia
+
+514
+00:50:53,281 --> 00:50:59,280
+sobre la que hacer esas
+funciones que conecten con la tabla
+
+515
+00:50:59,281 --> 00:51:05,280
+vale entonces si no le damos una
+entidad en nuestro caso el cliente
+
+516
+00:51:07,030 --> 00:51:10,280
+vale no sabe sobre quien tiene que actuar
+
+517
+00:51:11,780 --> 00:51:13,280
+vale
+
+518
+00:51:14,030 --> 00:51:16,280
+vale esto es porque
+
+519
+00:51:21,880 --> 00:51:24,280
+no me lo he dado
+
+520
+00:51:25,130 --> 00:51:26,280
+a ver que he hecho
+
+521
+00:51:26,430 --> 00:51:29,137
+ah porque no me lo he
+aumentado ah porque
+
+522
+00:51:29,138 --> 00:51:32,280
+este lo he hecho no,
+lo he hecho clase claro
+
+523
+00:51:32,530 --> 00:51:35,280
+este se me ha hecho clase
+
+524
+00:51:35,730 --> 00:51:37,280
+vale
+
+525
+00:51:37,430 --> 00:51:42,280
+eeeh y me dice ojo al dato
+
+526
+00:51:42,680 --> 00:51:47,365
+que dice eeeh el servicio del
+taller con el cruz básico tendrá
+
+527
+00:51:47,389 --> 00:51:50,292
+las funciones de por id
+por buscar por nombre
+
+528
+00:51:50,405 --> 00:51:52,280
+existe por id existe por nombre
+
+529
+00:51:52,955 --> 00:51:55,280
+para tener esas funciones
+
+530
+00:51:56,330 --> 00:51:58,280
+vale eeeh
+
+531
+00:51:58,730 --> 00:52:00,280
+bueno lo hacemos luego venga
+
+532
+00:52:00,930 --> 00:52:02,280
+oye vais la sorpresa
+
+533
+00:52:03,230 --> 00:52:04,280
+nooo
+
+534
+00:52:05,430 --> 00:52:11,280
+vale vamos a hacer ahora un
+nuevo paquete que sea el service
+
+535
+00:52:12,630 --> 00:52:18,280
+vale porque me dice
+que el servicio del taller
+
+536
+00:52:19,080 --> 00:52:23,280
+vale solo hay que hacer el del
+taller vamos a hacer new Java class
+
+537
+00:52:24,930 --> 00:52:26,280
+taller service
+
+538
+00:52:27,330 --> 00:52:34,280
+vale y que le hacemos al servicio
+
+539
+00:52:36,130 --> 00:52:37,280
+taller service
+
+540
+00:52:39,230 --> 00:52:40,280
+eeeh
+
+541
+00:52:41,480 --> 00:52:43,280
+tenemos que deslicarlo como servicio
+
+542
+00:52:44,180 --> 00:52:49,280
+vale notación arroba service
+
+543
+00:52:50,780 --> 00:52:54,280
+vale el service que va a necesitar
+
+544
+00:52:56,230 --> 00:53:01,280
+que va a necesitar
+
+545
+00:53:01,281 --> 00:53:08,280
+vale el servicio va a hacer peticiones a la
+base de datos a través de del repositorio
+
+546
+00:53:08,281 --> 00:53:13,280
+vale entonces esto
+es el taller repositorio
+
+547
+00:53:14,230 --> 00:53:15,280
+bueno
+
+548
+00:53:15,930 --> 00:53:17,280
+taller repositorio
+
+549
+00:53:18,230 --> 00:53:19,280
+taller repositorio
+
+550
+00:53:20,230 --> 00:53:22,280
+vale eso necesitas hacer el constructor
+
+551
+00:53:23,280 --> 00:53:25,280
+generate constructor
+
+552
+00:53:26,430 --> 00:53:28,280
+taller repositorio
+
+553
+00:53:29,780 --> 00:53:31,280
+vale esto se deja
+
+554
+00:53:32,230 --> 00:53:33,280
+vale vale
+
+555
+00:53:34,230 --> 00:53:35,280
+el bin no pasa nada
+
+556
+00:53:36,180 --> 00:53:37,280
+vale
+
+557
+00:53:39,130 --> 00:53:40,280
+eeeh
+
+558
+00:53:41,230 --> 00:53:42,280
+mas cosas
+
+559
+00:53:44,230 --> 00:53:45,280
+nooo
+
+560
+00:53:45,530 --> 00:53:48,280
+se deja poner el bin
+
+561
+00:53:52,480 --> 00:53:57,280
+no pero porque no lo he accedido
+aún ahora cuando acceda en teoría
+
+562
+00:53:57,380 --> 00:54:01,280
+bueno ahora hacemos las funciones y ya está
+
+563
+00:54:01,281 --> 00:54:04,280
+vale y aquí tenemos que
+hacer las diferentes funciones
+
+564
+00:54:04,580 --> 00:54:06,280
+necesarias
+
+565
+00:54:06,730 --> 00:54:09,994
+vale el cruz básico más
+las funciones de buscar por
+
+566
+00:54:09,995 --> 00:54:13,280
+id buscar por nombre existir
+por id existir por nombre
+
+567
+00:54:14,130 --> 00:54:15,280
+vale
+
+568
+00:54:15,480 --> 00:54:20,280
+entonces el la
+primera buscar todo
+
+569
+00:54:22,630 --> 00:54:25,280
+public list
+
+570
+00:54:25,630 --> 00:54:30,280
+en este caso será de taller
+
+571
+00:54:35,230 --> 00:54:37,718
+eeeh como queréis llamarla
+buscar todo listar todos
+
+572
+00:54:37,742 --> 00:54:42,280
+de todo lo que dice en inglés lo
+que dice en español como lo queréis
+
+573
+00:54:43,230 --> 00:54:44,280
+eeeh
+
+574
+00:54:47,230 --> 00:54:48,280
+buscar todos
+
+575
+00:54:49,130 --> 00:54:52,280
+vale no necesito nada para buscar todos
+
+576
+00:54:53,230 --> 00:54:54,280
+y que hago
+
+577
+00:54:55,230 --> 00:54:56,280
+devolver un retun
+
+578
+00:54:57,230 --> 00:55:00,550
+devolver un retun
+bueno el retun no se
+
+579
+00:55:00,551 --> 00:55:04,280
+devuelve salvo que
+quieras hacer un retun retun
+
+580
+00:55:06,080 --> 00:55:10,280
+que devuelvo que es lo que tengo
+que devolver eeeh un google como
+
+581
+00:55:10,780 --> 00:55:13,280
+un google tu si quieres un google
+
+582
+00:55:13,355 --> 00:55:20,280
+tengo que llamar al taller repository muy
+bien que es el que va a hacer las funciones
+
+583
+00:55:20,480 --> 00:55:23,280
+acordaros que mi repository
+es el que tiene las funciones
+
+584
+00:55:24,580 --> 00:55:29,280
+vale y aquí es
+donde eeeh me falta
+
+585
+00:55:31,555 --> 00:55:33,280
+es el como lo que hace las babas
+
+586
+00:55:36,430 --> 00:55:38,350
+no porque el taller
+repository si que estaba bien
+
+587
+00:55:38,705 --> 00:55:41,441
+ah no que el taller repository
+espérate que mi taller
+
+588
+00:55:41,516 --> 00:55:46,280
+repository no tenia
+nada es ahí estaba el fallo
+
+589
+00:55:47,180 --> 00:55:51,280
+extends jpa repository
+
+590
+00:55:51,580 --> 00:55:55,280
+ah claro que ahora que estoy
+pensando solo lo he hecho de
+
+591
+00:55:56,230 --> 00:55:59,280
+si taller
+
+592
+00:55:59,380 --> 00:56:02,280
+long
+
+593
+00:56:03,380 --> 00:56:05,280
+y el coche tambien
+
+594
+00:56:05,430 --> 00:56:10,280
+normalmente en el repository
+no va a haber nada mas verdad
+
+595
+00:56:10,830 --> 00:56:12,280
+no
+
+596
+00:56:12,530 --> 00:56:14,280
+a ver todo depende de lo que quieras hacer
+
+597
+00:56:14,281 --> 00:56:17,802
+normalmente si que me
+lleva mas cosas lo que pasa es
+
+598
+00:56:17,826 --> 00:56:21,292
+que yo no lo hemos visto
+por tiempo porque al final
+
+599
+00:56:21,980 --> 00:56:23,280
+eeeh
+
+600
+00:56:24,080 --> 00:56:29,280
+pues eso no hemos tenido mas
+sesiones para poder ver mas a fondo
+
+601
+00:56:30,380 --> 00:56:32,280
+pero luego ahi tu puedes hacer todas las
+
+602
+00:56:32,281 --> 00:56:36,280
+aqui es donde harías todas
+las funciones personalizadas
+
+603
+00:56:36,430 --> 00:56:40,280
+de la base de datos
+
+604
+00:56:40,430 --> 00:56:43,280
+todos los select
+
+605
+00:56:43,530 --> 00:56:45,496
+todas las consultas
+que quieras hacer
+
+606
+00:56:45,497 --> 00:56:49,280
+especificas lo que seria
+el buscador lo que seria
+
+607
+00:56:49,480 --> 00:56:56,280
+el cualquier elemento de la base
+de datos vale lo vas a meter aqui
+
+608
+00:56:56,330 --> 00:57:00,280
+vale que serian lo que son consultas
+especificas ya fuera del cruz básico
+
+609
+00:57:01,030 --> 00:57:05,280
+pues todo eso lo tienes que definir
+en la interfaz y lo montas en el servicio
+
+610
+00:57:06,180 --> 00:57:08,280
+que es lo que ahora haremos con el
+
+611
+00:57:09,130 --> 00:57:13,280
+con el buscar por nombre y eso
+
+612
+00:57:14,880 --> 00:57:17,080
+vale entonces tenemos
+estas son las funciones
+
+613
+00:57:17,081 --> 00:57:23,280
+que me salen findall,
+findall by md, findall
+
+614
+00:57:23,880 --> 00:57:27,280
+antes en este caso el
+findall no es el buscar todos
+
+615
+00:57:29,780 --> 00:57:33,280
+vale tendriamos luego
+
+616
+00:57:34,330 --> 00:57:36,280
+el insertar
+
+617
+00:57:37,330 --> 00:57:42,280
+public
+
+618
+00:57:44,780 --> 00:57:46,280
+queréis devolver
+
+619
+00:57:49,230 --> 00:57:50,280
+el taller
+
+620
+00:57:50,630 --> 00:57:53,280
+nos vemos un taller
+
+621
+00:57:54,080 --> 00:58:05,280
+el que estemos guardando
+guardar taller que necesito
+
+622
+00:58:05,980 --> 00:58:08,280
+ahora vamos a insertar
+
+623
+00:58:10,230 --> 00:58:14,280
+agregar prefieres agregar
+
+624
+00:58:15,180 --> 00:58:20,280
+agregar agregar
+
+625
+00:58:20,380 --> 00:58:23,280
+taller
+
+626
+00:58:24,230 --> 00:58:30,280
+taller vale esto si devuelve
+tengo que tener un reto de que
+
+627
+00:58:32,230 --> 00:58:33,280
+de la dist
+
+628
+00:58:34,230 --> 00:58:38,045
+no quien hace todas
+las instrucciones todas
+
+629
+00:58:38,046 --> 00:58:44,280
+las funciones que
+las tiene el repositorio
+
+630
+00:58:44,480 --> 00:58:47,280
+el repositorio es
+
+631
+00:58:52,780 --> 00:58:55,280
+safe
+
+632
+00:58:59,280 --> 00:59:07,280
+vale
+
+633
+00:59:08,180 --> 00:59:11,280
+vale
+
+634
+00:59:13,205 --> 00:59:16,280
+el
+
+635
+00:59:16,630 --> 00:59:24,280
+borrar acordaros que el agregar
+taller sirve para guardar y actualizar
+
+636
+00:59:24,780 --> 00:59:27,280
+vale el safe guarda y actualiza
+
+637
+00:59:27,281 --> 00:59:30,517
+os acordáis cuál era la
+diferencia entre guardar y
+
+638
+00:59:30,518 --> 00:59:34,280
+actualizar el uno era
+con idea y el otro sin idea
+
+639
+00:59:34,580 --> 00:59:37,280
+correcto vale cuál era cual
+
+640
+00:59:37,780 --> 00:59:40,280
+el guardar y actualizar
+
+641
+00:59:41,130 --> 00:59:43,280
+es
+
+642
+00:59:44,880 --> 00:59:47,280
+otra vez
+
+643
+00:59:47,480 --> 00:59:51,280
+si yo guardo
+
+644
+00:59:51,430 --> 00:59:54,280
+pero tengo necesito el id o no
+
+645
+00:59:55,230 --> 01:00:01,280
+guardas se auto incrementa el id me lo va a
+generar automáticamente cuando yo guardo
+
+646
+01:00:01,281 --> 01:00:08,280
+cuando agrego uno nuevo los mando sin
+id y el id se genera en la base de datos
+
+647
+01:00:08,281 --> 01:00:11,280
+ahora bien si le estoy
+mandando un guardar con id
+
+648
+01:00:11,281 --> 01:00:14,885
+entonces ya él entiende
+que lo que estoy haciendo es
+
+649
+01:00:14,886 --> 01:00:19,280
+actualizando el id correspondiente
+que me hayan mandado
+
+650
+01:00:19,980 --> 01:00:23,280
+vale por eso la misma función safe
+vale para guardar o para actualizar
+
+651
+01:00:23,380 --> 01:00:29,280
+si claro solo que has fallado
+
+652
+01:00:29,580 --> 01:00:32,280
+y
+
+653
+01:00:37,480 --> 01:00:39,280
+no no es tu mandas el taller igual
+
+654
+01:00:39,330 --> 01:00:44,280
+no vas a que ese taller vale está
+construido en el constructor por eso
+
+655
+01:00:44,281 --> 01:00:47,280
+tenemos un constructor con
+idea y un constructor sin idea
+
+656
+01:00:47,281 --> 01:00:51,280
+el all our constructor vale acordaros
+que es un constructor que tiene idea
+
+657
+01:00:51,281 --> 01:00:59,280
+el que hacemos nosotros a
+mano es el que no tiene idea vale
+
+658
+01:00:59,530 --> 01:01:04,280
+vale
+
+659
+01:01:04,580 --> 01:01:15,280
+borrar hacemos muy porque no vuelve nada
+podríamos devolver el elemento se borra
+
+660
+01:01:17,080 --> 01:01:21,280
+vale esto será eliminar
+
+661
+01:01:22,980 --> 01:01:25,280
+que necesito para borrar un taller
+
+662
+01:01:28,180 --> 01:01:33,280
+igual no necesito todo para
+borrar el no el id del taller
+
+663
+01:01:34,830 --> 01:01:37,162
+si lo haces si mandas
+solo el idea la función
+
+664
+01:01:37,163 --> 01:01:42,280
+es mucho más ligera que
+si mandas todo un objeto
+
+665
+01:01:42,630 --> 01:01:47,280
+vamos hablando de
+milisegundos pero es más eficiente
+
+666
+01:01:48,730 --> 01:01:50,356
+ya empiezas a hacer cosas
+muy grandes pues se nota mucho
+
+667
+01:01:50,380 --> 01:01:59,280
+vale entonces esto directamente
+es el repositor y punto del
+
+668
+01:01:59,730 --> 01:02:08,280
+del éter va a ir y eso
+
+669
+01:02:11,280 --> 01:02:19,280
+eso sería el cruz básico
+ahora tenemos buscar por id
+
+670
+01:02:19,780 --> 01:02:21,280
+ale
+
+671
+01:02:22,280 --> 01:02:28,280
+es el que nos va a devolver el octo en algo
+
+672
+01:02:30,580 --> 01:02:33,280
+de un taller
+
+673
+01:02:35,080 --> 01:02:38,280
+buscar por id
+
+674
+01:02:39,080 --> 01:02:43,280
+si voy a buscar por id que necesito el id
+
+675
+01:02:43,930 --> 01:02:46,280
+obvio
+
+676
+01:02:46,530 --> 01:02:54,280
+y lo que tengo que hacer es
+devolver el resultado de el repositorio
+
+677
+01:02:54,780 --> 01:02:58,280
+fine by
+
+678
+01:02:58,580 --> 01:03:02,280
+y me pasan
+
+679
+01:03:03,180 --> 01:03:09,280
+ya tenemos el buscar
+por id ahora el existe por id
+
+680
+01:03:10,630 --> 01:03:13,280
+el existe por id
+
+681
+01:03:15,180 --> 01:03:21,280
+dice buscar por id vale buscar por
+nombre ahora lo hacemos existe por id
+
+682
+01:03:21,580 --> 01:03:27,280
+que va a devolver existe por id
+un existe que pensáis que va a
+
+683
+01:03:27,281 --> 01:03:38,280
+devolver más más simple si yo te pregunto
+existe la respuesta que te sale que es
+
+684
+01:03:38,380 --> 01:03:44,280
+o si o no y un si o no es un booleano
+
+685
+01:03:44,380 --> 01:03:48,280
+boolean existe
+
+686
+01:03:48,930 --> 01:03:55,280
+por id existe por id que va a recoger el id
+
+687
+01:03:57,830 --> 01:04:05,280
+vale y esto va a devolver el
+repositorio que función creéis que será
+
+688
+01:04:06,480 --> 01:04:08,280
+y
+
+689
+01:04:11,230 --> 01:04:12,280
+y
+
+690
+01:04:13,280 --> 01:04:19,280
+existe
+
+691
+01:04:19,630 --> 01:04:23,280
+muy bien estas son las fáciles
+
+692
+01:04:23,930 --> 01:04:25,280
+vale lo que
+
+693
+01:04:26,080 --> 01:04:28,280
+vale simplemente hacer el atel
+
+694
+01:04:29,330 --> 01:04:34,280
+vale ahora vamos a buscar por nombre public
+
+695
+01:04:34,830 --> 01:04:39,280
+bueno en realidad esto será una lista
+
+696
+01:04:39,480 --> 01:04:45,280
+de taller vale porque al buscar
+por nombre pueden aparecer varios
+
+697
+01:04:46,030 --> 01:04:51,280
+buscar por nombre
+
+698
+01:04:52,780 --> 01:04:55,280
+que me van a pasar un
+
+699
+01:04:55,530 --> 01:05:00,280
+me están buscando por nombre
+
+700
+01:05:00,830 --> 01:05:05,280
+string nombre
+
+701
+01:05:09,080 --> 01:05:14,280
+vale esto será el retorn de repositorio
+
+702
+01:05:14,505 --> 01:05:19,280
+repositorio
+
+703
+01:05:20,080 --> 01:05:22,280
+punto
+
+704
+01:05:22,830 --> 01:05:27,280
+buscar por no by
+
+705
+01:05:27,630 --> 01:05:32,280
+pero tengo un fine by
+pero no tengo un nombre
+
+706
+01:05:32,755 --> 01:05:35,280
+porque
+
+707
+01:05:35,730 --> 01:05:37,280
+porque
+
+708
+01:05:37,480 --> 01:05:42,280
+porque lo podemos poner nosotros
+pero no está integrada por defecto vale que
+
+709
+01:05:42,330 --> 01:05:49,280
+asimía mucho que él cogiera las
+entidades y nos creará todas las funciones
+
+710
+01:05:49,880 --> 01:05:53,280
+pues sí que nos da la
+funcionalidad necesaria para hacerlo
+
+711
+01:05:53,630 --> 01:05:59,280
+pero no nos lo genera él de por
+sí es donde lo tenemos que crear
+
+712
+01:06:00,130 --> 01:06:04,280
+en el repositorio es decir tenemos
+que ir al repositorio y hacer las
+
+713
+01:06:04,281 --> 01:06:08,280
+funciones personalizadas en este caso
+vamos a tener que hacer el buscar por
+
+714
+01:06:08,505 --> 01:06:12,280
+nombre y el existe por nombre
+
+715
+01:06:13,830 --> 01:06:16,280
+ya dejaba medias
+
+716
+01:06:16,780 --> 01:06:21,280
+dejado aquí en coitos interruptos
+
+717
+01:06:23,180 --> 01:06:24,314
+vale me he venido al
+repositorio y entonces hemos
+
+718
+01:06:24,315 --> 01:06:31,280
+dicho que queremos hacer
+una función que se ame fine
+
+719
+01:06:31,880 --> 01:06:34,280
+fine by
+
+720
+01:06:37,930 --> 01:06:42,280
+entonces fijaros aquí
+abajo que tengo un fine by
+
+721
+01:06:42,480 --> 01:06:47,400
+vale puedo hacer un fine by y
+abajo me salen más opciones
+
+722
+01:06:47,401 --> 01:06:54,280
+cuando iré al fan by vale
+fijaros que me sale by calle
+
+723
+01:06:55,130 --> 01:07:01,280
+bueno podéis escribir y os va acotando en
+nuestro caso queremos buscar por nombre
+
+724
+01:07:01,380 --> 01:07:03,811
+y tiene tiene un huevo
+de opciones vale nosotros
+
+725
+01:07:03,812 --> 01:07:09,280
+vamos a poner solo el
+fine by nombre y ya está
+
+726
+01:07:10,080 --> 01:07:17,280
+luego podéis trabajar con está el
+actor al final es todo la consulta vale la
+
+727
+01:07:17,281 --> 01:07:19,256
+resulta que generaría
+lo que hace es que hay
+
+728
+01:07:19,306 --> 01:07:23,280
+muchos operadores para
+hacer más fácil esa consulta
+
+729
+01:07:23,430 --> 01:07:25,280
+de trabajar
+
+730
+01:07:25,455 --> 01:07:30,280
+pero en un momento nosotros
+vamos a ver solo el fine by nombre
+
+731
+01:07:33,280 --> 01:07:37,280
+vale está bien le decimos que lo que
+va a volver veis esto es lo que te decía de
+
+732
+01:07:37,281 --> 01:07:42,280
+todos los tipos de contenedores que
+hay es la lista ordenada lista desordenada
+
+733
+01:07:42,281 --> 01:07:48,280
+una colección un iterador
+nosotros trabajamos sólo con la lista
+
+734
+01:07:49,280 --> 01:07:51,280
+tipo
+
+735
+01:07:51,930 --> 01:07:55,280
+para el de seis automáticamente
+nos genera esa función
+
+736
+01:07:56,380 --> 01:08:02,280
+y esa función ya tiene toda la lógica
+en esa área para buscarnos por nombre
+
+737
+01:08:03,580 --> 01:08:09,280
+vale lo mismo tenemos
+que hacer con el exist by
+
+738
+01:08:10,430 --> 01:08:12,280
+dice que busquemos por
+
+739
+01:08:12,630 --> 01:08:15,280
+nombre
+
+740
+01:08:16,055 --> 01:08:22,279
+mismo exist by nombre si va y
+nombre juleano con el estricto
+
+741
+01:08:32,180 --> 01:08:34,279
+vale
+
+742
+01:08:35,930 --> 01:08:37,497
+es con eso estaríamos
+haciendo esas dos
+
+743
+01:08:37,498 --> 01:08:42,279
+funciones el exist by
+nombre y el fine by nombre
+
+744
+01:08:42,380 --> 01:08:45,279
+ahora y ya la
+
+745
+01:08:49,480 --> 01:08:55,279
+no le paso es lo que devuelve lo
+primero es el retorno de la función
+
+746
+01:08:55,430 --> 01:08:59,279
+esta devuelve una lista vale porque voy a
+buscar por nombre y pueden haber varios
+
+747
+01:08:59,280 --> 01:09:09,279
+con el mismo nombre y el segundo es
+porque es el booleano de existe o no existe
+
+748
+01:09:11,030 --> 01:09:15,279
+pues ahora que las tenemos si que podemos
+invocar esas funciones es decir ahora
+
+749
+01:09:15,280 --> 01:09:18,279
+fijaros que tenemos un
+fine by nombre aquí abajo
+
+750
+01:09:18,980 --> 01:09:25,279
+más me sale en negrita porque es
+personalizada y le puedo pasar el nombre
+
+751
+01:09:30,780 --> 01:09:37,279
+y vamos a hacer también el
+existe es decir el public boolean
+
+752
+01:09:38,230 --> 01:09:39,279
+existe
+
+753
+01:09:40,330 --> 01:09:42,279
+por nombre
+
+754
+01:09:45,480 --> 01:09:48,279
+hay que me van a pasar un estricto nombre
+
+755
+01:09:51,430 --> 01:10:04,280
+y voy a devolver el repositorio
+punto exist by pasando el
+
+756
+01:10:10,230 --> 01:10:11,280
+vale
+
+757
+01:10:13,580 --> 01:10:21,280
+con eso tendríamos ya el servicio
+creado ya teníamos este punto del servicio
+
+758
+01:10:23,330 --> 01:10:26,280
+los siguientes sería el
+controlador del taller
+
+759
+01:10:26,530 --> 01:10:33,280
+el controlador como es ya lo más pesado
+vamos a hacer el descanso y a la vuelta
+
+760
+01:10:36,030 --> 01:10:38,280
+terminamos
+
+761
+01:10:38,880 --> 01:10:48,280
+no sé porque el controlador está cerca
+de casi la mitad el controlador tiene mucho
+
+762
+01:10:48,780 --> 01:10:51,280
+mucha pela
+
+763
+01:10:52,330 --> 01:10:55,280
+ya lo sé pero también es lo que más vale
+
+764
+01:10:56,080 --> 01:11:01,280
+no me acuerdo tendría que volver
+a mirar los ítems los tengo en casa
+
+765
+01:11:01,281 --> 01:11:05,280
+pero creo que el controlador
+valía unos cuatro puntos
+
+766
+01:11:05,630 --> 01:11:11,948
+como el controlador
+creo que está del orden
+
+767
+01:11:11,949 --> 01:11:16,280
+de por ahí con la acción
+es ya sé que bueno
+
+768
+01:11:16,281 --> 01:11:21,280
+ahí está las relaciones es muy
+importante vale todo lo que es el
+
+769
+01:11:21,281 --> 01:11:27,280
+el guante guan el guante meni meni
+to guan vale eso es muy importante
+
+770
+01:11:27,630 --> 01:11:30,280
+más vale
+
+771
+01:11:30,530 --> 01:11:35,280
+primero sería el controlador luego sería
+eso y luego el resto que es mi poquito
+
+772
+01:11:35,630 --> 01:11:39,280
+porque al final habéis visto
+que es crear un repositorio el
+
+773
+01:11:39,630 --> 01:11:42,280
+el servicio realmente es todas
+las funciones que tenés en el
+
+774
+01:11:42,281 --> 01:11:47,280
+repositorio invocarlas pero
+no tiene no tiene mucha miga
+
+775
+01:11:47,330 --> 01:11:52,280
+sí tiene más miga por ejemplo el
+esto que hemos hecho ahora de buscar
+
+776
+01:11:52,305 --> 01:11:56,280
+crear funciones personalizadas
+en el repositorio que lo de
+
+777
+01:11:56,281 --> 01:12:00,280
+las funciones del servicio que
+simplemente la invoco y la reboto sabes
+
+778
+01:12:01,230 --> 01:12:02,280
+no tiene más
+
+779
+01:12:03,180 --> 01:12:09,280
+porque lo paramos a este
+cuarto venga continuamos
+
+780
+01:12:10,180 --> 01:12:16,280
+vale entonces ya tenemos el servicio
+con todas las funciones que nos piden
+
+781
+01:12:16,680 --> 01:12:21,280
+nos falta ahora montar nuestro controlador
+
+782
+01:12:22,230 --> 01:12:23,390
+para que cante el controlador
+
+783
+01:12:25,180 --> 01:12:28,280
+para tener todas las
+peticiones si hacemos alguna
+
+784
+01:12:28,281 --> 01:12:33,280
+alguna petición para cliente para
+coche pues tener ese cruise disponible
+
+785
+01:12:41,230 --> 01:12:42,280
+vale
+
+786
+01:12:43,230 --> 01:12:44,280
+y un javaql
+
+787
+01:12:44,480 --> 01:12:46,280
+control
+
+788
+01:12:46,930 --> 01:12:53,280
+y el control
+
+789
+01:12:53,680 --> 01:12:58,280
+mal
+
+790
+01:12:59,030 --> 01:13:02,574
+dice la placa del taller con
+los envoines solicitados por
+
+791
+01:13:02,575 --> 01:13:06,280
+el cliente vale y esto es a
+los envoines que nos dicen
+
+792
+01:13:06,930 --> 01:13:11,280
+dice que listar todos los talleres
+en barra API V1 talleres barra todos
+
+793
+01:13:11,330 --> 01:13:16,280
+buscar talleres en barra
+API V1 talleres barra del taller
+
+794
+01:13:16,780 --> 01:13:21,280
+crear un nuevo taller en barra
+API V3 talleres nuevo taller
+
+795
+01:13:21,680 --> 01:13:24,280
+actualizar la información
+de un taller existente
+
+796
+01:13:24,730 --> 01:13:28,280
+hay mierda
+
+797
+01:13:29,180 --> 01:13:31,280
+vamos a modificarlo
+
+798
+01:13:31,430 --> 01:13:34,280
+tengo uno subi uno tengo uno subi tres
+
+799
+01:13:35,330 --> 01:13:39,280
+que tengo por aquí uno subi
+uno y uno subi tres para no volver
+
+800
+01:13:40,380 --> 01:13:44,280
+voy a ponerlos todos
+
+801
+01:13:45,205 --> 01:13:50,280
+que
+
+802
+01:13:50,930 --> 01:13:52,944
+si a ver para que
+tengas todos las mismas
+
+803
+01:13:52,968 --> 01:13:55,292
+bases sabes lo que te
+quiero decir porque si no
+
+804
+01:13:55,880 --> 01:13:58,280
+hay mierda y no he cambiado ese
+
+805
+01:13:58,980 --> 01:14:01,280
+si
+
+806
+01:14:02,280 --> 01:14:08,280
+crear y actualizar crear
+si que lo había cambiado
+
+807
+01:14:09,155 --> 01:14:10,280
+no faltaba este
+
+808
+01:14:12,030 --> 01:14:13,280
+ese mancón
+
+809
+01:14:13,630 --> 01:14:17,813
+vale entonces tenemos
+listar buscar crear
+
+810
+01:14:17,814 --> 01:14:24,280
+actualizar y eliminar vale
+todos con una parte común
+
+811
+01:14:24,880 --> 01:14:28,280
+vale que es a barra API
+barra V1 barra talleres
+
+812
+01:14:29,230 --> 01:14:30,280
+vale
+
+813
+01:14:31,180 --> 01:14:32,500
+entonces vamos a hacer el control
+
+814
+01:14:32,930 --> 01:14:35,280
+lo primero el control que
+es que tipo de control es
+
+815
+01:14:37,980 --> 01:14:42,280
+control control
+
+816
+01:14:43,030 --> 01:14:47,280
+porque es de una API res vamos a
+hacerlo competiciones a chiste de
+
+817
+01:14:47,281 --> 01:14:52,280
+vale entonces queremos
+que lo gestione como tal
+
+818
+01:14:52,430 --> 01:14:55,280
+aquí descanso
+
+819
+01:14:55,480 --> 01:15:03,280
+mapping que descanso
+pues más descanso bastante
+
+820
+01:15:03,480 --> 01:15:08,280
+vale y el recuento que
+
+821
+01:15:08,480 --> 01:15:12,280
+es la ruta por defecto que será
+el prefijo que queremos poner
+
+822
+01:15:13,130 --> 01:15:15,280
+entonces
+
+823
+01:15:15,880 --> 01:15:20,280
+exacto en nuestro caso
+vale hemos dicho que era API
+
+824
+01:15:20,830 --> 01:15:26,280
+barra V1 barra talleres
+
+825
+01:15:26,680 --> 01:15:31,280
+vale aquí vamos a necesitar
+
+826
+01:15:31,680 --> 01:15:37,280
+el servicio talleres
+
+827
+01:15:38,030 --> 01:15:40,280
+talleres service
+
+828
+01:15:40,430 --> 01:15:42,280
+talleres service
+
+829
+01:15:42,480 --> 01:15:44,280
+y hacemos el constructo
+
+830
+01:15:44,680 --> 01:15:48,280
+creante constructo
+
+831
+01:15:50,230 --> 01:15:59,280
+vale vale y es empezar a hacer
+las peticiones que nos dicen
+
+832
+01:16:00,080 --> 01:16:04,280
+nos dice end point para
+listar todos los talleres
+
+833
+01:16:05,130 --> 01:16:11,280
+get mapping @get mapping
+
+834
+01:16:12,130 --> 01:16:18,280
+me dice además que tiene que ser en barra
+API barra V1 barra talleres barra todos
+
+835
+01:16:20,230 --> 01:16:24,280
+barra todos muy bien
+
+836
+01:16:25,480 --> 01:16:28,280
+vale entonces aquí tenemos
+que hacer una función
+
+837
+01:16:29,380 --> 01:16:32,280
+para un response entity
+
+838
+01:16:38,680 --> 01:16:42,280
+que sea bueno en este caso
+
+839
+01:16:43,380 --> 01:16:46,280
+directamente podemos hacer el listado
+
+840
+01:16:47,280 --> 01:16:49,280
+listado
+
+841
+01:16:50,430 --> 01:16:52,280
+de talleres
+
+842
+01:16:57,080 --> 01:16:59,280
+como que listar funciones
+
+843
+01:17:01,730 --> 01:17:04,280
+listar todos igual que en el otro lado
+
+844
+01:17:06,230 --> 01:17:10,280
+no afectan nada no no aquí el
+nombre de la función es lo de mero
+
+845
+01:17:10,980 --> 01:17:13,280
+vale devolvemos
+
+846
+01:17:13,980 --> 01:17:19,280
+el talleres service punto listar
+
+847
+01:17:20,930 --> 01:17:22,280
+muy bien
+
+848
+01:17:23,230 --> 01:17:24,280
+vale
+
+849
+01:17:25,180 --> 01:17:27,280
+luego tendríamos
+
+850
+01:17:29,230 --> 01:17:36,280
+buscar talleres por id dice barra
+API V1 talleres get talleres y luego el id
+
+851
+01:17:37,680 --> 01:17:39,280
+@get mapping
+
+852
+01:17:43,480 --> 01:17:45,280
+cual es la url que tenemos que poner
+
+853
+01:17:47,230 --> 01:17:51,280
+dice get talleres
+
+854
+01:17:51,480 --> 01:17:58,280
+entre barra
+
+855
+01:17:59,130 --> 01:18:04,280
+entre llaves del id
+entre llaves del id
+
+856
+01:18:05,380 --> 01:18:16,280
+muy bien y en este caso es un public
+response entity si siempre es public
+
+857
+01:18:16,330 --> 01:18:21,280
+en teoría en todas deberíamos
+poner el response entity
+
+858
+01:18:21,630 --> 01:18:28,280
+porque lo que vas a devolver al final es
+una respuesta HTTP con la información
+
+859
+01:18:29,330 --> 01:18:31,552
+en el listar todo lo que
+pasa es que al final es
+
+860
+01:18:31,553 --> 01:18:37,280
+listas todos pero si que
+podríamos controlar también
+
+861
+01:18:37,630 --> 01:18:40,280
+con un response entity pero
+no hace falta esta es la única
+
+862
+01:18:40,281 --> 01:18:43,280
+función en la que no es
+necesario porque saca una
+
+863
+01:18:43,380 --> 01:18:46,280
+colección y ya está
+
+864
+01:18:47,030 --> 01:18:52,280
+en la de buscar por
+nombre si le hiciéramos vale
+
+865
+01:18:52,281 --> 01:18:55,280
+pero si buscaramos por nombre
+pues también podríamos hacer lo mismo
+
+866
+01:18:55,430 --> 01:18:58,280
+sacas un listado con lo que tiene y ya está
+
+867
+01:18:58,281 --> 01:19:01,280
+también depende si quieres devolver un
+objeto porque al final estás devolviendo la
+
+868
+01:19:01,281 --> 01:19:04,280
+información en formato
+JSON pues lo que hacíamos
+
+869
+01:19:04,281 --> 01:19:07,280
+con node en acceso a
+datos pues si lo vas a devolver
+
+870
+01:19:07,980 --> 01:19:10,280
+un objeto que tenga
+
+871
+01:19:10,380 --> 01:19:13,280
+resultados esto
+
+872
+01:19:13,380 --> 01:19:19,280
+status si quieres hacer una
+respuesta más personalizada
+
+873
+01:19:19,281 --> 01:19:22,280
+entonces ahí lo controlas
+más con el response entity
+
+874
+01:19:24,330 --> 01:19:31,280
+coger uno como lo hemos
+llamado en el servicio
+
+875
+01:19:32,480 --> 01:19:34,280
+buscar por id
+
+876
+01:19:37,180 --> 01:19:40,280
+vamos igual
+
+877
+01:19:41,380 --> 01:19:51,280
+vale en buscar por id vamos a tener
+que recoger el id que nos han pasado
+
+878
+01:19:51,281 --> 01:19:57,280
+vale acordamos que esto era un
+parámetro y lo recogíamos como
+
+879
+01:19:57,880 --> 01:20:00,280
+pal@
+
+880
+01:20:02,080 --> 01:20:05,280
+pal variable
+
+881
+01:20:06,730 --> 01:20:11,280
+vale y guardamos ahí el id
+
+882
+01:20:15,580 --> 01:20:20,280
+vale entonces ahora es cuando
+teníamos que devolver la respuesta
+
+883
+01:20:20,855 --> 01:20:23,280
+como lo hacíamos
+
+884
+01:20:24,180 --> 01:20:26,280
+el service
+
+885
+01:20:26,980 --> 01:20:29,280
+punto
+
+886
+01:20:29,380 --> 01:20:32,280
+vamos por id pasando el id
+
+887
+01:20:33,730 --> 01:20:38,280
+vale y ahora viene
+la respuesta punto
+
+888
+01:20:39,880 --> 01:20:50,280
+aquí poníamos un response entity de
+lo que sea porque pueden ser dos cosas
+
+889
+01:20:50,430 --> 01:21:02,280
+esto hacemos el map de
+response entity en este caso
+
+890
+01:21:02,480 --> 01:21:05,280
+ha ido todo bien
+
+891
+01:21:06,830 --> 01:21:11,280
+pues devolvemos uno
+ahora bien si no ha ido bien
+
+892
+01:21:12,130 --> 01:21:14,280
+por el seguet
+
+893
+01:21:17,530 --> 01:21:20,280
+vale entonces hacemos
+
+894
+01:21:21,580 --> 01:21:23,280
+aquí es donde el primer
+
+895
+01:21:24,480 --> 01:21:31,216
+díaz si no ha
+encontrado el id entonces
+
+896
+01:21:31,217 --> 01:21:41,280
+devolvemos otra respuesta
+con status htt status
+
+897
+01:21:41,480 --> 01:21:47,280
+punto me dice que tengo que
+devolver si no encuentro el id
+
+898
+01:21:48,380 --> 01:21:56,280
+un 404 404 is not found y devolverá
+un error 404 si no lo encuentra
+
+899
+01:21:56,580 --> 01:21:59,280
+vale pues entonces en
+este caso estamos diciendo
+
+900
+01:21:59,680 --> 01:22:08,280
+si todo va bien devuelve una ok vale
+devuelve la respuesta con el ok si no
+
+901
+01:22:08,430 --> 01:22:11,280
+pues entonces devuelves el not found
+
+902
+01:22:11,380 --> 01:22:14,280
+el not found además
+
+903
+01:22:14,580 --> 01:22:20,280
+vale le vamos a
+decir un punto body
+
+904
+01:22:21,280 --> 01:22:23,280
+con collections
+
+905
+01:22:27,180 --> 01:22:29,280
+collections
+
+906
+01:22:29,530 --> 01:22:32,280
+punto single button
+
+907
+01:22:33,130 --> 01:22:41,280
+que esto es clave valor vale
+y devolvemos pues mensaje
+
+908
+01:22:43,230 --> 01:22:44,280
+he encontrado
+
+909
+01:22:46,230 --> 01:22:50,280
+taller no taller no encontrado
+
+910
+01:22:52,230 --> 01:22:53,280
+es mensaje
+
+911
+01:22:53,480 --> 01:22:59,280
+o mensaje como lo quieras
+devolver esto es es clave valor
+
+912
+01:22:59,281 --> 01:23:01,946
+entonces esto si debil
+va a devolver un json
+
+913
+01:23:01,947 --> 01:23:05,280
+vale con la información
+que tu quieras poner
+
+914
+01:23:05,780 --> 01:23:11,280
+vale es clave valor
+pues ponelo mensaje
+
+915
+01:23:11,930 --> 01:23:14,280
+mensaje
+
+916
+01:23:15,880 --> 01:23:17,280
+no no
+
+917
+01:23:17,680 --> 01:23:20,280
+es el es el nombre
+
+918
+01:23:20,430 --> 01:23:24,830
+que tiene la variable por
+decir así es la parte de la
+
+919
+01:23:24,831 --> 01:23:29,280
+izquierda del json que está
+entrecomillada entonces ahí es un
+
+920
+01:23:29,281 --> 01:23:35,280
+string en el que vas a definir
+el nombre de la variable ya está
+
+921
+01:23:36,230 --> 01:23:38,280
+vale mensaje no encontrado
+
+922
+01:23:39,230 --> 01:23:41,280
+y
+
+923
+01:23:41,630 --> 01:23:44,280
+vale
+
+924
+01:23:46,230 --> 01:23:47,280
+ya
+
+925
+01:23:47,730 --> 01:23:50,280
+así
+
+926
+01:23:50,480 --> 01:23:56,280
+a ver la la cosa es que esto ya
+luego el 404 lo podemos copiar vale
+
+927
+01:23:57,230 --> 01:23:59,280
+porque en cada 404 es igual
+
+928
+01:23:59,930 --> 01:24:05,280
+básicamente si no lo encuentras el
+id pues montas un nozo vale siguiente
+
+929
+01:24:06,080 --> 01:24:14,280
+dice crear un nuevo taller en
+barra rápido uno talleres nuevo taller
+
+930
+01:24:15,180 --> 01:24:20,280
+si voy a crear pos
+
+931
+01:24:20,480 --> 01:24:23,280
+pos mapping
+
+932
+01:24:24,780 --> 01:24:26,280
+uno
+
+933
+01:24:28,230 --> 01:24:35,280
+dos vale me dice
+que es en nuevo taller
+
+934
+01:24:36,080 --> 01:24:38,280
+nuevo
+
+935
+01:24:39,080 --> 01:24:41,280
+ah
+
+936
+01:24:41,730 --> 01:24:44,280
+vale
+
+937
+01:24:44,430 --> 01:24:50,280
+lo hemos llamado antes
+agregar agregar talleres me suena
+
+938
+01:24:51,530 --> 01:24:53,280
+agregar talleres
+
+939
+01:24:55,980 --> 01:24:59,280
+vale así que vamos a hacer
+
+940
+01:24:59,680 --> 01:25:02,280
+public
+
+941
+01:25:04,230 --> 01:25:05,280
+public
+
+942
+01:25:06,430 --> 01:25:08,280
+entity
+
+943
+01:25:09,880 --> 01:25:17,280
+vale va a devolver varias cosas dependiendo
+de si va todo a bien o no va bien agregar
+
+944
+01:25:17,380 --> 01:25:23,280
+talleres y que necesito
+para agregar un taller
+
+945
+01:25:23,430 --> 01:25:26,280
+es un taller y donde viene el taller
+
+946
+01:25:26,680 --> 01:25:32,280
+en el servicio no es donde
+va a ir de dónde viene
+
+947
+01:25:34,230 --> 01:25:35,350
+por donde nos lo han mandado
+
+948
+01:25:37,230 --> 01:25:38,280
+e
+
+949
+01:25:40,230 --> 01:25:41,280
+e
+
+950
+01:25:41,880 --> 01:25:46,914
+el posman posman el
+posman a ver posman simula
+
+951
+01:25:46,915 --> 01:25:50,280
+una petición vale o
+hace una vez realiza una
+
+952
+01:25:50,281 --> 01:25:53,019
+petición pero puede venir
+de cualquier aplicación
+
+953
+01:25:53,020 --> 01:25:56,280
+del front que esté
+generando una petición
+
+954
+01:25:56,780 --> 01:25:59,280
+entonces eso es una petición del
+
+955
+01:25:59,480 --> 01:26:05,280
+usuario en la petición del
+usuario de donde viene la
+
+956
+01:26:05,730 --> 01:26:11,280
+información como se llamaba la
+petición del usuario hablando de
+
+957
+01:26:11,380 --> 01:26:17,280
+manera técnica el recuerdo el recuerdo
+el recuerdo es la petición del usuario
+
+958
+01:26:17,580 --> 01:26:18,137
+así como el responso
+es la respuesta del
+
+959
+01:26:18,138 --> 01:26:29,280
+servidor el recuerdo es
+la petición del usuario y
+
+960
+01:26:29,480 --> 01:26:32,280
+dentro de posman donde le poníamos la
+
+961
+01:26:33,680 --> 01:26:38,280
+información en el cuerpo
+
+962
+01:26:38,480 --> 01:26:47,280
+entonces es en el body del recuerdo en
+node era recuerdo punto body pero aquí es
+
+963
+01:26:48,480 --> 01:26:53,280
+arroba recuerdo body el que
+
+964
+01:26:54,530 --> 01:27:02,280
+es porque coges un parámetro de la de
+la petición es decir cuando tú mandas un
+
+965
+01:27:02,930 --> 01:27:08,280
+una petición dentro de la cabecera hay
+un apartado que se llama para es porque
+
+966
+01:27:08,281 --> 01:27:12,460
+puedes mandar parámetros
+metidos dentro de
+
+967
+01:27:12,461 --> 01:27:17,280
+la petición a 7dp ahí
+es para recogerlo desde
+
+968
+01:27:18,280 --> 01:27:20,280
+al final es como el pad variable
+
+969
+01:27:20,480 --> 01:27:26,280
+que trabajamos arriba el
+recuerdo body en este caso taller
+
+970
+01:27:26,630 --> 01:27:29,280
+taller
+
+971
+01:27:29,930 --> 01:27:32,280
+vale
+
+972
+01:27:32,780 --> 01:27:37,280
+ee vamos a meterlo
+
+973
+01:27:38,480 --> 01:27:40,280
+vale nuestro taller tenía algo
+
+974
+01:27:40,480 --> 01:27:43,280
+peculiar
+
+975
+01:27:45,230 --> 01:27:46,280
+si ya lo tengo al taller
+
+976
+01:27:48,230 --> 01:28:01,280
+bastante bien nombre calle y nombre
+cargador vale pues entonces vamos a meterlo
+
+977
+01:28:02,180 --> 01:28:04,280
+a negar taller
+
+978
+01:28:04,530 --> 01:28:07,280
+si vamos a hacer el
+
+979
+01:28:08,180 --> 01:28:10,280
+taller
+
+980
+01:28:11,730 --> 01:28:13,280
+ah
+
+981
+01:28:13,380 --> 01:28:19,280
+pensar que lo vamos
+a devolver taller
+
+982
+01:28:21,180 --> 01:28:22,280
+el nuevo taller
+
+983
+01:28:27,230 --> 01:28:31,280
+es igual a el
+
+984
+01:28:32,130 --> 01:28:34,280
+taller
+
+985
+01:28:35,405 --> 01:28:37,280
+donde estas
+
+986
+01:28:37,430 --> 01:28:43,280
+punto agregar taller
+
+987
+01:28:45,230 --> 01:28:49,280
+y le pasamos al taller
+vale entonces devolvemos
+
+988
+01:28:49,630 --> 01:29:01,280
+return response entity punto
+status y que status devolvemos
+
+989
+01:29:01,830 --> 01:29:13,280
+el create del 201 el
+create del 201 para esto
+
+990
+01:29:13,480 --> 01:29:16,280
+es htf status
+
+991
+01:29:17,130 --> 01:29:22,280
+punto create
+
+992
+01:29:23,180 --> 01:29:34,280
+y este es el body vale pero en el
+body podemos pasar el nuevo taller
+
+993
+01:29:35,930 --> 01:29:37,280
+y ya esta
+
+994
+01:29:37,505 --> 01:29:40,280
+ah
+
+995
+01:29:41,280 --> 01:29:43,280
+ah
+
+996
+01:29:43,380 --> 01:29:49,280
+y ya no vale eso seria el
+
+997
+01:29:49,480 --> 01:29:55,280
+el de todos el ide el crear
+vale ahora viene el mas tedioso
+
+998
+01:29:55,281 --> 01:30:03,280
+vale vamos a ver si queréis primero
+el eliminar el y luego ya hacemos el
+
+999
+01:30:05,230 --> 01:30:06,280
+actualizar que es el mas
+
+1000
+01:30:06,430 --> 01:30:09,280
+del
+
+1001
+01:30:10,180 --> 01:30:15,280
+del let them up in me dice
+eliminar un taller en barra api v1
+
+1002
+01:30:15,281 --> 01:30:21,280
+talleres barra borrar
+barra el ide pues entonces
+
+1003
+01:30:22,230 --> 01:30:24,280
+que tengo que poner aqui
+
+1004
+01:30:24,830 --> 01:30:27,280
+borrar barra ide
+
+1005
+01:30:29,230 --> 01:30:30,280
+vale
+
+1006
+01:30:31,580 --> 01:30:39,280
+pues vamos al al borrar public
+
+1007
+01:30:40,630 --> 01:30:42,280
+lo hemos llamado
+
+1008
+01:30:43,530 --> 01:30:45,280
+el service
+
+1009
+01:30:46,830 --> 01:30:48,280
+eliminar taller
+
+1010
+01:30:48,430 --> 01:30:54,280
+public response entity eliminar
+
+1011
+01:30:54,580 --> 01:30:57,280
+eliminar talleres
+
+1012
+01:30:58,280 --> 01:31:03,280
+que voy a necesitar
+arroba path variable
+
+1013
+01:31:04,305 --> 01:31:09,280
+long ide
+
+1014
+01:31:11,230 --> 01:31:15,280
+vale vamos a
+comprobar lo primero
+
+1015
+01:31:15,880 --> 01:31:21,280
+si el ide que me han pasado
+existe en la base de datos
+
+1016
+01:31:21,430 --> 01:31:24,280
+vale pues entonces
+
+1017
+01:31:25,630 --> 01:31:30,280
+taller service
+
+1018
+01:31:32,230 --> 01:31:36,280
+ah podemos hacer
+el existe por ide
+
+1019
+01:31:36,930 --> 01:31:42,280
+directamente y con
+eso lo controlamos
+
+1020
+01:31:42,980 --> 01:31:45,280
+ya que lo hemos hecho
+
+1021
+01:31:45,980 --> 01:31:48,280
+vale si existe por ide
+
+1022
+01:31:50,230 --> 01:31:54,280
+taller service punto
+
+1023
+01:31:55,080 --> 01:31:57,280
+eliminar taller
+
+1024
+01:31:57,680 --> 01:32:00,280
+y
+
+1025
+01:32:01,830 --> 01:32:09,280
+esto hara return
+response entity .ok
+
+1026
+01:32:11,230 --> 01:32:12,280
+collections
+
+1027
+01:32:12,430 --> 01:32:18,280
+.singleton map .singleton map
+
+1028
+01:32:20,230 --> 01:32:21,280
+.singleton map
+
+1029
+01:32:21,605 --> 01:32:24,280
+seguir la coherencia arriba
+
+1030
+01:32:24,630 --> 01:32:30,280
+mensaje es decir si arriba habéis
+puesto mensaje poner aquí abajo mensaje
+
+1031
+01:32:32,130 --> 01:32:39,280
+ayer eliminado primer
+
+1032
+01:32:39,380 --> 01:32:42,280
+si en vez de hacer lo de taller service
+
+1033
+01:32:42,880 --> 01:32:48,280
+si ponemos taller service
+
+1034
+01:32:48,630 --> 01:32:51,280
+por ir de existe
+
+1035
+01:32:51,480 --> 01:32:54,280
+si es lo mismo
+
+1036
+01:32:54,780 --> 01:32:58,606
+lo que pasa es que como
+habíamos hecho el exist pues ya lo
+
+1037
+01:32:58,607 --> 01:33:03,280
+aprovechamos es lo mismo es
+controlar que el ide que nos han pasado
+
+1038
+01:33:03,780 --> 01:33:06,526
+este en la base de datos
+de una manera o de
+
+1039
+01:33:06,576 --> 01:33:12,280
+otra vale entonces el
+return response entity
+
+1040
+01:33:13,430 --> 01:33:15,280
+.status
+
+1041
+01:33:15,930 --> 01:33:18,280
+.httt status
+
+1042
+01:33:18,430 --> 01:33:21,280
+.
+
+1043
+01:33:21,530 --> 01:33:30,280
+.not found genicamente me habia copiado
+si la habia copiado arriba pero bueno
+
+1044
+01:33:30,730 --> 01:33:33,280
+si bueno pero el body
+si que lo puedo copiar
+
+1045
+01:33:35,230 --> 01:33:36,280
+.
+
+1046
+01:33:37,080 --> 01:33:39,280
+.
+
+1047
+01:33:40,305 --> 01:33:42,280
+.
+
+1048
+01:33:44,230 --> 01:33:45,280
+.
+
+1049
+01:33:46,230 --> 01:33:48,280
+.
+
+1050
+01:33:48,281 --> 01:33:51,280
+.
+
+1051
+01:33:51,330 --> 01:33:54,280
+.
+
+1052
+01:33:54,830 --> 01:33:57,280
+.
+
+1053
+01:33:57,281 --> 01:34:00,280
+.
+
+1054
+01:34:00,480 --> 01:34:03,280
+.
+
+1055
+01:34:03,281 --> 01:34:06,280
+.
+
+1056
+01:34:06,281 --> 01:34:09,280
+.
+
+1057
+01:34:09,281 --> 01:34:12,280
+.
+
+1058
+01:34:12,281 --> 01:34:15,280
+.
+
+1059
+01:34:15,281 --> 01:34:18,280
+.
+
+1060
+01:34:18,281 --> 01:34:21,280
+.
+
+1061
+01:34:21,281 --> 01:34:24,280
+.
+
+1062
+01:34:24,430 --> 01:34:27,280
+.
+
+1063
+01:34:27,281 --> 01:34:30,280
+.
+
+1064
+01:34:31,030 --> 01:34:33,280
+.
+
+1065
+01:34:33,281 --> 01:34:36,280
+.
+
+1066
+01:34:37,380 --> 01:34:39,280
+.
+
+1067
+01:34:39,281 --> 01:34:42,280
+.
+
+1068
+01:34:42,680 --> 01:34:45,280
+.
+
+1069
+01:34:45,281 --> 01:34:48,280
+.
+
+1070
+01:34:48,630 --> 01:34:51,280
+.
+
+1071
+01:34:51,281 --> 01:34:54,280
+.
+
+1072
+01:34:54,281 --> 01:34:57,280
+.
+
+1073
+01:34:57,530 --> 01:35:00,280
+.
+
+1074
+01:35:00,281 --> 01:35:03,280
+.
+
+1075
+01:35:03,281 --> 01:35:06,280
+.
+
+1076
+01:35:06,780 --> 01:35:09,280
+.
+
+1077
+01:35:09,281 --> 01:35:12,280
+.
+
+1078
+01:35:12,281 --> 01:35:15,280
+.
+
+1079
+01:35:16,555 --> 01:35:18,280
+.
+
+1080
+01:35:18,730 --> 01:35:21,280
+.
+
+1081
+01:35:21,330 --> 01:35:24,280
+.
+
+1082
+01:35:24,281 --> 01:35:27,280
+.
+
+1083
+01:35:27,830 --> 01:35:30,280
+.
+
+1084
+01:35:30,281 --> 01:35:33,280
+.
+
+1085
+01:35:33,281 --> 01:35:36,280
+.
+
+1086
+01:35:36,281 --> 01:35:39,280
+.
+
+1087
+01:35:39,281 --> 01:35:42,280
+.
+
+1088
+01:35:42,281 --> 01:35:45,280
+.
+
+1089
+01:35:46,180 --> 01:35:48,280
+.
+
+1090
+01:35:48,430 --> 01:35:51,280
+.
+
+1091
+01:35:53,180 --> 01:35:54,280
+.
+
+1092
+01:35:54,380 --> 01:35:57,280
+.
+
+1093
+01:35:58,280 --> 01:36:00,280
+.
+
+1094
+01:36:00,405 --> 01:36:03,280
+.
+
+1095
+01:36:03,830 --> 01:36:06,280
+.
+
+1096
+01:36:08,230 --> 01:36:09,280
+.
+
+1097
+01:36:10,930 --> 01:36:12,280
+.
+
+1098
+01:36:14,230 --> 01:36:15,280
+.
+
+1099
+01:36:15,480 --> 01:36:18,280
+.
+
+1100
+01:36:20,230 --> 01:36:21,280
+.
+
+1101
+01:36:21,281 --> 01:36:24,280
+.
+
+1102
+01:36:26,230 --> 01:36:27,280
+.
+
+1103
+01:36:27,281 --> 01:36:30,280
+.
+
+1104
+01:36:31,380 --> 01:36:33,280
+.
+
+1105
+01:36:34,080 --> 01:36:36,280
+.
+
+1106
+01:36:38,230 --> 01:36:39,280
+.
+
+1107
+01:36:39,480 --> 01:36:42,280
+.
+
+1108
+01:36:44,230 --> 01:36:45,280
+.
+
+1109
+01:36:45,455 --> 01:36:48,280
+.
+
+1110
+01:36:48,480 --> 01:36:51,280
+.
+
+1111
+01:36:51,930 --> 01:36:54,280
+.
+
+1112
+01:36:56,230 --> 01:36:57,280
+.
+
+1113
+01:36:58,830 --> 01:37:00,280
+.
+
+1114
+01:37:00,281 --> 01:37:03,280
+.
+
+1115
+01:37:04,330 --> 01:37:06,280
+.
+
+1116
+01:37:07,105 --> 01:37:09,280
+.
+
+1117
+01:37:10,730 --> 01:37:12,280
+.
+
+1118
+01:37:14,230 --> 01:37:15,280
+.
+
+1119
+01:37:15,281 --> 01:37:18,280
+.
+
+1120
+01:37:18,430 --> 01:37:21,280
+.
+
+1121
+01:37:21,980 --> 01:37:24,280
+.
+
+1122
+01:37:24,980 --> 01:37:27,280
+.
+
+1123
+01:37:27,281 --> 01:37:30,280
+.
+
+1124
+01:37:32,030 --> 01:37:33,280
+.
+
+1125
+01:37:33,281 --> 01:37:36,280
+.
+
+1126
+01:37:37,030 --> 01:37:39,280
+.
+
+1127
+01:37:39,380 --> 01:37:42,280
+.
+
+1128
+01:37:44,230 --> 01:37:45,280
+.
+
+1129
+01:37:47,230 --> 01:37:48,280
+.
+
+1130
+01:37:48,530 --> 01:37:51,280
+.
+
+1131
+01:37:52,680 --> 01:37:54,280
+.
+
+1132
+01:37:54,281 --> 01:37:57,280
+.
+
+1133
+01:37:57,281 --> 01:38:00,280
+.
+
+1134
+01:38:00,281 --> 01:38:03,280
+.
+
+1135
+01:38:03,780 --> 01:38:06,280
+.
+
+1136
+01:38:06,330 --> 01:38:09,280
+.
+
+1137
+01:38:09,281 --> 01:38:12,280
+.
+
+1138
+01:38:12,380 --> 01:38:15,280
+.
+
+1139
+01:38:15,430 --> 01:38:18,280
+.
+
+1140
+01:38:18,281 --> 01:38:21,280
+.
+
+1141
+01:38:21,980 --> 01:38:24,280
+.
+
+1142
+01:38:24,480 --> 01:38:27,280
+.
+
+1143
+01:38:27,281 --> 01:38:30,280
+.
+
+1144
+01:38:32,230 --> 01:38:33,280
+.
+
+1145
+01:38:33,680 --> 01:38:36,280
+.
+
+1146
+01:38:37,980 --> 01:38:39,280
+.
+
+1147
+01:38:39,281 --> 01:38:42,280
+.
+
+1148
+01:38:42,430 --> 01:38:45,280
+.
+
+1149
+01:38:47,230 --> 01:38:48,280
+.
+
+1150
+01:38:48,330 --> 01:38:51,280
+.
+
+1151
+01:38:51,830 --> 01:38:54,280
+.
+
+1152
+01:38:54,980 --> 01:38:57,280
+.
+
+1153
+01:38:58,930 --> 01:39:00,280
+.
+
+1154
+01:39:00,380 --> 01:39:03,280
+.
+
+1155
+01:39:03,281 --> 01:39:06,280
+.
+
+1156
+01:39:06,830 --> 01:39:09,280
+.
+
+1157
+01:39:09,281 --> 01:39:12,280
+.
+
+1158
+01:39:12,281 --> 01:39:15,280
+.
+
+1159
+01:39:15,730 --> 01:39:18,280
+.
+
+1160
+01:39:19,530 --> 01:39:21,280
+.
+
+1161
+01:39:23,030 --> 01:39:24,280
+.
+
+1162
+01:39:24,281 --> 01:39:27,280
+.
+
+1163
+01:39:27,281 --> 01:39:30,280
+.
+
+1164
+01:39:30,930 --> 01:39:33,280
+.
+
+1165
+01:39:34,280 --> 01:39:36,280
+.
+
+1166
+01:39:36,380 --> 01:39:39,280
+.
+
+1167
+01:39:39,281 --> 01:39:42,280
+.
+
+1168
+01:39:42,281 --> 01:39:45,280
+.
+
+1169
+01:39:45,281 --> 01:39:48,280
+.
+
+1170
+01:39:48,281 --> 01:39:51,280
+.
+
+1171
+01:39:51,281 --> 01:39:54,280
+.
+
+1172
+01:39:54,680 --> 01:39:57,280
+.
+
+1173
+01:39:58,280 --> 01:40:00,280
+.
+
+1174
+01:40:01,180 --> 01:40:03,280
+.
+
+1175
+01:40:03,281 --> 01:40:06,280
+.
+
+1176
+01:40:06,281 --> 01:40:09,280
+.
+
+1177
+01:40:09,430 --> 01:40:12,280
+.
+
+1178
+01:40:14,230 --> 01:40:15,280
+.
+
+1179
+01:40:16,580 --> 01:40:18,280
+.
+
+1180
+01:40:18,281 --> 01:40:21,280
+.
+
+1181
+01:40:21,630 --> 01:40:24,280
+.
+
+1182
+01:40:24,480 --> 01:40:27,280
+.
+
+1183
+01:40:27,330 --> 01:40:30,280
+.
+
+1184
+01:40:30,830 --> 01:40:33,280
+.
+
+1185
+01:40:33,580 --> 01:40:36,280
+.
+
+1186
+01:40:37,730 --> 01:40:39,280
+.
+
+1187
+01:40:39,281 --> 01:40:42,280
+.
+
+1188
+01:40:42,281 --> 01:40:45,280
+.
+
+1189
+01:40:45,281 --> 01:40:48,280
+.
+
+1190
+01:40:48,480 --> 01:40:51,280
+.
+
+1191
+01:40:51,480 --> 01:40:54,280
+.
+
+1192
+01:40:54,680 --> 01:40:57,280
+.
+
+1193
+01:40:57,281 --> 01:41:00,280
+.
+
+1194
+01:41:02,130 --> 01:41:03,280
+.
+
+1195
+01:41:04,880 --> 01:41:06,280
+.
+
+1196
+01:41:06,281 --> 01:41:09,280
+.
+
+1197
+01:41:09,281 --> 01:41:12,280
+.
+
+1198
+01:41:13,130 --> 01:41:15,280
+.
+
+1199
+01:41:17,230 --> 01:41:18,280
+.
+
+1200
+01:41:18,281 --> 01:41:21,280
+.
+
+1201
+01:41:21,281 --> 01:41:24,280
+.
+
+1202
+01:41:24,281 --> 01:41:27,280
+.
+
+1203
+01:41:27,630 --> 01:41:30,280
+.
+
+1204
+01:41:30,530 --> 01:41:33,280
+.
+
+1205
+01:41:33,880 --> 01:41:36,280
+.
+
+1206
+01:41:37,280 --> 01:41:39,280
+.
+
+1207
+01:41:40,180 --> 01:41:42,280
+.
+
+1208
+01:41:42,630 --> 01:41:45,280
+.
+
+1209
+01:41:47,230 --> 01:41:48,280
+.
+
+1210
+01:41:48,580 --> 01:41:51,280
+.
+
+1211
+01:41:51,455 --> 01:41:54,280
+.
+
+1212
+01:41:55,630 --> 01:41:57,280
+.
+
+1213
+01:41:57,281 --> 01:42:00,280
+.
+
+1214
+01:42:00,455 --> 01:42:03,280
+.
+
+1215
+01:42:05,230 --> 01:42:06,280
+.
+
+1216
+01:42:06,281 --> 01:42:09,280
+.
+
+1217
+01:42:09,630 --> 01:42:12,280
+.
+
+1218
+01:42:12,880 --> 01:42:15,280
+.
+
+1219
+01:42:16,030 --> 01:42:18,280
+.
+
+1220
+01:42:18,830 --> 01:42:21,280
+.
+
+1221
+01:42:21,281 --> 01:42:24,280
+.
+
+1222
+01:42:24,281 --> 01:42:27,280
+.
+
+1223
+01:42:27,281 --> 01:42:30,280
+.
+
+1224
+01:42:30,281 --> 01:42:33,280
+.
+
+1225
+01:42:33,780 --> 01:42:36,280
+.
+
+1226
+01:42:36,281 --> 01:42:39,280
+.
+
+1227
+01:42:39,505 --> 01:42:42,280
+.
+
+1228
+01:42:42,281 --> 01:42:45,280
+.
+
+1229
+01:42:45,480 --> 01:42:48,280
+.
+
+1230
+01:42:48,580 --> 01:42:51,280
+.
+
+1231
+01:42:51,380 --> 01:42:54,280
+.
+
+1232
+01:42:56,230 --> 01:42:57,280
+.
+
+1233
+01:42:58,630 --> 01:43:00,280
+.
+
+1234
+01:43:02,230 --> 01:43:03,280
+.
+
+1235
+01:43:05,230 --> 01:43:06,280
+.
+
+1236
+01:43:06,281 --> 01:43:09,280
+.
+
+1237
+01:43:09,281 --> 01:43:12,280
+.
+
+1238
+01:43:12,930 --> 01:43:15,280
+.
+
+1239
+01:43:15,780 --> 01:43:18,280
+.
+
+1240
+01:43:18,281 --> 01:43:21,280
+.
+
+1241
+01:43:21,281 --> 01:43:24,280
+.
+
+1242
+01:43:25,030 --> 01:43:27,280
+.
+
+1243
+01:43:29,230 --> 01:43:30,280
+.
+
+1244
+01:43:30,630 --> 01:43:33,280
+.
+
+1245
+01:43:34,280 --> 01:43:36,280
+.
+
+1246
+01:43:38,030 --> 01:43:39,280
+.
+
+1247
+01:43:39,480 --> 01:43:42,280
+.
+
+1248
+01:43:44,230 --> 01:43:45,280
+.
+
+1249
+01:43:45,330 --> 01:43:48,280
+.
+
+1250
+01:43:50,180 --> 01:43:51,280
+.
+
+1251
+01:43:51,281 --> 01:43:54,280
+.
+
+1252
+01:43:54,680 --> 01:43:57,280
+.
+
+1253
+01:43:59,230 --> 01:44:00,280
+.
+
+1254
+01:44:02,230 --> 01:44:03,280
+.
+
+1255
+01:44:03,430 --> 01:44:06,280
+.
+
+1256
+01:44:06,281 --> 01:44:09,280
+.
+
+1257
+01:44:09,930 --> 01:44:12,280
+.
+
+1258
+01:44:12,281 --> 01:44:15,280
+.
+
+1259
+01:44:15,281 --> 01:44:18,280
+.
+
+1260
+01:44:19,705 --> 01:44:21,280
+.
+
+1261
+01:44:21,281 --> 01:44:24,280
+.
+
+1262
+01:44:24,281 --> 01:44:27,280
+.
+
+1263
+01:44:29,230 --> 01:44:30,280
+.
+
+1264
+01:44:30,281 --> 01:44:33,280
+.
+
+1265
+01:44:35,230 --> 01:44:36,280
+.
+
+1266
+01:44:37,430 --> 01:44:39,280
+.
+
+1267
+01:44:39,281 --> 01:44:42,280
+.
+
+1268
+01:44:42,281 --> 01:44:45,280
+.
+
+1269
+01:44:46,180 --> 01:44:48,280
+.
+
+1270
+01:44:48,680 --> 01:44:51,280
+.
+
+1271
+01:44:53,230 --> 01:44:54,280
+.
+
+1272
+01:44:55,180 --> 01:44:57,280
+.
+
+1273
+01:44:57,281 --> 01:45:00,280
+.
+
+1274
+01:45:01,730 --> 01:45:03,280
+.
+
+1275
+01:45:03,980 --> 01:45:06,280
+.
+
+1276
+01:45:08,230 --> 01:45:09,280
+.
+
+1277
+01:45:09,580 --> 01:45:12,280
+.
+
+1278
+01:45:12,480 --> 01:45:15,280
+.
+
+1279
+01:45:16,380 --> 01:45:18,280
+.
+
+1280
+01:45:18,281 --> 01:45:21,280
+.
+
+1281
+01:45:21,281 --> 01:45:24,280
+.
+
+1282
+01:45:24,880 --> 01:45:27,280
+.
+
+1283
+01:45:27,281 --> 01:45:30,280
+.
+
+1284
+01:45:30,281 --> 01:45:33,280
+.
+
+1285
+01:45:33,281 --> 01:45:36,280
+.
+
+1286
+01:45:36,480 --> 01:45:39,280
+.
+
+1287
+01:45:39,281 --> 01:45:42,280
+.
+
+1288
+01:45:42,980 --> 01:45:45,280
+.
+
+1289
+01:45:46,180 --> 01:45:48,280
+.
+
+1290
+01:45:48,281 --> 01:45:51,280
+.
+
+1291
+01:45:51,281 --> 01:45:54,280
+.
+
+1292
+01:45:54,281 --> 01:45:57,280
+.
+
+1293
+01:45:57,580 --> 01:46:00,280
+.
+
+1294
+01:46:00,330 --> 01:46:03,280
+.
+
+1295
+01:46:03,281 --> 01:46:06,280
+.
+
+1296
+01:46:07,430 --> 01:46:09,280
+.
+
+1297
+01:46:10,430 --> 01:46:12,280
+.
+
+1298
+01:46:12,281 --> 01:46:15,280
+.
+
+1299
+01:46:15,730 --> 01:46:18,280
+.
+
+1300
+01:46:18,505 --> 01:46:21,280
+.
+
+1301
+01:46:21,305 --> 01:46:24,280
+.
+
+1302
+01:46:24,281 --> 01:46:27,280
+.
+
+1303
+01:46:27,281 --> 01:46:30,280
+.
+
+1304
+01:46:31,530 --> 01:46:33,280
+.
+
+1305
+01:46:33,281 --> 01:46:36,280
+.
+
+1306
+01:46:36,281 --> 01:46:39,280
+.
+
+1307
+01:46:39,281 --> 01:46:42,280
+.
+
+1308
+01:46:42,281 --> 01:46:45,280
+.
+
+1309
+01:46:45,281 --> 01:46:48,280
+.
+
+1310
+01:46:48,281 --> 01:46:51,280
+.
+
+1311
+01:46:52,780 --> 01:46:54,280
+.
+
+1312
+01:46:54,281 --> 01:46:57,280
+.
+
+1313
+01:46:57,430 --> 01:47:00,280
+.
+
+1314
+01:47:01,630 --> 01:47:03,280
+.
+
+1315
+01:47:03,480 --> 01:47:06,280
+.
+
+1316
+01:47:06,730 --> 01:47:09,280
+.
+
+1317
+01:47:09,281 --> 01:47:12,280
+.
+
+1318
+01:47:12,355 --> 01:47:15,280
+.
+
+1319
+01:47:17,230 --> 01:47:18,280
+.
+
+1320
+01:47:20,230 --> 01:47:21,280
+.
+
+1321
+01:47:23,230 --> 01:47:24,280
+.
+
+1322
+01:47:24,281 --> 01:47:27,280
+.
+
+1323
+01:47:27,480 --> 01:47:30,280
+.
+
+1324
+01:47:32,230 --> 01:47:33,280
+.
+
+1325
+01:47:35,230 --> 01:47:36,280
+.
+
+1326
+01:47:37,180 --> 01:47:39,280
+.
+
+1327
+01:47:39,281 --> 01:47:42,280
+.
+
+1328
+01:47:43,930 --> 01:47:45,280
+.
+
+1329
+01:47:45,281 --> 01:47:48,280
+.
+
+1330
+01:47:48,281 --> 01:47:51,280
+.
+
+1331
+01:47:51,530 --> 01:47:54,280
+.
+
+1332
+01:47:54,281 --> 01:47:57,280
+.
+
+1333
+01:47:59,230 --> 01:48:00,280
+.
+
+1334
+01:48:00,281 --> 01:48:03,280
+.
+
+1335
+01:48:03,830 --> 01:48:06,280
+.
+
+1336
+01:48:06,281 --> 01:48:09,280
+.
+
+1337
+01:48:10,230 --> 01:48:12,280
+.
+
+1338
+01:48:13,055 --> 01:48:15,280
+.
+
+1339
+01:48:15,281 --> 01:48:18,280
+.
+
+1340
+01:48:18,281 --> 01:48:21,280
+.
+
+1341
+01:48:22,730 --> 01:48:24,280
+.
+
+1342
+01:48:24,281 --> 01:48:27,280
+.
+
+1343
+01:48:27,930 --> 01:48:30,280
+.
+
+1344
+01:48:31,780 --> 01:48:33,280
+.
+
+1345
+01:48:34,980 --> 01:48:36,280
+.
+
+1346
+01:48:37,380 --> 01:48:39,280
+.
+
+1347
+01:48:39,480 --> 01:48:42,280
+.
+
+1348
+01:48:42,630 --> 01:48:45,280
+.
+
+1349
+01:48:45,980 --> 01:48:48,280
+.
+
+1350
+01:48:48,281 --> 01:48:51,280
+.
+
+1351
+01:48:51,930 --> 01:48:54,280
+.
+
+1352
+01:48:56,230 --> 01:48:57,280
+.
+
+1353
+01:48:59,230 --> 01:49:00,280
+.
+
+1354
+01:49:02,230 --> 01:49:03,280
+.
+
+1355
+01:49:05,230 --> 01:49:06,280
+.
+
+1356
+01:49:08,230 --> 01:49:09,280
+.
+
+1357
+01:49:11,230 --> 01:49:12,280
+.
+
+1358
+01:49:14,230 --> 01:49:15,280
+.
+
+1359
+01:49:15,430 --> 01:49:18,280
+.
+
+1360
+01:49:20,230 --> 01:49:21,280
+.
+
+1361
+01:49:21,281 --> 01:49:24,280
+.
+
+1362
+01:49:26,230 --> 01:49:27,280
+.
+
+1363
+01:49:29,230 --> 01:49:30,280
+.
+
+1364
+01:49:32,230 --> 01:49:33,280
+.
+
+1365
+01:49:35,230 --> 01:49:36,280
+.
+
+1366
+01:49:38,230 --> 01:49:39,280
+.
+
+1367
+01:49:41,230 --> 01:49:42,280
+.
+
+1368
+01:49:44,230 --> 01:49:45,280
+.
+
+1369
+01:49:45,480 --> 01:49:48,280
+.
+
+1370
+01:49:49,780 --> 01:49:51,280
+.
+
+1371
+01:49:53,230 --> 01:49:54,280
+.
+
+1372
+01:49:56,230 --> 01:49:57,280
+.
+
+1373
+01:49:58,130 --> 01:50:00,280
+.
+
+1374
+01:50:00,281 --> 01:50:03,280
+.
+
+1375
+01:50:05,230 --> 01:50:06,280
+.
+
+1376
+01:50:08,230 --> 01:50:09,280
+.
+
+1377
+01:50:09,380 --> 01:50:12,280
+.
+
+1378
+01:50:12,380 --> 01:50:15,280
+.
+
+1379
+01:50:16,980 --> 01:50:18,280
+.
+
+1380
+01:50:20,230 --> 01:50:21,280
+.
+
+1381
+01:50:23,230 --> 01:50:24,280
+.
+
+1382
+01:50:25,430 --> 01:50:27,280
+.
+
+1383
+01:50:29,230 --> 01:50:30,280
+.
+
+1384
+01:50:32,230 --> 01:50:33,280
+.
+
+1385
+01:50:33,380 --> 01:50:36,280
+.
+
+1386
+01:50:36,281 --> 01:50:39,280
+.
+
+1387
+01:50:40,880 --> 01:50:42,280
+.
+
+1388
+01:50:42,281 --> 01:50:45,280
+.
+
+1389
+01:50:45,281 --> 01:50:48,280
+.
+
+1390
+01:50:48,680 --> 01:50:51,280
+.
+
+1391
+01:50:51,281 --> 01:50:54,280
+.
+
+1392
+01:50:56,230 --> 01:50:57,280
+.
+
+1393
+01:50:57,430 --> 01:51:00,280
+.
+
+1394
+01:51:02,230 --> 01:51:03,280
+.
+
+1395
+01:51:04,730 --> 01:51:06,280
+.
+
+1396
+01:51:06,480 --> 01:51:09,280
+.
+
+1397
+01:51:09,281 --> 01:51:12,280
+.
+
+1398
+01:51:13,930 --> 01:51:15,280
+.
+
+1399
+01:51:15,330 --> 01:51:18,280
+.
+
+1400
+01:51:20,230 --> 01:51:21,280
+.
+
+1401
+01:51:22,980 --> 01:51:24,280
+.
+
+1402
+01:51:26,230 --> 01:51:27,280
+.
+
+1403
+01:51:28,180 --> 01:51:30,280
+.
+
+1404
+01:51:31,080 --> 01:51:33,280
+.
+
+1405
+01:51:35,230 --> 01:51:36,280
+.
+
+1406
+01:51:36,281 --> 01:51:39,280
+.
+
+1407
+01:51:39,281 --> 01:51:42,280
+.
+
+1408
+01:51:42,281 --> 01:51:45,280
+.
+
+1409
+01:51:45,281 --> 01:51:48,280
+.
+
+1410
+01:51:48,530 --> 01:51:51,280
+.
+
+1411
+01:51:51,281 --> 01:51:54,280
+.
+
+1412
+01:51:55,430 --> 01:51:57,280
+.
+
+1413
+01:51:57,281 --> 01:52:00,280
+.
+
+1414
+01:52:01,530 --> 01:52:03,280
+.
+
+1415
+01:52:03,281 --> 01:52:06,280
+.
+
+1416
+01:52:06,281 --> 01:52:09,280
+.
+
+1417
+01:52:10,180 --> 01:52:12,280
+.
+
+1418
+01:52:14,230 --> 01:52:15,280
+.
+
+1419
+01:52:15,530 --> 01:52:18,280
+.
+
+1420
+01:52:20,230 --> 01:52:21,280
+.
+
+1421
+01:52:21,281 --> 01:52:24,280
+.
+
+1422
+01:52:24,281 --> 01:52:27,280
+.
+
+1423
+01:52:27,980 --> 01:52:30,280
+.
+
+1424
+01:52:32,230 --> 01:52:33,280
+.
+
+1425
+01:52:34,880 --> 01:52:36,280
+.
+
+1426
+01:52:38,230 --> 01:52:39,280
+.
+
+1427
+01:52:41,230 --> 01:52:42,280
+.
+
+1428
+01:52:42,580 --> 01:52:45,280
+.
+
+1429
+01:52:47,230 --> 01:52:48,280
+.
+
+1430
+01:52:48,281 --> 01:52:51,280
+.
+
+1431
+01:52:51,530 --> 01:52:54,280
+.
+
+1432
+01:52:54,281 --> 01:52:57,280
+.
+
+1433
+01:52:57,281 --> 01:53:00,280
+.
+
+1434
+01:53:02,230 --> 01:53:03,280
+.
+
+1435
+01:53:03,380 --> 01:53:06,280
+.
+
+1436
+01:53:06,580 --> 01:53:09,280
+.
+
+1437
+01:53:09,380 --> 01:53:12,280
+.
+
+1438
+01:53:12,830 --> 01:53:15,280
+.
+
+1439
+01:53:17,230 --> 01:53:18,280
+.
+
+1440
+01:53:19,030 --> 01:53:21,280
+.
+
+1441
+01:53:23,230 --> 01:53:24,280
+.
+
+1442
+01:53:26,230 --> 01:53:27,280
+.
+
+1443
+01:53:27,430 --> 01:53:30,280
+.
+
+1444
+01:53:32,230 --> 01:53:33,280
+.
+
+1445
+01:53:33,780 --> 01:53:36,280
+.
+
+1446
+01:53:38,230 --> 01:53:39,280
+.
+
+1447
+01:53:39,780 --> 01:53:42,280
+.
+
+1448
+01:53:43,180 --> 01:53:45,280
+.
+
+1449
+01:53:45,281 --> 01:53:48,280
+.
+
+1450
+01:53:48,281 --> 01:53:51,280
+.
+
+1451
+01:53:51,281 --> 01:53:54,280
+.
+
+1452
+01:53:56,230 --> 01:53:57,280
+.
+
+1453
+01:53:57,430 --> 01:54:00,280
+.
+
+1454
+01:54:00,480 --> 01:54:03,280
+.
+
+1455
+01:54:03,281 --> 01:54:06,280
+.
+
+1456
+01:54:07,630 --> 01:54:09,280
+.
+
+1457
+01:54:09,281 --> 01:54:12,280
+.
+
+1458
+01:54:12,630 --> 01:54:15,280
+.
+
+1459
+01:54:17,230 --> 01:54:18,280
+.
+
+1460
+01:54:20,230 --> 01:54:21,280
+.
+
+1461
+01:54:23,080 --> 01:54:24,280
+.
+
+1462
+01:54:24,281 --> 01:54:27,280
+.
+
+1463
+01:54:29,230 --> 01:54:30,280
+.
+
+1464
+01:54:30,281 --> 01:54:33,280
+.
+
+1465
+01:54:34,580 --> 01:54:36,280
+.
+
+1466
+01:54:38,230 --> 01:54:39,280
+.
+
+1467
+01:54:39,780 --> 01:54:42,280
+.
+
+1468
+01:54:44,230 --> 01:54:45,280
+.
+
+1469
+01:54:45,880 --> 01:54:48,280
+.
+
+1470
+01:54:50,230 --> 01:54:51,280
+.
+
+1471
+01:54:52,080 --> 01:54:54,280
+.
+
+1472
+01:54:55,580 --> 01:54:57,280
+.
+
+1473
+01:54:57,630 --> 01:55:00,280
+.
+
+1474
+01:55:00,730 --> 01:55:03,280
+.
+
+1475
+01:55:05,230 --> 01:55:06,280
+.
+
+1476
+01:55:06,281 --> 01:55:09,280
+.
+
+1477
+01:55:11,130 --> 01:55:12,280
+.
+
+1478
+01:55:12,281 --> 01:55:15,280
+.
+
+1479
+01:55:17,230 --> 01:55:18,280
+.
+
+1480
+01:55:20,230 --> 01:55:21,280
+.
+
+1481
+01:55:22,380 --> 01:55:24,280
+.
+
+1482
+01:55:24,281 --> 01:55:27,280
+.
+
+1483
+01:55:29,230 --> 01:55:30,280
+.
+
+1484
+01:55:32,230 --> 01:55:33,280
+.
+
+1485
+01:55:35,230 --> 01:55:36,280
+.
+
+1486
+01:55:36,281 --> 01:55:39,280
+.
+
+1487
+01:55:41,230 --> 01:55:42,280
+.
+
+1488
+01:55:44,230 --> 01:55:45,280
+.
+
+1489
+01:55:47,230 --> 01:55:48,280
+.
+
+1490
+01:55:48,780 --> 01:55:51,280
+.
+
+1491
+01:55:53,230 --> 01:55:54,280
+.
+
+1492
+01:55:54,281 --> 01:55:57,280
+.
+
+1493
+01:55:57,530 --> 01:56:00,280
+.
+
+1494
+01:56:00,281 --> 01:56:03,280
+.
+
+1495
+01:56:03,281 --> 01:56:06,280
+.
+
+1496
+01:56:06,530 --> 01:56:09,280
+.
+
+1497
+01:56:09,880 --> 01:56:12,280
+.
+
+1498
+01:56:12,281 --> 01:56:15,280
+.
+
+1499
+01:56:17,230 --> 01:56:18,280
+.
+
+1500
+01:56:19,580 --> 01:56:21,280
+.
+
+1501
+01:56:21,281 --> 01:56:24,280
+.
+
+1502
+01:56:26,230 --> 01:56:27,280
+.
+
+1503
+01:56:28,280 --> 01:56:30,280
+.
+
+1504
+01:56:30,580 --> 01:56:33,280
+.
+
+1505
+01:56:33,430 --> 01:56:36,280
+.
+
+1506
+01:56:37,430 --> 01:56:39,280
+.
+
+1507
+01:56:39,281 --> 01:56:42,280
+.
+
+1508
+01:56:44,230 --> 01:56:45,280
+.
+
+1509
+01:56:47,180 --> 01:56:48,280
+.
+
+1510
+01:56:49,530 --> 01:56:51,280
+.
+
+1511
+01:56:51,281 --> 01:56:54,280
+.
+
+1512
+01:56:54,281 --> 01:56:57,280
+.
+
+1513
+01:56:58,380 --> 01:57:00,280
+.
+
+1514
+01:57:01,230 --> 01:57:03,280
+.
+
+1515
+01:57:03,281 --> 01:57:06,280
+.
+
+1516
+01:57:06,680 --> 01:57:09,280
+.
+
+1517
+01:57:09,281 --> 01:57:12,280
+.
+
+1518
+01:57:12,281 --> 01:57:15,280
+.
+
+1519
+01:57:15,281 --> 01:57:18,280
+.
+
+1520
+01:57:20,230 --> 01:57:21,280
+.
+
+1521
+01:57:21,380 --> 01:57:24,280
+.
+
+1522
+01:57:24,281 --> 01:57:27,280
+.
+
+1523
+01:57:28,030 --> 01:57:30,280
+.
+
+1524
+01:57:30,281 --> 01:57:33,280
+.
+
+1525
+01:57:34,430 --> 01:57:36,280
+.
+
+1526
+01:57:36,480 --> 01:57:39,280
+.
+
+1527
+01:57:39,281 --> 01:57:42,280
+.
+
+1528
+01:57:44,030 --> 01:57:45,280
+.
+
+1529
+01:57:46,430 --> 01:57:48,280
+.
+
+1530
+01:57:49,280 --> 01:57:51,280
+.
+
+1531
+01:57:51,880 --> 01:57:54,280
+.
+
+1532
+01:57:56,080 --> 01:57:57,280
+.
+
+1533
+01:57:59,230 --> 01:58:00,280
+.
+
+1534
+01:58:01,980 --> 01:58:03,280
+.
+
+1535
+01:58:05,230 --> 01:58:06,280
+.
+
+1536
+01:58:07,680 --> 01:58:09,280
+.
+
+1537
+01:58:11,230 --> 01:58:12,280
+.
+
+1538
+01:58:13,180 --> 01:58:15,280
+.
+
+1539
+01:58:15,281 --> 01:58:18,280
+.
+
+1540
+01:58:19,080 --> 01:58:21,280
+.
+
+1541
+01:58:23,130 --> 01:58:24,280
+.
+
+1542
+01:58:24,430 --> 01:58:27,280
+.
+
+1543
+01:58:27,281 --> 01:58:30,280
+.
+
+1544
+01:58:30,480 --> 01:58:33,280
+.
+
+1545
+01:58:33,430 --> 01:58:36,280
+.
+
+1546
+01:58:36,530 --> 01:58:39,280
+.
+
+1547
+01:58:39,281 --> 01:58:42,280
+.
+
+1548
+01:58:42,281 --> 01:58:45,280
+.
+
+1549
+01:58:45,281 --> 01:58:48,280
+.
+
+1550
+01:58:48,281 --> 01:58:51,280
+.
+
+1551
+01:58:51,281 --> 01:58:54,280
+.
+
+1552
+01:58:54,480 --> 01:58:57,280
+.
+
+1553
+01:58:57,281 --> 01:59:00,280
+.
+
+1554
+01:59:02,230 --> 01:59:03,280
+.
+
+1555
+01:59:03,281 --> 01:59:06,280
+.
+
+1556
+01:59:06,880 --> 01:59:09,280
+.
+
+1557
+01:59:09,281 --> 01:59:12,280
+.
+
+1558
+01:59:13,030 --> 01:59:15,280
+.
+
+1559
+01:59:16,230 --> 01:59:18,280
+.
+
+1560
+01:59:18,780 --> 01:59:21,280
+.
+
+1561
+01:59:21,281 --> 01:59:24,280
+.
+
+1562
+01:59:25,080 --> 01:59:27,280
+.
+
+1563
+01:59:29,230 --> 01:59:30,280
+.
+
+1564
+01:59:30,281 --> 01:59:33,280
+.
+
+1565
+01:59:35,230 --> 01:59:36,280
+.
+
+1566
+01:59:38,230 --> 01:59:39,280
+.
+
+1567
+01:59:39,281 --> 01:59:42,280
+.
+
+1568
+01:59:42,281 --> 01:59:45,280
+.
+
+1569
+01:59:46,680 --> 01:59:48,280
+.
+
+1570
+01:59:48,281 --> 01:59:51,280
+.
+
+1571
+01:59:53,230 --> 01:59:54,280
+.
+
+1572
+01:59:56,230 --> 01:59:57,280
+.
+
+1573
+01:59:58,830 --> 02:00:00,280
+.
+
+1574
+02:00:01,930 --> 02:00:03,280
+.
+
+1575
+02:00:03,281 --> 02:00:06,280
+.
+
+1576
+02:00:06,281 --> 02:00:09,280
+.
+
+1577
+02:00:11,230 --> 02:00:12,280
+.
+
+1578
+02:00:12,281 --> 02:00:15,280
+.
+
+1579
+02:00:17,030 --> 02:00:18,280
+.
+
+1580
+02:00:18,281 --> 02:00:21,280
+.
+
+1581
+02:00:21,380 --> 02:00:24,280
+.
+
+1582
+02:00:24,630 --> 02:00:27,280
+.
+
+1583
+02:00:27,555 --> 02:00:30,280
+.
+
+1584
+02:00:30,281 --> 02:00:33,280
+.
+
+1585
+02:00:35,230 --> 02:00:36,280
+.
+
+1586
+02:00:36,380 --> 02:00:39,280
+.
+
+1587
+02:00:39,281 --> 02:00:42,280
+.
+
+1588
+02:00:42,281 --> 02:00:45,280
+.
+
+1589
+02:00:45,281 --> 02:00:48,280
+.
+
+1590
+02:00:48,480 --> 02:00:51,280
+.
+
+1591
+02:00:53,080 --> 02:00:54,280
+.
+
+1592
+02:00:54,281 --> 02:00:57,280
+.
+
+1593
+02:00:57,281 --> 02:01:00,280
+.
+
+1594
+02:01:00,281 --> 02:01:03,280
+.
+
+1595
+02:01:05,230 --> 02:01:06,280
+.
+
+1596
+02:01:08,230 --> 02:01:09,280
+.
+
+1597
+02:01:09,880 --> 02:01:12,280
+.
+
+1598
+02:01:12,281 --> 02:01:15,280
+.
+
+1599
+02:01:15,281 --> 02:01:18,280
+.
+
+1600
+02:01:18,380 --> 02:01:21,280
+.
+
+1601
+02:01:21,281 --> 02:01:24,280
+.
+
+1602
+02:01:24,281 --> 02:01:27,280
+.
+
+1603
+02:01:27,330 --> 02:01:30,280
+.
+
+1604
+02:01:30,281 --> 02:01:33,280
+.
+
+1605
+02:01:33,281 --> 02:01:36,280
+.
+
+1606
+02:01:36,281 --> 02:01:39,280
+.
+
+1607
+02:01:39,281 --> 02:01:42,280
+.
+
+1608
+02:01:42,281 --> 02:01:45,280
+.
+
+1609
+02:01:45,281 --> 02:01:48,280
+.
+
+1610
+02:01:48,281 --> 02:01:51,280
+.
+
+1611
+02:01:51,281 --> 02:01:54,280
+.
+
+1612
+02:01:54,281 --> 02:01:57,280
+.
+
+1613
+02:01:57,330 --> 02:02:00,280
+.
+
+1614
+02:02:00,480 --> 02:02:03,280
+.
+
+1615
+02:02:05,230 --> 02:02:06,280
+.
+
+1616
+02:02:06,730 --> 02:02:09,280
+.
+
+1617
+02:02:10,480 --> 02:02:12,280
+.
+

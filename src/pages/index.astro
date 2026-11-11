@@ -1,0 +1,148 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import Callout from '../components/Callout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+
+const quickChecklist = `
+// 1. application.properties -> H2 en memoria + ddl-auto=update
+// 2. entity/               -> @Entity, @Table, @Id, @GeneratedValue(IDENTITY), @Data
+//    ├── Relación 1:N      -> @OneToMany(mappedBy="...", cascade=ALL, orphanRemoval=true)
+//    ├── Relación N:1      -> @ManyToOne(fetch=LAZY) + @JoinColumn + @ToString.Exclude
+//    └── Relación 1:1      -> @OneToOne(cascade=ALL) + @JoinColumn(..., unique=true)
+// 3. repository/           -> extends JpaRepository<Entidad, Long> + findByNombre / existsByNombre
+// 4. service/              -> @Service + @Transactional + CRUD + métodos de búsqueda/existencia
+// 5. controller/           -> @RestController + @RequestMapping("/api/v1/...") + ResponseEntity (200/201/404)
+`.trim();
+---
+
+<DocsLayout
+  title="Apuntes de Proyecto Intermodular"
+  description="Documentación técnica de Spring Boot, Spring Data JPA, Hibernate y APIs RESTful. Incluye teoría de los 7 temas, diapositivas, ejercicios resueltos en clase, transcripciones y el simulacro de examen completo."
+  section="2.º DAM / DAW · Digitech FP"
+>
+  <!-- Featured Exam Simulacro Card -->
+  <section class="rounded-2xl border border-violet-500/40 bg-gradient-to-br from-violet-950/50 via-slate-900 to-cyan-950/30 p-6 sm:p-8 shadow-xl shadow-black/40">
+    <div class="flex flex-wrap items-center gap-2 mb-3">
+      <span class="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider rounded-full bg-violet-500/25 text-violet-200 border border-violet-400/40">
+        Sección Destacada · Simulacro de Examen
+      </span>
+      <span class="px-2.5 py-0.5 text-xs font-mono rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+        Spring Boot + JPA + H2
+      </span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">
+      API RESTful: Talleres Don Juan
+    </h2>
+    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+      Solución completa y explicada paso a paso para el simulacro real de examen: modelado relacional
+      <strong>Taller (1:N) → Cliente (1:1) → Coche</strong>, 3 repositorios con consultas derivadas,
+      <code>TallerService</code> completo, <code>TallerController</code> con todas las rutas exactas,
+      control de errores <code>404 Not Found</code> y payload JSON listo para Postman.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a
+        href="/simulacro/taller-don-juan"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-violet-500 hover:bg-violet-400 text-slate-950 font-bold text-sm transition"
+      >
+        <span>Ver Simulacro Completo</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+      <a
+        href="/cheatcode"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 font-bold text-sm border border-cyan-500/40 transition"
+      >
+        <span>Abrir Super Cheatcode (Explorador IDE)</span>
+      </a>
+      <a
+        href="/ejercicios/pi-spring"
+        class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition"
+      >
+        <span>Comparar con piSpring (Tema 7)</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Grid Sections -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+    <a href="/teoria" class="group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-cyan-500/40 p-5 transition">
+      <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Temario Oficial</div>
+      <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition">Teoría: Temas 1 al 7</h3>
+      <p class="text-sm text-slate-400 mt-1.5">
+        Desde IoC/DI y el primer controlador hasta relaciones 1:1, 1:N, Lombok y arquitectura transaccional. Incluye descarga de los 7 PDFs.
+      </p>
+    </a>
+
+    <a href="/teoria/diapos" class="group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-cyan-500/40 p-5 transition">
+      <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">Presentaciones</div>
+      <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition">Diapositivas (.pptx)</h3>
+      <p class="text-sm text-slate-400 mt-1.5">
+        Esquemas visuales y resumen de las 6 presentaciones de clase con ejemplos de Postman, H2 y errores típicos.
+      </p>
+    </a>
+
+    <a href="/ejercicios/demo-spring" class="group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-emerald-500/40 p-5 transition">
+      <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Práctica Guiada</div>
+      <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition">Ejercicios Resueltos</h3>
+      <p class="text-sm text-slate-400 mt-1.5">
+        Código real analizado de <code>demo-spring</code> (Estudiante/Profesor con PUT, PATCH y DELETE) y <code>piSpring</code> (TechCorp).
+      </p>
+    </a>
+
+    <a href="/transcripciones" class="group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-sky-500/40 p-5 transition">
+      <div class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">Sesiones S01–S08</div>
+      <h3 class="text-lg font-bold text-white group-hover:text-sky-300 transition">Transcripciones y Tips</h3>
+      <p class="text-sm text-slate-400 mt-1.5">
+        Resumen estructurado de las 10 grabaciones de clase, criterios de puntuación y avisos clave del profesor.
+      </p>
+    </a>
+  </section>
+
+  <!-- Architecture Diagram -->
+  <section class="pt-4">
+    <h2 class="text-2xl font-bold text-white mb-3">Arquitectura en Capas de Spring Boot</h2>
+    <p class="text-sm sm:text-base text-slate-300 mb-4">
+      Todas las APIs REST que realizamos en clase y en el examen siguen estrictamente la separación en 4 paquetes principales dentro de <code>src/main/java/...</code>:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-center">
+      <div class="rounded-xl border border-sky-500/30 bg-sky-500/5 p-4">
+        <div class="text-xs font-mono text-sky-400 mb-1">1. controller/</div>
+        <div class="font-bold text-white text-sm">@RestController</div>
+        <p class="text-xs text-slate-400 mt-1">Expone endpoints HTTP, lee JSON (@RequestBody) y devuelve ResponseEntity.</p>
+      </div>
+      <div class="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4">
+        <div class="text-xs font-mono text-emerald-400 mb-1">2. service/</div>
+        <div class="font-bold text-white text-sm">@Service</div>
+        <p class="text-xs text-slate-400 mt-1">Lógica de negocio, transacciones (@Transactional) y enlace bidireccional.</p>
+      </div>
+      <div class="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4">
+        <div class="text-xs font-mono text-amber-400 mb-1">3. repository/</div>
+        <div class="font-bold text-white text-sm">@Repository</div>
+        <p class="text-xs text-slate-400 mt-1">Interfaces que extienden de JpaRepository&lt;T, ID&gt; + consultas derivadas.</p>
+      </div>
+      <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 p-4">
+        <div class="text-xs font-mono text-violet-400 mb-1">4. entity/</div>
+        <div class="font-bold text-white text-sm">@Entity</div>
+        <p class="text-xs text-slate-400 mt-1">Clases mapeadas a tablas SQL con relaciones 1:1, 1:N y Lombok (@Data).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Exam Cheat Sheet -->
+  <section class="pt-4">
+    <h2 class="text-2xl font-bold text-white mb-3">Chuleta Rápida antes de Empezar el Examen</h2>
+    <CodeBlock code={quickChecklist} lang="java" filename="ChecklistExamen.java" caption="Esqueleto mental de los 5 pasos que hay que completar en cualquier ejercicio tipo examen." />
+
+    <Callout type="exam" title="Reglas de oro vistas en la Sesión S08">
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Lado propietario (@JoinColumn):</strong> En <code>1:N</code>, la clave foránea SIEMPRE va en la entidad del lado <code>@ManyToOne</code> (ej. <code>Cliente</code> lleva <code>taller_id</code>).</li>
+        <li><strong><code>mappedBy</code>:</strong> En <code>@OneToMany(mappedBy = "...")</code>, el valor debe coincidir exactamente con el <strong>nombre del atributo Java</strong> en la otra clase (ej. <code>taller</code>).</li>
+        <li><strong>Evitar bucles infinitos:</strong> Usa <code>@ToString.Exclude</code> (Lombok) y <code>@JsonIgnoreProperties("...")</code> o <code>@JsonIgnore</code> (Jackson) para evitar <code>StackOverflowError</code>.</li>
+        <li><strong>Sincronizar hijos al guardar desde Postman:</strong> Usa un setter personalizado <code>setClientes(...)</code> o recorre la lista en el servicio asignando <code>cliente.setTaller(taller)</code>; si no, <code>taller_id</code> llegará como <code>null</code>.</li>
+      </ul>
+    </Callout>
+  </section>
+</DocsLayout>
+

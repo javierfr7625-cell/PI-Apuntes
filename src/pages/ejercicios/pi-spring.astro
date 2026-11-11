@@ -1,0 +1,217 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+
+const depCode = `package javier.com.pispring.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "departamentos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Departamento {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
+    private int planta;
+
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("departamento")
+    private List<Empleado> empleados = new ArrayList<>();
+}`;
+
+const empCode = `package javier.com.pispring.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "empleados")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Empleado {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
+    private String puestos;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "credencial_id", referencedColumnName = "id", unique = true)
+    private Credencial credencial;
+
+    @ManyToOne
+    @JoinColumn(name = "departamento_id")
+    @JsonIgnoreProperties("empleados")
+    private Departamento departamento;
+}`;
+
+const credCode = `package javier.com.pispring.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "credenciales")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class Credencial {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String codigo;
+
+    @Column(nullable = false)
+    private String nivelSeguridad;
+}`;
+
+const depServiceCode = `package javier.com.pispring.service;
+
+import javier.com.pispring.entity.Departamento;
+import javier.com.pispring.repository.DepartamentoRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class DepartamentoService {
+
+    private final DepartamentoRepository departamentoRepository;
+
+    public DepartamentoService(DepartamentoRepository departamentoRepository) {
+        this.departamentoRepository = departamentoRepository;
+    }
+
+    @Transactional
+    public Departamento guardar(Departamento departamento) {
+        if (departamento.getEmpleados() != null) {
+            departamento.getEmpleados().forEach(empleado -> empleado.setDepartamento(departamento));
+        }
+        return departamentoRepository.save(departamento);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Departamento> listarTodos() {
+        return departamentoRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Departamento> buscarPorId(Long id) {
+        return departamentoRepository.findById(id);
+    }
+}`;
+
+const depControllerCode = `package javier.com.pispring.controller;
+
+import javier.com.pispring.entity.Departamento;
+import javier.com.pispring.service.DepartamentoService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/departamentos")
+public class DepartamentoController {
+
+    private final DepartamentoService departamentoService;
+
+    public DepartamentoController(DepartamentoService departamentoService) {
+        this.departamentoService = departamentoService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Departamento> crearDepartamento(@RequestBody Departamento departamento) {
+        Departamento guardado = departamentoService.guardar(departamento);
+        return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Departamento>> listarTodos() {
+        return ResponseEntity.ok(departamentoService.listarTodos());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Departamento> obtenerPorId(@PathVariable Long id) {
+        return departamentoService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+}`;
+
+const credRepoCode = `package javier.com.pispring.repository;
+
+import javier.com.pispring.entity.Credencial;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface CredencialRepository extends JpaRepository<Credencial, Long> {
+    Optional<Credencial> findByCodigo(String codigo);
+}`;
+---
+
+<DocsLayout
+  title="Ejercicio 2: Proyecto piSpring (TechCorp)"
+  description="Solución real del reto del Tema 7: Departamento (1:N) → Empleado (1:1) → Credencial usando @JsonIgnoreProperties y @Transactional."
+  section="Ejercicios Resueltos · 2/2"
+>
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">1. Modelo Relacional Implementado</h2>
+    <p class="text-sm">
+      Ubicado en <code>Ejercicios/piSpring</code>. Es la plantilla más parecida al simulacro de examen <strong>Taller Don Juan</strong> porque combina exactamente una relación <code>1:N</code> y una relación <code>1:1</code> en cascada.
+    </p>
+    <Callout type="info" title="Truco de @JsonIgnoreProperties + @Transactional">
+      <p>
+        En <code>piSpring</code> resolvemos dos problemas clave de forma muy limpia:
+        <br />1. <code>@JsonIgnoreProperties("departamento")</code> en <code>Departamento.empleados</code> y <code>@JsonIgnoreProperties("empleados")</code> en <code>Empleado.departamento</code> permiten devolver el árbol completo en JSON sin bucle infinito.
+        <br />2. En <code>DepartamentoService.guardar()</code> enlazamos cada empleado con su departamento antes del <code>save()</code>.
+      </p>
+    </Callout>
+
+    <CodeBlock code={depCode} lang="java" filename="entity/Departamento.java" />
+    <CodeBlock code={empCode} lang="java" filename="entity/Empleado.java" />
+    <CodeBlock code={credCode} lang="java" filename="entity/Credencial.java" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-2">2. Repositorio, Servicio Transaccional y Controlador</h2>
+    <CodeBlock code={credRepoCode} lang="java" filename="repository/CredencialRepository.java" />
+    <CodeBlock code={depServiceCode} lang="java" filename="service/DepartamentoService.java" />
+    <CodeBlock code={depControllerCode} lang="java" filename="controller/DepartamentoController.java" />
+  </section>
+</DocsLayout>
+

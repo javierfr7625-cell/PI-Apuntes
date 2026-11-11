@@ -1,0 +1,816 @@
+1
+00:00:04,840 --> 00:00:08,911
+El último día, recuerdo
+que teníamos pendiente el
+
+2
+00:00:08,935 --> 00:00:12,851
+ejercicio de realizar
+el servicio de controller
+
+3
+00:00:13,280 --> 00:00:21,280
+de profesor. Habíamos hecho en clase el de
+estudiante y el ejercicio correspondía de
+
+4
+00:00:21,281 --> 00:00:26,080
+hacer el servicio de profesores, en el que
+teníamos que implementar la clase profesor
+
+5
+00:00:26,081 --> 00:00:31,000
+service, inyectando el profesor repository
+y añadiendo métodos para listar todos los
+
+6
+00:00:31,050 --> 00:00:38,160
+profesores, buscarlos por idea, actualizar
+sus datos y guardarlos. Para ello, lo que
+
+7
+00:00:55,480 --> 00:01:03,480
+teníamos que hacer era crear
+un servicio de profesor service.
+
+8
+00:01:11,934 --> 00:01:19,560
+Lo primero que teníamos
+que hacer era crear un servicio.
+
+9
+00:01:30,449 --> 00:01:34,312
+Pero como nos dice,
+tenemos que crear private
+
+10
+00:01:34,336 --> 00:01:38,212
+final profesor repository
+y lo inicializamos.
+
+11
+00:01:59,560 --> 00:02:07,560
+Hacíamos las funciones que iba a
+tener el servicio, lo que era el CRUD.
+
+12
+00:02:19,070 --> 00:02:26,920
+Vamos a tener una para
+listar todos los profesores.
+
+13
+00:02:30,860 --> 00:02:38,560
+No va a recibir nada y lo que va a hacer
+es devolver el profesor repository.findall.
+
+14
+00:02:50,690 --> 00:02:58,640
+Vamos también public
+optional para coger uno solo.
+
+15
+00:03:02,530 --> 00:03:10,480
+Vamos a buscar por id.
+Esto nos iba a dar un id tipo long y lo que
+
+16
+00:03:23,595 --> 00:03:29,720
+hacíamos era el retun de profesor
+repository.findbyid y pasamos el id.
+
+17
+00:03:38,000 --> 00:03:45,800
+Teníamos el public guardar
+profesor y lo teníamos que guardar.
+
+18
+00:04:09,450 --> 00:04:15,000
+Vamos a tener también
+el borrar public avoid.
+
+19
+00:04:23,250 --> 00:04:30,600
+En el que vamos a tener
+también pasar un id.
+
+20
+00:04:40,860 --> 00:04:47,960
+Y devolvíamos el profesor.
+
+21
+00:05:13,350 --> 00:05:16,000
+Ahora vamos a crear el controlador.
+
+22
+00:05:16,001 --> 00:05:19,014
+Para el controlador
+nos dice que la ruta tiene
+
+23
+00:05:19,038 --> 00:05:27,920
+que ser /api/profesores que
+permite realizar get, post, patch y put.
+
+24
+00:05:27,921 --> 00:05:32,960
+Además también el
+delete, lo que sería el CRUD.
+
+25
+00:05:44,640 --> 00:05:52,640
+Para el controlador necesitamos
+decirle que es un 3 controller.
+
+26
+00:06:08,570 --> 00:06:16,320
+Ahora vamos a crear el controlador.
+
+27
+00:06:25,850 --> 00:06:31,600
+Y ya hacemos lo mismo con el get de todos.
+
+28
+00:06:44,530 --> 00:06:48,880
+Vamos a crear el controlador.
+
+29
+00:07:02,785 --> 00:07:10,160
+Y ahora vamos a crear el controlador.
+
+30
+00:07:15,890 --> 00:07:23,040
+También vamos a crear un
+get mapping para coger uno.
+
+31
+00:07:34,090 --> 00:07:41,840
+Y ahora vamos a crear el controlador.
+
+32
+00:07:53,120 --> 00:08:01,120
+Y ahora vamos a crear el controlador.
+
+33
+00:08:13,070 --> 00:08:20,320
+Y ahora vamos a crear el controlador.
+
+34
+00:08:30,000 --> 00:08:38,000
+Y aquí ya hicimos devolver
+la llamada del service.
+
+35
+00:08:50,640 --> 00:08:58,640
+Y ahora vamos a crear el controlador.
+
+36
+00:09:09,109 --> 00:09:16,560
+Y ahora vamos a crear el controlador.
+
+37
+00:09:26,480 --> 00:09:34,480
+Y ahora vamos a crear el controlador.
+
+38
+00:09:54,099 --> 00:10:00,400
+Y ahora vamos a crear el controlador.
+
+39
+00:10:00,560 --> 00:10:08,560
+Para devolver en formato JSON, mensaje.
+
+40
+00:10:23,959 --> 00:10:28,560
+El profesor no existe.
+
+41
+00:10:36,720 --> 00:10:44,720
+Y ahora vamos a crear el post mapping.
+
+42
+00:10:52,459 --> 00:11:00,160
+Y ahora vamos a crear el post mapping.
+
+43
+00:11:10,379 --> 00:11:18,080
+Y ahora vamos a crear el post mapping.
+
+44
+00:11:36,679 --> 00:11:44,480
+Y ahora vamos a crear el post mapping.
+
+45
+00:11:46,869 --> 00:11:54,720
+Y ahora vamos a devolver
+un response entity.
+
+46
+00:12:15,079 --> 00:12:22,880
+Vamos a crear un created.
+
+47
+00:12:28,499 --> 00:12:35,200
+Teníamos el @put mapping para actualizar.
+
+48
+00:12:47,039 --> 00:12:55,040
+Y ahora vamos a crear el post mapping.
+
+49
+00:13:12,000 --> 00:13:20,000
+Y ahora vamos a crear el post mapping.
+
+50
+00:13:36,109 --> 00:13:43,360
+Y ahora vamos a crear el post mapping.
+
+51
+00:13:52,939 --> 00:14:00,640
+Y ahora vamos a crear el post mapping.
+
+52
+00:14:17,119 --> 00:14:24,320
+Y ahora vamos a crear el post mapping.
+
+53
+00:14:34,999 --> 00:14:42,800
+Y ahora vamos a crear el post mapping.
+
+54
+00:15:00,309 --> 00:15:07,760
+Y ahora vamos a crear el post mapping.
+
+55
+00:15:26,720 --> 00:15:34,720
+Con eso tenemos el profesor actualizado.
+
+56
+00:15:52,209 --> 00:15:59,760
+Y ya montamos el
+return del response entity.
+
+57
+00:16:19,969 --> 00:16:27,920
+Y ya montamos el
+return del response entity.
+
+58
+00:16:48,105 --> 00:16:56,080
+Y ya montamos el
+return del response entity.
+
+59
+00:17:16,240 --> 00:17:24,240
+Y ya montamos el
+return del response entity.
+
+60
+00:17:44,649 --> 00:17:52,400
+Y ya montamos el
+return del response entity.
+
+61
+00:18:13,259 --> 00:18:20,560
+Y ya montamos el
+return del response entity.
+
+62
+00:18:30,720 --> 00:18:38,720
+Y ya montamos el
+return del response entity.
+
+63
+00:18:50,880 --> 00:18:58,880
+Y ya montamos el
+return del response entity.
+
+64
+00:19:07,089 --> 00:19:15,040
+Y ya montamos el
+return del response entity.
+
+65
+00:19:30,549 --> 00:19:37,200
+Y ya montamos el
+return del response entity.
+
+66
+00:19:49,559 --> 00:19:57,360
+Y ya montamos el
+return del response entity.
+
+67
+00:20:11,520 --> 00:20:19,520
+Y ya montamos el
+return del response entity.
+
+68
+00:20:34,679 --> 00:20:41,680
+Y ya montamos el
+return del response entity.
+
+69
+00:20:58,539 --> 00:21:03,840
+Y ya montamos el
+return del response entity.
+
+70
+00:21:18,499 --> 00:21:26,000
+Y ya montamos el
+return del response entity.
+
+71
+00:21:38,160 --> 00:21:46,160
+Y ya montamos el
+return del response entity.
+
+72
+00:22:00,320 --> 00:22:08,320
+Y ya montamos el
+return del response entity.
+
+73
+00:22:22,480 --> 00:22:30,480
+Y ya montamos el
+return del response entity.
+
+74
+00:22:51,189 --> 00:22:58,640
+Y ya montamos el
+return del response entity.
+
+75
+00:23:18,849 --> 00:23:26,800
+Y ya montamos el
+return del response entity.
+
+76
+00:23:35,809 --> 00:23:42,960
+Y ya montamos el
+return del response entity.
+
+77
+00:24:04,419 --> 00:24:11,120
+Y ya montamos el
+return del response entity.
+
+78
+00:24:32,279 --> 00:24:39,280
+Y ya montamos el
+return del response entity.
+
+79
+00:24:53,989 --> 00:25:01,440
+Y ya montamos el
+return del response entity.
+
+80
+00:25:16,549 --> 00:25:23,600
+Y ya montamos el
+return del response entity.
+
+81
+00:25:43,759 --> 00:25:51,760
+Y ya montamos el
+return del response entity.
+
+82
+00:26:06,069 --> 00:26:13,920
+Y ya montamos el
+return del response entity.
+
+83
+00:26:28,080 --> 00:26:36,080
+Y ya montamos el
+return del response entity.
+
+84
+00:26:50,589 --> 00:26:58,240
+Y ya montamos el
+return del response entity.
+
+85
+00:27:12,400 --> 00:27:20,400
+Y ya montamos el
+return del response entity.
+
+86
+00:27:34,560 --> 00:27:42,560
+Y ya montamos el
+return del response entity.
+
+87
+00:27:56,720 --> 00:28:04,720
+Y ya montamos el
+return del response entity.
+
+88
+00:28:18,929 --> 00:28:26,880
+Y ya montamos el
+return del response entity.
+
+89
+00:28:39,039 --> 00:28:47,040
+Y ya montamos el
+return del response entity.
+
+90
+00:29:03,200 --> 00:29:11,200
+Y ya montamos el
+return del response entity.
+
+91
+00:29:32,709 --> 00:29:39,360
+Y ya montamos el
+return del response entity.
+
+92
+00:30:04,469 --> 00:30:07,520
+Y ya montamos el
+return del response entity.
+
+93
+00:30:27,680 --> 00:30:35,680
+Y ya montamos el
+return del response entity.
+
+94
+00:30:55,840 --> 00:31:03,840
+Y ya montamos el
+return del response entity.
+
+95
+00:31:18,199 --> 00:31:26,000
+Y ya montamos el
+return del response entity.
+
+96
+00:31:41,259 --> 00:31:48,160
+Y ya montamos el
+return del response entity.
+
+97
+00:32:02,269 --> 00:32:08,320
+Y ya montamos el
+return del response entity.
+
+98
+00:32:22,579 --> 00:32:30,480
+Y ya montamos el
+return del response entity.
+
+99
+00:32:42,739 --> 00:32:50,640
+Y ya montamos el
+return del response entity.
+
+100
+00:33:04,949 --> 00:33:12,800
+Y ya montamos el
+return del response entity.
+
+101
+00:33:31,759 --> 00:33:34,960
+Y ya montamos el
+return del response entity.
+
+102
+00:33:50,044 --> 00:33:57,120
+Y ya montamos el
+return del response entity.
+
+103
+00:34:11,280 --> 00:34:19,280
+Y ya montamos el
+return del response entity.
+
+104
+00:34:35,490 --> 00:34:41,440
+Y ya montamos el
+return del response entity.
+
+105
+00:34:49,600 --> 00:34:57,600
+Y ya montamos el
+return del response entity.
+
+106
+00:35:09,960 --> 00:35:17,760
+Y ya montamos el
+return del response entity.
+
+107
+00:35:25,920 --> 00:35:33,920
+Y ya montamos el
+return del response entity.
+
+108
+00:35:42,305 --> 00:35:50,080
+Y ya montamos el
+return del response entity.
+
+109
+00:36:04,740 --> 00:36:12,240
+Y ya montamos el
+return del response entity.
+
+110
+00:36:24,400 --> 00:36:32,400
+Y ya montamos el
+return del response entity.
+
+111
+00:36:44,560 --> 00:36:52,560
+Y ya montamos el
+return del response entity.
+
+112
+00:37:04,720 --> 00:37:12,720
+Y ya montamos el
+return del response entity.
+
+113
+00:37:20,880 --> 00:37:28,880
+Y ya montamos el
+return del response entity.
+
+114
+00:37:45,040 --> 00:37:53,040
+Y ya montamos el
+return del response entity.
+
+115
+00:38:09,200 --> 00:38:17,200
+Y ya montamos el
+return del response entity.
+
+116
+00:38:29,360 --> 00:38:37,360
+Y ya montamos el
+return del response entity.
+
+117
+00:38:45,520 --> 00:38:53,520
+Y ya montamos el
+return del response entity.
+
+118
+00:39:06,530 --> 00:39:13,680
+Y ya montamos el
+return del response entity.
+
+119
+00:39:32,140 --> 00:39:39,840
+Y ya montamos el
+return del response entity.
+
+120
+00:39:50,000 --> 00:39:58,000
+Y ya montamos el
+return del response entity.
+
+121
+00:40:06,160 --> 00:40:14,160
+Y ya montamos el
+return del response entity.
+
+122
+00:40:22,970 --> 00:40:30,320
+Y ya montamos el
+return del response entity.
+
+123
+00:40:38,480 --> 00:40:46,480
+Y ya montamos el
+return del response entity.
+
+124
+00:40:54,690 --> 00:41:02,640
+Y ya montamos el
+return del response entity.
+
+125
+00:41:14,800 --> 00:41:22,800
+Y ya montamos el
+return del response entity.
+
+126
+00:41:34,960 --> 00:41:42,960
+Y ya montamos el
+return del response entity.
+
+127
+00:41:58,270 --> 00:42:03,120
+Y ya montamos el
+return del response entity.
+
+128
+00:42:15,305 --> 00:42:23,280
+Y ya montamos el
+return del response entity.
+
+129
+00:42:31,590 --> 00:42:39,440
+Y ya montamos el
+return del response entity.
+
+130
+00:42:48,600 --> 00:42:55,600
+Y ya montamos el
+return del response entity.
+
+131
+00:43:07,910 --> 00:43:15,760
+Y ya montamos el
+return del response entity.
+
+132
+00:43:23,920 --> 00:43:31,920
+Y ya montamos el
+return del response entity.
+
+133
+00:43:40,530 --> 00:43:48,080
+Y ya montamos el
+return del response entity.
+
+134
+00:44:07,190 --> 00:44:08,910
+Y ya montamos el
+return del response entity.
+
+135
+00:44:22,500 --> 00:44:28,400
+Y ya montamos el
+return del response entity.
+
+136
+00:44:46,360 --> 00:44:48,560
+Y ya montamos el
+return del response entity.
+
+137
+00:45:02,070 --> 00:45:08,720
+Y ya montamos el
+return del response entity.
+
+138
+00:45:20,880 --> 00:45:28,880
+Y ya montamos el
+return del response entity.
+
+139
+00:45:43,040 --> 00:45:51,040
+Y ya montamos el
+return del response entity.
+
+140
+00:46:03,200 --> 00:46:11,200
+Y ya montamos el
+return del response entity.
+
+141
+00:46:26,260 --> 00:46:33,360
+Y ya montamos el
+return del response entity.
+
+142
+00:46:49,220 --> 00:46:53,520
+Y ya montamos el
+return del response entity.
+
+143
+00:47:06,680 --> 00:47:13,680
+Y ya montamos el
+return del response entity.
+
+144
+00:47:25,840 --> 00:47:33,840
+Y ya montamos el
+return del response entity.
+
+145
+00:47:46,000 --> 00:47:54,000
+Y ya montamos el
+return del response entity.
+
+146
+00:48:06,460 --> 00:48:14,160
+Y ya montamos el
+return del response entity.
+
+147
+00:48:26,320 --> 00:48:34,320
+Y ya montamos el
+return del response entity.
+
+148
+00:48:46,480 --> 00:48:54,480
+Y ya montamos el
+return del response entity.
+
+149
+00:49:06,765 --> 00:49:14,640
+Y ya montamos el
+return del response entity.
+
+150
+00:49:26,950 --> 00:49:34,800
+Y ya montamos el
+return del response entity.
+
+151
+00:49:47,410 --> 00:49:54,960
+Y ya montamos el
+return del response entity.
+
+152
+00:50:07,120 --> 00:50:15,120
+Y ya montamos el
+return del response entity.
+
+153
+00:50:28,630 --> 00:50:35,280
+Y ya montamos el
+return del response entity.
+
+154
+00:50:47,690 --> 00:50:55,440
+Y ya montamos el
+return del response entity.
+
+155
+00:51:08,500 --> 00:51:15,600
+Y ya montamos el
+return del response entity.
+
+156
+00:51:27,810 --> 00:51:35,760
+Y ya montamos el
+return del response entity.
+
+157
+00:51:47,970 --> 00:51:55,920
+Y ya montamos el
+return del response entity.
+
+158
+00:52:08,130 --> 00:52:16,080
+Y ya montamos el
+return del response entity.
+
+159
+00:52:28,440 --> 00:52:36,240
+Y ya montamos el
+return del response entity.
+
+160
+00:52:48,400 --> 00:52:56,400
+Y ya montamos el
+return del response entity.
+
+161
+00:53:04,810 --> 00:53:12,560
+Y ya montamos el
+return del response entity.
+
+162
+00:53:30,720 --> 00:53:38,720
+Y ya montamos el
+return del response entity.
+
+163
+00:53:50,880 --> 00:53:58,880
+Y ya montamos el
+return del response entity.
+
+164
+00:54:12,290 --> 00:54:19,040
+Y ya montamos el
+return del response entity.
+
+165
+00:54:31,200 --> 00:54:39,200
+Y ya montamos el
+return del response entity.
+
+166
+00:54:51,360 --> 00:54:59,360
+Y ya montamos el
+return del response entity.
+
+167
+00:55:11,520 --> 00:55:19,520
+Y ya montamos el
+return del response entity.
+
+168
+00:55:31,680 --> 00:55:39,680
+Y ya montamos el
+return del response entity.
+
+169
+00:55:47,840 --> 00:55:55,840
+Y ya montamos el
+return del response entity.
+

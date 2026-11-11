@@ -1,0 +1,997 @@
+1
+00:00:00,000 --> 00:00:11,000
+vale es pinwood llevábamos nuestro
+proyecto habíamos visto hasta ahora
+
+2
+00:00:13,000 --> 00:00:21,000
+bueno habíamos creado diferentes
+entidades habíamos visto cómo montar
+
+3
+00:00:24,000 --> 00:00:32,000
+las entidades habíamos visto qué
+es pinwood además nos hacía el
+
+4
+00:00:32,001 --> 00:00:37,000
+cuando hacíamos la notación cuando
+trabajamos con la notación en la ropa
+
+5
+00:00:37,001 --> 00:00:40,038
+entity para definir que
+era una entidad después del
+
+6
+00:00:40,039 --> 00:00:45,000
+machaque del otro día que
+era una entidad os acordáis
+
+7
+00:00:45,001 --> 00:00:52,280
+lo hago en general para que con que uno
+se acuerde me vale la relación entre los
+
+8
+00:00:52,281 --> 00:00:57,280
+objetos y la tabla exacto
+vale los objetos dejaba
+
+9
+00:00:57,400 --> 00:01:05,400
+vale era el lo que relacionaba a
+nuestros objetos dejaba con la tabla que
+
+10
+00:01:05,401 --> 00:01:11,400
+vamos a tener en la base
+de datos vale eso nos forzaba
+
+11
+00:01:11,401 --> 00:01:16,040
+a que como toda tabla tenía
+que tener una clave primaria
+
+12
+00:01:16,041 --> 00:01:22,360
+entonces teníamos que definirla en la ropa
+y di vale bueno vimos que lo un box nos
+
+13
+00:01:22,361 --> 00:01:27,680
+facilitaba la vida con la parte de
+los constructores y en los getters y
+
+14
+00:01:27,681 --> 00:01:30,527
+los setters vimos que
+además para trabajar con las
+
+15
+00:01:30,528 --> 00:01:36,600
+entidades y vamos a tener que
+desarrollar un constructor sin
+
+16
+00:01:36,601 --> 00:01:43,080
+si ni de vale para crear el objeto y que
+él de manera automática en la base de
+
+17
+00:01:44,080 --> 00:01:52,080
+datos nos creara un nuevo
+id en la parte de la identidad
+
+18
+00:01:52,081 --> 00:01:59,520
+vimos cómo podíamos
+lanzar esto o arrancar esto
+
+19
+00:01:59,521 --> 00:02:04,800
+y lo conectamos teníamos un fichero
+application properties que en nuestro
+
+20
+00:02:04,801 --> 00:02:12,160
+caso le decíamos que le vamos a
+conectar con una base de datos h2 de
+
+21
+00:02:12,161 --> 00:02:23,760
+base de datos de java
+base de datos dejaba
+
+22
+00:02:24,160 --> 00:02:32,160
+en prevención termodular que la llamada y
+
+23
+00:02:33,160 --> 00:02:39,920
+entonces teníamos la base de datos h2
+que es base de datos de java que además
+
+24
+00:02:39,921 --> 00:02:46,800
+h2 nos permite guardar en memoria o
+guardar en fichero en memoria cada vez
+
+25
+00:02:46,801 --> 00:02:51,082
+que arrancamos desaparece y
+en fichero pues era persistente
+
+26
+00:02:51,083 --> 00:02:55,000
+ya lo veremos más adelante
+cuando ya trabajamos con
+
+27
+00:02:55,001 --> 00:02:59,920
+pero básicamente es este atributo
+de aquí que tenéis me vale es el que
+
+28
+00:02:59,921 --> 00:03:03,880
+representa el que estamos guardando en
+memoria y luego el nombre de la base de
+
+29
+00:03:03,881 --> 00:03:07,440
+datos que guardamos en memoria para
+acceder a esa base de datos os recuerdo
+
+30
+00:03:07,441 --> 00:03:17,440
+que en el navegador en nuestra pie
+estaba escuchando en el puerto 80 80
+
+31
+00:03:17,441 --> 00:03:23,063
+vale esto lo lanzaba cuando
+lanzamos el ran vale acordaros
+
+32
+00:03:23,064 --> 00:03:30,960
+que nuestro puerto nuestra
+pie empezaba en el puerto 80 80
+
+33
+00:03:30,961 --> 00:03:36,200
+esto quiere decir que la
+máquina local local por
+
+34
+00:03:36,520 --> 00:03:43,554
+80 80 es nuestra pie
+para acceder a la consola
+
+35
+00:03:43,555 --> 00:03:48,520
+además teníamos que
+ponerle h2 consoles
+
+36
+00:03:48,960 --> 00:03:56,120
+y nos llevaba a la consola
+de h2 en la consola de java
+
+37
+00:03:56,121 --> 00:04:02,040
+vale con las credenciales que teníamos
+es decir el la url de conexión que tenía
+
+38
+00:04:02,041 --> 00:04:08,720
+que coincidir con la url que
+teníamos en el application properties
+
+39
+00:04:08,721 --> 00:04:14,080
+con el usuario y contraseña que
+habíamos puesto conectamos y entonces
+
+40
+00:04:14,081 --> 00:04:20,640
+nos accedíamos a lo que es la
+parte de las tablas habíamos visto que
+
+41
+00:04:23,840 --> 00:04:31,840
+vale teníamos la parte del profesor
+teníamos la parte de estudiante
+
+42
+00:04:31,841 --> 00:04:38,360
+al e y teníamos ahí las diferentes
+tablas vale que nos creaba al arrancar
+
+43
+00:04:38,480 --> 00:04:46,480
+muy bien vale entonces que vamos a hacer
+hoy hoy lo que vamos a hacer es introducir
+
+44
+00:04:47,440 --> 00:04:55,440
+lo que es la parte de jpa jpa es
+una parte que nos va a permitir
+
+45
+00:04:55,441 --> 00:05:00,400
+a ver silencio una parte nos van a
+permitir simplificar enormemente la
+
+46
+00:05:00,401 --> 00:05:06,960
+implementación de la capa acceso a datos
+esto es el conectar con la base de datos
+
+47
+00:05:06,961 --> 00:05:11,320
+hacer las inserciones en la base
+de datos todo lo que es la parte de
+
+48
+00:05:11,321 --> 00:05:17,160
+comunicarse con la base de datos y
+hacer las operaciones es decir yo ahora
+
+49
+00:05:17,161 --> 00:05:21,760
+estoy trabajando únicamente con un
+profesor vale con lo iremos complicando
+
+50
+00:05:21,761 --> 00:05:26,080
+de tal manera que me tenemos relaciones
+1 a 1 me tenemos relaciones 1 a n
+
+51
+00:05:26,081 --> 00:05:31,280
+entonces añadir un profesor es lo
+mismo que hacía es el año pasado es decir
+
+52
+00:05:31,281 --> 00:05:37,320
+vosotros conectaba directamente con jdbc
+y teníais en los métodos de insertar de
+
+53
+00:05:37,321 --> 00:05:43,880
+actualizar de borrar todo y metiáis una
+tabla ahora eso se complica en cuanto
+
+54
+00:05:43,881 --> 00:05:47,920
+empezáis a tener relaciones porque
+porque si yo tengo una relación 1 a 1 y
+
+55
+00:05:47,921 --> 00:05:52,040
+tengo que meter un elemento de una
+tabla además tengo que insertar en las dos
+
+56
+00:05:52,041 --> 00:05:56,160
+tablas es decir insertó en esa
+insertó en la que está vinculada
+
+57
+00:05:56,161 --> 00:06:02,560
+en todas estas vinculaciones las trabaja
+jpa ya veremos mediante la notación para
+
+58
+00:06:02,561 --> 00:06:10,040
+ello jpa nos ofrece un patrón
+una interfaz que es el repositorio el
+
+59
+00:06:11,160 --> 00:06:19,160
+repositorio de spring boot nos va a
+ofrecer ya por defecto el cruz y una
+
+60
+00:06:19,161 --> 00:06:23,840
+serie de funciones extra vale
+decir todas esas funciones ya están
+
+61
+00:06:23,841 --> 00:06:29,520
+implementadas por sí las heredaremos
+de jpa repositor y vale que es el que nos
+
+62
+00:06:29,521 --> 00:06:34,200
+proporcionará esa funcionalidad de tal
+manera que sólo creando el repositorio
+
+63
+00:06:34,201 --> 00:06:40,480
+ya lo veremos y decidiendo o
+diciéndole cuál es su entidad él nos genera
+
+64
+00:06:41,920 --> 00:06:49,920
+automáticamente ya un cruz completo
+ahora lo veréis de manera visual es más
+
+65
+00:06:50,080 --> 00:06:58,080
+es como montamos un repositorio
+voy a cerrar todo esto para que lo veáis
+
+66
+00:06:58,081 --> 00:07:03,840
+es para montar un repositorio lo primero
+que necesitamos es un paquete que guarde
+
+67
+00:07:03,841 --> 00:07:14,940
+los repositorios así vamos a
+hacerle un new package repositor y
+
+68
+00:07:20,580 --> 00:07:28,580
+le da y nos quedará un paquete repositorio
+
+69
+00:07:29,500 --> 00:07:37,500
+dentro del paquete repositorio y como
+os he dicho vamos a crear una interfaz
+
+70
+00:07:37,501 --> 00:07:43,860
+new java class vale y aquí
+tenéis que seleccionar interface
+
+71
+00:07:43,861 --> 00:07:50,300
+vale importante en el paquete repositor
+y new java class y dentro del new java
+
+72
+00:07:50,301 --> 00:07:54,005
+class seleccionáis
+interface y aquí le decimos
+
+73
+00:07:54,006 --> 00:08:00,300
+que vamos a hacer
+estudiante repositorio
+
+74
+00:08:01,420 --> 00:08:07,420
+vamos a crear la interfaz estudiante
+repositor y new java class en java class
+
+75
+00:08:07,421 --> 00:08:12,900
+seleccionáis interface
+y estudiante repositor
+
+76
+00:08:13,140 --> 00:08:21,140
+vale deberíais tener public
+interface estudiante repositori
+
+77
+00:08:23,260 --> 00:08:37,299
+dos cosas la primera es decirle a jpa que
+esto es un repositorio notación repositori
+
+78
+00:08:37,300 --> 00:08:44,340
+y los siguientes los segundos decirle a
+java que esta interfaz que hemos hecho
+
+79
+00:08:46,220 --> 00:08:54,220
+va a heredar la
+funcionalidad de jpa repositori
+
+80
+00:08:57,500 --> 00:09:05,500
+a jpa repositori además le tenéis que
+decir una entidad y el tipo de su clave
+
+81
+00:09:05,501 --> 00:09:11,740
+primaria esto es entre menor
+mayor le tenemos que especificar
+
+82
+00:09:11,741 --> 00:09:16,740
+que va a trabajar con
+la entidad de estudiante
+
+83
+00:09:17,260 --> 00:09:25,260
+y que el id de estudiante era de tipo long
+
+84
+00:09:37,620 --> 00:09:45,620
+ya está automáticamente al hacer
+esto la aplicación ya tiene toda la
+
+85
+00:09:45,621 --> 00:09:53,460
+funcionalidad ya tiene todos
+los métodos del del crud
+
+86
+00:09:53,461 --> 00:09:57,620
+ese estudiante repositori
+tendría los métodos
+
+87
+00:09:57,621 --> 00:10:02,140
+lo que no estamos utilizando en ningún
+lado ahora veremos el siguiente paso
+
+88
+00:10:02,141 --> 00:10:08,195
+del servicio del control
+pero con eso ya tendríamos
+
+89
+00:10:08,196 --> 00:10:19,980
+el insertar que hacéis
+apartarla y luego lo decimos
+
+90
+00:10:24,820 --> 00:10:32,820
+en serio la tenemos ahí pero no tenemos
+
+91
+00:10:34,420 --> 00:10:47,140
+yo paso la notificación gracias
+
+92
+00:10:52,380 --> 00:11:00,380
+vale tenemos esas las funciones
+básicas vale como decía están
+
+93
+00:11:00,381 --> 00:11:08,060
+si yo tengo por ejemplo un
+exist tengo un tendremos safe
+
+94
+00:11:08,061 --> 00:11:17,540
+y se y fall todas estas están que aparecen
+aquí están implementadas por defecto tengo
+
+95
+00:11:22,900 --> 00:11:30,900
+de tengo un no porque los de irlo
+hace con el safe igual tengo un delete
+
+96
+00:11:30,901 --> 00:11:38,180
+delete o delete o el bide decir tenemos
+un montón de funcionar que están
+
+97
+00:11:38,181 --> 00:11:42,340
+intrínsecas en ese jpa repositori vale
+que las está heredando el estudiante
+
+98
+00:11:42,341 --> 00:11:48,340
+repositori para su clase estudiante y
+además podemos utilizando los atributos
+
+99
+00:11:48,341 --> 00:11:53,860
+vale que tiene el estudiante podemos
+poner funciones específicas con palabras
+
+100
+00:11:53,861 --> 00:12:00,740
+reservadas que quiere decir esto
+yo puedo hacer un boolean exist
+
+101
+00:12:00,741 --> 00:12:07,500
+vale fijaros que automáticamente me
+sale una lista de opciones vale yo puedo
+
+102
+00:12:07,501 --> 00:12:09,526
+poner exist by que es
+una palabra reservada y
+
+103
+00:12:09,527 --> 00:12:16,220
+automáticamente al poner
+exist by me salen las opciones de
+
+104
+00:12:16,221 --> 00:12:22,380
+según las propiedades y los atributos
+que tenga ese estudiante o esa entidad
+
+105
+00:12:22,381 --> 00:12:25,449
+vale para buscar por
+elementos por ejemplo yo puedo
+
+106
+00:12:25,450 --> 00:12:33,740
+decirle exist by correo
+esto recogerá un string
+
+107
+00:12:34,820 --> 00:12:42,060
+correo de tal forma que lo que hará
+es directamente buscar en la entidad esa
+
+108
+00:12:42,061 --> 00:12:48,140
+propiedad correo y si existe el correo
+que le hemos pasado pues en donde estará
+
+109
+00:12:48,141 --> 00:12:52,620
+un true sino dará un falso pero ya con
+la palabra reservada exist by ya tener a
+
+110
+00:12:52,621 --> 00:12:58,180
+funcionar la realidad
+de buscar un elemento y
+
+111
+00:12:58,181 --> 00:13:04,500
+y decir si existe o no existe vale decir
+tenemos palabras reservadas para buscar
+
+112
+00:13:04,501 --> 00:13:13,660
+por atributos de la búsqueda por
+atributos también la podemos hacer vale
+
+113
+00:13:13,661 --> 00:13:26,500
+entonces eso en cuanto a la a la interfaz
+tendría también un es un estudiante
+
+114
+00:13:31,660 --> 00:13:37,100
+tendríamos fine estudiante bueno fine by
+
+115
+00:13:37,101 --> 00:13:42,780
+vale y lo mismo podríamos buscar si
+queremos por correo vale lo que es que
+
+116
+00:13:42,781 --> 00:13:47,580
+en este caso sólo teníamos
+creo que el correo y del estudiante
+
+117
+00:13:47,581 --> 00:13:54,700
+vale acordaros que el estudiante
+tenía correo y tenía edad
+
+118
+00:13:58,340 --> 00:14:00,307
+por edad también podríamos
+buscar si quisiéramos
+
+119
+00:14:00,308 --> 00:14:06,100
+vale decir por los atributos
+que tiene la entidad
+
+120
+00:14:19,420 --> 00:14:27,420
+pues eso vale pero ya os digo que lo
+que es las básicas están ya hechas lo que
+
+121
+00:14:27,421 --> 00:14:31,500
+es lo de buscar por id lo que sería el
+guardar la entidad que el guardar el
+
+122
+00:14:31,501 --> 00:14:36,300
+safe vale se utiliza ya lo veremos
+tanto para actualizar como para guardar
+
+123
+00:14:36,301 --> 00:14:41,540
+tenemos luego el fine by id vale
+intrínseco que nos permite buscar por
+
+124
+00:14:41,541 --> 00:14:44,503
+un por el id tenemos
+el find all que nos dará
+
+125
+00:14:44,504 --> 00:14:49,900
+todos los elementos
+tenemos el delete by id que
+
+126
+00:14:49,901 --> 00:14:54,940
+dado un id nos eliminará un elemento
+un estudiante o tenemos el count también
+
+127
+00:14:54,941 --> 00:15:03,000
+que nos permite decir el número
+de elementos vale entonces
+
+128
+00:15:03,001 --> 00:15:11,340
+que vamos a hacer vamos a
+probar vamos a hacer un componente
+
+129
+00:15:11,341 --> 00:15:18,980
+vamos a ir a nuestro inicialidad de
+datos vale decir dentro de config os
+
+130
+00:15:18,981 --> 00:15:24,020
+acordáis que hicimos un paquete con
+fíjate pues vamos a hacer un nuevo java
+
+131
+00:15:24,021 --> 00:15:26,237
+una nueva java class
+va a ser un fichero de
+
+132
+00:15:26,238 --> 00:15:34,740
+configuración donde vamos
+a testear la inserción de datos
+
+133
+00:15:34,780 --> 00:15:42,780
+entonces vamos a decirle
+que se va a llamar inicializador
+
+134
+00:15:44,140 --> 00:15:52,140
+inicializador datos
+
+135
+00:15:52,740 --> 00:15:58,460
+inicializador datos
+dentro del paquete config
+
+136
+00:15:58,461 --> 00:16:04,020
+he hecho un java class que
+se llama inicializador datos
+
+137
+00:16:04,021 --> 00:16:09,980
+que le vamos a poner
+que es un @configuration
+
+138
+00:16:09,981 --> 00:16:17,940
+vale para que la revise al
+arrancar y vamos a ponerle @bin
+
+139
+00:16:18,420 --> 00:16:23,780
+para ejecutar esta función al empezar
+
+140
+00:16:23,781 --> 00:16:35,540
+vamos a hacer una función que va a
+ser un command liner comand line runner
+
+141
+00:16:37,260 --> 00:16:45,260
+data que va a recoger
+el estudiante repository
+
+142
+00:16:46,860 --> 00:16:49,860
+estudiante repository
+
+143
+00:16:52,660 --> 00:17:00,660
+básicamente va a ser una función que
+lance en línea de comandos lo que le
+
+144
+00:17:01,380 --> 00:17:09,380
+pongamos vale entonces lo que vamos
+a hacer es que devuelva unos argumentos
+
+145
+00:17:13,420 --> 00:17:24,900
+vale entonces lo primero que vamos
+a hacer es vamos a insertar estudiantes
+
+146
+00:17:27,820 --> 00:17:35,820
+para eso necesitamos objetos de tipo
+estudiante vamos a hacer estudiante
+
+147
+00:17:38,580 --> 00:17:46,580
+estudiante uno es igual estudiante
+al que le pasamos los datos
+
+148
+00:17:48,700 --> 00:17:56,700
+el correo
+
+149
+00:18:05,700 --> 00:18:08,700
+y la edad que tenga
+
+150
+00:18:10,220 --> 00:18:23,020
+vamos a hacer otro
+estudiante que sea
+
+151
+00:18:24,340 --> 00:18:27,340
+y
+
+152
+00:18:44,100 --> 00:18:52,100
+pero tiene 18
+
+153
+00:18:54,100 --> 00:19:09,100
+una vez creados los objetos los podemos
+ya guardar estudiante estudiante repository
+
+154
+00:19:09,101 --> 00:19:19,100
+punto seis fijaros la logoteca de las
+funciones que tiene ya intrinsecas el
+
+155
+00:19:20,100 --> 00:19:29,100
+el repository vale tenemos los exist by
+correo que hemos hecho find by correo
+
+156
+00:19:29,101 --> 00:19:35,100
+tenemos el los delete
+el count que os decía
+
+157
+00:19:35,101 --> 00:19:41,100
+vale tenemos el buscar encontrar todos
+los elementos todos los estudiantes que hay
+
+158
+00:19:41,101 --> 00:19:46,100
+tenemos el guardar que es el que vamos a
+utilizar ahora para guardar los estudiantes
+
+159
+00:19:47,100 --> 00:19:51,013
+entre todo eso ya viene
+por defecto de jpa repository
+
+160
+00:19:51,037 --> 00:19:55,100
+en nuestro caso lo que vamos
+a guardar es un estudiante
+
+161
+00:19:55,101 --> 00:20:02,100
+vamos a guardar al estudiante
+uno y al estudiante dos
+
+162
+00:20:03,100 --> 00:20:21,100
+podemos sacar por pantalla estudiantes
+guardados correctamente estudiantes guardados
+
+163
+00:20:21,101 --> 00:21:15,100
+correctamente el por por por por por por
+por por por por por por por por por por por
+
+164
+00:21:15,101 --> 00:22:18,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+165
+00:22:18,101 --> 00:23:21,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+166
+00:23:21,101 --> 00:24:24,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+167
+00:24:24,101 --> 00:25:27,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+168
+00:25:27,101 --> 00:26:30,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+169
+00:26:30,101 --> 00:27:33,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+170
+00:27:33,101 --> 00:28:36,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+171
+00:28:36,101 --> 00:29:39,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+172
+00:29:39,101 --> 00:30:42,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+173
+00:30:42,101 --> 00:31:45,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+174
+00:31:45,101 --> 00:32:48,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+175
+00:32:48,101 --> 00:33:51,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+176
+00:33:51,101 --> 00:34:54,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+177
+00:34:54,101 --> 00:35:57,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+178
+00:35:57,101 --> 00:37:00,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+179
+00:37:00,101 --> 00:38:03,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+180
+00:38:03,101 --> 00:39:06,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+181
+00:39:06,101 --> 00:40:09,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+182
+00:40:09,101 --> 00:41:12,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+183
+00:41:12,101 --> 00:42:15,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+184
+00:42:15,101 --> 00:43:18,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+185
+00:43:18,101 --> 00:44:21,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+186
+00:44:21,101 --> 00:45:24,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+187
+00:45:24,101 --> 00:46:27,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+188
+00:46:27,101 --> 00:47:30,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+189
+00:47:30,101 --> 00:48:33,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+190
+00:48:33,101 --> 00:49:36,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+191
+00:49:36,101 --> 00:50:39,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+192
+00:50:39,101 --> 00:51:42,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+193
+00:51:42,101 --> 00:52:45,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+194
+00:52:45,101 --> 00:53:48,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+195
+00:53:48,101 --> 00:54:51,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+196
+00:54:51,101 --> 00:55:54,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+197
+00:55:54,101 --> 00:56:57,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+198
+00:56:57,101 --> 00:58:00,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+199
+00:58:00,101 --> 00:59:03,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+200
+00:59:03,101 --> 01:00:06,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+201
+01:00:06,101 --> 01:01:09,100
+por por por por por por por por por por
+por por por por por por por por por por por
+
+202
+01:01:09,101 --> 01:01:45,100
+por por por por por por
+por por por por por por
+

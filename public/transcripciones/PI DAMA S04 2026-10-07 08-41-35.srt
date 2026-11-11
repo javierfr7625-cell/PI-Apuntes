@@ -1,0 +1,2109 @@
+1
+00:00:04,600 --> 00:00:12,600
+el último día vimos cómo trabajar con el
+repositorio, el repositorio os recuerdo que
+
+2
+00:00:12,601 --> 00:00:19,080
+era el encargado de conectar con la base de
+datos el que nos iba a dar mediante el jpeg
+
+3
+00:00:20,745 --> 00:00:24,355
+repositorio y todas
+las funciones básicas de
+
+4
+00:00:24,379 --> 00:00:28,320
+conexión con la base de
+datos, esto nos permitía
+
+5
+00:00:28,321 --> 00:00:31,782
+insertar, nos permitía
+actualizar, nos permitía
+
+6
+00:00:31,806 --> 00:00:35,120
+leer de la base de
+datos, nos permitía buscar
+
+7
+00:00:35,121 --> 00:00:42,720
+por idae, buscar por elementos, podríamos
+ponerle los atributos propios de la clase,
+
+8
+00:00:42,721 --> 00:00:46,005
+acordaros que nosotros
+el find by le podíamos
+
+9
+00:00:46,029 --> 00:00:49,252
+añadir cualquiera de
+los atributos que tenía
+
+10
+00:00:50,759 --> 00:00:54,416
+la entidad, si estábamos
+trabajando con el
+
+11
+00:00:54,440 --> 00:00:58,360
+estudiante, pues el
+estudiante tenía recuerdo
+
+12
+00:00:58,361 --> 00:01:01,296
+nombre, correo y edad,
+entonces cualquiera de esos
+
+13
+00:01:01,320 --> 00:01:04,092
+atributos podríamos
+utilizarlos con el find by,
+
+14
+00:01:04,093 --> 00:01:07,281
+también estaba el exist
+by que era lo mismo pero
+
+15
+00:01:07,305 --> 00:01:10,640
+en vez de devolver el
+elemento devolvía un buleano
+
+16
+00:01:10,641 --> 00:01:13,676
+de si existía ese
+elemento que estábamos
+
+17
+00:01:13,700 --> 00:01:17,052
+buscando, todo eso
+venía de jpeg repositorio
+
+18
+00:01:19,399 --> 00:01:23,461
+pues nos daba toda esa
+funcionalidad, hoy vamos
+
+19
+00:01:23,485 --> 00:01:27,212
+a dar un pasito más
+y explicar lo que es la
+
+20
+00:01:30,360 --> 00:01:34,170
+arquitectura de Spring
+Boot, Spring Boot al
+
+21
+00:01:34,194 --> 00:01:38,360
+final es una API, una API
+encargada de conectar
+
+22
+00:01:38,361 --> 00:01:42,520
+al usuario con la base de datos, hacer el
+intermediario de tal manera que el usuario
+
+23
+00:01:42,521 --> 00:01:46,028
+no acceda directamente
+a la base de datos, para
+
+24
+00:01:46,052 --> 00:01:49,572
+montarlo lo hace con
+una arquitectura en capas,
+
+25
+00:01:50,400 --> 00:01:54,429
+que es esto, pues que
+va a separar tres capas, la
+
+26
+00:01:54,453 --> 00:01:58,412
+primera capa representa
+la capa de presentación,
+
+27
+00:01:59,739 --> 00:02:03,905
+esa capa de presentación
+es la que se va a encargar
+
+28
+00:02:03,929 --> 00:02:07,440
+de las peticiones HTTP
+que haga el usuario,
+
+29
+00:02:07,441 --> 00:02:11,252
+es decir de generar los
+endpoints, pues acordaros
+
+30
+00:02:11,276 --> 00:02:15,412
+que el endpoint tiene una
+url asociada y una función,
+
+31
+00:02:21,080 --> 00:02:25,068
+si viene una función get
+en /api/v1/estudiantes o
+
+32
+00:02:25,092 --> 00:02:29,092
+si viene una función post
+en /api/v1/estudiantes,
+
+33
+00:02:31,680 --> 00:02:35,668
+entonces todo eso se encargará del
+controlador, tendremos un elemento
+
+34
+00:02:35,692 --> 00:02:39,692
+que es el controlador que gestionará
+toda la parte de las peticiones,
+
+35
+00:02:41,280 --> 00:02:46,840
+también se encargará de la respuesta,
+es decir será el encargado de devolver en
+
+36
+00:02:51,480 --> 00:02:55,201
+mensajes a HTTP la
+respuesta con su código
+
+37
+00:02:55,225 --> 00:02:59,492
+correspondiente, ya os
+dije que así como en node
+
+38
+00:03:03,180 --> 00:03:06,818
+veíamos las respuestas con
+código, aquí las íbamos a
+
+39
+00:03:06,842 --> 00:03:10,492
+ver con el nombre, por
+ejemplo si yo os digo un 201,
+
+40
+00:03:22,960 --> 00:03:26,920
+que respuesta era, la 201
+cual era, creado, creáte,
+
+41
+00:03:26,944 --> 00:03:30,372
+la 200, ok, ha ido
+todo bien, 404, y la 400,
+
+42
+00:03:33,380 --> 00:03:41,280
+y pero que error,
+
+43
+00:03:49,160 --> 00:03:53,048
+algo con el dominio
+era, la bad request, vale,
+
+44
+00:03:53,072 --> 00:03:56,972
+petición errónea, es
+importante porque aquí en
+
+45
+00:03:57,160 --> 00:04:00,319
+Spring Boot las vamos
+a tener que escribir con
+
+46
+00:04:00,343 --> 00:04:03,640
+nombre, en node os tenéis
+que saber los números,
+
+47
+00:04:03,641 --> 00:04:06,599
+aquí os tenéis que saber
+los nombres, para ese tipo
+
+48
+00:04:06,623 --> 00:04:09,652
+de respuestas, y todo eso
+se hará en el controlador,
+
+49
+00:04:11,250 --> 00:04:14,413
+luego tenemos la capa
+de negocio, esta es la que
+
+50
+00:04:14,437 --> 00:04:17,812
+va a tener la lógica de
+negocio, de la transacción,
+
+51
+00:04:22,480 --> 00:04:26,683
+de si hay que hacer algún
+control, algún cálculo,
+
+52
+00:04:26,707 --> 00:04:30,492
+validación, básicamente
+el intermediario que
+
+53
+00:04:30,850 --> 00:04:34,769
+cogerá el controlador,
+le mandará la petición
+
+54
+00:04:34,793 --> 00:04:38,800
+que queremos hacer,
+queremos insertar, y él se
+
+55
+00:04:38,801 --> 00:04:44,920
+lo pasará a la última capa que es la capa
+de persistencia, que es el repositorio,
+
+56
+00:04:46,410 --> 00:04:49,793
+entonces tenemos el
+controlador que se encarga de
+
+57
+00:04:49,817 --> 00:04:53,212
+la capa de presentación,
+es decir, las peticiones
+
+58
+00:04:53,375 --> 00:04:56,687
+HTTP y las respuestas
+HTTP, tenemos la capa de
+
+59
+00:04:56,711 --> 00:04:59,880
+negocio que es el
+servicio que se encarga de
+
+60
+00:04:59,881 --> 00:05:03,602
+las validaciones, y luego
+la capa de persistencia
+
+61
+00:05:03,626 --> 00:05:07,120
+que es el repositorio,
+es la que se encarga de
+
+62
+00:05:07,121 --> 00:05:11,052
+las consultas a la base
+de datos, vale, entonces
+
+63
+00:05:11,076 --> 00:05:14,680
+el repositorio ya lo
+vimos la semana pasada,
+
+64
+00:05:14,681 --> 00:05:17,284
+esta semana lo que vamos
+a ver es cómo montar
+
+65
+00:05:17,308 --> 00:05:19,692
+el controlador y cómo
+montar el servicio,
+
+66
+00:05:20,630 --> 00:05:23,608
+cómo hacer todas
+esas peticiones en el
+
+67
+00:05:23,632 --> 00:05:27,332
+controlador y luego
+las funciones del servicio,
+
+68
+00:05:28,670 --> 00:05:32,760
+vale, entonces vamos a continuar
+con nuestro ejemplo de estudiantes,
+
+69
+00:05:41,000 --> 00:05:44,951
+vamos a continuar con nuestros
+estudiantes que teníamos
+
+70
+00:05:44,975 --> 00:05:49,012
+y vamos a hacer un nuevo
+paquete que va a ser servicios,
+
+71
+00:05:54,000 --> 00:05:57,284
+igual que teníamos
+controlador, pues ahora
+
+72
+00:05:57,285 --> 00:06:05,040
+vamos a tener service,
+new package, service,
+
+73
+00:06:26,590 --> 00:06:37,200
+y en el service vamos a hacer new Java
+Class, que va a ser estudiante service,
+
+74
+00:06:51,130 --> 00:06:55,680
+estudiante service que está
+dentro del paquete service,
+
+75
+00:06:57,280 --> 00:07:03,120
+si lo tenéis,
+
+76
+00:07:05,770 --> 00:07:13,720
+esto le vamos a decir que es un
+servicio con notación, vale, con anotación,
+
+77
+00:07:22,290 --> 00:07:24,523
+arroba service, para
+decirle que es un servicio,
+
+78
+00:07:24,547 --> 00:07:26,652
+en este servicio vamos
+a tener o necesitar el
+
+79
+00:07:26,653 --> 00:07:29,823
+repositorio para poder
+lanzar esas funciones
+
+80
+00:07:29,847 --> 00:07:41,200
+que acceden a la base de datos, así que
+private, final, estudiante repositorio, y
+
+81
+00:07:47,690 --> 00:07:55,440
+vale, y en el constructor,
+
+82
+00:08:09,330 --> 00:08:16,880
+bueno, creamos el constructor
+con el estudiante repositorio,
+
+83
+00:08:32,819 --> 00:08:36,416
+vale, entonces ahora
+hacemos las funciones,
+
+84
+00:08:36,440 --> 00:08:40,132
+montamos las funciones
+que queramos utilizar
+
+85
+00:08:43,480 --> 00:08:51,480
+de nuestro repositorio, por ejemplo vamos
+a sacar el obtener todos los estudiantes,
+
+86
+00:08:58,040 --> 00:09:01,748
+esto va a ser un
+public, vamos a ver una
+
+87
+00:09:01,772 --> 00:09:12,960
+lista de estudiantes, public
+list, estudiante, listar todos,
+
+88
+00:09:18,129 --> 00:09:25,080
+y esto es el return del
+estudiante repositorio.
+
+89
+00:09:45,000 --> 00:09:53,000
+También tenemos que buscar
+por id, buscar estudiante por id,
+
+90
+00:10:01,029 --> 00:10:08,880
+public, optional, en el caso de buscar
+por id puede ser que no encuentre el id,
+
+91
+00:10:10,960 --> 00:10:15,125
+vale, entonces es un
+optional de un estudiante,
+
+92
+00:10:15,149 --> 00:10:18,972
+vale, porque o será
+estudiante o será nulo,
+
+93
+00:10:22,324 --> 00:10:25,480
+y la función la vamos
+a llamar buscar por id,
+
+94
+00:10:29,779 --> 00:10:32,600
+esto va a tener un ilón id,
+
+95
+00:10:39,360 --> 00:10:47,360
+y vamos a hacer la función return
+estudiante repositori.findById,
+
+96
+00:10:49,279 --> 00:10:53,840
+a esto le pasamos el id que
+nos han dado y ya lo tenemos.
+
+97
+00:11:05,229 --> 00:11:13,080
+Vamos a poder guardar o actualizar, porque
+recordar que se hace con la misma función,
+
+98
+00:11:17,604 --> 00:11:24,680
+este es el public, voy
+a guardar estudiante,
+
+99
+00:11:26,149 --> 00:11:33,800
+para esto necesito un estudiante,
+
+100
+00:11:34,960 --> 00:11:42,960
+y lo que hacemos es básicamente
+estudiante repositori.save,
+
+101
+00:11:44,859 --> 00:11:46,080
+y punto 6,
+
+102
+00:12:07,159 --> 00:12:13,960
+vamos a hacer que devuelvan estudiantes,
+vamos a ver si podemos borrar también el id,
+
+103
+00:12:15,009 --> 00:12:20,960
+y vamos a ver si podemos borrar el id,
+
+104
+00:12:24,959 --> 00:12:26,479
+y vamos a ver si podemos borrar el id,
+
+105
+00:12:31,959 --> 00:12:33,479
+y vamos a ver si podemos borrar el id,
+
+106
+00:12:36,034 --> 00:12:40,960
+y podemos borrar también un estudiante,
+
+107
+00:13:02,209 --> 00:13:04,960
+y esto le damos el id que queremos borrar,
+
+108
+00:13:05,159 --> 00:13:11,721
+y lo que hacemos es
+estudiante repositori.
+
+109
+00:13:11,722 --> 00:13:14,960
+deleteVale, y esto es
+lo que vamos a hacer,
+
+110
+00:13:15,910 --> 00:13:16,960
+pasa,
+
+111
+00:13:17,159 --> 00:13:18,960
+vamos a ver que vemos,
+
+112
+00:13:19,309 --> 00:13:20,960
+vamos a ver que vemos,
+
+113
+00:13:47,960 --> 00:13:50,826
+y ahora si hicimos unas
+funciones que era si existe
+
+114
+00:13:50,827 --> 00:13:54,960
+por correo o buscar por
+correo, podemos utilizarlas,
+
+115
+00:13:57,859 --> 00:14:04,960
+y ahí podríamos hacer
+buscar si existe un correo,
+
+116
+00:14:08,109 --> 00:14:12,960
+public boolean,
+
+117
+00:14:13,209 --> 00:14:16,960
+exist,
+
+118
+00:14:17,659 --> 00:14:20,960
+correo,
+
+119
+00:14:23,309 --> 00:14:25,960
+stream,
+
+120
+00:14:26,060 --> 00:14:33,960
+return,
+
+121
+00:14:34,885 --> 00:14:38,960
+repositori.esisValCorreo,
+
+122
+00:14:45,234 --> 00:14:49,351
+es decir, podemos utilizar las
+simplicitas de JP de Repositori
+
+123
+00:14:49,375 --> 00:14:52,960
+o incluso las personalizadas
+que hemos hecho nosotros,
+
+124
+00:14:52,961 --> 00:14:55,960
+accedemos a todo lo
+que tiene el repositori,
+
+125
+00:15:12,960 --> 00:15:20,960
+incluso podemos poner buscar
+un estudiante por 5 correos,
+
+126
+00:15:23,709 --> 00:15:24,960
+public,
+
+127
+00:15:25,234 --> 00:15:32,960
+optional, volvió en optional,
+
+128
+00:15:37,959 --> 00:15:39,799
+el recorrido volvió en
+estudiante directamente,
+
+129
+00:15:49,359 --> 00:15:50,960
+buscamos el correo,
+
+130
+00:15:54,960 --> 00:16:04,960
+le vamos a decir que nos
+pasa en el correo, stream,
+
+131
+00:16:05,359 --> 00:16:12,960
+esto es un return de estudiante
+repositori.manbicorreo,
+
+132
+00:16:13,284 --> 00:16:14,960
+correo,
+
+133
+00:16:34,960 --> 00:16:42,960
+accedemos a todas las funciones
+del repositorio y las definimos,
+
+134
+00:16:43,109 --> 00:16:48,960
+de esta manera que es un
+intermediario entre la colección,
+
+135
+00:16:49,359 --> 00:16:54,960
+el controlador y el repositorio,
+
+136
+00:17:01,809 --> 00:17:08,960
+repasamos un poco lo que hemos montado,
+
+137
+00:17:09,459 --> 00:17:14,960
+hay dos que no me van,
+las dos primeras justamente,
+
+138
+00:17:19,709 --> 00:17:26,960
+el estudiante service,
+
+139
+00:17:29,509 --> 00:17:35,639
+necesitamos el
+repositorio para poder tener
+
+140
+00:17:35,640 --> 00:17:38,960
+acceso a él, en el
+constructor lo inicializamos,
+
+141
+00:17:40,959 --> 00:17:48,960
+montamos las funciones
+que tiene el repositorio,
+
+142
+00:17:49,509 --> 00:17:52,960
+para invocarlas directamente
+desde el controlador,
+
+143
+00:17:53,009 --> 00:17:57,739
+la primera que hemos
+hecho es la de coger todos los
+
+144
+00:17:57,740 --> 00:18:02,960
+estudiantes, nos devolverá
+un listado de estudiantes,
+
+145
+00:18:03,109 --> 00:18:08,960
+lo que hacemos es llamar al
+repositorio con la función "find all",
+
+146
+00:18:08,961 --> 00:18:14,960
+lo mismo para buscar un estudiante
+por id, puede volver un optional,
+
+147
+00:18:15,059 --> 00:18:20,960
+un optional es un contenedor que
+dentro puede tener un nulo o un objeto,
+
+148
+00:18:21,609 --> 00:18:26,960
+en este caso está el estudiante o nulo,
+
+149
+00:18:32,960 --> 00:18:37,026
+buscará por id con el
+estudiante repositorio y si el
+
+150
+00:18:37,050 --> 00:18:41,112
+id existe será el estudiante
+y si no será un nulo, para
+
+151
+00:18:41,113 --> 00:18:46,960
+guardar y actualizar, esas son
+las dos que te fallaban David,
+
+152
+00:18:48,960 --> 00:18:56,960
+he arreglado la lista pero
+me falla la de "find by id"
+
+153
+00:18:57,134 --> 00:19:02,960
+mira que has puesto, son internas,
+si el repositorio está definido,
+
+154
+00:19:02,961 --> 00:19:08,960
+el retorno está bien, el
+error es lo que va después,
+
+155
+00:19:09,109 --> 00:19:14,960
+el estudiante repositorio
+y el punto "find by id",
+
+156
+00:19:14,961 --> 00:19:16,961
+el estudiante repositorio
+lo has inicializado aquí,
+
+157
+00:19:17,259 --> 00:19:22,960
+en el constructor, además si
+el anterior te va bien, ya está,
+
+158
+00:19:23,184 --> 00:19:30,960
+no se escribir bien,
+típico, guardar o actualizar,
+
+159
+00:19:31,109 --> 00:19:32,960
+para guardar o actualizar,
+
+160
+00:19:33,559 --> 00:19:38,960
+tenéis el estudiante
+repositorio y punto "save",
+
+161
+00:19:38,961 --> 00:19:42,960
+recordaros que el "save" servía tanto
+para guardar como para actualizar,
+
+162
+00:19:43,059 --> 00:19:48,960
+uno de otros era así, tenía id o no
+tenía id, el elemento que guardábamos,
+
+163
+00:19:49,959 --> 00:19:50,960
+dime
+
+164
+00:19:50,960 --> 00:19:56,960
+-el opino al porqué de lo que pones solo
+de la banda de justicia y no por correo,
+
+165
+00:19:57,259 --> 00:19:58,960
+aquí es la primaria
+
+166
+00:19:59,309 --> 00:20:04,960
+-a ver, el id es la, exacto,
+es la clave primaria,
+
+167
+00:20:04,961 --> 00:20:10,960
+en este caso sí que existirá o no existirá,
+el correo al no ser elemento primario,
+
+168
+00:20:11,009 --> 00:20:13,105
+mientras que no definamos
+que es único, lo que te va a
+
+169
+00:20:13,106 --> 00:20:20,960
+devolver en realidad, es que
+en realidad al buscar por correo,
+
+170
+00:20:21,959 --> 00:20:26,960
+como tal, realmente no va a devolver un
+estudiante, sino que va a devolver una lista,
+
+171
+00:20:26,961 --> 00:20:32,960
+lo que pasa es que como nosotros
+hemos hecho que el correo sea único,
+
+172
+00:20:33,109 --> 00:20:34,960
+solo podrá devolver uno,
+
+173
+00:20:35,959 --> 00:20:38,960
+entonces es un
+poco, un poco trampa,
+
+174
+00:20:39,609 --> 00:20:40,960
+un poco trampa,
+
+175
+00:20:43,759 --> 00:20:44,960
+pero en principio,
+
+176
+00:20:45,109 --> 00:20:48,960
+en este caso no hace falta el optional,
+
+177
+00:20:49,984 --> 00:21:00,960
+vale, esto por ahí, entonces tendríamos
+ya con esto la capa del servicio hecha,
+
+178
+00:21:01,459 --> 00:21:05,960
+vale, lo siguiente es trabajar ya con el
+controller, que es el que tiene la chicha,
+
+179
+00:21:05,985 --> 00:21:09,260
+porque es el que tiene
+toda la parte de los
+
+180
+00:21:09,261 --> 00:21:11,960
+endpoints, y la parte de
+la respuesta al usuario,
+
+181
+00:21:11,961 --> 00:21:15,960
+vale, así que vamos a hacer
+dentro de nuestra carpeta controller,
+
+182
+00:21:15,961 --> 00:21:19,960
+donde teníamos el saludo
+controller, que hicimos de bienvenida,
+
+183
+00:21:19,961 --> 00:21:23,960
+vamos a hacer ahora
+un estudiante controller,
+
+184
+00:21:23,961 --> 00:21:32,960
+vale, es decir, vamos a hacer ya el endpoint
+correspondiente, a nuestra aplicación,
+
+185
+00:21:32,961 --> 00:21:36,367
+o los endpoints
+correspondientes a nuestra
+
+186
+00:21:36,391 --> 00:21:39,972
+aplicación para trabajar
+con el controlador,
+
+187
+00:21:42,609 --> 00:21:47,960
+vamos a ponerle @restcontroller,
+
+188
+00:21:49,459 --> 00:21:54,960
+vamos a ponerle además @requestmapping,
+
+189
+00:21:59,209 --> 00:22:04,353
+en el request mapping
+le vamos a decir cuál es la
+
+190
+00:22:04,354 --> 00:22:08,960
+ruta inicial del endpoint,
+de todos los endpoints,
+
+191
+00:22:09,909 --> 00:22:14,960
+básicamente cómo vamos
+a llegar a estas peticiones,
+
+192
+00:22:15,009 --> 00:22:25,960
+aquí vamos a ponerle el API V1/estudiantes,
+vale, es decir, todas las peticiones,
+
+193
+00:22:31,109 --> 00:22:35,960
+por defecto normalmente coge el
+nombre de la entidad y le pone una "s",
+
+194
+00:22:35,961 --> 00:22:41,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+195
+00:22:43,960 --> 00:22:51,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+196
+00:22:52,959 --> 00:22:54,679
+entonces trabajaremos
+sobre la ruta inicial,
+
+197
+00:22:54,959 --> 00:22:55,985
+entonces trabajaremos
+sobre la ruta inicial,
+
+198
+00:22:56,009 --> 00:22:57,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+199
+00:22:58,959 --> 00:23:00,679
+entonces trabajaremos
+sobre la ruta inicial,
+
+200
+00:23:00,959 --> 00:23:01,985
+entonces trabajaremos
+sobre la ruta inicial,
+
+201
+00:23:02,009 --> 00:23:03,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+202
+00:23:04,609 --> 00:23:06,329
+entonces trabajaremos
+sobre la ruta inicial,
+
+203
+00:23:06,509 --> 00:23:07,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+204
+00:23:07,961 --> 00:23:09,960
+entonces trabajaremos
+sobre la ruta inicial,
+
+205
+00:23:09,960 --> 00:23:14,266
+lo primero que necesitamos
+es el servicio para tener acceso a
+
+206
+00:23:14,267 --> 00:23:19,960
+todas las funciones, así que
+vamos a hacer un "private final"
+
+207
+00:23:20,509 --> 00:23:23,960
+estudiante service,
+
+208
+00:23:24,409 --> 00:23:25,960
+estudiante service,
+
+209
+00:23:52,959 --> 00:23:54,679
+ahí hacemos el constructor con el servicio,
+
+210
+00:24:07,509 --> 00:24:13,960
+ahora vamos a empezar a montar los
+diferentes endpoints para las peticiones,
+
+211
+00:24:20,359 --> 00:24:27,960
+en el caso de que queramos
+listar todos los estudiantes,
+
+212
+00:24:41,960 --> 00:24:49,960
+que petición "http" tenemos que
+hacer para listar todos los estudiantes,
+
+213
+00:24:56,009 --> 00:25:03,960
+para controlar una función
+"get" tenemos "@getmapi"
+
+214
+00:25:04,909 --> 00:25:07,960
+si no le pongo nada más,
+
+215
+00:25:13,960 --> 00:25:21,960
+le pongo "get" y le pongo "get"
+
+216
+00:25:33,960 --> 00:25:41,960
+y le pongo "get" y le pongo "get"
+
+217
+00:25:48,659 --> 00:25:55,960
+y le pongo "get" y le pongo "get"
+
+218
+00:26:03,609 --> 00:26:09,960
+y le pongo "get"
+
+219
+00:26:22,359 --> 00:26:25,960
+y le pongo "get"
+
+220
+00:26:34,009 --> 00:26:41,960
+y le pongo "get"
+
+221
+00:26:47,960 --> 00:26:55,960
+y le pongo "get"
+
+222
+00:27:07,960 --> 00:27:15,960
+y le pongo "get"
+
+223
+00:27:26,859 --> 00:27:31,960
+y le pongo "get"
+
+224
+00:27:37,960 --> 00:27:45,960
+y le pongo "get"
+
+225
+00:28:02,359 --> 00:28:09,960
+y le pongo "get"
+
+226
+00:28:22,334 --> 00:28:29,960
+y le pongo "get"
+
+227
+00:28:42,009 --> 00:28:49,960
+y le pongo "get"
+
+228
+00:28:53,960 --> 00:29:01,960
+y le pongo "get"
+
+229
+00:29:16,359 --> 00:29:23,960
+y le pongo "get"
+
+230
+00:29:31,960 --> 00:29:39,960
+y le pongo "get"
+
+231
+00:29:47,959 --> 00:29:55,960
+y le pongo "get"
+
+232
+00:30:04,809 --> 00:30:11,960
+y le pongo "get"
+
+233
+00:30:18,359 --> 00:30:25,960
+y le pongo "get"
+
+234
+00:30:41,960 --> 00:30:49,960
+y le pongo "get"
+
+235
+00:30:57,534 --> 00:31:03,960
+y le pongo "get"
+
+236
+00:31:15,960 --> 00:31:23,960
+y le pongo "get"
+
+237
+00:31:30,909 --> 00:31:37,960
+y le pongo "get"
+
+238
+00:31:43,959 --> 00:31:51,960
+y le pongo "get"
+
+239
+00:32:13,309 --> 00:32:19,960
+y le pongo "get"
+
+240
+00:32:33,359 --> 00:32:39,960
+y le pongo "get"
+
+241
+00:32:54,559 --> 00:32:59,960
+y le pongo "get"
+
+242
+00:33:05,960 --> 00:33:13,960
+y le pongo "get"
+
+243
+00:33:29,960 --> 00:33:37,960
+y le pongo "get"
+
+244
+00:33:50,359 --> 00:33:57,960
+y le pongo "get"
+
+245
+00:34:09,960 --> 00:34:17,960
+y le pongo "get"
+
+246
+00:34:29,960 --> 00:34:37,960
+y le pongo "get"
+
+247
+00:34:45,960 --> 00:34:53,960
+y le pongo "get"
+
+248
+00:35:01,960 --> 00:35:09,960
+y le pongo "get"
+
+249
+00:35:15,960 --> 00:35:23,960
+y le pongo "get"
+
+250
+00:35:36,360 --> 00:35:43,960
+y le pongo "get"
+
+251
+00:35:52,260 --> 00:35:59,960
+y le pongo "get"
+
+252
+00:36:06,260 --> 00:36:13,960
+y le pongo "get"
+
+253
+00:36:25,960 --> 00:36:33,960
+y le pongo "get"
+
+254
+00:36:39,960 --> 00:36:47,960
+y le pongo "get"
+
+255
+00:37:04,560 --> 00:37:11,960
+y le pongo "get"
+
+256
+00:37:17,960 --> 00:37:25,960
+y le pongo "get"
+
+257
+00:37:46,760 --> 00:37:53,960
+y le pongo "get"
+
+258
+00:38:05,960 --> 00:38:13,960
+y le pongo "get"
+
+259
+00:38:20,460 --> 00:38:27,960
+y le pongo "get"
+
+260
+00:38:34,960 --> 00:38:41,960
+y le pongo "get"
+
+261
+00:38:48,110 --> 00:38:55,960
+y le pongo "get"
+
+262
+00:39:04,735 --> 00:39:11,960
+y le pongo "get"
+
+263
+00:39:18,010 --> 00:39:25,960
+y le pongo "get"
+
+264
+00:39:32,160 --> 00:39:39,960
+y le pongo "get"
+
+265
+00:39:52,560 --> 00:39:59,960
+y le pongo "get"
+
+266
+00:40:12,085 --> 00:40:19,960
+y le pongo "get"
+
+267
+00:40:26,835 --> 00:40:33,960
+y le pongo "get"
+
+268
+00:40:40,035 --> 00:40:47,960
+y le pongo "get"
+
+269
+00:40:57,110 --> 00:41:03,960
+y le pongo "get"
+
+270
+00:41:10,310 --> 00:41:17,960
+y le pongo "get"
+
+271
+00:41:29,960 --> 00:41:37,960
+y le pongo "get"
+
+272
+00:41:49,960 --> 00:41:57,960
+y le pongo "get"
+
+273
+00:42:10,510 --> 00:42:11,960
+y le pongo "get"
+
+274
+00:42:18,260 --> 00:42:25,960
+y le pongo "get"
+
+275
+00:42:31,960 --> 00:42:39,960
+y le pongo "get"
+
+276
+00:42:55,960 --> 00:43:03,960
+y le pongo "get"
+
+277
+00:43:09,960 --> 00:43:17,960
+y le pongo "get"
+
+278
+00:43:25,010 --> 00:43:31,960
+y le pongo "get"
+
+279
+00:43:43,960 --> 00:43:51,960
+y le pongo "get"
+
+280
+00:43:57,960 --> 00:44:05,960
+y le pongo "get"
+
+281
+00:44:12,260 --> 00:44:19,960
+y le pongo "get"
+
+282
+00:44:32,110 --> 00:44:39,960
+y le pongo "get"
+
+283
+00:44:48,710 --> 00:44:53,960
+y le pongo "get"
+
+284
+00:44:59,960 --> 00:45:07,960
+y le pongo "get"
+
+285
+00:45:24,860 --> 00:45:31,960
+y le pongo "get"
+
+286
+00:45:39,310 --> 00:45:45,960
+y le pongo "get"
+
+287
+00:46:01,960 --> 00:46:09,960
+y le pongo "get"
+
+288
+00:46:16,160 --> 00:46:23,960
+y le pongo "get"
+
+289
+00:46:30,510 --> 00:46:37,960
+y le pongo "get"
+
+290
+00:46:54,985 --> 00:47:01,960
+y le pongo "get"
+
+291
+00:47:18,110 --> 00:47:25,960
+y le pongo "get"
+
+292
+00:47:32,085 --> 00:47:39,960
+y le pongo "get"
+
+293
+00:47:46,160 --> 00:47:53,960
+y le pongo "get"
+
+294
+00:48:00,060 --> 00:48:07,960
+y le pongo "get"
+
+295
+00:48:28,335 --> 00:48:31,960
+y le pongo "get"
+
+296
+00:48:38,060 --> 00:48:45,960
+y le pongo "get"
+
+297
+00:48:54,310 --> 00:49:01,960
+y le pongo "get"
+
+298
+00:49:18,910 --> 00:49:19,960
+establecemos la edad
+
+299
+00:49:35,960 --> 00:49:43,960
+establecemos la edad
+
+300
+00:49:46,310 --> 00:49:53,960
+una vez lo tenemos
+
+301
+00:50:06,760 --> 00:50:13,960
+una vez lo tenemos
+
+302
+00:50:15,960 --> 00:50:23,960
+una vez lo tenemos
+
+303
+00:50:25,960 --> 00:50:33,960
+una vez lo tenemos
+
+304
+00:50:36,060 --> 00:50:43,960
+una vez lo tenemos
+
+305
+00:50:45,960 --> 00:50:53,960
+una vez lo tenemos
+
+306
+00:50:55,960 --> 00:51:03,960
+una vez lo tenemos
+
+307
+00:51:06,510 --> 00:51:13,960
+una vez lo tenemos
+
+308
+00:51:15,960 --> 00:51:23,960
+una vez lo tenemos
+
+309
+00:51:25,960 --> 00:51:33,960
+una vez lo tenemos
+
+310
+00:51:36,910 --> 00:51:43,960
+una vez lo tenemos
+
+311
+00:51:46,510 --> 00:51:53,960
+una vez lo tenemos
+
+312
+00:51:56,210 --> 00:52:03,960
+una vez lo tenemos
+
+313
+00:52:05,960 --> 00:52:13,960
+una vez lo tenemos
+
+314
+00:52:15,960 --> 00:52:23,960
+una vez lo tenemos
+
+315
+00:52:25,960 --> 00:52:33,960
+una vez lo tenemos
+
+316
+00:52:35,960 --> 00:52:43,960
+una vez lo tenemos
+
+317
+00:52:47,610 --> 00:52:53,960
+una vez lo tenemos
+
+318
+00:52:56,610 --> 00:53:03,960
+una vez lo tenemos
+
+319
+00:53:05,960 --> 00:53:13,960
+una vez lo tenemos
+
+320
+00:53:15,960 --> 00:53:23,960
+una vez lo tenemos
+
+321
+00:53:25,960 --> 00:53:33,960
+una vez lo tenemos
+
+322
+00:53:35,960 --> 00:53:43,960
+una vez lo tenemos
+
+323
+00:53:49,160 --> 00:53:53,960
+una vez lo tenemos
+
+324
+00:53:56,260 --> 00:54:03,960
+una vez lo tenemos
+
+325
+00:54:05,960 --> 00:54:13,960
+una vez lo tenemos
+
+326
+00:54:16,110 --> 00:54:23,960
+una vez lo tenemos
+
+327
+00:54:25,960 --> 00:54:33,960
+una vez lo tenemos
+
+328
+00:54:35,960 --> 00:54:43,960
+una vez lo tenemos
+
+329
+00:54:46,260 --> 00:54:53,960
+una vez lo tenemos
+
+330
+00:54:56,810 --> 00:55:03,960
+una vez lo tenemos
+
+331
+00:55:06,060 --> 00:55:13,960
+una vez lo tenemos
+
+332
+00:55:15,960 --> 00:55:23,960
+una vez lo tenemos
+
+333
+00:55:26,260 --> 00:55:33,960
+una vez lo tenemos
+
+334
+00:55:36,235 --> 00:55:43,960
+una vez lo tenemos
+
+335
+00:55:47,410 --> 00:55:53,960
+una vez lo tenemos
+
+336
+00:55:56,260 --> 00:56:03,960
+una vez lo tenemos
+
+337
+00:56:06,735 --> 00:56:13,960
+una vez lo tenemos
+
+338
+00:56:15,960 --> 00:56:23,960
+una vez lo tenemos
+
+339
+00:56:26,110 --> 00:56:33,960
+una vez lo tenemos
+
+340
+00:56:36,110 --> 00:56:43,960
+una vez lo tenemos
+
+341
+00:56:45,960 --> 00:56:53,960
+una vez lo tenemos
+
+342
+00:56:55,960 --> 00:57:03,960
+una vez lo tenemos
+
+343
+00:57:05,960 --> 00:57:13,960
+una vez lo tenemos
+
+344
+00:57:15,960 --> 00:57:23,960
+una vez lo tenemos
+
+345
+00:57:26,810 --> 00:57:33,960
+una vez lo tenemos
+
+346
+00:57:35,960 --> 00:57:43,960
+una vez lo tenemos
+
+347
+00:57:45,960 --> 00:57:53,960
+una vez lo tenemos
+
+348
+00:57:56,110 --> 00:58:03,960
+una vez lo tenemos
+
+349
+00:58:09,110 --> 00:58:13,960
+una vez lo tenemos
+
+350
+00:58:15,960 --> 00:58:23,960
+una vez lo tenemos
+
+351
+00:58:27,860 --> 00:58:33,960
+una vez lo tenemos
+
+352
+00:58:35,960 --> 00:58:43,960
+una vez lo tenemos
+
+353
+00:58:45,960 --> 00:58:53,960
+una vez lo tenemos
+
+354
+00:58:56,110 --> 00:59:03,960
+una vez lo tenemos
+
+355
+00:59:05,960 --> 00:59:13,960
+una vez lo tenemos
+
+356
+00:59:16,735 --> 00:59:23,960
+una vez lo tenemos
+
+357
+00:59:25,960 --> 00:59:33,960
+una vez lo tenemos
+
+358
+00:59:36,460 --> 00:59:43,960
+una vez lo tenemos
+
+359
+00:59:45,960 --> 00:59:53,960
+una vez lo tenemos
+
+360
+00:59:56,235 --> 01:00:03,960
+una vez lo tenemos
+
+361
+01:00:06,210 --> 01:00:13,960
+una vez lo tenemos
+
+362
+01:00:16,085 --> 01:00:23,960
+una vez lo tenemos
+
+363
+01:00:25,960 --> 01:00:33,960
+una vez lo tenemos
+
+364
+01:00:35,960 --> 01:00:43,960
+una vez lo tenemos
+
+365
+01:00:45,960 --> 01:00:53,960
+una vez lo tenemos
+
+366
+01:00:56,060 --> 01:01:03,960
+una vez lo tenemos
+
+367
+01:01:06,035 --> 01:01:13,960
+una vez lo tenemos
+
+368
+01:01:16,860 --> 01:01:23,960
+una vez lo tenemos
+
+369
+01:01:27,160 --> 01:01:33,960
+una vez lo tenemos
+
+370
+01:01:36,010 --> 01:01:43,960
+una vez lo tenemos
+
+371
+01:01:46,310 --> 01:01:53,960
+una vez lo tenemos
+
+372
+01:01:57,060 --> 01:02:03,960
+una vez lo tenemos
+
+373
+01:02:06,260 --> 01:02:13,960
+una vez lo tenemos
+
+374
+01:02:16,210 --> 01:02:23,960
+una vez lo tenemos
+
+375
+01:02:25,960 --> 01:02:33,960
+una vez lo tenemos
+
+376
+01:02:37,860 --> 01:02:43,960
+una vez lo tenemos
+
+377
+01:02:45,985 --> 01:02:53,960
+una vez lo tenemos
+
+378
+01:02:55,985 --> 01:03:03,960
+una vez lo tenemos
+
+379
+01:03:05,960 --> 01:03:13,960
+una vez lo tenemos
+
+380
+01:03:16,010 --> 01:03:23,960
+una vez lo tenemos
+
+381
+01:03:26,360 --> 01:03:33,960
+una vez lo tenemos
+
+382
+01:03:38,160 --> 01:03:43,960
+una vez lo tenemos
+
+383
+01:03:45,960 --> 01:03:53,960
+una vez lo tenemos
+
+384
+01:03:57,860 --> 01:04:03,960
+una vez lo tenemos
+
+385
+01:04:05,960 --> 01:04:13,960
+una vez lo tenemos
+
+386
+01:04:16,235 --> 01:04:23,960
+una vez lo tenemos
+
+387
+01:04:26,410 --> 01:04:33,960
+una vez lo tenemos
+
+388
+01:04:36,260 --> 01:04:43,960
+una vez lo tenemos
+
+389
+01:04:46,210 --> 01:04:53,960
+una vez lo tenemos
+
+390
+01:04:56,310 --> 01:05:03,960
+una vez lo tenemos
+
+391
+01:05:06,910 --> 01:05:13,960
+una vez lo tenemos
+
+392
+01:05:16,560 --> 01:05:23,960
+una vez lo tenemos
+
+393
+01:05:25,960 --> 01:05:33,960
+una vez lo tenemos
+
+394
+01:05:36,110 --> 01:05:43,960
+una vez lo tenemos
+
+395
+01:05:46,210 --> 01:05:53,960
+una vez lo tenemos
+
+396
+01:05:55,960 --> 01:06:03,960
+una vez lo tenemos
+
+397
+01:06:05,960 --> 01:06:13,960
+una vez lo tenemos
+
+398
+01:06:15,960 --> 01:06:23,960
+una vez lo tenemos
+
+399
+01:06:28,360 --> 01:06:33,960
+una vez lo tenemos
+
+400
+01:06:35,960 --> 01:06:43,960
+una vez lo tenemos
+
+401
+01:06:48,360 --> 01:06:53,960
+una vez lo tenemos
+
+402
+01:06:55,960 --> 01:07:03,960
+una vez lo tenemos
+
+403
+01:07:06,185 --> 01:07:13,960
+una vez lo tenemos
+
+404
+01:07:16,360 --> 01:07:23,960
+una vez lo tenemos
+
+405
+01:07:27,885 --> 01:07:33,960
+una vez lo tenemos
+
+406
+01:07:36,060 --> 01:07:43,960
+una vez lo tenemos
+
+407
+01:07:46,010 --> 01:07:53,960
+una vez lo tenemos
+
+408
+01:07:58,110 --> 01:08:03,960
+una vez lo tenemos
+
+409
+01:08:06,410 --> 01:08:13,960
+una vez lo tenemos
+
+410
+01:08:16,660 --> 01:08:23,960
+una vez lo tenemos
+
+411
+01:08:25,960 --> 01:08:33,960
+una vez lo tenemos
+
+412
+01:08:36,585 --> 01:08:43,960
+una vez lo tenemos
+
+413
+01:08:46,010 --> 01:08:53,960
+una vez lo tenemos
+
+414
+01:08:56,460 --> 01:09:03,960
+una vez lo tenemos
+
+415
+01:09:05,960 --> 01:09:13,960
+una vez lo tenemos
+
+416
+01:09:15,960 --> 01:09:23,960
+una vez lo tenemos
+
+417
+01:09:25,960 --> 01:09:33,960
+una vez lo tenemos
+
+418
+01:09:36,560 --> 01:09:43,960
+una vez lo tenemos
+
+419
+01:09:45,960 --> 01:09:53,960
+una vez lo tenemos
+
+420
+01:09:55,960 --> 01:10:03,960
+una vez lo tenemos
+
+421
+01:10:06,160 --> 01:10:13,960
+una vez lo tenemos
+
+422
+01:10:16,160 --> 01:10:23,960
+una vez lo tenemos
+
+423
+01:10:25,960 --> 01:10:33,960
+una vez lo tenemos
+
+424
+01:10:35,960 --> 01:10:43,960
+una vez lo tenemos
+
+425
+01:10:45,960 --> 01:10:53,960
+una vez lo tenemos
+
+426
+01:10:55,960 --> 01:11:03,960
+una vez lo tenemos
+
+427
+01:11:05,960 --> 01:11:13,960
+una vez lo tenemos
+
+428
+01:11:15,960 --> 01:11:23,960
+una vez lo tenemos
+
+429
+01:11:25,960 --> 01:11:33,960
+una vez lo tenemos
+
+430
+01:11:36,310 --> 01:11:43,960
+una vez lo tenemos
+
+431
+01:11:45,960 --> 01:11:53,960
+una vez lo tenemos
+
+432
+01:11:56,510 --> 01:12:03,960
+una vez lo tenemos
+
+433
+01:12:10,435 --> 01:12:13,960
+una vez lo tenemos
+
+434
+01:12:16,960 --> 01:12:23,960
+una vez lo tenemos
+
+435
+01:12:26,810 --> 01:12:33,960
+una vez lo tenemos
+
+436
+01:12:35,960 --> 01:12:43,960
+una vez lo tenemos
+
+437
+01:12:45,960 --> 01:12:53,960
+una vez lo tenemos
+
+438
+01:12:55,960 --> 01:13:03,960
+una vez lo tenemos
+
+439
+01:13:05,960 --> 01:13:13,960
+una vez lo tenemos
+
+440
+01:13:15,985 --> 01:13:23,960
+una vez lo tenemos
+
+441
+01:13:26,410 --> 01:13:33,960
+una vez lo tenemos
+
+442
+01:13:35,960 --> 01:13:43,960
+una vez lo tenemos
+
+443
+01:13:46,160 --> 01:13:53,960
+una vez lo tenemos
+
+444
+01:13:55,960 --> 01:14:03,960
+una vez lo tenemos
+
+445
+01:14:06,060 --> 01:14:13,960
+una vez lo tenemos
+
+446
+01:14:16,710 --> 01:14:23,960
+una vez lo tenemos
+
+447
+01:14:25,960 --> 01:14:33,960
+una vez lo tenemos
+
+448
+01:14:35,960 --> 01:14:43,960
+una vez lo tenemos
+
+449
+01:14:46,010 --> 01:14:53,960
+una vez lo tenemos
+
+450
+01:14:56,610 --> 01:15:03,960
+una vez lo tenemos
+
+451
+01:15:06,310 --> 01:15:13,960
+una vez lo tenemos
+
+452
+01:15:16,360 --> 01:15:23,960
+una vez lo tenemos
+
+453
+01:15:26,710 --> 01:15:33,960
+una vez lo tenemos
+
+454
+01:15:36,135 --> 01:15:43,960
+una vez lo tenemos
+
+455
+01:15:45,960 --> 01:15:53,960
+una vez lo tenemos
+
+456
+01:15:55,960 --> 01:16:03,960
+una vez lo tenemos
+
+457
+01:16:09,110 --> 01:16:13,960
+una vez lo tenemos
+
+458
+01:16:16,060 --> 01:16:23,960
+una vez lo tenemos
+
+459
+01:16:26,060 --> 01:16:33,960
+una vez lo tenemos
+
+460
+01:16:35,960 --> 01:16:43,960
+una vez lo tenemos
+
+461
+01:16:45,960 --> 01:16:53,960
+una vez lo tenemos
+
+462
+01:16:56,810 --> 01:17:03,960
+una vez lo tenemos
+
+463
+01:17:05,960 --> 01:17:13,960
+una vez lo tenemos
+
+464
+01:17:15,960 --> 01:17:23,960
+una vez lo tenemos
+
+465
+01:17:25,960 --> 01:17:33,960
+una vez lo tenemos
+
+466
+01:17:36,960 --> 01:17:43,960
+una vez lo tenemos
+
+467
+01:17:45,960 --> 01:17:53,960
+una vez lo tenemos
+
+468
+01:17:55,960 --> 01:18:03,960
+una vez lo tenemos
+
+469
+01:18:05,960 --> 01:18:13,960
+una vez lo tenemos
+
+470
+01:18:21,660 --> 01:18:23,960
+una vez lo tenemos
+
+471
+01:18:25,960 --> 01:18:33,960
+una vez lo tenemos
+
+472
+01:18:36,910 --> 01:18:43,960
+una vez lo tenemos
+
+473
+01:18:45,960 --> 01:18:53,960
+una vez lo tenemos
+
+474
+01:18:56,360 --> 01:19:03,960
+una vez lo tenemos
+
+475
+01:19:06,860 --> 01:19:13,960
+una vez lo tenemos
+
+476
+01:19:15,960 --> 01:19:23,960
+una vez lo tenemos
+
+477
+01:19:26,560 --> 01:19:33,960
+una vez lo tenemos
+
+478
+01:19:38,610 --> 01:19:43,960
+una vez lo tenemos
+
+479
+01:19:52,910 --> 01:19:53,960
+una vez lo tenemos
+
+480
+01:20:02,910 --> 01:20:03,960
+una vez lo tenemos
+
+481
+01:20:07,860 --> 01:20:13,960
+una vez lo tenemos
+
+482
+01:20:15,960 --> 01:20:23,960
+una vez lo tenemos
+
+483
+01:20:25,960 --> 01:20:33,960
+una vez lo tenemos
+
+484
+01:20:36,160 --> 01:20:43,960
+una vez lo tenemos
+

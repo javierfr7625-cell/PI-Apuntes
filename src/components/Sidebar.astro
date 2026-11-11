@@ -1,0 +1,49 @@
+---
+import { navigation } from '../data/navigation';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath === href || currentPath === `${href}/`;
+}
+---
+
+<nav aria-label="Navegación principal" class="space-y-6 px-3 py-4">
+  {navigation.map((group) => (
+    <div>
+      <h3 class="px-3 mb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+        {group.label}
+      </h3>
+      <ul class="space-y-1">
+        {group.items.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <li>
+              <a
+                href={item.href}
+                class={`flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-sm transition ${
+                  active
+                    ? 'bg-cyan-500/15 text-cyan-300 font-semibold border border-cyan-500/30'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/70 border border-transparent'
+                }`}
+              >
+                <span class="truncate">{item.title}</span>
+                {item.badge && (
+                  <span class="shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded bg-violet-500/20 text-violet-300 border border-violet-500/40">
+                    {item.badge}
+                  </span>
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  ))}
+</nav>
+

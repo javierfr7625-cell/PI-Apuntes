@@ -1,0 +1,769 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import Callout from '../../components/Callout.astro';
+import EndpointCard from '../../components/EndpointCard.astro';
+
+const pomCode = `<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.digitechfp</groupId>
+    <artifactId>talleres-don-juan</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>`;
+
+const propertiesCode = `spring.application.name=talleres-don-juan
+
+spring.datasource.url=jdbc:h2:mem:talleres_db
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console`;
+
+const cocheCode = `package com.digitechfp.talleres.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "coches")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Coche {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "modelo", nullable = false, length = 80)
+    private String modelo;
+
+    @Column(name = "matricula", nullable = false, unique = true, length = 15)
+    private String matricula;
+
+    @Column(name = "color", nullable = false, length = 30)
+    private String color;
+
+    public Coche(String modelo, String matricula, String color) {
+        this.modelo = modelo;
+        this.matricula = matricula;
+        this.color = color;
+    }
+}`;
+
+const clienteCode = `package com.digitechfp.talleres.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@Table(name = "clientes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre", nullable = false, length = 80)
+    private String nombre;
+
+    @Column(name = "telefono", nullable = false, unique = true, length = 20)
+    private String telefono;
+
+    @Column(name = "codigo_postal", nullable = false, length = 10)
+    private String codigoPostal;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "coche_id", referencedColumnName = "id", unique = true)
+    private Coche coche;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taller_id", nullable = false)
+    @ToString.Exclude
+    @JsonIgnoreProperties("clientes")
+    private Taller taller;
+
+    public Cliente(String nombre, String telefono, String codigoPostal, Coche coche, Taller taller) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.codigoPostal = codigoPostal;
+        this.coche = coche;
+        this.taller = taller;
+    }
+}`;
+
+const tallerCode = `package com.digitechfp.talleres.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "talleres")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Taller {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nombre", nullable = false, length = 80)
+    private String nombre;
+
+    @Column(name = "calle", nullable = false, length = 150)
+    private String calle;
+
+    @Column(name = "nombre_encargado", nullable = false, length = 80)
+    private String nombreEncargado;
+
+    @OneToMany(mappedBy = "taller", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    @JsonIgnoreProperties("taller")
+    private List<Cliente> clientes = new ArrayList<>();
+
+    public Taller(String nombre, String calle, String nombreEncargado) {
+        this.nombre = nombre;
+        this.calle = calle;
+        this.nombreEncargado = nombreEncargado;
+    }
+
+    public void agregarCliente(Cliente cliente) {
+        clientes.add(cliente);
+        cliente.setTaller(this);
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+        if (clientes != null) {
+            for (Cliente cliente : clientes) {
+                cliente.setTaller(this);
+            }
+        }
+    }
+}`;
+
+const tallerRepoCode = `package com.digitechfp.talleres.repository;
+
+import com.digitechfp.talleres.entity.Taller;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TallerRepository extends JpaRepository<Taller, Long> {
+
+    List<Taller> findByNombre(String nombre);
+
+    boolean existsByNombre(String nombre);
+}`;
+
+const clienteRepoCode = `package com.digitechfp.talleres.repository;
+
+import com.digitechfp.talleres.entity.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+}`;
+
+const cocheRepoCode = `package com.digitechfp.talleres.repository;
+
+import com.digitechfp.talleres.entity.Coche;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CocheRepository extends JpaRepository<Coche, Long> {
+}`;
+
+const serviceCode = `package com.digitechfp.talleres.service;
+
+import com.digitechfp.talleres.entity.Taller;
+import com.digitechfp.talleres.repository.TallerRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class TallerService {
+
+    private final TallerRepository tallerRepository;
+
+    public TallerService(TallerRepository tallerRepository) {
+        this.tallerRepository = tallerRepository;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Taller> listarTodos() {
+        return tallerRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Taller> buscarPorId(Long id) {
+        return tallerRepository.findById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Taller> buscarPorNombre(String nombre) {
+        return tallerRepository.findByNombre(nombre);
+    }
+
+    @Transactional(readOnly = true)
+    public boolean existePorId(Long id) {
+        return tallerRepository.existsById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public boolean existePorNombre(String nombre) {
+        return tallerRepository.existsByNombre(nombre);
+    }
+
+    @Transactional
+    public Taller guardarTaller(Taller taller) {
+        if (taller.getClientes() != null) {
+            taller.getClientes().forEach(cliente -> cliente.setTaller(taller));
+        }
+        return tallerRepository.save(taller);
+    }
+
+    @Transactional
+    public void eliminarTaller(Long id) {
+        tallerRepository.deleteById(id);
+    }
+}`;
+
+const controllerCode = `package com.digitechfp.talleres.controller;
+
+import com.digitechfp.talleres.entity.Cliente;
+import com.digitechfp.talleres.entity.Taller;
+import com.digitechfp.talleres.service.TallerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/talleres")
+public class TallerController {
+
+    private final TallerService tallerService;
+
+    public TallerController(TallerService tallerService) {
+        this.tallerService = tallerService;
+    }
+
+    @GetMapping("/todos")
+    public ResponseEntity<List<Taller>> listarTodos() {
+        return ResponseEntity.ok(tallerService.listarTodos());
+    }
+
+    @GetMapping("/getTaller/{id}")
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
+        return tallerService.buscarPorId(id)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Collections.singletonMap("mensaje", "El taller no existe")));
+    }
+
+    @PostMapping("/nuevoTaller")
+    public ResponseEntity<Taller> crearTaller(@RequestBody Taller taller) {
+        Taller nuevoTaller = tallerService.guardarTaller(taller);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoTaller);
+    }
+
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<?> actualizarTaller(
+            @PathVariable Long id,
+            @RequestBody Taller tallerDatos) {
+
+        return tallerService.buscarPorId(id)
+                .<ResponseEntity<?>>map(tallerExistente -> {
+                    tallerExistente.setNombre(tallerDatos.getNombre());
+                    tallerExistente.setCalle(tallerDatos.getCalle());
+                    tallerExistente.setNombreEncargado(tallerDatos.getNombreEncargado());
+
+                    tallerExistente.getClientes().clear();
+                    if (tallerDatos.getClientes() != null) {
+                        for (Cliente cliente : tallerDatos.getClientes()) {
+                            cliente.setTaller(tallerExistente);
+                            tallerExistente.getClientes().add(cliente);
+                        }
+                    }
+
+                    Taller actualizado = tallerService.guardarTaller(tallerExistente);
+                    return ResponseEntity.ok(actualizado);
+                })
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Collections.singletonMap("mensaje", "El taller no existe")));
+    }
+
+    @DeleteMapping("/borrar/{id}")
+    public ResponseEntity<?> borrarTaller(@PathVariable Long id) {
+        if (tallerService.existePorId(id)) {
+            tallerService.eliminarTaller(id);
+            return ResponseEntity.ok(
+                    Collections.singletonMap("mensaje", "Taller eliminado correctamente")
+            );
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Collections.singletonMap("mensaje", "El taller no existe"));
+    }
+}`;
+
+const postmanPostJson = `{
+  "nombre": "Taller Don Juan",
+  "calle": "Avenida de la Mecánica, 42",
+  "nombreEncargado": "Juan Pérez",
+  "clientes": [
+    {
+      "nombre": "María López",
+      "telefono": "612345678",
+      "codigoPostal": "28015",
+      "coche": {
+        "modelo": "Toyota Corolla",
+        "matricula": "1234KLM",
+        "color": "Gris Plata"
+      }
+    },
+    {
+      "nombre": "Carlos García",
+      "telefono": "699887766",
+      "codigoPostal": "28020",
+      "coche": {
+        "modelo": "Seat León",
+        "matricula": "5678XYZ",
+        "color": "Rojo"
+      }
+    }
+  ]
+}`;
+
+const postmanPutJson = `{
+  "nombre": "Taller Don Juan Central",
+  "calle": "Calle del Motor, 10",
+  "nombreEncargado": "Juan Pérez Gómez",
+  "clientes": [
+    {
+      "nombre": "María López",
+      "telefono": "612345678",
+      "codigoPostal": "28015",
+      "coche": {
+        "modelo": "Toyota Corolla Hybrid",
+        "matricula": "1234KLM",
+        "color": "Azul Marino"
+      }
+    }
+  ]
+}`;
+
+const notFoundJson = `{
+  "mensaje": "El taller no existe"
+}`;
+
+const postmanResponse201 = `{
+  "id": 1,
+  "nombre": "Taller Don Juan",
+  "calle": "Avenida de la Mecánica, 42",
+  "nombreEncargado": "Juan Pérez",
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": "María López",
+      "telefono": "612345678",
+      "codigoPostal": "28015",
+      "coche": {
+        "id": 1,
+        "modelo": "Toyota Corolla",
+        "matricula": "1234KLM",
+        "color": "Gris Plata"
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos García",
+      "telefono": "699887766",
+      "codigoPostal": "28020",
+      "coche": {
+        "id": 2,
+        "modelo": "Seat León",
+        "matricula": "5678XYZ",
+        "color": "Rojo"
+      }
+    }
+  ]
+}`;
+
+const h2SqlCheck = `SELECT * FROM TALLERES;
+SELECT * FROM CLIENTES;
+SELECT * FROM COCHES;`;
+---
+
+<DocsLayout
+  title="Simulacro de Examen: API Taller Don Juan"
+  description="Resolución completa paso a paso del ejercicio tipo examen (Spring Boot + Spring Data JPA + H2 + Postman) analizando cada entidad, relación, repositorio, servicio y controlador."
+  section="Simulacro de Examen · Sesión S08"
+>
+  <!-- 1. Enunciado original -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">1. Enunciado del Cliente (Mail recibido)</h2>
+    <div class="rounded-xl border border-slate-800 bg-slate-900/70 p-5 text-sm space-y-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-400 border-b border-slate-800 pb-3">
+        <div><strong class="text-slate-200">De:</strong> Taller Don Juan</div>
+        <div><strong class="text-slate-200">Para:</strong> ProgresaConsultores@digitechfp.com</div>
+        <div><strong class="text-slate-200">Fecha:</strong> 2 de noviembre de 2026</div>
+        <div><strong class="text-slate-200">Asunto:</strong> Desarrollo de API RESTful para Talleres</div>
+      </div>
+      <p>
+        Se solicita una API RESTful robusta en Spring Boot para administrar un sistema de talleres de reparación de coches:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-slate-300">
+        <li>Cada <strong>taller</strong> tiene <strong>clientes</strong>, y cada <strong>cliente</strong> tiene un <strong>coche único</strong> asociado.</li>
+        <li><strong>Taller:</strong> <code>id</code> autoincremental, <code>nombre</code>, <code>calle</code>, <code>nombreEncargado</code>.</li>
+        <li><strong>Cliente:</strong> <code>id</code> autoincremental, <code>nombre</code>, <code>telefono</code>, <code>codigoPostal</code>.</li>
+        <li><strong>Coche:</strong> <code>id</code> autoincremental, <code>modelo</code>, <code>matricula</code>, <code>color</code>.</li>
+      </ul>
+      <div class="pt-2 border-t border-slate-800/80">
+        <strong class="text-white block mb-1.5">Requisitos técnicos pedidos:</strong>
+        <ol class="list-decimal pl-5 space-y-1 text-slate-300">
+          <li>Las 3 clases entidad con sus relaciones mapeadas con JPA.</li>
+          <li>Los 3 repositorios (<code>JpaRepository</code>).</li>
+          <li><code>TallerService</code> con CRUD básico + <code>buscarPorId</code>, <code>buscarPorNombre</code>, <code>existePorId</code> y <code>existePorNombre</code>.</li>
+          <li><code>TallerController</code> con las 5 rutas exactas bajo <code>/api/v1/talleres</code>.</li>
+          <li>Los endpoints con <code>&#123;id&#125;</code> deben devolver código HTTP <strong>404 Not Found</strong> si no se encuentra el taller.</li>
+          <li>Ejemplo de archivo JSON válido para insertar desde Postman.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Análisis del Modelo Relacional -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">2. Análisis del Modelo Relacional (Cardinalidades)</h2>
+    <p>
+      Antes de escribir una sola línea de Java, traducimos las frases del correo a relaciones JPA y claves foráneas SQL:
+    </p>
+
+    <div class="my-4 overflow-x-auto rounded-xl border border-slate-800">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-slate-900 text-slate-300 text-xs uppercase">
+          <tr>
+            <th class="px-4 py-3">Relación</th>
+            <th class="px-4 py-3">Cardinalidad</th>
+            <th class="px-4 py-3">Anotaciones JPA</th>
+            <th class="px-4 py-3">¿Quién lleva la FK (@JoinColumn)?</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800 bg-slate-950/60">
+          <tr>
+            <td class="px-4 py-3 font-semibold text-white">Taller ↔ Cliente</td>
+            <td class="px-4 py-3 font-mono text-cyan-300">1 : N</td>
+            <td class="px-4 py-3 text-xs font-mono">
+              <code>@OneToMany(mappedBy = "taller")</code> en Taller<br />
+              <code>@ManyToOne</code> en Cliente
+            </td>
+            <td class="px-4 py-3 text-slate-300">
+              <strong>Cliente</strong> (tabla <code>clientes</code> → columna <code>taller_id</code>). En 1:N el lado N siempre es el propietario.
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 font-semibold text-white">Cliente → Coche</td>
+            <td class="px-4 py-3 font-mono text-emerald-300">1 : 1</td>
+            <td class="px-4 py-3 text-xs font-mono">
+              <code>@OneToOne(cascade = CascadeType.ALL)</code> en Cliente
+            </td>
+            <td class="px-4 py-3 text-slate-300">
+              <strong>Cliente</strong> (tabla <code>clientes</code> → columna <code>coche_id</code> con <code>unique = true</code>).
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <Callout type="info" title="¿Por qué @JsonIgnoreProperties en lugar de @JsonIgnore?">
+      <p>
+        Si usamos <code>@JsonIgnore</code> en <code>Taller.clientes</code>, al consultar un taller con <code>GET</code> no veríamos sus clientes en el JSON.
+        En cambio, si seguimos el patrón del ejercicio de clase <code>piSpring</code> usando:
+      </p>
+      <ul class="list-disc pl-5 mt-1">
+        <li><code>@JsonIgnoreProperties("taller")</code> encima de <code>List&lt;Cliente&gt; clientes</code> en <code>Taller.java</code>.</li>
+        <li><code>@JsonIgnoreProperties("clientes")</code> encima de <code>Taller taller</code> en <code>Cliente.java</code>.</li>
+      </ul>
+      <p class="mt-1">
+        Jackson serializa el <strong>Taller completo con su lista de Clientes y cada Cliente con su Coche</strong>, pero corta la referencia de vuelta evitando el bucle infinito (<code>StackOverflowError</code>).
+      </p>
+    </Callout>
+  </section>
+
+  <!-- 3. Configuración Inicial -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">3. Configuración del Proyecto (Spring Initializr)</h2>
+    <p>
+      En <a href="https://start.spring.io" target="_blank" class="text-cyan-400 underline">start.spring.io</a> elegimos <strong>Maven</strong>, <strong>Java 21</strong> y añadimos las dependencias:
+      <code>Spring Web</code>, <code>Spring Data JPA</code>, <code>H2 Database</code>, <code>Lombok</code> y <code>Spring Boot DevTools</code>.
+    </p>
+
+    <CodeBlock code={pomCode} lang="xml" filename="pom.xml" caption="Dependencias principales del proyecto." />
+    <CodeBlock code={propertiesCode} lang="properties" filename="src/main/resources/application.properties" caption="Conexión a base de datos H2 en memoria y generación automática de tablas con Hibernate." />
+  </section>
+
+  <!-- 4. Entidades JPA -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">4. Paso 1: Las 3 Entidades JPA</h2>
+
+    <h3 class="text-xl font-semibold text-cyan-300 mt-6 mb-2">4.1. Entidad Coche (extremo 1:1)</h3>
+    <p>
+      <code>Coche</code> es el extremo dependiente de la relación 1:1 con <code>Cliente</code>. Le añadimos clave primaria autoincremental con <code>GenerationType.IDENTITY</code>, restringimos la <code>matricula</code> como <code>unique = true</code> y creamos un constructor auxiliar sin <code>id</code>.
+    </p>
+    <CodeBlock code={cocheCode} lang="java" filename="src/main/java/com/digitechfp/talleres/entity/Coche.java" />
+
+    <h3 class="text-xl font-semibold text-cyan-300 mt-6 mb-2">4.2. Entidad Cliente (lado propietario de ambas relaciones)</h3>
+    <p>
+      <code>Cliente</code> conecta con <code>Coche</code> mediante <code>@OneToOne(cascade = CascadeType.ALL)</code> (así al guardar o borrar un cliente se guarda o borra su coche en cascada) y con <code>Taller</code> mediante <code>@ManyToOne(fetch = FetchType.LAZY)</code>.
+      Ponemos <code>@ToString.Exclude</code> en <code>taller</code> para evitar recursividad en el <code>toString()</code> generado por Lombok.
+    </p>
+    <CodeBlock code={clienteCode} lang="java" filename="src/main/java/com/digitechfp/talleres/entity/Cliente.java" />
+
+    <h3 class="text-xl font-semibold text-cyan-300 mt-6 mb-2">4.3. Entidad Taller (lado inverso 1:N)</h3>
+    <p>
+      <code>Taller</code> contiene la lista de clientes anotada con <code>@OneToMany(mappedBy = "taller", cascade = CascadeType.ALL, orphanRemoval = true)</code>.
+      Es fundamental incluir:
+    </p>
+    <ul class="list-disc pl-5 text-sm space-y-1 my-2">
+      <li><code>orphanRemoval = true</code>: si vaciamos o eliminamos clientes en un <code>PUT</code>, Hibernate los borra de la tabla <code>clientes</code> para no dejar huérfanos.</li>
+      <li><code>setClientes(...)</code> personalizado: cuando Postman envía un JSON con la lista de clientes, Jackson llama a este setter, que recorre cada cliente y le asigna <code>cliente.setTaller(this)</code> para que <code>taller_id</code> no llegue <code>null</code> a SQL.</li>
+    </ul>
+    <CodeBlock code={tallerCode} lang="java" filename="src/main/java/com/digitechfp/talleres/entity/Taller.java" />
+  </section>
+
+  <!-- 5. Repositorios -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">5. Paso 2: Los 3 Repositorios</h2>
+    <p>
+      Creamos una interfaz por entidad extendiendo <code>JpaRepository&lt;Entidad, Long&gt;</code>. En <code>TallerRepository</code> añadimos los dos métodos derivados (<em>Query Methods</em>) que nos exige el servicio: <code>findByNombre</code> y <code>existsByNombre</code>.
+    </p>
+
+    <CodeBlock code={tallerRepoCode} lang="java" filename="src/main/java/com/digitechfp/talleres/repository/TallerRepository.java" caption="Spring Data JPA genera automáticamente las consultas SQL por el nombre del método." />
+    <CodeBlock code={clienteRepoCode} lang="java" filename="src/main/java/com/digitechfp/talleres/repository/ClienteRepository.java" />
+    <CodeBlock code={cocheRepoCode} lang="java" filename="src/main/java/com/digitechfp/talleres/repository/CocheRepository.java" />
+  </section>
+
+  <!-- 6. Capa de Servicio -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">6. Paso 3: Capa de Servicio (TallerService)</h2>
+    <p>
+      El enunciado pide explícitamente en el servicio del taller: <strong>CRUD básico</strong> (listar, guardar/actualizar, eliminar) más <strong>buscar por id</strong>, <strong>buscar por nombre</strong>, <strong>existe por id</strong> y <strong>existe por nombre</strong>.
+      Marcamos los métodos con <code>@Transactional</code> y nos aseguramos en <code>guardarTaller</code> de vincular cada cliente con su taller antes de invocar <code>save(taller)</code>.
+    </p>
+    <CodeBlock code={serviceCode} lang="java" filename="src/main/java/com/digitechfp/talleres/service/TallerService.java" />
+  </section>
+
+  <!-- 7. Controlador REST -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">7. Paso 4: Controlador REST (TallerController)</h2>
+    <p>
+      Mapeamos el prefijo común <code>/api/v1/talleres</code> en la clase con <code>@RequestMapping</code> y cada endpoint pedido con su verbo HTTP y ruta exacta.
+      En todos los métodos que reciben <code>&#123;id&#125;</code> (<code>GET</code>, <code>PUT</code> y <code>DELETE</code>), si el taller no existe devolvemos <code>HttpStatus.NOT_FOUND</code> (<strong>404</strong>) con un mensaje JSON descriptivo.
+    </p>
+
+    <Callout type="warning" title="Detalle clave del PUT /actualizar/{id}">
+      <p>
+        En la actualización completa (<code>PUT</code>), no basta con hacer <code>setNombre</code>, <code>setCalle</code> y <code>setNombreEncargado</code>: también debemos limpiar la lista actual (<code>tallerExistente.getClientes().clear()</code>) y volver a insertar los clientes nuevos asignando <code>cliente.setTaller(tallerExistente)</code>. Al tener <code>orphanRemoval = true</code>, Hibernate eliminará los antiguos clientes y guardará los nuevos junto a sus coches.
+      </p>
+    </Callout>
+
+    <CodeBlock code={controllerCode} lang="java" filename="src/main/java/com/digitechfp/talleres/controller/TallerController.java" />
+  </section>
+
+  <!-- 8. Endpoints y Postman -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">8. Endpoints Expuestos y Pruebas en Postman</h2>
+    <p>
+      Resumen visual de las 5 operaciones solicitadas por Talleres Don Juan y los JSON exactos para probarlas en Postman (<strong>Body → raw → JSON</strong>).
+    </p>
+
+    <EndpointCard
+      method="GET"
+      path="/api/v1/talleres/todos"
+      description="Devuelve la lista completa de talleres registrados junto con sus clientes y el coche asociado a cada cliente."
+      statuses={['200 OK']}
+    />
+
+    <EndpointCard
+      method="GET"
+      path="/api/v1/talleres/getTaller/{id}"
+      description="Busca un taller concreto por su ID. Si no existe, devuelve 404 Not Found."
+      statuses={['200 OK', '404 Not Found']}
+      jsonExample={notFoundJson}
+    />
+
+    <EndpointCard
+      method="POST"
+      path="/api/v1/talleres/nuevoTaller"
+      description="Crea un taller nuevo insertando en una sola petición el taller, su lista de clientes y el coche de cada cliente en cascada."
+      statuses={['201 Created']}
+      jsonExample={postmanPostJson}
+    />
+
+    <EndpointCard
+      method="PUT"
+      path="/api/v1/talleres/actualizar/{id}"
+      description="Actualiza la información COMPLETA de un taller existente (datos del taller y su lista de clientes/coches). Devuelve 404 si el ID no existe."
+      statuses={['200 OK', '404 Not Found']}
+      jsonExample={postmanPutJson}
+    />
+
+    <EndpointCard
+      method="DELETE"
+      path="/api/v1/talleres/borrar/{id}"
+      description="Elimina un taller por su ID (y en cascada sus clientes y coches). Devuelve 404 si el ID no existe."
+      statuses={['200 OK', '404 Not Found']}
+    />
+
+    <h3 class="text-xl font-semibold text-cyan-300 mt-6 mb-2">Respuesta esperada tras POST /nuevoTaller (201 Created)</h3>
+    <p class="text-sm">
+      Gracias a <code>@JsonIgnoreProperties</code> y la cascada JPA, Spring devuelve el objeto completo con los IDs autoincrementales generados para el taller, cada cliente y su coche:
+    </p>
+    <CodeBlock code={postmanResponse201} lang="json" filename="201 Created · Respuesta del servidor" />
+  </section>
+
+  <!-- 9. Verificación en H2 y Checklist -->
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-3">9. Comprobación en H2 Console y Checklist del Examen</h2>
+    <p class="text-sm">
+      Una vez probado el <code>POST</code> en Postman, abre <code>http://localhost:8080/h2-console</code> con la JDBC URL <code>jdbc:h2:mem:talleres_db</code> (usuario <code>sa</code>, sin contraseña) y comprueba las tablas generadas:
+    </p>
+    <CodeBlock code={h2SqlCheck} lang="sql" filename="Consola H2 · Consultas de verificación" />
+
+    <div class="mt-6 rounded-xl border border-slate-800 bg-slate-900/60 p-5" id="exam-checklist">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-base font-bold text-white">Checklist de Autoevaluación</h3>
+        <button id="reset-checklist-btn" type="button" class="text-xs text-slate-400 hover:text-cyan-300 cursor-pointer">
+          Reiniciar
+        </button>
+      </div>
+      <div class="space-y-2 text-sm text-slate-300">
+        {[
+          '1. application.properties configurado con H2, ddl-auto=update y show-sql=true.',
+          '2. Entidades Taller, Cliente y Coche con @Id + @GeneratedValue(IDENTITY) y constructor auxiliar sin ID.',
+          '3. Relación 1:N Taller ↔ Cliente (@OneToMany(mappedBy="taller", cascade=ALL, orphanRemoval=true) + setClientes).',
+          '4. Relación 1:1 Cliente → Coche (@OneToOne(cascade=ALL) + @JoinColumn(unique=true)).',
+          '5. @ToString.Exclude y @JsonIgnoreProperties para evitar bucles infinitos.',
+          '6. Los 3 repositorios (TallerRepository incluye List<Taller> findByNombre y boolean existsByNombre).',
+          '7. TallerService con CRUD + buscarPorId, buscarPorNombre, existePorId y existePorNombre.',
+          '8. TallerController con rutas exactas bajo /api/v1/talleres y 404 en los endpoints con {id}.',
+          '9. Probado en Postman el POST completo y verificado en /h2-console.',
+        ].map((item, idx) => (
+          <label class="flex items-start gap-2.5 cursor-pointer hover:text-white transition">
+            <input type="checkbox" data-check-idx={idx} class="exam-check mt-1 rounded border-slate-600 bg-slate-800 text-cyan-400 focus:ring-cyan-500" />
+            <span>{item}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const storageKey = 'taller-don-juan-checklist-v1';
+    const checks = document.querySelectorAll<HTMLInputElement>('.exam-check');
+    const resetBtn = document.getElementById('reset-checklist-btn');
+
+    function loadChecklist() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        checks.forEach((cb) => {
+          const idx = cb.dataset.checkIdx || '';
+          cb.checked = Boolean(saved[idx]);
+        });
+      } catch {
+        // Ignore storage errors
+      }
+    }
+
+    function saveChecklist() {
+      const state: Record<string, boolean> = {};
+      checks.forEach((cb) => {
+        const idx = cb.dataset.checkIdx || '';
+        state[idx] = cb.checked;
+      });
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    checks.forEach((cb) => cb.addEventListener('change', saveChecklist));
+    resetBtn?.addEventListener('click', () => {
+      checks.forEach((cb) => (cb.checked = false));
+      saveChecklist();
+    });
+    loadChecklist();
+  </script>
+</DocsLayout>
+

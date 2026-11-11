@@ -1,0 +1,4077 @@
+1
+00:00:09,450 --> 00:00:14,715
+A ver, asignatura nueva, empezamos
+hoy proyecto intermedular.
+
+2
+00:00:14,739 --> 00:00:17,012
+Bueno ya sabéis todo esto,
+
+3
+00:00:18,150 --> 00:00:20,593
+las normas ya las hemos
+hablado. ¿Qué vamos a ver
+
+4
+00:00:20,617 --> 00:00:22,972
+en proyecto intermedular?
+Proyecto intermedular
+
+5
+00:00:23,110 --> 00:00:26,982
+es una asignatura que
+está pensada para guiaros o
+
+6
+00:00:27,006 --> 00:00:31,262
+acompañaros en el desarrollo
+de vuestro proyecto final.
+
+7
+00:00:31,263 --> 00:00:35,520
+Igual que todos los años seguís
+teniendo que entregar un proyecto final,
+
+8
+00:00:35,521 --> 00:00:38,712
+lo que pasa es que en
+este nuevo plan lo que
+
+9
+00:00:38,736 --> 00:00:42,012
+se ha hecho es incorporar
+una asignatura para
+
+10
+00:00:42,249 --> 00:00:48,520
+acompañaros un poco en el desarrollo.
+El desarrollo de un TFG lleva muchas horas,
+
+11
+00:00:51,300 --> 00:00:59,200
+pues lo que se ha hecho es incorporar 60
+horas del temálogo actual de segundo para
+
+12
+00:01:01,869 --> 00:01:05,293
+ayudaros o acompañaros
+en ese desarrollo.
+
+13
+00:01:05,317 --> 00:01:09,732
+¿Cómo lo hemos segmentado
+nosotros? Lo que equivale a
+
+14
+00:01:12,600 --> 00:01:17,022
+la primera evaluación,
+para no duplicar contenidos,
+
+15
+00:01:17,046 --> 00:01:20,612
+lo tenéis segmentado
+en lo que sería IP2,
+
+16
+00:01:23,879 --> 00:01:27,345
+que os va a dar Álvaro,
+¿no? Os va a dar todo
+
+17
+00:01:27,369 --> 00:01:30,692
+lo que es la parte de
+la idea del proyecto,
+
+18
+00:01:31,969 --> 00:01:36,070
+os va a dar lo que es
+el análisis de mercado,
+
+19
+00:01:36,094 --> 00:01:39,932
+el análisis de
+competencias, el user flow,
+
+20
+00:01:41,974 --> 00:01:49,800
+lo que es los puntos de desarrollo inicial
+de la aplicación, el modelo de Gantt,
+
+21
+00:01:51,489 --> 00:01:55,111
+el establecimiento de
+tiempo. Todo esa parte
+
+22
+00:01:55,135 --> 00:01:58,852
+os la dará Álvaro en
+IP2 y luego en diseño de
+
+23
+00:01:59,160 --> 00:02:02,957
+interfaces estaréis
+viendo Figma con las
+
+24
+00:02:02,981 --> 00:02:07,172
+fidelidades media,
+baja, baja, media y alta,
+
+25
+00:02:07,509 --> 00:02:11,585
+que es básicamente el
+desarrollo del prototipado
+
+26
+00:02:11,609 --> 00:02:15,272
+en papel, luego
+estableciendo con Figma los
+
+27
+00:02:15,310 --> 00:02:18,881
+wireframes, que son
+las transiciones entre
+
+28
+00:02:18,905 --> 00:02:23,160
+pantallas, diciendo que
+de esta pantalla de inicio
+
+29
+00:02:23,161 --> 00:02:26,466
+cuando le den a login
+entrarán en la aplicación,
+
+30
+00:02:26,490 --> 00:02:29,532
+si le dan a register
+irán a esta pantalla de
+
+31
+00:02:39,670 --> 00:02:42,411
+register, de todas
+las transiciones.
+
+32
+00:02:42,435 --> 00:02:47,132
+Entonces, luego tenéis la
+fidelidad alta, que será la parte de
+
+33
+00:02:49,060 --> 00:02:52,406
+ya añadir color a ese
+prototipado, teniendo
+
+34
+00:02:52,430 --> 00:02:56,492
+prácticamente lo que sería
+el prototipado terminado.
+
+35
+00:02:58,950 --> 00:03:06,600
+Como si fuerais a vender la aplicación, ya
+tenéis un prototipo para poder venderlo.
+
+36
+00:03:07,200 --> 00:03:10,378
+Vale, eso entonces
+es un poco lo que es la
+
+37
+00:03:10,402 --> 00:03:13,972
+base del diseño del
+prototipo de la aplicación.
+
+38
+00:03:14,360 --> 00:03:20,720
+Vale, entonces con eso mientras esas otras
+asignaturas, que son diseño de interfaces
+
+39
+00:03:21,345 --> 00:03:23,987
+IP2, os enseñan todo
+ese contenido, nosotros lo
+
+40
+00:03:24,011 --> 00:03:26,892
+que vamos a hacer mientras
+es aprender Spring Boot.
+
+41
+00:03:27,430 --> 00:03:29,738
+Entonces, esta primera
+evaluación lo que haremos
+
+42
+00:03:29,762 --> 00:03:32,132
+es aprender Spring Boot,
+porque es necesario para
+
+43
+00:03:32,133 --> 00:03:38,132
+cuando salgáis aquí y vayáis a las empresas,
+ahora mismo es backend más demandado.
+
+44
+00:03:38,970 --> 00:03:42,124
+Entonces, se os da una
+primera evaluación de
+
+45
+00:03:42,148 --> 00:03:45,172
+Spring Boot, de la cual
+haremos un examen.
+
+46
+00:03:45,960 --> 00:03:48,462
+Luego llegamos a la
+segunda evaluación.
+
+47
+00:03:48,486 --> 00:03:52,012
+En la segunda evaluación ya
+con todos los conocimientos
+
+48
+00:03:53,750 --> 00:03:57,527
+adquiridos tanto en
+IP2 como en desarrollo
+
+49
+00:03:57,551 --> 00:04:01,612
+de interfaces, tendéis
+que aplicar todos esos
+
+50
+00:04:01,650 --> 00:04:05,493
+conocimientos a vuestro
+proyecto, es decir, al
+
+51
+00:04:05,517 --> 00:04:09,372
+proyecto que vais a
+desarrollar en este curso.
+
+52
+00:04:10,340 --> 00:04:13,825
+Entonces ya lo habéis
+ido haciendo por vuestra
+
+53
+00:04:13,849 --> 00:04:17,640
+cuenta, conforme lo vais
+aprendiendo en la primera
+
+54
+00:04:17,641 --> 00:04:20,603
+evaluación o en esa
+segunda evaluación tendréis
+
+55
+00:04:20,627 --> 00:04:23,412
+un margen de dos
+semanas para desarrollarlo.
+
+56
+00:04:24,500 --> 00:04:27,109
+Vale, de tal manera que
+en esas primeras semanas el
+
+57
+00:04:27,133 --> 00:04:29,652
+que lo tenga hecho ya
+pues empezará a desarrollar
+
+58
+00:04:29,653 --> 00:04:35,800
+su aplicación, pues me cuenta la idea, lo
+que está haciendo, yo le doy vistos buenos,
+
+59
+00:04:36,100 --> 00:04:38,461
+qué mejoraría, qué
+cambiaría, etcétera.
+
+60
+00:04:38,485 --> 00:04:41,572
+Y ya puede ir desarrollando
+la aplicación y los que
+
+61
+00:04:41,610 --> 00:04:45,461
+no pues tenéis dos
+semanas para ya hacer toda
+
+62
+00:04:45,485 --> 00:04:49,092
+la documentación del
+20fg que viene a ser,
+
+63
+00:04:49,780 --> 00:04:52,941
+pues es lo que decía, la
+idea del proyecto, el ver
+
+64
+00:04:52,965 --> 00:04:56,012
+la competencia, el user
+flow, cómo se va a mover
+
+65
+00:04:56,220 --> 00:05:00,030
+el usuario dentro de
+la aplicación, etcétera.
+
+66
+00:05:00,054 --> 00:05:04,120
+Incluso el prototipado.
+Y a partir de la segunda
+
+67
+00:05:04,121 --> 00:05:07,375
+semana ya sí todos estáis
+desarrollando el proyecto.
+
+68
+00:05:07,399 --> 00:05:09,812
+Ya os digo que va
+a ser una asignatura
+
+69
+00:05:09,813 --> 00:05:13,228
+en la que vais a estar
+vosotros haciendo vuestros
+
+70
+00:05:13,252 --> 00:05:16,692
+proyectos y yo voy a estar
+con vosotros ayudándos
+
+71
+00:05:18,520 --> 00:05:23,029
+a ver qué estás haciendo,
+cómo te va, qué dudas tienes.
+
+72
+00:05:23,053 --> 00:05:26,520
+Es un poco de guía
+espiritual de ayudándos
+
+73
+00:05:26,521 --> 00:05:29,096
+a desarrollar el proyecto,
+pues el que no sepa
+
+74
+00:05:29,120 --> 00:05:31,652
+cómo hacerlo o el que
+quiera introducir algo,
+
+75
+00:05:32,340 --> 00:05:34,276
+lo que sea. Entonces
+estamos para eso.
+
+76
+00:05:34,300 --> 00:05:37,492
+Son 30 horas que vais a tener
+de desarrollo del proyecto final.
+
+77
+00:05:39,670 --> 00:05:43,526
+Como tal, como veis
+es una asignatura que no
+
+78
+00:05:43,550 --> 00:05:47,332
+va a tener nota ni en
+primera ni en segunda
+
+79
+00:05:47,545 --> 00:05:51,525
+evaluación. La nota de esta
+asignatura se pone en junio.
+
+80
+00:05:51,549 --> 00:05:54,492
+Que quiere decir que
+no vais a entregarme
+
+81
+00:05:54,630 --> 00:05:58,263
+a mí nada en febrero o
+en marzo cuando estamos
+
+82
+00:05:58,287 --> 00:06:01,920
+ahí, yo os lo pediré en
+mayo. Entonces esas 30
+
+83
+00:06:01,921 --> 00:06:04,966
+horas que tenemos de
+clase las vais a tener que
+
+84
+00:06:04,990 --> 00:06:07,367
+intentar aprovechar
+para desarrollar.
+
+85
+00:06:07,368 --> 00:06:11,214
+Porque qué pasa cuando
+acaba la segunda evaluación,
+
+86
+00:06:11,238 --> 00:06:14,932
+normalmente como mucho
+tendréis unas dos semanas
+
+87
+00:06:16,710 --> 00:06:20,104
+de margen, tres o
+cuatro si habéis aprobado
+
+88
+00:06:20,128 --> 00:06:23,760
+todo, hasta empezar
+prácticas. Incluso algunos
+
+89
+00:06:23,761 --> 00:06:26,548
+empezaréis prácticas
+durante el curso, porque
+
+90
+00:06:26,572 --> 00:06:29,372
+la empresa que os
+seleccione, pues a lo mejor
+
+91
+00:06:31,480 --> 00:06:35,649
+quiere empezar en
+noviembre, diciembre, enero.
+
+92
+00:06:35,673 --> 00:06:38,517
+Entonces, qué quiere decir eso?
+
+93
+00:06:38,518 --> 00:06:42,560
+Que cuando acabáis las
+clases, empezáis las prácticas.
+
+94
+00:06:42,584 --> 00:06:46,651
+Con lo cual no tenéis casi
+tiempo para dedicar al proyecto.
+
+95
+00:06:46,652 --> 00:06:50,012
+Porque ya os digo yo que cuando
+empecéis las prácticas acabaréis cansados,
+
+96
+00:06:50,013 --> 00:06:53,430
+llegaréis a vuestra
+casa a las 8 de la tarde,
+
+97
+00:06:53,454 --> 00:06:56,960
+8 o 9 con suerte. Y lo
+último que os apetecerá
+
+98
+00:06:56,961 --> 00:07:01,400
+es encender el ordenador después de estar
+todo el puto día programando y poneros a
+
+99
+00:07:01,600 --> 00:07:03,974
+hacer vuestro proyecto final.
+
+100
+00:07:03,998 --> 00:07:08,732
+Pasa todos los años, incluso
+pasa a los mejores, porque
+
+101
+00:07:10,070 --> 00:07:13,148
+el cansa al final, cuando
+estás tantas horas
+
+102
+00:07:13,172 --> 00:07:16,052
+programando, luego
+el seguir programando,
+
+103
+00:07:16,215 --> 00:07:19,571
+pues mucho que te
+guste, pues al final cuesta.
+
+104
+00:07:19,595 --> 00:07:25,761
+¿Qué quiere decir eso? Pues que todo lo
+que podáis tener hecho de proyecto final
+
+105
+00:07:25,785 --> 00:07:29,440
+antes de empezar las
+prácticas, mucho mejor.
+
+106
+00:07:29,441 --> 00:07:32,529
+De hecho, yo tendría
+una versión 1.0 ya cuando
+
+107
+00:07:32,553 --> 00:07:35,452
+empiece las prácticas.
+Es decir, la versión
+
+108
+00:07:35,490 --> 00:07:41,000
+con lo mínimo que necesito para mi proyecto
+que sea viable debería estar el día que
+
+109
+00:07:53,240 --> 00:07:57,321
+empiezo a practicar.
+Vosotros podéis decidir
+
+110
+00:07:57,345 --> 00:08:01,252
+el formato que queráis,
+tanto de lenguaje,
+
+111
+00:08:03,380 --> 00:08:06,640
+framework, como lo
+queréis plantear, tanto
+
+112
+00:08:06,664 --> 00:08:10,080
+de back como de front.
+Lo único que se exige
+
+113
+00:08:10,081 --> 00:08:13,498
+es que la complejidad
+del proyecto sea suficiente
+
+114
+00:08:13,522 --> 00:08:16,520
+para un grado superior.
+Viene a ser que por
+
+115
+00:08:16,521 --> 00:08:24,160
+lo menos tenga un back, por lo menos tenga
+un front y el modelo de datos tenga varias
+
+116
+00:08:26,150 --> 00:08:34,000
+colecciones BAC. Tengo una tienda que tiene
+usuarios, tiene productos y luego tengo una
+
+117
+00:08:34,001 --> 00:08:37,695
+web de administración para
+festerar a mis empleados,
+
+118
+00:08:37,719 --> 00:08:41,200
+más todos mis productos,
+más todos mis elementos.
+
+119
+00:08:41,201 --> 00:08:47,000
+Luego tengo una aplicación móvil que es la
+que hay que decir que haya una complejidad
+
+120
+00:08:51,444 --> 00:08:55,553
+suficiente. Es decir, si
+me montas una página
+
+121
+00:08:55,577 --> 00:08:59,332
+web, pues no es un
+producto. Si la página
+
+122
+00:09:00,520 --> 00:09:04,645
+web como tal tiene un
+back, ahora, si estamos
+
+123
+00:09:04,669 --> 00:09:08,532
+hablando de una web
+compleja en la que por
+
+124
+00:09:10,949 --> 00:09:14,703
+detrás hay una base de
+datos con muchos modelos
+
+125
+00:09:14,727 --> 00:09:18,012
+de datos, la web
+además es una aplicación
+
+126
+00:09:18,425 --> 00:09:22,354
+que tiene mucho trabajo
+detrás, entonces no
+
+127
+00:09:22,378 --> 00:09:26,400
+se puede decir directamente,
+porque no puedo
+
+128
+00:09:26,401 --> 00:09:29,956
+encasillar todo a un
+modelo. Yo os digo siempre
+
+129
+00:09:29,980 --> 00:09:33,080
+lo de un back, un
+front y dos colecciones
+
+130
+00:09:33,081 --> 00:09:35,717
+porque es un mínimo
+de una aplicación normal.
+
+131
+00:09:35,741 --> 00:09:38,852
+Lo que pasa es que luego
+me han enseñado aplicaciones
+
+132
+00:09:38,989 --> 00:09:42,586
+que solo eran front,
+no tenían nada de back,
+
+133
+00:09:42,610 --> 00:09:45,972
+pero tenían tantísimo
+front, que al final
+
+134
+00:09:46,060 --> 00:09:49,279
+era una aplicación que era
+muy buena. O aplicaciones
+
+135
+00:09:49,303 --> 00:09:51,852
+de solo de back, en
+la que el back estaba
+
+136
+00:09:52,800 --> 00:10:00,800
+tan trabajado que valía. Eso es lo que me
+tienes que proponer a mí y decirme "quiero
+
+137
+00:10:00,801 --> 00:10:03,217
+hacer esta aplicación,
+que hace esto", y entonces
+
+138
+00:10:03,241 --> 00:10:05,367
+yo valoro la complejidad
+de esa aplicación.
+
+139
+00:10:05,368 --> 00:10:08,516
+Al final lo que estamos
+hablando es de horas de trabajo.
+
+140
+00:10:08,540 --> 00:10:10,252
+Si yo considero que el trabajo
+
+141
+00:10:10,759 --> 00:10:18,560
+que me estás presentando es un trabajo que
+lleva suficientes horas de trabajo para el
+
+142
+00:10:18,734 --> 00:10:21,788
+Tfg, para el proyecto
+intermobilar, entonces es
+
+143
+00:10:21,812 --> 00:10:24,800
+correcto, lo puedes
+entregar, no hay problema.
+
+144
+00:10:24,801 --> 00:10:26,795
+Ahora si considero que
+es un trabajo que puedes
+
+145
+00:10:26,819 --> 00:10:28,612
+hacer en una tarde,
+entonces obviamente te
+
+146
+00:10:28,613 --> 00:10:35,840
+lo voy a dejar para atrás. Esa es la idea,
+que detrás haya un trabajo con sus horas
+
+147
+00:10:36,039 --> 00:10:38,561
+de desarrollo. Al
+final estamos diciendo
+
+148
+00:10:38,585 --> 00:10:41,372
+que es un trabajo de
+creatividad, un trabajo
+
+149
+00:10:52,209 --> 00:10:55,360
+que vais a poder poner en vuestro portfolio
+a la hora de buscar trabajo. Es individual,
+
+150
+00:10:55,361 --> 00:10:58,514
+porque está dentro
+de una asignatura y se
+
+151
+00:10:58,538 --> 00:11:02,012
+evaluará de manera
+individual. Porque además,
+
+152
+00:11:04,899 --> 00:11:11,600
+siempre que hay parejas, hay dos problemas,
+hay quien ha trabajado más, hay quien ha
+
+153
+00:11:12,049 --> 00:11:18,400
+trabajado menos. En las parejas siempre se
+exige el doble, luego no se lo creen, pero
+
+154
+00:11:18,699 --> 00:11:22,034
+al final es así. Yo si
+un proyecto exijo 200
+
+155
+00:11:22,058 --> 00:11:25,240
+horas, pues el proyecto
+de la pareja tiene
+
+156
+00:11:25,241 --> 00:11:28,841
+que ser 400 horas. Para
+evitar todo eso, directamente
+
+157
+00:11:28,865 --> 00:11:31,932
+todos individuales, que
+para mí es un trabajo
+
+158
+00:11:33,659 --> 00:11:37,521
+que tengo que corregir,
+pero lo prefiero porque
+
+159
+00:11:37,545 --> 00:11:44,160
+luego siempre hay historias y lo
+cortamos de sano en individuales y fuera.
+
+160
+00:11:55,760 --> 00:11:59,791
+Que ahora el proyecto
+intermodular esté montado
+
+161
+00:11:59,815 --> 00:12:03,772
+con una asignatura y
+tenga sus horas asignadas
+
+162
+00:12:03,810 --> 00:12:07,007
+para desarrollo, no quita
+que vosotros, cualquier
+
+163
+00:12:07,031 --> 00:12:09,652
+duda que tengáis
+fuera de ese tiempo, ya
+
+164
+00:12:09,689 --> 00:12:13,063
+sea durante las dos
+evaluaciones o posteriormente,
+
+165
+00:12:13,087 --> 00:12:15,932
+antes de la entrega,
+cualquier duda podéis
+
+166
+00:12:16,019 --> 00:12:23,440
+planteármela a mí. Si es una duda técnica
+en la que es otro profesor el encargado del
+
+167
+00:12:23,589 --> 00:12:28,760
+tema, podéis recurrir a ese profesor. Yo
+os doy un montón de asignaturas, pero a lo
+
+168
+00:12:28,909 --> 00:12:30,803
+mejor lo queréis
+hacer en Android.
+
+169
+00:12:30,827 --> 00:12:33,812
+Y entonces, el que lo quiera
+hacer con Android Studio,
+
+170
+00:12:33,999 --> 00:12:36,744
+yo le puedo resolver
+dudas, pero se las resolverá
+
+171
+00:12:36,768 --> 00:12:39,407
+mejor el profesor que
+tenéis de Android Studio.
+
+172
+00:12:39,408 --> 00:12:44,040
+Entonces, ahí recurriríais a él. Pero sí,
+en cualquier momento, hasta la entrega del
+
+173
+00:12:44,089 --> 00:12:47,821
+proyecto, que será sobre
+mediados de mayo, podéis
+
+174
+00:12:47,822 --> 00:12:51,600
+preguntarle a cualquier
+profesor que corresponde.
+
+175
+00:12:54,449 --> 00:12:59,040
+¿Las páginas son presenciales
+o hay una de teletrabajo?
+
+176
+00:13:02,240 --> 00:13:09,181
+Hay de los dos tipos, hay teletrabajo,
+hay presenciales y hay híbridas.
+
+177
+00:13:09,182 --> 00:13:13,534
+¿Cómo se va a evaluar esto?
+Porque tenemos esa parte de
+
+178
+00:13:13,558 --> 00:13:17,172
+Spring Boot que hay que
+ver cómo la trabajamos.
+
+179
+00:13:17,509 --> 00:13:23,720
+Y lo que os decía, solo tiene nota final
+en junio. Junio es cuando se pondrá la nota
+
+180
+00:13:23,721 --> 00:13:27,306
+del proyecto intermedular.
+Eso quiere decir que
+
+181
+00:13:27,330 --> 00:13:30,852
+no habrá nota en primera
+y segunda evaluación.
+
+182
+00:13:33,714 --> 00:13:41,640
+Tendréis un guión puesto ahí. Haremos un
+examen en la primera evaluación de Spring
+
+183
+00:13:41,641 --> 00:13:45,518
+Boot, de lo que vamos
+a ver. Luego, el proyecto
+
+184
+00:13:45,542 --> 00:13:48,852
+se entregará mediados
+de mayo, lo que os
+
+185
+00:13:49,139 --> 00:13:55,040
+digo, la nota final corresponderá a la nota
+que tengáis en el proyecto final, cuando se
+
+186
+00:13:55,040 --> 00:13:58,081
+evalúa el proyecto final,
+esa nota que tendrá,
+
+187
+00:13:58,105 --> 00:14:01,092
+y el 10% del examen
+de Spring Boot. Entonces,
+
+188
+00:14:03,859 --> 00:14:07,418
+el examen que se haga
+tendrá un 10% del valor
+
+189
+00:14:07,442 --> 00:14:11,172
+final, pero es obligatorio
+aprobarlo para poder
+
+190
+00:14:11,440 --> 00:14:15,384
+tener nota en junio.
+Tenéis que haber aprobado
+
+191
+00:14:15,408 --> 00:14:19,452
+el examen de Spring
+Boot de primera evaluación.
+
+192
+00:14:26,559 --> 00:14:30,316
+El que quiera optar
+al 10% en la asignatura
+
+193
+00:14:30,340 --> 00:14:34,372
+tiene que defender el
+proyecto. Esto es, venir
+
+194
+00:14:34,435 --> 00:14:41,760
+al centro y hacer una defensa pública de su
+proyecto. Básicamente, es una presentación
+
+195
+00:14:43,839 --> 00:14:48,151
+de cómo es su proyecto,
+qué hace su proyecto, etc.
+
+196
+00:14:48,175 --> 00:14:51,652
+Es el resumen de lo
+que sería la memoria
+
+197
+00:14:55,139 --> 00:14:59,118
+que vais a hacer, los puntos
+que hablábamos antes
+
+198
+00:14:59,142 --> 00:15:03,052
+de IP2 y diseño de
+interfaces con sostenibilidad
+
+199
+00:15:03,589 --> 00:15:06,443
+y etc. Nos cuenta su
+proyecto y luego nos
+
+200
+00:15:06,467 --> 00:15:09,600
+hace una demo en vivo
+de 10 minutos, una demo
+
+201
+00:15:09,601 --> 00:15:17,520
+de la aplicación y tal. Para optar al 10%,
+el que le dé igual el 10% y le valga hasta
+
+202
+00:15:21,309 --> 00:15:25,266
+un 9%, entonces no hace
+defensa y directamente
+
+203
+00:15:25,290 --> 00:15:29,172
+se le pone la nota. La
+defensa es poder optar
+
+204
+00:15:45,420 --> 00:15:53,320
+al 10%.
+La máxima nota si no se defiende es un 9%.
+
+205
+00:16:03,369 --> 00:16:10,320
+¿Todo claro?
+
+206
+00:16:18,520 --> 00:16:22,913
+Entonces vamos a empezar
+con la parte de Spring Boot.
+
+207
+00:16:22,937 --> 00:16:26,532
+Para Spring Boot
+vamos a utilizar IntelliJ.
+
+208
+00:16:31,729 --> 00:16:35,869
+Que es Spring Boot.
+Spring Boot es un framework
+
+209
+00:16:35,893 --> 00:16:39,692
+de Java que se utiliza
+para montar APIs. La
+
+210
+00:16:51,219 --> 00:16:54,797
+idea de Spring Boot
+es que a través de clases
+
+211
+00:16:54,821 --> 00:16:58,332
+de Java, con JPA, de
+JPA y Ibernet como ORM,
+
+212
+00:17:06,109 --> 00:17:13,960
+la transformación de clases
+de Java, se puede hacer en vivo.
+
+213
+00:17:27,624 --> 00:17:29,600
+Vamos a empezar con
+la parte de Spring Boot.
+
+214
+00:17:49,760 --> 00:17:57,760
+Vamos a empezar con
+la parte de Spring Boot.
+
+215
+00:17:58,880 --> 00:18:06,880
+Como tal, lo que hace es coger esas clases
+de Java y mediante JPA, que es anotación de
+
+216
+00:18:14,160 --> 00:18:18,006
+Java y Ibernet, que
+es un ORM que hace la
+
+217
+00:18:18,030 --> 00:18:22,172
+transformación de Java
+a tablas de SQL, hace
+
+218
+00:18:22,480 --> 00:18:25,302
+esa transformación del proyecto.
+
+219
+00:18:25,326 --> 00:18:30,480
+De tal forma que una aplicación
+que tenemos con Java nos
+
+220
+00:18:30,481 --> 00:18:36,880
+accede la transformación en base de datos.
+De tal manera que nosotros podremos recibir
+
+221
+00:18:36,881 --> 00:18:41,135
+peticiones a nuestra API
+de Spring Boot, nos pasarán
+
+222
+00:18:41,159 --> 00:18:44,852
+el objeto en formato
+JSON, lo transformaremos
+
+223
+00:18:50,720 --> 00:18:55,103
+a objeto de Java, ese objeto
+en Java lo mandaremos
+
+224
+00:18:55,127 --> 00:18:58,732
+a Ibernet, que
+transformará ese objeto en
+
+225
+00:19:01,600 --> 00:19:05,504
+los datos de tablas de
+SQL y hará la insección.
+
+226
+00:19:05,528 --> 00:19:09,600
+Modificación, lectura,
+será el proceso contrario,
+
+227
+00:19:09,601 --> 00:19:12,391
+nos vendrá la petición,
+la pondremos a la
+
+228
+00:19:12,415 --> 00:19:15,480
+base de datos, la base
+de datos nos devolverá
+
+229
+00:19:15,481 --> 00:19:18,156
+las tablas, eso Ibernet
+lo transformará en
+
+230
+00:19:18,180 --> 00:19:21,252
+objetos de Java, que le
+devolveremos al usuario.
+
+231
+00:19:21,440 --> 00:19:25,472
+Es un poco el proceso
+para comunicación entre
+
+232
+00:19:25,496 --> 00:19:29,452
+usuario y base de datos
+mediante una API que
+
+233
+00:19:35,680 --> 00:19:39,536
+hace transformación
+de datos con Java y base
+
+234
+00:19:39,560 --> 00:19:43,692
+de datos relacional.
+Básicamente, ya lo veremos
+
+235
+00:19:47,960 --> 00:19:51,646
+con la anotación de
+JPA, pero bueno, es muy
+
+236
+00:19:51,670 --> 00:19:55,972
+sencillo de usar, lo bueno
+que tiene. Aprenderemos
+
+237
+00:20:00,280 --> 00:20:04,438
+a trabajar con conceptos
+de entidad, repositorio,
+
+238
+00:20:04,462 --> 00:20:08,292
+servicio controlador,
+digamos que es bastante
+
+239
+00:20:08,680 --> 00:20:16,680
+potente. Luego se puede meter una capa de
+seguridad muy robusta por encima, además
+
+240
+00:20:16,681 --> 00:20:20,289
+hay muchos módulos
+para poder mejorarlo, para
+
+241
+00:20:20,313 --> 00:20:23,692
+poder trabajar con
+diferentes tecnologías,
+
+242
+00:20:28,560 --> 00:20:32,502
+etc. Para ver un primer
+proyecto y para ver
+
+243
+00:20:32,526 --> 00:20:36,572
+cómo crear proyectos
+de Spring Boot, tenemos
+
+244
+00:20:52,280 --> 00:21:00,280
+una página que se llama start.spin.yout.
+
+245
+00:21:22,080 --> 00:21:26,156
+Esta página lo que hace
+es, con un formulario,
+
+246
+00:21:26,180 --> 00:21:30,092
+con un formulario, con
+un formulario, con un
+
+247
+00:21:32,440 --> 00:21:36,384
+formulario muy sencillo,
+nos proporciona todas
+
+248
+00:21:36,408 --> 00:21:40,452
+las opciones para generar
+un proyecto de Spring
+
+249
+00:21:42,040 --> 00:21:45,846
+Boot. Lo primero que
+tenemos es el tipo de
+
+250
+00:21:45,870 --> 00:21:50,052
+proyecto que va a hacer.
+Aquí vamos a trabajar
+
+251
+00:21:57,680 --> 00:22:01,014
+con Maven, vamos
+a trabajar con Maven.
+
+252
+00:22:01,038 --> 00:22:05,692
+El lenguaje va a ser Java.
+La versión de Spring Boot,
+
+253
+00:22:17,400 --> 00:22:21,024
+la 4.1.1 está bien.
+Luego vamos a añadir
+
+254
+00:22:21,048 --> 00:22:25,400
+dependencias para
+trabajar. Esto es lo que decía
+
+255
+00:22:25,401 --> 00:22:29,094
+de todos los módulos
+que nos ofrece, tenemos
+
+256
+00:22:29,118 --> 00:22:32,572
+un montón de módulos
+para trabajar con la
+
+257
+00:22:38,640 --> 00:22:42,301
+nube de Google, con
+Azure, con el rutamiento,
+
+258
+00:22:42,325 --> 00:22:46,652
+testeo, observabilidad,
+entrada y salida, mensajería,
+
+259
+00:22:49,400 --> 00:22:57,400
+hay muchas cosas. De estos los que vamos a
+añadir ahora inicialmente es Lombok. Lombok
+
+260
+00:23:01,320 --> 00:23:04,903
+nos va a proporcionar,
+nos va a permitir
+
+261
+00:23:04,927 --> 00:23:09,332
+trabajar en Spring sin
+código redundante. ¿Qué es
+
+262
+00:23:15,000 --> 00:23:18,902
+código redundante?
+Tenemos los Vepers, tenemos
+
+263
+00:23:18,926 --> 00:23:23,000
+los Zepers, tenemos
+constructores. Para trabajar
+
+264
+00:23:23,001 --> 00:23:26,211
+con todas las clases
+que vamos a utilizar
+
+265
+00:23:26,235 --> 00:23:29,852
+como entidades nos
+vamos a evitar montar todos
+
+266
+00:23:35,480 --> 00:23:39,697
+esos elementos y Lombok
+los hará por nosotros.
+
+267
+00:23:39,721 --> 00:23:43,492
+¿Qué más vamos a
+añadir? Spring Web. Esto
+
+268
+00:23:51,240 --> 00:23:55,442
+es para visualizar las
+peticiones desde la web.
+
+269
+00:23:55,466 --> 00:23:59,252
+Luego vamos a añadir
+Spring Boot Developer
+
+270
+00:24:13,000 --> 00:24:16,944
+Tools. Vamos a darle
+aquí dependencias, Spring
+
+271
+00:24:16,968 --> 00:24:21,012
+Boot, Spring Boot,
+DevTools. Para cargar rápida
+
+272
+00:24:23,920 --> 00:24:27,778
+la aplicación, que nos
+recargue la aplicación
+
+273
+00:24:27,802 --> 00:24:31,932
+en caliente, etc. Cuando
+modifiquemos el código.
+
+274
+00:24:44,520 --> 00:24:47,911
+De momento para
+empezar nos valen esas.
+
+275
+00:24:47,935 --> 00:24:52,532
+Luego el nombre del proyecto.
+Esto es el grupo. Vamos
+
+276
+00:25:12,040 --> 00:25:15,841
+a llamarlo DemoSpree.
+Este será el nombre
+
+277
+00:25:15,865 --> 00:25:20,052
+del paquete que nos va
+a montar directamente.
+
+278
+00:25:39,280 --> 00:25:43,449
+Vamos a hacerlo con la
+21. Cuando ya lo tenéis
+
+279
+00:25:43,473 --> 00:25:47,292
+todo, repito, Maiden,
+Java, la 41, vamos a
+
+280
+00:25:51,680 --> 00:25:54,628
+poner Lombok,
+Spring Web, Spring.
+
+281
+00:25:54,652 --> 00:25:59,692
+Developer Tools, luego el
+grupo con Digitec FTP, artefacto
+
+282
+00:26:05,520 --> 00:26:09,886
+DemoSpree, package name
+con .Digitec FTP, DemoSpree.
+
+283
+00:26:09,910 --> 00:26:13,532
+Lo ponemos en HAR,
+configuración properties
+
+284
+00:26:13,680 --> 00:26:17,526
+y luego el Java 21.
+Cuando ya lo tenemos,
+
+285
+00:26:17,550 --> 00:26:21,692
+le vamos a generar.
+Esto nos montará un zip,
+
+286
+00:26:27,520 --> 00:26:31,508
+que lo guarde en
+descargas. Descomprimido se
+
+287
+00:26:31,532 --> 00:26:35,532
+le vamos a abrir en 3J.
+Lo que vamos a hacer
+
+288
+00:26:38,880 --> 00:26:44,275
+es descomprimirlo para llevarlo
+a la carpeta donde queráis.
+
+289
+00:26:44,299 --> 00:26:46,892
+Lo que voy a hacer es montar
+
+290
+00:27:02,560 --> 00:27:06,591
+mi carpeta de Spring.
+Voy a poner aquí nuestro
+
+291
+00:27:06,615 --> 00:27:10,572
+grupo y aquí dentro
+voy a montar el proyecto.
+
+292
+00:27:32,480 --> 00:27:36,468
+En Mac, doble clic, ya
+directamente lo descomprime.
+
+293
+00:27:36,492 --> 00:27:40,492
+Y ahora en Intellij, Open.
+Voy a ir descomprimiendo
+
+294
+00:27:44,160 --> 00:27:48,372
+y le voy a decirle. Podéis
+veniros a la carpeta
+
+295
+00:27:48,396 --> 00:27:52,172
+inicial, dándole a
+Close Project si tenéis
+
+296
+00:28:02,880 --> 00:28:10,880
+alguno abierto y lo movéis.
+Mientras directamente os lo aprecio.
+
+297
+00:28:32,800 --> 00:28:36,093
+Lo tenéis todos?
+Alguien no lo tiene?
+
+298
+00:28:36,117 --> 00:28:40,812
+Vamos a explicar un poco
+en que consiste el proyecto.
+
+299
+00:28:43,280 --> 00:28:47,601
+La parte que lanza el
+proyecto es este Demonstration
+
+300
+00:28:47,625 --> 00:28:51,292
+Application que tenéis
+dentro del src, main,
+
+301
+00:28:56,520 --> 00:28:59,159
+java y luego nuestro paquete.
+
+302
+00:28:59,183 --> 00:29:04,532
+Hemos dicho que va a ser
+con DTKfp Demonstration. Ahí si
+
+303
+00:29:09,240 --> 00:29:13,046
+lo vemos. Simplemente
+es una clase de Java
+
+304
+00:29:13,070 --> 00:29:17,252
+con su main que iniciará
+un Spring Application
+
+305
+00:29:27,840 --> 00:29:31,598
+que arrancará. Tenemos
+también un paquete
+
+306
+00:29:31,622 --> 00:29:35,852
+llamado recursos donde
+tenemos las propiedades
+
+307
+00:29:40,040 --> 00:29:48,040
+del proyecto. Las propiedades del proyecto
+representan el archivo de configuración de
+
+308
+00:29:48,041 --> 00:29:51,724
+nuestro proyecto. Aquí
+es donde conectaremos
+
+309
+00:29:51,748 --> 00:29:55,612
+con la base de datos,
+donde vamos a ver, donde
+
+310
+00:30:01,080 --> 00:30:05,199
+tenemos propiedades o
+lo que sea. Luego tenemos
+
+311
+00:30:05,223 --> 00:30:08,693
+el otro fichero
+importante, el POM.xml.
+
+312
+00:30:08,694 --> 00:30:12,319
+Esto es un fichero de
+configuración de Maven que va
+
+313
+00:30:12,343 --> 00:30:15,452
+a gestionar todas las
+dependencias y plugins
+
+314
+00:30:22,480 --> 00:30:26,422
+que tiene nuestro
+proyecto. Aquí tenemos la
+
+315
+00:30:26,446 --> 00:30:30,492
+versión de Spring
+Boot, la 4.1.1, la versión
+
+316
+00:30:35,680 --> 00:30:39,761
+de la aplicación, en
+este caso es una 0.0.1.
+
+317
+00:30:39,785 --> 00:30:43,692
+Aquí tenemos el array
+de dependencias o la
+
+318
+00:30:44,240 --> 00:30:48,409
+colección de dependencias,
+donde tenemos entre
+
+319
+00:30:48,433 --> 00:30:53,544
+las etiquetas de dependency
+las diferentes dependencias.
+
+320
+00:30:53,545 --> 00:31:00,160
+En principio tenemos las que
+hayamos añadido, que son el Spring Boot
+
+321
+00:31:02,360 --> 00:31:10,360
+y la Web. Estas son las developer tools que
+hemos añadido antes, la Unbox para la parte
+
+322
+00:31:24,600 --> 00:31:32,600
+de las clases, el código de las clases y el
+starter web. Aquí tenemos los plugins de
+
+323
+00:31:54,520 --> 00:31:58,971
+la aplicación, aquí tenemos
+la parte de dependencias,
+
+324
+00:31:58,995 --> 00:32:02,532
+aquí tenemos el POM.xml.
+Vamos a empezar a
+
+325
+00:32:05,960 --> 00:32:09,806
+ver cómo funciona
+esto haciendo un primer
+
+326
+00:32:09,830 --> 00:32:13,972
+endpoint para trabajar.
+Entonces, ¿qué vamos
+
+327
+00:32:25,400 --> 00:32:29,766
+a hacer? Nos vamos a ir a
+nuestro paquete principal.
+
+328
+00:32:29,790 --> 00:32:33,412
+Aquí tenemos la parte
+de entrada de Spring.
+
+329
+00:32:44,120 --> 00:32:52,120
+Lo que vamos a hacer es crear un nuevo
+paquete. Vamos a llamar "controller".
+
+330
+00:33:10,840 --> 00:33:18,840
+¿Lo tenemos? Ahora vamos a
+hacer una Java Glass, que va a
+
+331
+00:33:37,280 --> 00:33:45,280
+ser un
+
+332
+00:34:03,040 --> 00:34:11,040
+poco más fácil. ¿Vale? ¿Os estáis hablando
+antes de JPA, anotación? ¿Alguien sabe lo
+
+333
+00:34:32,960 --> 00:34:36,906
+que es la anotación? En
+programación me refiero.
+
+334
+00:34:36,930 --> 00:34:40,972
+¿Y qué significa eso? Es
+una forma de simplificar
+
+335
+00:34:44,679 --> 00:34:52,679
+la información que viene a continuación en
+Java. Viene a ser un poco como comentarios,
+
+336
+00:34:52,680 --> 00:34:55,942
+pero van un paso más
+allá porque tienen una
+
+337
+00:34:55,966 --> 00:34:59,772
+funcionalidad añadida. De
+manera que la anotación,
+
+338
+00:35:03,440 --> 00:35:07,657
+además de explicar lo
+que hacen los elementos,
+
+339
+00:35:07,681 --> 00:35:11,452
+además tienen esa
+funcionalidad que están
+
+340
+00:35:13,840 --> 00:35:17,686
+aplicando. Entonces,
+por ejemplo, aquí se
+
+341
+00:35:17,710 --> 00:35:21,852
+montan siempre con @
+y aquí le podemos decir
+
+342
+00:35:29,200 --> 00:35:33,724
+que esto va a ser un "rest
+controller". Automáticamente
+
+343
+00:35:33,748 --> 00:35:37,212
+lo entiende como un
+fichero, una clase que
+
+344
+00:35:38,760 --> 00:35:46,760
+se va a encargar de recoger endpoints para
+hacer algo. Es lo que viene a ser un "rest
+
+345
+00:35:49,200 --> 00:35:52,968
+controller". De tal
+manera que cuando hayan
+
+346
+00:35:52,992 --> 00:35:57,212
+peticiones a la API se
+encargará de procesarlas.
+
+347
+00:36:05,320 --> 00:36:13,320
+Dentro de la clase lo que vamos a hacer es
+un @getmapping. ¿Qué es esto de getmapping?
+
+348
+00:36:23,720 --> 00:36:27,266
+Las APIs funcionan
+con peticiones HTTP.
+
+349
+00:36:27,290 --> 00:36:31,732
+Estas peticiones HTTP
+pueden ser de tipo get para
+
+350
+00:36:34,080 --> 00:36:38,493
+recoger información, post
+para insertar información,
+
+351
+00:36:38,517 --> 00:36:42,092
+put para actualizar
+información, patch put
+
+352
+00:36:42,600 --> 00:36:50,600
+para actualizar información o delete para
+borrar información. Hay más funciones que
+
+353
+00:36:50,601 --> 00:36:53,594
+lleva el cliente HTTP,
+pero de momento aunque
+
+354
+00:36:53,618 --> 00:36:56,880
+sepáis el cruz básico
+que son esas es suficiente.
+
+355
+00:36:56,881 --> 00:37:00,770
+Get para coger, post
+para insertar, put, patch
+
+356
+00:37:00,794 --> 00:37:04,600
+para actualizar y delete.
+La diferencia entre
+
+357
+00:37:04,601 --> 00:37:08,504
+el patch y el put viene
+a ser que el put actualiza
+
+358
+00:37:08,528 --> 00:37:12,052
+el objeto entero mientras
+que el patch lo que
+
+359
+00:37:17,640 --> 00:37:25,640
+hace es "patchear", es decir, solo modifica
+algunos valores del objeto. En este caso al
+
+360
+00:37:30,160 --> 00:37:33,932
+poner un @getmapping
+le estamos diciendo que
+
+361
+00:37:33,956 --> 00:37:38,172
+recoja una petición get.
+Dentro de los paréntesis
+
+362
+00:37:41,720 --> 00:37:45,801
+lo que le especificamos
+es en qué ruta de la
+
+363
+00:37:45,825 --> 00:37:49,732
+API el servidor va a
+esperar esa petición.
+
+364
+00:38:03,920 --> 00:38:07,953
+Si viene una petición
+get en el puerto 8080,
+
+365
+00:38:07,977 --> 00:38:11,932
+con lo cual al trabajar
+en la máquina local
+
+366
+00:38:15,400 --> 00:38:23,400
+ahora montaremos la API localhost 8080. Si
+viene una petición localhost 8080/saludo de
+
+367
+00:38:25,880 --> 00:38:33,880
+tipo get, la recogerá esta notación y se
+ejecutará la función que tenga debajo. En
+
+368
+00:38:44,680 --> 00:38:48,994
+nuestro caso vamos a hacer
+una función public_stream.
+
+369
+00:38:49,018 --> 00:38:52,692
+Saludar. Esto es
+@request_param. Aquí tenemos
+
+370
+00:38:54,480 --> 00:38:58,512
+otra notación, en este
+caso es request_param.
+
+371
+00:38:58,536 --> 00:39:02,492
+¿Qué está diciendo?
+Voy a pedir un parámetro
+
+372
+00:39:07,160 --> 00:39:11,148
+cuando me vengan al
+get mapping de saludo, es
+
+373
+00:39:11,172 --> 00:39:15,172
+decir, cuando vengan
+al localhost 8080/saludo
+
+374
+00:39:17,200 --> 00:39:25,200
+haciendo una petición get, en ese localhost
+8080/saludo además al usuario le pediremos
+
+375
+00:39:36,360 --> 00:39:44,360
+un parámetro, en este caso le vamos
+a pedir un parámetro llamado nombre.
+
+376
+00:40:01,160 --> 00:40:09,160
+¿Para entero si no? Dime.
+
+377
+00:40:16,120 --> 00:40:24,120
+Si no tenemos valor, le
+vamos a decir que sea.
+
+378
+00:40:33,560 --> 00:40:41,560
+Además le vamos a decir que lo
+recoja en una variable llamada nombre.
+
+379
+00:40:57,080 --> 00:41:05,080
+Repito, función que se lanza cuando venga
+una petición de tipo get al servidor en el
+
+380
+00:41:07,720 --> 00:41:11,753
+localhost 8080/saludo.
+Si viene una petición
+
+381
+00:41:11,777 --> 00:41:15,732
+ahí, lo que hacemos
+es lanzar esta función.
+
+382
+00:41:19,480 --> 00:41:27,480
+Además va a pedir un parámetro, el parámetro
+será el nombre y tendrá un valor mundo.
+
+383
+00:41:27,481 --> 00:41:35,000
+Esto quiere decir que a el saludo además
+tendremos un interrogante con nombre igual
+
+384
+00:41:35,001 --> 00:41:41,520
+a el que ponga el usuario. Si no lo ponen,
+pues por defecto pondremos el valor mundo.
+
+385
+00:41:41,521 --> 00:41:45,965
+Y tanto lo que pase el usuario
+como si no pasa nada, esta variable
+
+386
+00:41:45,966 --> 00:41:50,240
+mundo de resultado se guardará
+en una variable llamada nombre.
+
+387
+00:41:50,241 --> 00:41:57,240
+Lo que vamos a hacer es
+directamente devolver un mensaje.
+
+388
+00:41:57,241 --> 00:42:04,240
+Hola.
+
+389
+00:42:14,240 --> 00:42:22,240
+Más el nombre.
+
+390
+00:42:22,241 --> 00:42:29,240
+Bienvenido a la plaza de Chico.
+
+391
+00:42:29,241 --> 00:42:36,240
+Bienvenido.
+
+392
+00:42:36,241 --> 00:42:43,240
+Bienvenido.
+
+393
+00:42:43,241 --> 00:42:50,240
+Bienvenido.
+
+394
+00:42:50,241 --> 00:42:57,240
+Bienvenido.
+
+395
+00:42:57,241 --> 00:43:04,240
+Bienvenido.
+
+396
+00:43:04,241 --> 00:43:11,240
+Bienvenido.
+
+397
+00:43:11,241 --> 00:43:18,240
+Bienvenido.
+
+398
+00:43:18,241 --> 00:43:25,240
+Bienvenido.
+
+399
+00:43:25,241 --> 00:43:32,240
+Bienvenido.
+
+400
+00:43:34,240 --> 00:43:42,240
+Bienvenido.
+
+401
+00:43:42,241 --> 00:43:49,240
+Bienvenido.
+
+402
+00:43:52,240 --> 00:44:00,240
+Bienvenido.
+
+403
+00:44:00,241 --> 00:44:07,240
+Bienvenido.
+
+404
+00:44:07,241 --> 00:44:14,240
+Bienvenido.
+
+405
+00:44:14,241 --> 00:44:21,240
+Bienvenido.
+
+406
+00:44:21,241 --> 00:44:28,240
+Bienvenido.
+
+407
+00:44:28,241 --> 00:44:35,240
+Bienvenido.
+
+408
+00:44:35,241 --> 00:44:42,240
+Bienvenido.
+
+409
+00:44:42,241 --> 00:44:49,240
+Bienvenido.
+
+410
+00:44:49,241 --> 00:44:56,240
+Bienvenido.
+
+411
+00:44:56,241 --> 00:45:03,240
+Bienvenido.
+
+412
+00:45:03,241 --> 00:45:10,240
+Bienvenido.
+
+413
+00:45:10,241 --> 00:45:17,240
+Bienvenido.
+
+414
+00:45:17,241 --> 00:45:24,240
+Bienvenido.
+
+415
+00:45:24,241 --> 00:45:31,240
+Bienvenido.
+
+416
+00:45:31,241 --> 00:45:38,240
+Bienvenido.
+
+417
+00:45:38,241 --> 00:45:45,240
+Bienvenido.
+
+418
+00:45:45,241 --> 00:45:52,240
+Bienvenido.
+
+419
+00:45:52,241 --> 00:45:59,240
+Saludo.
+
+420
+00:45:59,241 --> 00:46:06,240
+Hola mundo.
+Bienvenido a la plaza de Springfield.
+
+421
+00:46:06,241 --> 00:46:13,240
+Bienvenido.
+
+422
+00:46:13,241 --> 00:46:20,240
+Bienvenido.
+
+423
+00:46:20,241 --> 00:46:27,240
+Bienvenido.
+
+424
+00:46:27,241 --> 00:46:34,240
+Bienvenido.
+
+425
+00:46:34,241 --> 00:46:41,240
+Bienvenido.
+
+426
+00:46:41,241 --> 00:46:48,240
+Bienvenido.
+
+427
+00:46:48,241 --> 00:46:55,240
+Bienvenido.
+
+428
+00:46:55,241 --> 00:47:02,240
+Bienvenido.
+
+429
+00:47:02,241 --> 00:47:09,240
+Bienvenido.
+
+430
+00:47:09,241 --> 00:47:16,240
+Bienvenido.
+
+431
+00:47:16,241 --> 00:47:23,240
+Bienvenido.
+
+432
+00:47:23,241 --> 00:47:30,240
+Bienvenido.
+
+433
+00:47:30,241 --> 00:47:37,240
+Bienvenido.
+
+434
+00:47:37,241 --> 00:47:44,240
+Bienvenido.
+
+435
+00:47:46,240 --> 00:47:54,240
+Bienvenido.
+
+436
+00:47:56,240 --> 00:48:04,240
+Bienvenido.
+
+437
+00:48:06,240 --> 00:48:14,240
+Bienvenido.
+
+438
+00:48:16,240 --> 00:48:24,240
+Bienvenido.
+
+439
+00:48:26,240 --> 00:48:34,240
+Bienvenido.
+
+440
+00:48:36,240 --> 00:48:44,240
+Bienvenido.
+
+441
+00:48:46,240 --> 00:48:54,240
+Bienvenido.
+
+442
+00:48:56,240 --> 00:49:04,240
+Bienvenido.
+
+443
+00:49:06,240 --> 00:49:14,240
+Bienvenido.
+
+444
+00:49:16,240 --> 00:49:24,240
+Bienvenido.
+
+445
+00:49:26,240 --> 00:49:34,240
+Bienvenido.
+
+446
+00:49:36,240 --> 00:49:44,240
+Bienvenido.
+
+447
+00:49:46,240 --> 00:49:54,240
+Bienvenido.
+
+448
+00:49:56,240 --> 00:50:04,240
+Bienvenido.
+
+449
+00:50:06,240 --> 00:50:14,240
+Bienvenido.
+
+450
+00:50:16,240 --> 00:50:24,240
+Bienvenido.
+
+451
+00:50:26,240 --> 00:50:34,240
+Bienvenido.
+
+452
+00:50:36,240 --> 00:50:44,240
+Bienvenido.
+
+453
+00:50:46,240 --> 00:50:54,240
+Bienvenido.
+
+454
+00:50:56,240 --> 00:51:04,240
+Bienvenido.
+
+455
+00:51:06,240 --> 00:51:14,240
+Bienvenido.
+
+456
+00:51:16,240 --> 00:51:24,240
+Bienvenido.
+
+457
+00:51:26,240 --> 00:51:34,240
+Bienvenido.
+
+458
+00:51:36,240 --> 00:51:44,240
+Bienvenido.
+
+459
+00:51:46,240 --> 00:51:54,240
+Bienvenido.
+
+460
+00:51:56,240 --> 00:52:04,240
+Bienvenido.
+
+461
+00:52:06,240 --> 00:52:14,240
+Bienvenido.
+
+462
+00:52:16,240 --> 00:52:24,240
+Bienvenido.
+
+463
+00:52:26,240 --> 00:52:34,240
+Bienvenido.
+
+464
+00:52:36,240 --> 00:52:44,240
+Bienvenido.
+
+465
+00:52:46,240 --> 00:52:54,240
+Bienvenido.
+
+466
+00:52:56,240 --> 00:53:04,240
+Bienvenido.
+
+467
+00:53:06,240 --> 00:53:14,240
+Bienvenido.
+
+468
+00:53:16,240 --> 00:53:24,240
+Bienvenido.
+
+469
+00:53:26,240 --> 00:53:34,240
+Bienvenido.
+
+470
+00:53:36,240 --> 00:53:44,240
+Bienvenido.
+
+471
+00:53:46,240 --> 00:53:54,240
+Bienvenido.
+
+472
+00:53:56,240 --> 00:54:04,240
+Bienvenido.
+
+473
+00:54:06,240 --> 00:54:14,240
+Bienvenido.
+
+474
+00:54:16,240 --> 00:54:24,240
+Bienvenido.
+
+475
+00:54:26,240 --> 00:54:34,240
+Bienvenido.
+
+476
+00:54:36,240 --> 00:54:44,240
+Bienvenido.
+
+477
+00:54:46,240 --> 00:54:54,240
+Bienvenido.
+
+478
+00:54:56,240 --> 00:55:04,240
+Bienvenido.
+
+479
+00:55:06,240 --> 00:55:14,240
+Bienvenido.
+
+480
+00:55:16,240 --> 00:55:24,240
+Bienvenido.
+
+481
+00:55:26,240 --> 00:55:34,240
+Bienvenido.
+
+482
+00:55:36,240 --> 00:55:44,240
+Bienvenido.
+
+483
+00:55:46,240 --> 00:55:54,240
+Bienvenido.
+
+484
+00:55:56,240 --> 00:56:04,240
+Bienvenido.
+
+485
+00:56:06,240 --> 00:56:14,240
+Bienvenido.
+
+486
+00:56:16,240 --> 00:56:24,240
+Bienvenido.
+
+487
+00:56:26,240 --> 00:56:34,240
+Bienvenido.
+
+488
+00:56:36,240 --> 00:56:44,240
+Bienvenido.
+
+489
+00:56:46,240 --> 00:56:54,240
+Bienvenido.
+
+490
+00:56:56,240 --> 00:57:04,240
+Bienvenido.
+
+491
+00:57:06,240 --> 00:57:14,240
+Bienvenido.
+
+492
+00:57:16,240 --> 00:57:24,240
+Bienvenido.
+
+493
+00:57:26,240 --> 00:57:34,240
+Bienvenido.
+
+494
+00:57:36,240 --> 00:57:44,240
+Bienvenido.
+
+495
+00:57:46,240 --> 00:57:54,240
+Bienvenido.
+
+496
+00:57:56,240 --> 00:58:04,240
+Bienvenido.
+
+497
+00:58:06,240 --> 00:58:14,240
+Bienvenido.
+
+498
+00:58:16,240 --> 00:58:24,240
+Bienvenido.
+
+499
+00:58:26,240 --> 00:58:34,240
+Bienvenido.
+
+500
+00:58:36,240 --> 00:58:44,240
+Bienvenido.
+
+501
+00:58:46,240 --> 00:58:54,240
+Bienvenido.
+
+502
+00:58:56,240 --> 00:59:04,240
+Bienvenido.
+
+503
+00:59:06,240 --> 00:59:14,240
+Bienvenido.
+
+504
+00:59:16,240 --> 00:59:24,240
+Bienvenido.
+
+505
+00:59:26,240 --> 00:59:34,240
+Bienvenido.
+
+506
+00:59:36,240 --> 00:59:44,240
+Bienvenido.
+
+507
+00:59:46,240 --> 00:59:54,240
+Bienvenido.
+
+508
+00:59:56,240 --> 01:00:04,240
+Bienvenido.
+
+509
+01:00:06,240 --> 01:00:14,240
+Bienvenido.
+
+510
+01:00:16,240 --> 01:00:24,240
+Bienvenido.
+
+511
+01:00:26,240 --> 01:00:34,240
+Bienvenido.
+
+512
+01:00:36,240 --> 01:00:44,240
+Bienvenido.
+
+513
+01:00:46,240 --> 01:00:54,240
+Bienvenido.
+
+514
+01:00:56,240 --> 01:01:04,240
+Bienvenido.
+
+515
+01:01:06,240 --> 01:01:14,240
+Bienvenido.
+
+516
+01:01:16,240 --> 01:01:24,240
+Bienvenido.
+
+517
+01:01:26,240 --> 01:01:34,240
+Bienvenido.
+
+518
+01:01:36,240 --> 01:01:44,240
+Bienvenido.
+
+519
+01:01:46,240 --> 01:01:54,240
+Bienvenido.
+
+520
+01:01:56,240 --> 01:02:04,240
+Bienvenido.
+
+521
+01:02:06,240 --> 01:02:14,240
+Bienvenido.
+
+522
+01:02:16,240 --> 01:02:24,240
+Bienvenido.
+
+523
+01:02:26,240 --> 01:02:34,240
+Bienvenido.
+
+524
+01:02:36,240 --> 01:02:44,240
+Bienvenido.
+
+525
+01:02:46,240 --> 01:02:54,240
+Bienvenido.
+
+526
+01:02:56,240 --> 01:03:04,240
+Bienvenido.
+
+527
+01:03:06,240 --> 01:03:14,240
+Bienvenido.
+
+528
+01:03:16,240 --> 01:03:24,240
+Bienvenido.
+
+529
+01:03:26,240 --> 01:03:34,240
+Bienvenido.
+
+530
+01:03:36,240 --> 01:03:44,240
+Bienvenido.
+
+531
+01:03:46,240 --> 01:03:54,240
+Bienvenido.
+
+532
+01:03:56,240 --> 01:04:04,240
+Bienvenido.
+
+533
+01:04:06,240 --> 01:04:14,240
+Bienvenido.
+
+534
+01:04:16,240 --> 01:04:24,240
+Bienvenido.
+
+535
+01:04:26,240 --> 01:04:34,240
+Bienvenido.
+
+536
+01:04:36,240 --> 01:04:44,240
+Bienvenido.
+
+537
+01:04:46,240 --> 01:04:54,240
+Bienvenido.
+
+538
+01:04:56,240 --> 01:05:04,240
+Bienvenido.
+
+539
+01:05:06,240 --> 01:05:14,240
+Bienvenido.
+
+540
+01:05:16,240 --> 01:05:24,240
+Bienvenido.
+
+541
+01:05:26,240 --> 01:05:34,240
+Bienvenido.
+
+542
+01:05:36,240 --> 01:05:44,240
+Bienvenido.
+
+543
+01:05:46,240 --> 01:05:54,240
+Bienvenido.
+
+544
+01:05:56,240 --> 01:06:04,240
+Bienvenido.
+
+545
+01:06:06,240 --> 01:06:14,240
+Bienvenido.
+
+546
+01:06:16,240 --> 01:06:24,240
+Bienvenido.
+
+547
+01:06:26,240 --> 01:06:34,240
+Bienvenido.
+
+548
+01:06:36,240 --> 01:06:44,240
+Bienvenido.
+
+549
+01:06:46,240 --> 01:06:54,240
+Bienvenido.
+
+550
+01:06:56,240 --> 01:07:04,240
+Bienvenido.
+
+551
+01:07:06,240 --> 01:07:14,240
+Bienvenido.
+
+552
+01:07:16,240 --> 01:07:24,240
+Bienvenido.
+
+553
+01:07:26,240 --> 01:07:34,240
+Bienvenido.
+
+554
+01:07:36,240 --> 01:07:44,240
+Bienvenido.
+
+555
+01:07:46,240 --> 01:07:54,240
+Bienvenido.
+
+556
+01:07:56,240 --> 01:08:04,240
+Bienvenido.
+
+557
+01:08:06,240 --> 01:08:14,240
+Bienvenido.
+
+558
+01:08:16,240 --> 01:08:24,240
+Bienvenido.
+
+559
+01:08:26,240 --> 01:08:34,240
+Bienvenido.
+
+560
+01:08:36,240 --> 01:08:44,240
+Bienvenido.
+
+561
+01:08:46,240 --> 01:08:54,240
+Bienvenido.
+
+562
+01:08:56,240 --> 01:09:04,240
+Bienvenido.
+
+563
+01:09:06,240 --> 01:09:14,240
+Bienvenido.
+
+564
+01:09:16,240 --> 01:09:24,240
+Bienvenido.
+
+565
+01:09:26,240 --> 01:09:34,240
+Bienvenido.
+
+566
+01:09:36,240 --> 01:09:44,240
+Bienvenido.
+
+567
+01:09:46,240 --> 01:09:54,240
+Bienvenido.
+
+568
+01:09:56,240 --> 01:10:04,240
+Bienvenido.
+
+569
+01:10:06,240 --> 01:10:14,240
+Bienvenido.
+
+570
+01:10:16,240 --> 01:10:24,240
+Bienvenido.
+
+571
+01:10:26,240 --> 01:10:34,240
+Bienvenido.
+
+572
+01:10:36,240 --> 01:10:44,240
+Bienvenido.
+
+573
+01:10:46,240 --> 01:10:54,240
+Bienvenido.
+
+574
+01:10:56,240 --> 01:11:04,240
+Bienvenido.
+
+575
+01:11:06,240 --> 01:11:14,240
+Bienvenido.
+
+576
+01:11:16,240 --> 01:11:24,240
+Bienvenido.
+
+577
+01:11:26,240 --> 01:11:34,240
+Bienvenido.
+
+578
+01:11:36,240 --> 01:11:44,240
+Bienvenido.
+
+579
+01:11:46,240 --> 01:11:54,240
+Bienvenido.
+
+580
+01:11:56,240 --> 01:12:04,240
+Bienvenido.
+
+581
+01:12:06,240 --> 01:12:14,240
+Bienvenido.
+
+582
+01:12:16,240 --> 01:12:24,240
+Bienvenido.
+
+583
+01:12:26,240 --> 01:12:34,240
+Bienvenido.
+
+584
+01:12:36,240 --> 01:12:44,240
+Bienvenido.
+
+585
+01:12:46,240 --> 01:12:54,240
+Bienvenido.
+
+586
+01:12:56,240 --> 01:13:04,240
+Bienvenido.
+
+587
+01:13:06,240 --> 01:13:14,240
+Bienvenido.
+
+588
+01:13:16,240 --> 01:13:24,240
+Bienvenido.
+
+589
+01:13:26,240 --> 01:13:34,240
+Bienvenido.
+
+590
+01:13:36,240 --> 01:13:44,240
+Bienvenido.
+
+591
+01:13:46,240 --> 01:13:54,240
+Bienvenido.
+
+592
+01:13:56,240 --> 01:14:04,240
+Bienvenido.
+
+593
+01:14:06,240 --> 01:14:14,240
+Bienvenido.
+
+594
+01:14:16,240 --> 01:14:24,240
+Bienvenido.
+
+595
+01:14:26,240 --> 01:14:34,240
+Bienvenido.
+
+596
+01:14:36,240 --> 01:14:44,240
+Bienvenido.
+
+597
+01:14:46,240 --> 01:14:54,240
+Bienvenido.
+
+598
+01:14:56,240 --> 01:15:04,240
+Bienvenido.
+
+599
+01:15:06,240 --> 01:15:14,240
+Bienvenido.
+
+600
+01:15:16,240 --> 01:15:24,240
+Bienvenido.
+
+601
+01:15:26,240 --> 01:15:34,240
+Bienvenido.
+
+602
+01:15:36,240 --> 01:15:44,240
+Bienvenido.
+
+603
+01:15:46,240 --> 01:15:54,240
+Bienvenido.
+
+604
+01:15:56,240 --> 01:16:04,240
+Bienvenido.
+
+605
+01:16:06,240 --> 01:16:14,240
+Bienvenido.
+
+606
+01:16:16,240 --> 01:16:24,240
+Bienvenido.
+
+607
+01:16:26,240 --> 01:16:34,240
+Bienvenido.
+
+608
+01:16:36,240 --> 01:16:44,240
+Bienvenido.
+
+609
+01:16:46,240 --> 01:16:54,240
+Bienvenido.
+
+610
+01:16:56,240 --> 01:17:04,240
+Bienvenido.
+
+611
+01:17:06,240 --> 01:17:14,240
+Bienvenido.
+
+612
+01:17:16,240 --> 01:17:24,240
+Bienvenido.
+
+613
+01:17:26,240 --> 01:17:34,240
+Bienvenido.
+
+614
+01:17:36,240 --> 01:17:44,240
+Bienvenido.
+
+615
+01:17:46,240 --> 01:17:54,240
+Bienvenido.
+
+616
+01:17:56,240 --> 01:18:04,240
+Bienvenido.
+
+617
+01:18:06,240 --> 01:18:14,240
+Bienvenido.
+
+618
+01:18:16,240 --> 01:18:24,240
+Bienvenido.
+
+619
+01:18:26,240 --> 01:18:34,240
+Bienvenido.
+
+620
+01:18:36,240 --> 01:18:44,240
+Bienvenido.
+
+621
+01:18:46,240 --> 01:18:54,240
+Bienvenido.
+
+622
+01:18:56,240 --> 01:19:04,240
+Bienvenido.
+
+623
+01:19:06,240 --> 01:19:14,240
+Bienvenido.
+
+624
+01:19:16,240 --> 01:19:24,240
+Bienvenido.
+
+625
+01:19:26,240 --> 01:19:34,240
+Bienvenido.
+
+626
+01:19:36,240 --> 01:19:44,240
+Bienvenido.
+
+627
+01:19:46,240 --> 01:19:54,240
+Bienvenido.
+
+628
+01:19:56,240 --> 01:20:04,240
+Bienvenido.
+
+629
+01:20:06,240 --> 01:20:14,240
+Bienvenido.
+
+630
+01:20:16,240 --> 01:20:24,240
+Bienvenido.
+
+631
+01:20:26,240 --> 01:20:34,240
+Bienvenido.
+
+632
+01:20:36,240 --> 01:20:44,240
+Bienvenido.
+
+633
+01:20:46,240 --> 01:20:54,240
+Bienvenido.
+
+634
+01:20:56,240 --> 01:21:04,240
+Bienvenido.
+
+635
+01:21:06,240 --> 01:21:14,240
+Bienvenido.
+
+636
+01:21:16,240 --> 01:21:24,240
+Bienvenido.
+
+637
+01:21:26,240 --> 01:21:34,240
+Bienvenido.
+
+638
+01:21:36,240 --> 01:21:44,240
+Bienvenido.
+
+639
+01:21:46,240 --> 01:21:54,240
+Bienvenido.
+
+640
+01:21:56,240 --> 01:22:04,240
+Bienvenido.
+
+641
+01:22:06,240 --> 01:22:14,240
+Bienvenido.
+
+642
+01:22:16,240 --> 01:22:24,240
+Bienvenido.
+
+643
+01:22:26,240 --> 01:22:34,240
+Bienvenido.
+
+644
+01:22:36,240 --> 01:22:44,240
+Bienvenido.
+
+645
+01:22:46,240 --> 01:22:54,240
+Bienvenido.
+
+646
+01:22:56,240 --> 01:23:04,240
+Bienvenido.
+
+647
+01:23:06,240 --> 01:23:14,240
+Bienvenido.
+
+648
+01:23:16,240 --> 01:23:24,240
+Bienvenido.
+
+649
+01:23:26,240 --> 01:23:34,240
+Bienvenido.
+
+650
+01:23:36,240 --> 01:23:44,240
+Bienvenido.
+
+651
+01:23:46,240 --> 01:23:54,240
+Bienvenido.
+
+652
+01:23:56,240 --> 01:24:04,240
+Bienvenido.
+
+653
+01:24:06,240 --> 01:24:14,240
+Bienvenido.
+
+654
+01:24:16,240 --> 01:24:24,240
+Bienvenido.
+
+655
+01:24:26,240 --> 01:24:34,240
+Bienvenido.
+
+656
+01:24:36,240 --> 01:24:44,240
+Bienvenido.
+
+657
+01:24:46,240 --> 01:24:54,240
+Bienvenido.
+
+658
+01:24:56,240 --> 01:25:04,240
+Bienvenido.
+
+659
+01:25:06,240 --> 01:25:14,240
+Bienvenido.
+
+660
+01:25:16,240 --> 01:25:24,240
+Bienvenido.
+
+661
+01:25:26,240 --> 01:25:34,240
+Bienvenido.
+
+662
+01:25:36,240 --> 01:25:44,240
+Bienvenido.
+
+663
+01:25:46,240 --> 01:25:54,240
+Bienvenido.
+
+664
+01:25:56,240 --> 01:26:04,240
+Bienvenido.
+
+665
+01:26:06,240 --> 01:26:14,240
+Bienvenido.
+
+666
+01:26:16,240 --> 01:26:24,240
+Bienvenido.
+
+667
+01:26:26,240 --> 01:26:34,240
+Bienvenido.
+
+668
+01:26:36,240 --> 01:26:44,240
+Bienvenido.
+
+669
+01:26:46,240 --> 01:26:54,240
+Bienvenido.
+
+670
+01:26:56,240 --> 01:27:04,240
+Bienvenido.
+
+671
+01:27:06,240 --> 01:27:14,240
+Bienvenido.
+
+672
+01:27:16,240 --> 01:27:24,240
+Bienvenido.
+
+673
+01:27:26,240 --> 01:27:34,240
+Bienvenido.
+
+674
+01:27:36,240 --> 01:27:44,240
+Bienvenido.
+
+675
+01:27:46,240 --> 01:27:54,240
+Bienvenido.
+
+676
+01:27:56,240 --> 01:28:04,240
+Bienvenido.
+
+677
+01:28:06,240 --> 01:28:14,240
+Bienvenido.
+
+678
+01:28:16,240 --> 01:28:24,240
+Bienvenido.
+
+679
+01:28:26,240 --> 01:28:34,240
+Bienvenido.
+
+680
+01:28:36,240 --> 01:28:44,240
+Bienvenido.
+
+681
+01:28:46,240 --> 01:28:54,240
+Bienvenido.
+
+682
+01:28:56,240 --> 01:29:04,240
+Bienvenido.
+
+683
+01:29:06,240 --> 01:29:14,240
+Bienvenido.
+
+684
+01:29:16,240 --> 01:29:24,240
+Bienvenido.
+
+685
+01:29:26,240 --> 01:29:34,240
+Bienvenido.
+
+686
+01:29:36,240 --> 01:29:44,240
+Bienvenido.
+
+687
+01:29:46,240 --> 01:29:54,240
+Bienvenido.
+
+688
+01:29:56,240 --> 01:30:04,240
+Bienvenido.
+
+689
+01:30:06,240 --> 01:30:14,240
+Bienvenido.
+
+690
+01:30:16,240 --> 01:30:24,240
+Bienvenido.
+
+691
+01:30:26,240 --> 01:30:34,240
+Bienvenido.
+
+692
+01:30:36,240 --> 01:30:44,240
+Bienvenido.
+
+693
+01:30:46,240 --> 01:30:54,240
+Bienvenido.
+
+694
+01:30:56,240 --> 01:31:04,240
+Bienvenido.
+
+695
+01:31:06,240 --> 01:31:14,240
+Bienvenido.
+
+696
+01:31:16,240 --> 01:31:24,240
+Bienvenido.
+
+697
+01:31:26,240 --> 01:31:34,240
+Bienvenido.
+
+698
+01:31:36,240 --> 01:31:44,240
+Bienvenido.
+
+699
+01:31:46,240 --> 01:31:54,240
+Bienvenido.
+
+700
+01:31:56,240 --> 01:32:04,240
+Bienvenido.
+
+701
+01:32:06,240 --> 01:32:14,240
+Bienvenido.
+
+702
+01:32:16,240 --> 01:32:24,240
+Bienvenido.
+
+703
+01:32:26,240 --> 01:32:34,240
+Bienvenido.
+
+704
+01:32:36,240 --> 01:32:44,240
+Bienvenido.
+
+705
+01:32:46,240 --> 01:32:54,240
+Bienvenido.
+
+706
+01:32:56,240 --> 01:33:04,240
+Bienvenido.
+
+707
+01:33:06,240 --> 01:33:14,240
+Bienvenido.
+
+708
+01:33:16,240 --> 01:33:24,240
+Bienvenido.
+
+709
+01:33:26,240 --> 01:33:34,240
+Bienvenido.
+
+710
+01:33:36,240 --> 01:33:44,240
+Bienvenido.
+
+711
+01:33:46,240 --> 01:33:54,240
+Bienvenido.
+
+712
+01:33:56,240 --> 01:34:04,240
+Bienvenido.
+
+713
+01:34:06,240 --> 01:34:14,240
+Bienvenido.
+
+714
+01:34:16,240 --> 01:34:24,240
+Bienvenido.
+
+715
+01:34:26,240 --> 01:34:34,240
+Bienvenido.
+
+716
+01:34:36,240 --> 01:34:44,240
+Bienvenido.
+
+717
+01:34:46,240 --> 01:34:54,240
+Bienvenido.
+
+718
+01:34:56,240 --> 01:35:04,240
+Bienvenido.
+
+719
+01:35:06,240 --> 01:35:14,240
+Bienvenido.
+
+720
+01:35:16,240 --> 01:35:24,240
+Bienvenido.
+
+721
+01:35:26,240 --> 01:35:34,240
+Bienvenido.
+
+722
+01:35:36,240 --> 01:35:44,240
+Bienvenido.
+
+723
+01:35:46,240 --> 01:35:54,240
+Bienvenido.
+
+724
+01:35:56,240 --> 01:36:04,240
+Bienvenido.
+
+725
+01:36:06,240 --> 01:36:14,240
+Bienvenido.
+
+726
+01:36:16,240 --> 01:36:24,240
+Bienvenido.
+
+727
+01:36:26,240 --> 01:36:34,240
+Bienvenido.
+
+728
+01:36:36,240 --> 01:36:44,240
+Bienvenido.
+
+729
+01:36:46,240 --> 01:36:54,240
+Bienvenido.
+
+730
+01:36:56,240 --> 01:37:04,240
+Bienvenido.
+
+731
+01:37:06,240 --> 01:37:14,240
+Bienvenido.
+
+732
+01:37:16,240 --> 01:37:24,240
+Bienvenido.
+
+733
+01:37:26,240 --> 01:37:34,240
+Bienvenido.
+
+734
+01:37:36,240 --> 01:37:44,240
+Bienvenido.
+
+735
+01:37:46,240 --> 01:37:54,240
+Bienvenido.
+
+736
+01:37:56,240 --> 01:38:04,240
+Bienvenido.
+
+737
+01:38:06,240 --> 01:38:14,240
+Bienvenido.
+
+738
+01:38:16,240 --> 01:38:24,240
+Bienvenido.
+
+739
+01:38:26,240 --> 01:38:34,240
+Bienvenido.
+
+740
+01:38:36,240 --> 01:38:44,240
+Bienvenido.
+
+741
+01:38:46,240 --> 01:38:54,240
+Bienvenido.
+
+742
+01:38:56,240 --> 01:39:04,240
+Bienvenido.
+
+743
+01:39:06,240 --> 01:39:14,240
+Bienvenido.
+
+744
+01:39:16,240 --> 01:39:24,240
+Bienvenido.
+
+745
+01:39:26,240 --> 01:39:34,240
+Bienvenido.
+
+746
+01:39:36,240 --> 01:39:44,240
+Bienvenido.
+
+747
+01:39:46,240 --> 01:39:54,240
+Bienvenido.
+
+748
+01:39:56,240 --> 01:40:04,240
+Bienvenido.
+
+749
+01:40:06,240 --> 01:40:14,240
+Bienvenido.
+
+750
+01:40:16,240 --> 01:40:24,240
+Bienvenido.
+
+751
+01:40:26,240 --> 01:40:34,240
+Bienvenido.
+
+752
+01:40:36,240 --> 01:40:44,240
+Bienvenido.
+
+753
+01:40:46,240 --> 01:40:54,240
+Bienvenido.
+
+754
+01:40:56,240 --> 01:41:04,240
+Bienvenido.
+
+755
+01:41:06,240 --> 01:41:14,240
+Bienvenido.
+
+756
+01:41:16,240 --> 01:41:24,240
+Bienvenido.
+
+757
+01:41:26,240 --> 01:41:34,240
+Bienvenido.
+
+758
+01:41:36,240 --> 01:41:44,240
+Bienvenido.
+
+759
+01:41:46,240 --> 01:41:54,240
+Bienvenido.
+
+760
+01:41:56,240 --> 01:42:04,240
+Bienvenido.
+
+761
+01:42:06,240 --> 01:42:14,240
+Bienvenido.
+
+762
+01:42:16,240 --> 01:42:24,240
+Bienvenido.
+
+763
+01:42:26,240 --> 01:42:34,240
+Bienvenido.
+
+764
+01:42:36,240 --> 01:42:44,240
+Bienvenido.
+
+765
+01:42:46,240 --> 01:42:54,240
+Bienvenido.
+
+766
+01:42:56,240 --> 01:43:04,240
+Bienvenido.
+
+767
+01:43:06,240 --> 01:43:14,240
+Bienvenido.
+
+768
+01:43:16,240 --> 01:43:24,240
+Bienvenido.
+
+769
+01:43:26,240 --> 01:43:34,240
+Bienvenido.
+
+770
+01:43:36,240 --> 01:43:44,240
+Bienvenido.
+
+771
+01:43:46,240 --> 01:43:54,240
+Bienvenido.
+
+772
+01:43:56,240 --> 01:44:04,240
+Bienvenido.
+
+773
+01:44:06,240 --> 01:44:14,240
+Bienvenido.
+
+774
+01:44:16,240 --> 01:44:24,240
+Bienvenido.
+
+775
+01:44:26,240 --> 01:44:34,240
+Bienvenido.
+
+776
+01:44:36,240 --> 01:44:44,240
+Bienvenido.
+
+777
+01:44:46,240 --> 01:44:54,240
+Bienvenido.
+
+778
+01:44:56,240 --> 01:45:04,240
+Bienvenido.
+
+779
+01:45:06,240 --> 01:45:14,240
+Bienvenido.
+
+780
+01:45:16,240 --> 01:45:24,240
+Bienvenido.
+
+781
+01:45:26,240 --> 01:45:34,240
+Bienvenido.
+
+782
+01:45:36,240 --> 01:45:44,240
+Bienvenido.
+
+783
+01:45:46,240 --> 01:45:54,240
+Bienvenido.
+
+784
+01:45:56,240 --> 01:46:04,240
+Bienvenido.
+
+785
+01:46:06,240 --> 01:46:14,240
+Bienvenido.
+
+786
+01:46:16,240 --> 01:46:24,240
+Bienvenido.
+
+787
+01:46:26,240 --> 01:46:34,240
+Bienvenido.
+
+788
+01:46:36,240 --> 01:46:44,240
+Bienvenido.
+
+789
+01:46:46,240 --> 01:46:54,240
+Bienvenido.
+
+790
+01:46:56,240 --> 01:47:04,240
+Bienvenido.
+
+791
+01:47:06,240 --> 01:47:14,240
+Bienvenido.
+
+792
+01:47:16,240 --> 01:47:24,240
+Bienvenido.
+
+793
+01:47:26,240 --> 01:47:34,240
+Bienvenido.
+
+794
+01:47:36,240 --> 01:47:44,240
+Bienvenido.
+
+795
+01:47:46,240 --> 01:47:54,240
+Bienvenido.
+
+796
+01:47:56,240 --> 01:48:04,240
+Bienvenido.
+
+797
+01:48:06,240 --> 01:48:14,240
+Bienvenido.
+
+798
+01:48:16,240 --> 01:48:24,240
+Bienvenido.
+
+799
+01:48:26,240 --> 01:48:34,240
+Bienvenido.
+
+800
+01:48:36,240 --> 01:48:44,240
+Bienvenido.
+
+801
+01:48:46,240 --> 01:48:54,240
+Bienvenido.
+
+802
+01:48:56,240 --> 01:49:04,240
+Bienvenido.
+
+803
+01:49:06,240 --> 01:49:14,240
+Bienvenido.
+
+804
+01:49:16,240 --> 01:49:24,240
+Bienvenido.
+
+805
+01:49:26,240 --> 01:49:34,240
+Bienvenido.
+
+806
+01:49:36,240 --> 01:49:44,240
+Bienvenido.
+
+807
+01:49:46,240 --> 01:49:54,240
+Bienvenido.
+
+808
+01:49:56,240 --> 01:50:04,240
+Bienvenido.
+
+809
+01:50:06,240 --> 01:50:14,240
+Bienvenido.
+
+810
+01:50:16,240 --> 01:50:24,240
+Bienvenido.
+
+811
+01:50:26,240 --> 01:50:34,240
+Bienvenido.
+
+812
+01:50:36,240 --> 01:50:44,240
+Bienvenido.
+
+813
+01:50:46,240 --> 01:50:54,240
+Bienvenido.
+
+814
+01:50:56,240 --> 01:51:04,240
+Bienvenido.
+
+815
+01:51:06,240 --> 01:51:14,240
+Bienvenido.
+
+816
+01:51:16,240 --> 01:51:24,240
+Bienvenido.
+
+817
+01:51:26,240 --> 01:51:34,240
+Bienvenido.
+
+818
+01:51:36,240 --> 01:51:44,240
+Bienvenido.
+
+819
+01:51:46,240 --> 01:51:54,240
+Bienvenido.
+
+820
+01:51:56,240 --> 01:52:04,240
+Bienvenido.
+
+821
+01:52:06,240 --> 01:52:14,240
+Bienvenido.
+
+822
+01:52:16,240 --> 01:52:24,240
+Bienvenido.
+
+823
+01:52:26,240 --> 01:52:34,240
+Bienvenido.
+
+824
+01:52:36,240 --> 01:52:44,240
+Bienvenido.
+
+825
+01:52:46,240 --> 01:52:54,240
+Bienvenido.
+
+826
+01:52:56,240 --> 01:53:04,240
+Bienvenido.
+
+827
+01:53:06,240 --> 01:53:14,240
+Bienvenido.
+
+828
+01:53:16,240 --> 01:53:24,240
+Bienvenido.
+
+829
+01:53:26,240 --> 01:53:34,240
+Bienvenido.
+
+830
+01:53:36,240 --> 01:53:44,240
+Bienvenido.
+
+831
+01:53:46,240 --> 01:53:54,240
+Bienvenido.
+
+832
+01:53:56,240 --> 01:54:04,240
+Bienvenido.
+
+833
+01:54:06,240 --> 01:54:14,240
+Bienvenido.
+
+834
+01:54:16,240 --> 01:54:24,240
+Bienvenido.
+
+835
+01:54:26,240 --> 01:54:34,240
+Bienvenido.
+
+836
+01:54:36,240 --> 01:54:44,240
+Bienvenido.
+
+837
+01:54:46,240 --> 01:54:54,240
+Bienvenido.
+
+838
+01:54:56,240 --> 01:55:04,240
+Bienvenido.
+
+839
+01:55:06,240 --> 01:55:14,240
+Bienvenido.
+
+840
+01:55:16,240 --> 01:55:24,240
+Bienvenido.
+
+841
+01:55:26,240 --> 01:55:34,240
+Bienvenido.
+
+842
+01:55:36,240 --> 01:55:44,240
+Bienvenido.
+
+843
+01:55:46,240 --> 01:55:54,240
+Bienvenido.
+
+844
+01:55:56,240 --> 01:56:04,240
+Bienvenido.
+
+845
+01:56:06,240 --> 01:56:14,240
+Bienvenido.
+
+846
+01:56:16,240 --> 01:56:24,240
+Bienvenido.
+
+847
+01:56:26,240 --> 01:56:34,240
+Bienvenido.
+
+848
+01:56:36,240 --> 01:56:44,240
+Bienvenido.
+
+849
+01:56:46,240 --> 01:56:54,240
+Bienvenido.
+
+850
+01:56:56,240 --> 01:57:04,240
+Bienvenido.
+
+851
+01:57:06,240 --> 01:57:14,240
+Bienvenido.
+
+852
+01:57:16,240 --> 01:57:24,240
+Bienvenido.
+
+853
+01:57:26,240 --> 01:57:34,240
+Bienvenido.
+
+854
+01:57:36,240 --> 01:57:44,240
+Bienvenido.
+
+855
+01:57:46,240 --> 01:57:54,240
+Bienvenido.
+
+856
+01:57:56,240 --> 01:58:04,240
+Bienvenido.
+
+857
+01:58:06,240 --> 01:58:14,240
+Bienvenido.
+
+858
+01:58:16,240 --> 01:58:24,240
+Bienvenido.
+
+859
+01:58:26,240 --> 01:58:34,240
+Bienvenido.
+
+860
+01:58:36,240 --> 01:58:44,240
+Bienvenido.
+
+861
+01:58:46,240 --> 01:58:54,240
+Bienvenido.
+
+862
+01:58:56,240 --> 01:59:04,240
+Bienvenido.
+
+863
+01:59:06,240 --> 01:59:14,240
+Bienvenido.
+
+864
+01:59:16,240 --> 01:59:24,240
+Bienvenido.
+
+865
+01:59:26,240 --> 01:59:34,240
+Bienvenido.
+
+866
+01:59:36,240 --> 01:59:44,240
+Bienvenido.
+
+867
+01:59:46,240 --> 01:59:54,240
+Bienvenido.
+
+868
+01:59:56,240 --> 02:00:04,240
+Bienvenido.
+
+869
+02:00:06,240 --> 02:00:14,240
+Bienvenido.
+
+870
+02:00:16,240 --> 02:00:24,240
+Bienvenido.
+
+871
+02:00:26,240 --> 02:00:34,240
+Bienvenido.
+
+872
+02:00:36,240 --> 02:00:44,240
+Bienvenido.
+
+873
+02:00:46,240 --> 02:00:54,240
+Bienvenido.
+
+874
+02:00:56,240 --> 02:01:04,240
+Bienvenido.
+
+875
+02:01:06,240 --> 02:01:14,240
+Bienvenido.
+
+876
+02:01:16,240 --> 02:01:24,240
+Bienvenido.
+
+877
+02:01:26,240 --> 02:01:34,240
+Bienvenido.
+
+878
+02:01:36,240 --> 02:01:44,240
+Bienvenido.
+
+879
+02:01:46,240 --> 02:01:54,240
+Bienvenido.
+
+880
+02:01:56,240 --> 02:02:04,240
+Bienvenido.
+
+881
+02:02:06,240 --> 02:02:14,240
+Bienvenido.
+
+882
+02:02:16,240 --> 02:02:24,240
+Bienvenido.
+
+883
+02:02:26,240 --> 02:02:34,240
+Bienvenido.
+
+884
+02:02:36,240 --> 02:02:44,240
+Bienvenido.
+
+885
+02:02:46,240 --> 02:02:54,240
+Bienvenido.
+
+886
+02:02:56,240 --> 02:03:04,240
+Bienvenido.
+
+887
+02:03:06,240 --> 02:03:14,240
+Bienvenido.
+
+888
+02:03:16,240 --> 02:03:24,240
+Bienvenido.
+
+889
+02:03:26,240 --> 02:03:34,240
+Bienvenido.
+
+890
+02:03:36,240 --> 02:03:44,240
+Bienvenido.
+
+891
+02:03:46,240 --> 02:03:54,240
+Bienvenido.
+
+892
+02:03:56,240 --> 02:04:04,240
+Bienvenido.
+
+893
+02:04:06,240 --> 02:04:14,240
+Bienvenido.
+
+894
+02:04:16,240 --> 02:04:24,240
+Bienvenido.
+
+895
+02:04:26,240 --> 02:04:34,240
+Bienvenido.
+
+896
+02:04:36,240 --> 02:04:44,240
+Bienvenido.
+
+897
+02:04:46,240 --> 02:04:54,240
+Bienvenido.
+
+898
+02:04:56,240 --> 02:05:04,240
+Bienvenido.
+
+899
+02:05:06,240 --> 02:05:14,240
+Bienvenido.
+
+900
+02:05:16,240 --> 02:05:24,240
+Bienvenido.
+
+901
+02:05:26,240 --> 02:05:34,240
+Bienvenido.
+
+902
+02:05:36,240 --> 02:05:44,240
+Bienvenido.
+
+903
+02:05:46,240 --> 02:05:54,240
+Bienvenido.
+
+904
+02:05:56,240 --> 02:06:04,240
+Bienvenido.
+
+905
+02:06:06,240 --> 02:06:14,240
+Bienvenido.
+
+906
+02:06:16,240 --> 02:06:24,240
+Bienvenido.
+
+907
+02:06:26,240 --> 02:06:34,240
+Bienvenido.
+
+908
+02:06:36,240 --> 02:06:44,240
+Bienvenido.
+
+909
+02:06:46,240 --> 02:06:54,240
+Bienvenido.
+
+910
+02:06:56,240 --> 02:07:04,240
+Bienvenido.
+
+911
+02:07:06,240 --> 02:07:14,240
+Bienvenido.
+
+912
+02:07:16,240 --> 02:07:24,240
+Bienvenido.
+
+913
+02:07:26,240 --> 02:07:34,240
+Bienvenido.
+
+914
+02:07:36,240 --> 02:07:44,240
+Bienvenido.
+
+915
+02:07:46,240 --> 02:07:54,240
+Bienvenido.
+
+916
+02:07:56,240 --> 02:08:04,240
+Bienvenido.
+
+917
+02:08:06,240 --> 02:08:14,240
+Bienvenido.
+
+918
+02:08:16,240 --> 02:08:24,240
+Bienvenido.
+
+919
+02:08:26,240 --> 02:08:34,240
+Bienvenido.
+
+920
+02:08:36,240 --> 02:08:44,240
+Bienvenido.
+
+921
+02:08:46,240 --> 02:08:54,240
+Bienvenido.
+
+922
+02:08:56,240 --> 02:09:04,240
+Bienvenido.
+
+923
+02:09:06,240 --> 02:09:14,240
+Bienvenido.
+
+924
+02:09:16,240 --> 02:09:24,240
+Bienvenido.
+
+925
+02:09:26,240 --> 02:09:34,240
+Bienvenido.
+

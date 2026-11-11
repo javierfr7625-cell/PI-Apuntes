@@ -1,0 +1,43 @@
+---
+interface Props {
+  type?: 'info' | 'tip' | 'warning' | 'exam';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const styles = {
+  info: {
+    box: 'border-sky-500/30 bg-sky-500/5 text-sky-200',
+    badge: 'text-sky-400',
+    defaultTitle: 'Nota técnica',
+  },
+  tip: {
+    box: 'border-emerald-500/30 bg-emerald-500/5 text-emerald-200',
+    badge: 'text-emerald-400',
+    defaultTitle: 'Buena práctica',
+  },
+  warning: {
+    box: 'border-amber-500/30 bg-amber-500/5 text-amber-200',
+    badge: 'text-amber-400',
+    defaultTitle: 'Cuidado con este fallo',
+  },
+  exam: {
+    box: 'border-violet-500/40 bg-violet-500/10 text-violet-100',
+    badge: 'text-violet-300',
+    defaultTitle: 'Clave de examen',
+  },
+};
+
+const current = styles[type];
+---
+
+<div class={`my-5 rounded-xl border px-4 py-3.5 ${current.box}`}>
+  <div class={`text-xs font-bold uppercase tracking-wider mb-1.5 flex items-center gap-2 ${current.badge}`}>
+    <span>{title ?? current.defaultTitle}</span>
+  </div>
+  <div class="text-sm leading-relaxed text-slate-300 space-y-1.5">
+    <slot />
+  </div>
+</div>
+

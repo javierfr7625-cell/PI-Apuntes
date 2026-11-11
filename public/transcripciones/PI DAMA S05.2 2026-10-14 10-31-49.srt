@@ -1,0 +1,1643 @@
+1
+00:00:00,000 --> 00:00:06,000
+"Crear la entidad oficina"
+"Diseña una nueva entidad"
+
+2
+00:00:06,001 --> 00:00:08,681
+Silencio ya, venga,
+vamos a corregir "Crear
+
+3
+00:00:08,682 --> 00:00:12,000
+la entidad oficina"
+"Diseña una nueva entidad"
+
+4
+00:00:12,001 --> 00:00:16,000
+"Llamada oficina con los atributos
+ID, código oficina y edificio"
+
+5
+00:00:16,001 --> 00:00:22,719
+Vale, pues entidad,
+oficina "Crear la
+
+6
+00:00:22,720 --> 00:00:27,000
+entidad oficina" "Diseña
+una nueva entidad"
+
+7
+00:00:27,001 --> 00:00:31,000
+"Llamada oficina con los atributos
+ID, código oficina y edificio"
+
+8
+00:00:31,001 --> 00:00:35,000
+¿Qué es lo primero que le
+tengo que decir a la oficina?
+
+9
+00:00:35,001 --> 00:00:39,000
+"Crear la entidad oficina"
+"Diseña una nueva entidad"
+
+10
+00:00:39,001 --> 00:00:43,000
+"Llamada oficina con los atributos
+ID, código oficina y edificio"
+
+11
+00:00:43,001 --> 00:00:47,000
+Venga, ¿qué es lo primero que
+le tengo que decir a la oficina?
+
+12
+00:00:47,001 --> 00:00:51,000
+"Crear la entidad oficina"
+"Diseña una nueva entidad"
+
+13
+00:00:51,001 --> 00:00:53,000
+¿Qué es lo primero que le
+tengo que decir a la oficina?
+
+14
+00:00:53,001 --> 00:00:57,000
+"Crear la entidad oficina"
+"Diseña una nueva entidad"
+
+15
+00:00:57,001 --> 00:00:59,710
+"Llamada oficina con
+los atributos ID, código
+
+16
+00:00:59,711 --> 00:01:05,000
+oficina y edificio" "Diseña una nueva
+entidad" "Llamada de la entidad oficina"
+
+17
+00:01:05,001 --> 00:01:09,000
+"Diseña una nueva entidad"
+"Diseña una nueva entidad"
+
+18
+00:01:09,001 --> 00:01:13,000
+"Diseña una nueva entidad"
+"Diseña una nueva entidad"
+
+19
+00:01:13,001 --> 00:01:17,000
+"Diseña una nueva entidad"
+"Diseña una nueva entidad"
+
+20
+00:01:17,001 --> 00:01:21,000
+"Diseña una nueva
+entidad" "Name oficina"
+
+21
+00:01:21,001 --> 00:01:25,000
+¿Qué más voy a tener?
+
+22
+00:01:25,001 --> 00:01:31,000
+"Arroba data, olar constructor y noar
+constructor" ¿Qué era el arroba data?
+
+23
+00:01:31,001 --> 00:01:33,000
+"Gittersetters"
+
+24
+00:01:33,001 --> 00:01:39,000
+"Gittersetters" muy bien "El olar
+constructor" "Constructor con parámetros"
+
+25
+00:01:39,001 --> 00:01:43,000
+Exacto "Noar es el
+constructor vacío"
+
+26
+00:01:43,001 --> 00:01:47,000
+Muy bien, constructor vacío ¿Y
+por qué me sale "roben oficina"?
+
+27
+00:01:49,000 --> 00:01:51,000
+"Porque no ha dicho nada todavía"
+
+28
+00:01:51,001 --> 00:01:55,000
+Muy bien ¿Por qué
+necesito el "ide"?
+
+29
+00:01:55,001 --> 00:01:59,000
+"El IDE" ¿Y por
+qué necesito el IDE?
+
+30
+00:01:59,001 --> 00:02:01,000
+"Porque una tabla tiene
+que tener clave primaria"
+
+31
+00:02:01,001 --> 00:02:03,000
+"Porque una tabla tiene
+que tener clave primaria"
+
+32
+00:02:03,001 --> 00:02:04,200
+"Y como estamos hablando
+de una entidad que tiene
+
+33
+00:02:04,201 --> 00:02:06,160
+una tabla asociada"
+"Pues tiene que
+
+34
+00:02:06,161 --> 00:02:15,000
+tener un IDE" "Pues tiene que tener
+un IDE" Vale El IDE "El IDE de VALUE"
+
+35
+00:02:15,001 --> 00:02:19,000
+"El IDE de VALUE" "Para que
+nos haga el autoincremental"
+
+36
+00:02:19,001 --> 00:02:23,000
+"Y esto hay que darle una
+estrategia" "Denar del VALUE identifín"
+
+37
+00:02:27,000 --> 00:02:37,000
+Vale, esto es un
+"private" "Long ID"
+
+38
+00:02:37,001 --> 00:02:43,000
+"Y luego me dice que tengo
+que ponerle" "Código oficina"
+
+39
+00:02:43,001 --> 00:02:45,000
+"Y edificio"
+
+40
+00:02:45,001 --> 00:02:49,000
+Vale, dos strings "Los
+creamos dos columnas"
+
+41
+00:02:49,001 --> 00:02:59,000
+Dos columnas, vale Hay que ponerle
+la @column "Nombres" "Código oficina"
+
+42
+00:02:59,001 --> 00:03:03,000
+"Código oficina"
+"Código oficina"
+
+43
+00:03:03,001 --> 00:03:13,000
+Y le has puesto el... "He
+puesto 100 porque" "He subido"
+
+44
+00:03:13,001 --> 00:03:15,000
+"He pago el apudo"
+
+45
+00:03:15,001 --> 00:03:19,000
+"Lens"
+
+46
+00:03:19,001 --> 00:03:21,000
+"No lo ponen"
+
+47
+00:03:21,001 --> 00:03:27,000
+Vale, esto incluso si tenemos 20 Porque
+es un "código oficina" "Ya gracias a Dios"
+
+48
+00:03:27,001 --> 00:03:30,364
+Estoy a cada uno que
+lo monte como quiera
+
+49
+00:03:30,365 --> 00:03:37,000
+Vale "Para que le de string"
+"Código oficina" "Código oficina"
+
+50
+00:03:37,001 --> 00:03:39,000
+"Código oficina"
+
+51
+00:03:39,001 --> 00:03:51,000
+Vale Me dice que monte otro
+Que es @column "Name" "Edificio"
+
+52
+00:03:57,000 --> 00:04:09,000
+"Lens" Vamos a
+ponerlo en 10 "Private"
+
+53
+00:04:09,001 --> 00:04:11,000
+"String"
+
+54
+00:04:11,001 --> 00:04:19,000
+"Edificio" ¿Hago más?
+
+55
+00:04:19,001 --> 00:04:21,000
+¿Qué constructor?
+
+56
+00:04:21,001 --> 00:04:25,000
+"Constructor sin id"
+
+57
+00:04:25,001 --> 00:04:27,639
+Constructor sin id Vale,
+acordaros que creamos
+
+58
+00:04:27,640 --> 00:04:31,000
+el constructor sin id ¿Por
+qué lo creamos sin id?
+
+59
+00:04:31,001 --> 00:04:35,000
+¿Por qué montamos un constructor sin id?
+
+60
+00:04:35,001 --> 00:04:39,000
+Porque hemos hecho el id autoincremental
+con lo cual se pone autoactivamente
+
+61
+00:04:39,001 --> 00:04:43,000
+Muy bien, el id lo va a poner
+autoincremental la base de datos
+
+62
+00:04:43,001 --> 00:04:47,000
+con lo cual nosotros montamos el objeto
+sin id y al mandárselo a la base de datos
+
+63
+00:04:47,001 --> 00:04:57,000
+él genera el id Correcto Muy bien Vale,
+con esto tendríamos la oficina Muy bien
+
+64
+00:04:57,001 --> 00:05:01,804
+Y me dice que la oficina
+tengo que relacionarla
+
+65
+00:05:01,805 --> 00:05:07,000
+con profesor una relación "one
+to one" Relación "one to one"
+
+66
+00:05:07,001 --> 00:05:11,000
+que era en la entidad profesor
+para asociarla con una oficina
+
+67
+00:05:11,001 --> 00:05:19,000
+configurando su respectivo yai column Vale
+Entonces, si es una relación "one to one"
+
+68
+00:05:19,001 --> 00:05:25,000
+de la oficina y el profesor
+¿Cuál será el principal?
+
+69
+00:05:25,001 --> 00:05:29,000
+@one to one Sí, pero
+¿cuál es el principal?
+
+70
+00:05:29,001 --> 00:05:32,393
+El profesor Entonces,
+si el principal es el
+
+71
+00:05:32,394 --> 00:05:35,000
+profesor ¿dónde tengo
+que poner la relación?
+
+72
+00:05:35,001 --> 00:05:41,000
+En el profesor En el
+profesor Vale, entonces vamos
+
+73
+00:05:41,001 --> 00:05:45,000
+a abrir el profesor ¿Y
+qué le pongo al profesor?
+
+74
+00:05:45,001 --> 00:05:55,000
+@one to one @one to one Y
+al "one to one" ¿qué le digo?
+
+75
+00:05:55,001 --> 00:05:59,000
+Eh... "Pasco de idris"
+
+76
+00:05:59,001 --> 00:06:03,000
+Sí, a cascada ¿Qué
+era eso de cascada?
+
+77
+00:06:03,001 --> 00:06:05,000
+¿Qué era eso?
+
+78
+00:06:05,001 --> 00:06:09,000
+No sé, no lo sé, no lo sé
+¿Qué era eso de cascada?
+
+79
+00:06:09,001 --> 00:06:11,000
+¿Qué era esto de cascada?
+
+80
+00:06:11,001 --> 00:06:13,000
+¿Qué era esto de cascada?
+
+81
+00:06:13,001 --> 00:06:21,000
+Que... Que... Que cuando
+actualice uno actualizaré el otro
+
+82
+00:06:21,001 --> 00:06:22,982
+cuando borre uno, borraré
+el otro el asociado en esta
+
+83
+00:06:22,983 --> 00:06:37,000
+relación "one to one" Vale Y luego
+poníamos el "fetch" ¿Qué más poníamos?
+
+84
+00:06:37,001 --> 00:06:43,000
+¿Qué más le teníamos que
+poner a la relación "one to one"?
+
+85
+00:06:43,001 --> 00:06:47,000
+"Join column" ¿Y
+qué era "join column"?
+
+86
+00:06:47,001 --> 00:06:57,000
+Eh... Es una columna relacionada entre
+las dos tablas que muestra lo mismo
+
+87
+00:06:57,001 --> 00:07:03,000
+Entonces, por lo cual si modificas en
+una tabla esa columna y la otra también
+
+88
+00:07:03,001 --> 00:07:07,804
+porque tenés que hacer más
+de cascada Más menos, más
+
+89
+00:07:07,805 --> 00:07:11,000
+menos Más menos A ver,
+¿qué lo puedes explicar mejor?
+
+90
+00:07:11,001 --> 00:07:13,000
+¿Qué es el "join column"?
+
+91
+00:07:13,001 --> 00:07:21,000
+La clave ajena, ¿vale?
+
+92
+00:07:21,001 --> 00:07:27,000
+Estamos definiendo la clave ajena que va
+a vincular a las dos tablas Una clave ajena
+
+93
+00:07:27,001 --> 00:07:33,000
+era una clave secundaria que vinculaba
+con una clave primaria de otra tabla
+
+94
+00:07:33,001 --> 00:07:39,000
+de tal manera que la relacionaba a
+ambas tablas mediante esa... ese valor
+
+95
+00:07:39,001 --> 00:07:43,000
+Entonces, la clave ajena referencia
+a la clave primaria de la otra tabla
+
+96
+00:07:43,001 --> 00:07:53,000
+Vale, entonces ahora "join column" tendremos
+que decirle que El nombre Es decir, que
+
+97
+00:07:53,001 --> 00:08:01,000
+esa columna Lo normal es que le pongáis
+el nombre, la tabla, barra baja y "D"
+
+98
+00:08:01,001 --> 00:08:05,000
+En nuestro caso ¿cómo se llama la
+tabla con la que vamos a relacionarlo?
+
+99
+00:08:05,001 --> 00:08:07,000
+"Oficina"
+
+100
+00:08:07,001 --> 00:08:13,000
+"Oficina" Barra baja
+y "D" ¿Algo más?
+
+101
+00:08:13,001 --> 00:08:19,000
+Sí, a la vez de ponerle el referente
+el "volume" "State" igual a "D"
+
+102
+00:08:19,001 --> 00:08:27,000
+Esto es el nombre que tiene básicamente
+la clave primaria en la otra tabla
+
+103
+00:08:27,001 --> 00:08:29,000
+Por si acaso en la otra tabla
+os encontrarais que no tenéis
+
+104
+00:08:29,001 --> 00:08:35,000
+Bueno, que el nombre de la
+tabla de la clave primaria no es "D"
+
+105
+00:08:35,001 --> 00:08:41,000
+Pues que lo podáis especificar Vale,
+y ahora ¿qué tengo que ponerle aquí?
+
+106
+00:08:41,001 --> 00:08:43,000
+"El atributo oficina"
+
+107
+00:08:43,001 --> 00:08:46,359
+El objeto oficina, vale El
+objeto con el que estoy
+
+108
+00:08:46,360 --> 00:08:53,000
+haciendo la relación En este
+caso será un "private" "Oficina"
+
+109
+00:08:53,001 --> 00:08:55,000
+"Oficina"
+
+110
+00:08:55,001 --> 00:09:01,000
+Muy bien Con esto
+tengo creada ya la relación
+
+111
+00:09:01,001 --> 00:09:07,000
+de tal manera que un profesor tendrá
+vinculada a una oficina ¿Cómo lo inserto?
+
+112
+00:09:07,001 --> 00:09:13,000
+¿Vale? ¿Cómo lo...
+¿Cómo lo inicializamos?
+
+113
+00:09:13,001 --> 00:09:19,000
+Exacto "Primaria"
+"Inicializador datos"
+
+114
+00:09:19,001 --> 00:09:25,000
+Muy bien, inicializador
+datos Vale, y entonces aquí
+
+115
+00:09:25,001 --> 00:09:31,000
+vamos a ver donde tenemos al
+profesor "Modificar datos" "Estudiantes"
+
+116
+00:09:31,001 --> 00:09:33,000
+"Profesores"
+
+117
+00:09:33,001 --> 00:09:37,000
+Vale, entonces donde teníamos los
+profesores ahora ¿qué voy a necesitar?
+
+118
+00:09:37,001 --> 00:09:43,000
+"Oficinas" ¿Y puedo poner
+una oficina para todos?
+
+119
+00:09:43,001 --> 00:09:49,000
+No Porque es "one to
+one" ¿Y eso qué significa?
+
+120
+00:09:49,001 --> 00:09:51,000
+Que un profesor solo
+puede tener una oficina
+
+121
+00:09:51,001 --> 00:09:55,000
+y una oficina solo puede
+ser de un profesor Correcto
+
+122
+00:09:55,001 --> 00:09:59,000
+Entonces es importante que de claro que
+la relación "one to one" es "one to one"
+
+123
+00:09:59,001 --> 00:10:03,000
+por algo, de tal manera que una
+oficina pertenece a un profesor
+
+124
+00:10:03,001 --> 00:10:07,000
+si no estaríamos hablando
+de una relación "one to n"
+
+125
+00:10:07,001 --> 00:10:15,000
+o "n" a uno Entonces en este caso tengo
+que hacer una oficina "Profesor" "Oficina"
+
+126
+00:10:15,001 --> 00:10:17,000
+"Oficina uno"
+
+127
+00:10:17,001 --> 00:10:19,000
+"Oficina"
+
+128
+00:10:19,001 --> 00:10:25,000
+Vale, y la oficina me pide
+el código de la oficina "VLC"
+
+129
+00:10:25,001 --> 00:10:33,000
+por ejemplo y luego
+me pide el edificio "VLC"
+
+130
+00:10:33,001 --> 00:10:41,000
+Vamos a hacer tres oficinas porque tenemos
+tres profesores Eso era el control Si
+
+131
+00:10:41,001 --> 00:10:46,500
+Y vamos a hacer la
+oficina dos, la oficina tres
+
+132
+00:10:46,501 --> 00:10:51,000
+Esto es el edificio "E3"
+y este es el edificio "H6"
+
+133
+00:10:51,001 --> 00:10:57,750
+por ejemplo Vale Esas oficinas
+tengo que asignárselas a
+
+134
+00:10:57,751 --> 00:11:05,000
+los profesores Vale, pues
+voy a ponerles aquí "Oficina"
+
+135
+00:11:07,000 --> 00:11:09,000
+"Oficina"
+
+136
+00:11:09,001 --> 00:11:11,000
+"Oficina uno"
+
+137
+00:11:11,001 --> 00:11:17,000
+"Oficina dos" Vale, pero
+da error, ¿por qué da error?
+
+138
+00:11:17,001 --> 00:11:21,000
+¿Se nos olvida algo?
+
+139
+00:11:21,001 --> 00:11:31,000
+El constructor no lo hemos cambiado
+Es decir, hemos creado la clase oficina
+
+140
+00:11:31,001 --> 00:11:37,000
+el objeto y su relación pero no hemos
+cambiado el constructor de profesor
+
+141
+00:11:37,001 --> 00:11:41,000
+seguimos teniendo el constructor que teníamos
+antes Ese constructor no tenía oficina
+
+142
+00:11:41,001 --> 00:11:49,726
+Vale, pues le añadimos la
+oficina y ahora ponemos que "dis.
+
+143
+00:11:49,727 --> 00:11:51,000
+oficina"
+
+144
+00:11:51,001 --> 00:11:59,000
+es igual a oficina Ahora sí tenemos
+ya y por tanto ahora ya me deja ¿Vale?
+
+145
+00:11:59,001 --> 00:12:03,000
+Eso crearía los elementos
+
+146
+00:12:09,000 --> 00:12:17,000
+Vale, si inicializamos los datos
+
+147
+00:12:29,000 --> 00:12:37,909
+Vale, tenemos los
+profesores si lo vemos en
+
+148
+00:12:37,910 --> 00:12:49,000
+la base de datos "profesor"
+vamos al "play" "profesor"
+
+149
+00:12:49,001 --> 00:12:53,000
+fijaros que ahora me ha creado la oficina
+ya y si le doy al "select de profesor"
+
+150
+00:12:53,001 --> 00:13:01,000
+dentro tengo además el ID de
+oficina el 1 y el 3 si vengo a oficina
+
+151
+00:13:01,001 --> 00:13:13,000
+Ahí tengo la oficina 1 y la oficina
+3 fijaros que el el ID de oficina
+
+152
+00:13:13,001 --> 00:13:23,000
+la 2 es que la he borrado está en un
+delete Si hago el "clear" y veo al profesor
+
+153
+00:13:25,000 --> 00:13:29,561
+el oficina ID coincide con el
+ID en la tabla oficina ¿Vale?
+
+154
+00:13:29,562 --> 00:13:35,000
+Pero hay un problema es
+decir nosotros tenemos aquí
+
+155
+00:13:35,001 --> 00:13:39,000
+la parte de estudiantes, tenemos la
+parte de profesores, yo puedo añadir
+
+156
+00:13:39,001 --> 00:13:53,000
+yo puedo añadir un profesor
+aquí, voy a ponerle base profesores
+
+157
+00:13:55,000 --> 00:14:01,000
+y esto va a ser
+"hpdp" "localhost"
+
+158
+00:14:01,001 --> 00:14:03,000
+"8080"
+
+159
+00:14:03,001 --> 00:14:05,000
+"api"
+
+160
+00:14:05,001 --> 00:14:07,000
+"profesores"
+
+161
+00:14:07,001 --> 00:14:17,000
+Yo tenía esto, que lo habíamos hecho el
+profesor tenía nombre que tenía profesor
+
+162
+00:14:17,001 --> 00:14:27,000
+profesor especialidad, experiencia años
+nombre completo teníamos nombre completo
+
+163
+00:14:27,001 --> 00:14:47,000
+experiencia años y
+especialidad la especialidad
+
+164
+00:14:49,000 --> 00:15:00,724
+diseño de interfaz la
+especialidad pero ya esto ahora le
+
+165
+00:15:00,725 --> 00:15:15,000
+tengo que añadir la oficina
+que tiene hemos dicho edificio
+
+166
+00:15:17,000 --> 00:15:19,000
+"b5"
+
+167
+00:15:19,001 --> 00:15:21,000
+"b5"
+
+168
+00:15:21,001 --> 00:15:31,000
+y tiene un código oficina
+el orden si el orden da igual
+
+169
+00:15:35,000 --> 00:15:45,000
+vale, si no la he liao
+parece que la he liao
+
+170
+00:15:49,000 --> 00:16:03,000
+profesor nombre he puesto nombre
+completo pero aquí se llama nombre completo
+
+171
+00:16:03,001 --> 00:16:13,000
+aquí se llama nombre completo pero se
+llama nombre hay que ponerlo exactamente
+
+172
+00:16:13,001 --> 00:16:23,000
+como se llama el atributo de java entonces
+este es nombre ahora si que me sale el 201
+
+173
+00:16:23,001 --> 00:16:29,572
+create me ha creado el
+elemento esto esta muy
+
+174
+00:16:29,573 --> 00:16:35,000
+bien, pero que pasa
+si yo intento actualizar
+
+175
+00:16:39,000 --> 00:16:57,000
+vamos a coger la informacion
+actualizar completo yo pongo aqui esto es
+
+176
+00:16:57,001 --> 00:17:15,000
+base profesores intento actualizar uno dos
+tres me dice que si que lo he actualizado
+
+177
+00:17:15,001 --> 00:17:24,962
+pero aqui pone valencia
+003 edificio 06 le he mandado
+
+178
+00:17:24,963 --> 00:17:35,000
+el edificio b5 voy a
+ponerle j7 valencia oficina 11
+
+179
+00:17:37,000 --> 00:17:47,000
+no me sigue diciendo que es la
+oficina 3 del edificio h6 que esta pasando
+
+180
+00:17:47,001 --> 00:17:59,000
+que el edificio colisiona no es
+eso esto que esta ejecutando un
+
+181
+00:17:59,001 --> 00:18:11,000
+estamos lanzando un put vale donde lo
+trabajamos las peticiones donde las trabajamos
+
+182
+00:18:11,001 --> 00:18:29,000
+en la api controlador nuestro controlador
+de profesor hasta ahora habiamos probado
+
+183
+00:18:29,001 --> 00:18:41,000
+a insertar no habia habido problemas porque
+no habia habido problemas coge el objeto
+
+184
+00:18:41,001 --> 00:18:49,000
+entero y lo inserta ahora nos a añadido una
+relacion y la coge como parte del objeto
+
+185
+00:18:49,001 --> 00:18:54,889
+y ya esta a la hora de
+insertarme el problema
+
+186
+00:18:54,890 --> 00:18:59,000
+pero el actualizar
+tanto el put como el put
+
+187
+00:19:01,000 --> 00:19:07,000
+cogíamos los datos uno a
+uno del objeto que teniamos
+
+188
+00:19:07,001 --> 00:19:13,000
+en la base de datos y los iremos
+modificando que pasa que no hemos hecho nada
+
+189
+00:19:13,001 --> 00:19:19,000
+parecido con la oficina con lo
+cual la oficina nos ha actualizado
+
+190
+00:19:19,001 --> 00:19:27,000
+que tenemos que hacer modificar este put y
+este put para que funcionen con la oficina
+
+191
+00:19:27,001 --> 00:19:35,000
+y aquí donde hacíamos la inserción de
+los atributos normales y antes de coger
+
+192
+00:19:35,001 --> 00:19:49,000
+y guardar tenemos que actualizar la
+información del la información que tenemos
+
+193
+00:19:49,001 --> 00:19:55,000
+voy a haceroslo en el estudiante
+y luego ya vosotros si queréis
+
+194
+00:19:55,001 --> 00:20:05,000
+lo replicáis en el profesor en el estudiante
+lo que tenemos que hacer es venir al put
+
+195
+00:20:05,001 --> 00:20:12,785
+vamos a hacer el put y
+luego haremos el patch
+
+196
+00:20:12,786 --> 00:20:19,000
+y actualizamos los datos
+de relación uno a uno
+
+197
+00:20:23,000 --> 00:20:47,000
+para ello lo que hacemos es
+si el micro estudiante Nico Nico
+
+198
+00:20:51,000 --> 00:21:07,000
+cogemos el perfil académico
+vamos a comprobar si
+
+199
+00:21:09,000 --> 00:21:17,000
+si esto es distinto de null
+
+200
+00:21:19,000 --> 00:21:35,000
+si estudiante existente
+punto del perfil académico
+
+201
+00:21:39,000 --> 00:21:53,000
+actualizamos el expediente existente
+manteniendo el IDE estudiante existente
+
+202
+00:21:53,001 --> 00:22:11,000
+punto del perfil académico estudiante
+existente punto del perfil académico voy con el
+
+203
+00:22:11,001 --> 00:22:19,000
+estudiante existente punto del perfil
+académico ahora punto set nivel ingles
+
+204
+00:22:19,001 --> 00:22:25,000
+y eso lo cogemos
+de estudiante datos
+
+205
+00:22:27,000 --> 00:22:35,000
+punto del perfil
+académico punto del nivel
+
+206
+00:22:37,000 --> 00:22:51,000
+lo mismo lo hacemos con la biografía
+estudiante existente punto del perfil académico
+
+207
+00:22:51,001 --> 00:23:07,000
+punto set biografía con estudiante
+datos punto del perfil académico punto
+
+208
+00:23:07,001 --> 00:23:19,000
+de biografía con estudiante datos con
+estudiante datos con estudiante datos
+
+209
+00:23:19,001 --> 00:23:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+210
+00:23:27,001 --> 00:23:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+211
+00:23:35,001 --> 00:23:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+212
+00:23:43,001 --> 00:23:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+213
+00:23:51,001 --> 00:23:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+214
+00:23:59,001 --> 00:24:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+215
+00:24:07,001 --> 00:24:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+216
+00:24:15,001 --> 00:24:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+217
+00:24:23,001 --> 00:24:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+218
+00:24:31,001 --> 00:24:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+219
+00:24:39,001 --> 00:24:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+220
+00:24:47,001 --> 00:24:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+221
+00:24:55,001 --> 00:25:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+222
+00:25:03,001 --> 00:25:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+223
+00:25:11,001 --> 00:25:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+224
+00:25:19,001 --> 00:25:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+225
+00:25:27,001 --> 00:25:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+226
+00:25:35,001 --> 00:25:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+227
+00:25:43,001 --> 00:25:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+228
+00:25:51,001 --> 00:25:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+229
+00:25:59,001 --> 00:26:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+230
+00:26:07,001 --> 00:26:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+231
+00:26:15,001 --> 00:26:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+232
+00:26:23,001 --> 00:26:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+233
+00:26:31,001 --> 00:26:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+234
+00:26:39,001 --> 00:26:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+235
+00:26:47,001 --> 00:26:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+236
+00:26:55,001 --> 00:27:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+237
+00:27:03,001 --> 00:27:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+238
+00:27:11,001 --> 00:27:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+239
+00:27:19,001 --> 00:27:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+240
+00:27:27,001 --> 00:27:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+241
+00:27:35,001 --> 00:27:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+242
+00:27:43,001 --> 00:27:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+243
+00:27:51,001 --> 00:27:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+244
+00:27:59,001 --> 00:28:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+245
+00:28:07,001 --> 00:28:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+246
+00:28:15,001 --> 00:28:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+247
+00:28:23,001 --> 00:28:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+248
+00:28:31,001 --> 00:28:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+249
+00:28:39,001 --> 00:28:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+250
+00:28:47,001 --> 00:28:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+251
+00:28:55,001 --> 00:29:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+252
+00:29:03,001 --> 00:29:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+253
+00:29:11,001 --> 00:29:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+254
+00:29:19,001 --> 00:29:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+255
+00:29:27,001 --> 00:29:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+256
+00:29:35,001 --> 00:29:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+257
+00:29:43,001 --> 00:29:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+258
+00:29:51,001 --> 00:29:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+259
+00:29:59,001 --> 00:30:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+260
+00:30:07,001 --> 00:30:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+261
+00:30:15,001 --> 00:30:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+262
+00:30:23,001 --> 00:30:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+263
+00:30:31,001 --> 00:30:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+264
+00:30:39,001 --> 00:30:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+265
+00:30:47,001 --> 00:30:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+266
+00:30:55,001 --> 00:31:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+267
+00:31:03,001 --> 00:31:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+268
+00:31:11,001 --> 00:31:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+269
+00:31:19,001 --> 00:31:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+270
+00:31:27,001 --> 00:31:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+271
+00:31:35,001 --> 00:31:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+272
+00:31:43,001 --> 00:31:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+273
+00:31:51,001 --> 00:31:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+274
+00:31:59,001 --> 00:32:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+275
+00:32:07,001 --> 00:32:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+276
+00:32:15,001 --> 00:32:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+277
+00:32:23,001 --> 00:32:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+278
+00:32:31,001 --> 00:32:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+279
+00:32:39,001 --> 00:32:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+280
+00:32:47,001 --> 00:32:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+281
+00:32:55,001 --> 00:33:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+282
+00:33:03,001 --> 00:33:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+283
+00:33:11,001 --> 00:33:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+284
+00:33:19,001 --> 00:33:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+285
+00:33:27,001 --> 00:33:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+286
+00:33:35,001 --> 00:33:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+287
+00:33:43,001 --> 00:33:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+288
+00:33:51,001 --> 00:33:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+289
+00:33:59,001 --> 00:34:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+290
+00:34:07,001 --> 00:34:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+291
+00:34:15,001 --> 00:34:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+292
+00:34:23,001 --> 00:34:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+293
+00:34:31,001 --> 00:34:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+294
+00:34:39,001 --> 00:34:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+295
+00:34:47,001 --> 00:34:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+296
+00:34:55,001 --> 00:35:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+297
+00:35:03,001 --> 00:35:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+298
+00:35:11,001 --> 00:35:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+299
+00:35:19,001 --> 00:35:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+300
+00:35:27,001 --> 00:35:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+301
+00:35:35,001 --> 00:35:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+302
+00:35:43,001 --> 00:35:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+303
+00:35:51,001 --> 00:35:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+304
+00:35:59,001 --> 00:36:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+305
+00:36:07,001 --> 00:36:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+306
+00:36:15,001 --> 00:36:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+307
+00:36:23,001 --> 00:36:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+308
+00:36:31,001 --> 00:36:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+309
+00:36:39,001 --> 00:36:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+310
+00:36:47,001 --> 00:36:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+311
+00:36:55,001 --> 00:37:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+312
+00:37:03,001 --> 00:37:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+313
+00:37:11,001 --> 00:37:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+314
+00:37:19,001 --> 00:37:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+315
+00:37:27,001 --> 00:37:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+316
+00:37:35,001 --> 00:37:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+317
+00:37:43,001 --> 00:37:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+318
+00:37:51,001 --> 00:37:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+319
+00:37:59,001 --> 00:38:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+320
+00:38:07,001 --> 00:38:15,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+321
+00:38:15,001 --> 00:38:23,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+322
+00:38:23,001 --> 00:38:31,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+323
+00:38:31,001 --> 00:38:39,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+324
+00:38:39,001 --> 00:38:47,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+325
+00:38:47,001 --> 00:38:55,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+326
+00:38:55,001 --> 00:39:03,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+327
+00:39:03,001 --> 00:39:11,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+328
+00:39:11,001 --> 00:39:19,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+329
+00:39:19,001 --> 00:39:27,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+330
+00:39:27,001 --> 00:39:35,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+331
+00:39:35,001 --> 00:39:43,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+332
+00:39:43,001 --> 00:39:51,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+333
+00:39:51,001 --> 00:39:59,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+334
+00:39:59,001 --> 00:40:07,000
+con estudiante datos con estudiante datos
+con estudiante datos con estudiante datos
+
+335
+00:40:07,001 --> 00:40:12,429
+con estudiante datos con
+estudiante datos con estudiante
+
+336
+00:40:12,430 --> 00:40:17,000
+datos con estudiante
+datos con estudiante datos
+

@@ -1,0 +1,147 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import Callout from '../components/Callout.astro';
+
+const sesiones = [
+  {
+    id: 'S01',
+    fecha: '2026-09-16',
+    titulo: 'Sesión 1: Arranque, Spring Initializr y criterios de evaluación',
+    file: '/transcripciones/PI DAMA S01 2026-09-16 08-43-26.srt',
+    highlights: [
+      'Creación de proyecto en start.spring.io con Maven, Java 21, Spring Web, Lombok y DevTools.',
+      'Estructura del pom.xml y arranque del servidor embebido Tomcat en localhost:8080.',
+      'Aviso sobre el examen práctico de Spring en la evaluación.',
+    ],
+  },
+  {
+    id: 'S02',
+    fecha: '2026-09-23',
+    titulo: 'Sesión 2: Primer controlador REST y parámetros',
+    file: '/transcripciones/PI DAMA S02 2026-09-23 08-40-33.srt',
+    highlights: [
+      'Uso de @RestController, @GetMapping y @RequestParam con defaultValue.',
+      'Diferencia entre devolver texto plano y objetos Java serializados automáticamente a JSON.',
+    ],
+  },
+  {
+    id: 'S03',
+    fecha: '2026-09-30',
+    titulo: 'Sesión 3 (Partes 1 y 2): JPA, H2 Console y Repositorios',
+    file: '/transcripciones/PI DAMA S03.1 2026-09-30 08-40-48.srt',
+    extraFile: '/transcripciones/PI DAMA S03.2 2026-09-30 10-40-21.srt',
+    highlights: [
+      'Configuración de H2 en memoria en application.properties y H2ConsoleConfig.',
+      'Creación de entidades Estudiante y Profesor con @Id y GenerationType.IDENTITY.',
+      'Uso de JpaRepository<Entidad, Long> y pruebas CRUD con CommandLineRunner.',
+    ],
+  },
+  {
+    id: 'S04',
+    fecha: '2026-10-07',
+    titulo: 'Sesión 4: Servicios, Controladores REST y códigos 404 / 409',
+    file: '/transcripciones/PI DAMA S04 2026-10-07 08-41-35.srt',
+    highlights: [
+      'Implementación completa de EstudianteService y EstudianteController.',
+      'Uso de ResponseEntity<?> para devolver 200 OK, 201 Created, 404 Not Found y 409 Conflict.',
+      'Diferencia práctica entre PUT (actualización completa) y PATCH (parcial con Map<String, Object>).',
+    ],
+  },
+  {
+    id: 'S05',
+    fecha: '2026-10-14',
+    titulo: 'Sesión 5 (Partes 1 y 2): Lombok y Relaciones 1:1',
+    file: '/transcripciones/PI DAMA S05.1 2026-10-14 08-46-02.srt',
+    extraFile: '/transcripciones/PI DAMA S05.2 2026-10-14 10-31-49.srt',
+    highlights: [
+      'Anotaciones Lombok (@Data, @NoArgsConstructor, @AllArgsConstructor).',
+      '@OneToOne(cascade = CascadeType.ALL) y @JoinColumn en el lado propietario.',
+      'Cómo propagar cambios en relaciones 1:1 dentro del PUT y PATCH sin perder el ID asociado.',
+    ],
+  },
+  {
+    id: 'S06',
+    fecha: '2026-10-21',
+    titulo: 'Sesión 6: Relaciones 1:N, Lazy Loading, Orphan Removal y Postman',
+    file: '/transcripciones/PI DAMA S06 2026-10-21 08-43-21.srt',
+    highlights: [
+      'Por qué @ManyToOne lleva la FK y @OneToMany usa mappedBy.',
+      'Explicación de orphanRemoval = true para borrar hijos desvinculados.',
+      'Solución a los bucles infinitos (@ToString.Exclude y @JsonIgnore / @JsonIgnoreProperties).',
+      'Setter personalizado para asignar el padre automáticamente al recibir JSON desde Postman.',
+    ],
+  },
+  {
+    id: 'S07',
+    fecha: '2026-11-04',
+    titulo: 'Sesión 7: Corrección del Reto TechCorp (Departamentos y Empleados)',
+    file: '/transcripciones/PI DAMA S07 2026-11-04 08-46-34.srt',
+    highlights: [
+      'Análisis desde cero de un correo real de consultoría para deducir relaciones 1:1 y 1:N.',
+      'Importancia de spring.jpa.hibernate.ddl-auto=update y show-sql=true para depurar.',
+      'Persistencia en cascada de Departamento → Empleados → Credencial en un solo POST.',
+    ],
+  },
+  {
+    id: 'S08',
+    fecha: '2026-11-11',
+    titulo: 'Sesión 8: Simulacro de Examen — Taller Don Juan',
+    file: '/transcripciones/PI DAW S08 2026-11-11 08-54-19.srt',
+    highlights: [
+      'Resolución en directo del simulacro completo: Taller (1:N) → Cliente (1:1) → Coche.',
+      'El profesor destaca que el Controlador y las Relaciones JPA concentran la mayor puntuación del examen.',
+      'Uso de findByNombre (devolviendo List<Taller>) y existsByNombre en TallerRepository.',
+      'Validación de existencia por ID devolviendo 404 Not Found en GET, PUT y DELETE.',
+    ],
+  },
+];
+---
+
+<DocsLayout
+  title="Transcripciones de Clase (Sesiones S01–S08)"
+  description="Resumen estructurado de los puntos clave, explicaciones del profesor y avisos de examen extraídos de las 10 grabaciones .srt del curso."
+  section="Sesiones Grabadas"
+>
+  <Callout type="exam" title="Resumen de pistas de examen (Sesión S08)">
+    <p>
+      En la sesión 8, al resolver el simulacro de <strong>Taller Don Juan</strong>, el profesor recalcó que:
+    </p>
+    <ul class="list-disc pl-5 mt-1 space-y-1">
+      <li>El <strong>Controlador</strong> y las <strong>Relaciones JPA</strong> (1:1 y 1:N con cascada) son las partes con mayor peso en la nota.</li>
+      <li>Conviene crear siempre una primera entidad completa a mano (con Lombok, <code>@Id</code> y constructor auxiliar) y reutilizar la plantilla para las demás.</li>
+      <li>No olvidar definir los métodos personalizados (<code>findByNombre</code>, <code>existsByNombre</code>) en la interfaz del repositorio antes de llamarlos desde el servicio.</li>
+    </ul>
+  </Callout>
+
+  <div class="space-y-4">
+    {sesiones.map((s) => (
+      <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 text-xs font-bold font-mono rounded bg-sky-500/15 text-sky-300 border border-sky-500/30">
+              {s.id}
+            </span>
+            <span class="text-xs font-mono text-slate-400">{s.fecha}</span>
+          </div>
+          <div class="flex gap-2">
+            <a href={s.file} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
+              Descargar .srt
+            </a>
+            {s.extraFile && (
+              <a href={s.extraFile} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
+                Parte 2 (.srt)
+              </a>
+            )}
+          </div>
+        </div>
+        <h2 class="text-lg font-bold text-white mb-2">{s.titulo}</h2>
+        <ul class="list-disc pl-5 space-y-1 text-sm text-slate-300">
+          {s.highlights.map((h) => (
+            <li>{h}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</DocsLayout>
+

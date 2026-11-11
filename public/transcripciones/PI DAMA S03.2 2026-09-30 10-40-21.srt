@@ -1,0 +1,784 @@
+1
+00:00:04,000 --> 00:00:07,797
+Teníamos el ejercicio
+de la sesión 3 que
+
+2
+00:00:07,821 --> 00:00:12,000
+nos decía crear el
+repositorio para profesor
+
+3
+00:00:12,001 --> 00:00:15,059
+siguiendo el mismo
+patrón, crear la interfaz
+
+4
+00:00:15,083 --> 00:00:18,560
+profesor repository que
+extienda de jpa repository
+
+5
+00:00:18,561 --> 00:00:21,485
+profesor long para la
+entidad profesor desarrollada
+
+6
+00:00:21,509 --> 00:00:24,800
+en la sesión anterior, la que
+hicimos la semana pasada.
+
+7
+00:00:29,020 --> 00:00:33,045
+Nos dice que teníamos
+un profesor que habíamos
+
+8
+00:00:33,069 --> 00:00:36,932
+hecho, una entidad
+profesor y ahora teníamos
+
+9
+00:00:44,560 --> 00:00:52,560
+que dentro del repository crear un nuevo
+repository, que fuera profesor repository.
+
+10
+00:00:52,561 --> 00:00:56,880
+Hay que seleccionar algo de aquí.
+
+11
+00:00:56,881 --> 00:00:57,880
+Interface.
+
+12
+00:00:57,881 --> 00:00:58,881
+Interface.
+
+13
+00:00:59,840 --> 00:01:03,873
+El repositorio es una
+interfaz, una interfaz
+
+14
+00:01:03,897 --> 00:01:07,852
+que tiene de peculiar,
+que hay que ponerle.
+
+15
+00:01:09,789 --> 00:01:12,400
+Extents, que era lo de extents.
+
+16
+00:01:12,401 --> 00:01:13,401
+Que heredaba.
+
+17
+00:01:13,849 --> 00:01:19,880
+Heredaba, vale, que era la herencia, que
+pasaba cuando heredábamos de alguien.
+
+18
+00:01:21,659 --> 00:01:29,160
+Eso es de quien hereda,
+de jpa repository, muy bien.
+
+19
+00:01:29,161 --> 00:01:30,920
+Pero que es heredar en Java.
+
+20
+00:01:31,319 --> 00:01:36,840
+Que puede utilizar las funciones
+que estaban en jpa repository.
+
+21
+00:01:36,841 --> 00:01:43,572
+Exacto, que tiene acceso a todas las
+funciones de jpa repository y a sus atributos.
+
+22
+00:01:44,760 --> 00:01:52,760
+Jpa repository es genérico, hay que hacerlo
+específico, en nuestro caso, del profesor.
+
+23
+00:01:54,840 --> 00:02:02,840
+Hay que decirle aquí la clase.
+
+24
+00:02:02,841 --> 00:02:03,841
+Y le digo algo más.
+
+25
+00:02:04,389 --> 00:02:08,160
+Long, porque?
+
+26
+00:02:11,360 --> 00:02:15,304
+Porque la clave primaria
+es de tipo long, hay
+
+27
+00:02:15,328 --> 00:02:19,372
+que establecerle el
+tipo de la clave primaria.
+
+28
+00:02:19,560 --> 00:02:22,200
+Muy bien, le decía algo más a esto.
+
+29
+00:02:23,800 --> 00:02:28,440
+Que falta?
+
+30
+00:02:29,950 --> 00:02:37,200
+Que la roba repository.
+
+31
+00:02:37,201 --> 00:02:40,400
+Acordaros de la anotación, muy importante,
+la anotación repositorio, que es la que le
+
+32
+00:02:40,401 --> 00:02:43,360
+va a decir a Spring Boot
+que esto es un repositorio.
+
+33
+00:02:44,830 --> 00:02:48,599
+Muy bien, lo de el
+entro es opcional, no me
+
+34
+00:02:48,623 --> 00:02:52,492
+lo pide, que en el
+estudiante habíamos hecho
+
+35
+00:02:57,360 --> 00:03:01,118
+funciones para que
+se pudiera ejecutar un
+
+36
+00:03:01,142 --> 00:03:05,372
+find by attribute, exist
+by attribute también.
+
+37
+00:03:05,485 --> 00:03:10,160
+No lo pide, así que no
+hace falta que lo haga.
+
+38
+00:03:11,160 --> 00:03:19,160
+Muy bien, repositorio creado, dice,
+pues entonces ya tenemos el punto 1.
+
+39
+00:03:19,161 --> 00:03:21,631
+Puesto 2, dice,
+ampliación del inicializador,
+
+40
+00:03:21,655 --> 00:03:23,967
+dice, modifica el
+componente inicializador
+
+41
+00:03:23,968 --> 00:03:26,519
+datos para que también
+guarde al menos tres
+
+42
+00:03:26,543 --> 00:03:30,680
+registros de profesores
+utilizando su respectivo repositorio.
+
+43
+00:03:30,681 --> 00:03:32,954
+Actualice uno, borre
+otro y muestre por consola
+
+44
+00:03:32,978 --> 00:03:34,972
+los que queden al
+arrancar la aplicación.
+
+45
+00:03:35,160 --> 00:03:41,320
+Vale, entonces dice que va
+ya al inicializador de datos.
+
+46
+00:03:45,935 --> 00:03:49,650
+Algunos, vale, habéis
+hecho varias funciones
+
+47
+00:03:49,674 --> 00:03:53,560
+para trabajar, no es
+necesario, vale, al final
+
+48
+00:03:53,561 --> 00:03:56,968
+la inserción de datos
+inicial, esto es como
+
+49
+00:03:56,992 --> 00:04:00,572
+la cara inicial de datos
+en la base de datos,
+
+50
+00:04:00,860 --> 00:04:07,320
+vale, secuencial, si, hacéis varias, vale,
+bueno, en este caso es secuencial también,
+
+51
+00:04:09,279 --> 00:04:13,267
+vale, hará primero una
+y luego la otra, pero
+
+52
+00:04:13,291 --> 00:04:17,279
+bueno, a ver, no pasa
+nada, es decir, hacer,
+
+53
+00:04:17,280 --> 00:04:22,720
+básicamente lo que estáis haciendo es hacer
+dos funciones en las que una, o separar por
+
+54
+00:04:22,721 --> 00:04:25,974
+funciones, la que
+añadirá el estudiante y el
+
+55
+00:04:25,998 --> 00:04:32,600
+profesor, vale, bueno, para tenerlo
+segmentado tampoco está mal.
+
+56
+00:04:32,601 --> 00:04:38,000
+La otra es hacerlo aquí dentro, vale, lo
+que sí que es importante es que para poder
+
+57
+00:04:38,001 --> 00:04:44,720
+acceder yo a las funciones del repositorio
+que acabo de hacer, ¿qué tengo que hacer?
+
+58
+00:04:48,755 --> 00:04:54,480
+Para poder hacer esas
+funciones, ¿qué necesito obtener?
+
+59
+00:04:54,505 --> 00:04:57,407
+El profesor repository,
+no, necesitar ese
+
+60
+00:04:57,431 --> 00:05:00,760
+repositorio que acabo
+de crear, necesito acceso
+
+61
+00:05:00,761 --> 00:05:05,640
+a él, y ¿dónde lo pongo
+para poder tener acceso a él?
+
+62
+00:05:06,240 --> 00:05:08,800
+En el input, en el input, en el input, en
+el input, en el input, en el input, en el
+
+63
+00:05:08,801 --> 00:05:12,280
+input, en los parámetros de entrada, en
+los parámetros de entrada, igual que tenía
+
+64
+00:05:12,281 --> 00:05:17,960
+el estudiante repositorio, pues ahora voy
+a tener un profesor repository, vale, estos
+
+65
+00:05:22,520 --> 00:05:30,520
+son parámetros de entrada de una función,
+aquí le ponemos profesor repository.
+
+66
+00:05:30,521 --> 00:05:33,864
+Muy bien, ya tengo
+el acceso al repositorio,
+
+67
+00:05:33,888 --> 00:05:37,092
+pues ahora tengo que
+hacer lo que me dice,
+
+68
+00:05:37,380 --> 00:05:42,320
+vale, vamos a ver, vamos a decirle que aquí
+hemos terminado con los estudiantes y ahora
+
+69
+00:05:49,600 --> 00:05:57,400
+vamos a empezar con los alumnos.
+
+70
+00:06:02,760 --> 00:06:06,791
+Vale, me dice lo primero,
+tengo que guardar al
+
+71
+00:06:06,815 --> 00:06:10,772
+menos tres registros
+de profesores utilizando
+
+72
+00:06:14,500 --> 00:06:21,800
+su respectivo repositorio, vale, vean
+Nico, ¿cómo guardo los profesores?
+
+73
+00:06:22,340 --> 00:06:30,040
+¿Qué tengo que hacer para
+poder guardar profesores?
+
+74
+00:06:30,640 --> 00:06:35,640
+Vale, ¿de qué tipo?
+
+75
+00:06:39,690 --> 00:06:45,640
+¿De qué tipo creo la variable?
+
+76
+00:06:45,641 --> 00:06:48,440
+¿Qué quiero guardar?
+
+77
+00:06:48,840 --> 00:06:55,240
+¿De qué tipo guardo la variable?
+
+78
+00:06:55,241 --> 00:07:02,280
+Vale, profesor, ¿y qué creo?
+
+79
+00:07:02,281 --> 00:07:06,120
+¿Qué hago con esta variable?
+
+80
+00:07:06,670 --> 00:07:12,840
+¿A que es igual la variable?
+
+81
+00:07:12,841 --> 00:07:19,080
+¿De qué inicializarla, no?
+
+82
+00:07:20,580 --> 00:07:28,280
+Me ha dicho, crea una variable, profesor.
+
+83
+00:07:28,281 --> 00:07:29,280
+¿Cómo la inicializo?
+
+84
+00:07:29,281 --> 00:07:30,280
+¿Con Niu?
+
+85
+00:07:30,281 --> 00:07:31,281
+¿Niu qué?
+
+86
+00:07:33,200 --> 00:07:37,358
+Niu profesor, vale, me
+dice que tengo tres, dice,
+
+87
+00:07:37,382 --> 00:07:41,212
+tengo uno vacío, uno
+con nombre, especialidad
+
+88
+00:07:41,890 --> 00:07:49,840
+y no sé qué más, y otro con ID, nombre,
+especialidad, ¿cuál gasto de los tres?
+
+89
+00:07:51,890 --> 00:07:53,840
+P1, P2, P3 será el profesor.
+
+90
+00:07:56,940 --> 00:08:01,040
+Espera, te lo pongo más
+arriba para que lo veas.
+
+91
+00:08:05,170 --> 00:08:13,120
+Vale, estoy poniendo el Niu y me
+dice que, ¿cómo lo he hecho antes?
+
+92
+00:08:13,121 --> 00:08:18,880
+Si, pero digo que dentro del
+profesor me daba tres profesores.
+
+93
+00:08:22,800 --> 00:08:30,800
+¿El segundo cual es?
+
+94
+00:08:30,801 --> 00:08:33,799
+El que tenga que.
+
+95
+00:08:34,924 --> 00:08:36,799
+¿Qué tiene?
+
+96
+00:08:36,800 --> 00:08:37,799
+Atributos.
+
+97
+00:08:37,800 --> 00:08:40,799
+Vale, ¿cuál es?
+
+98
+00:08:40,800 --> 00:08:45,360
+El nombre, la especialidad
+y la experiencia de él.
+
+99
+00:08:48,109 --> 00:08:55,360
+¿Y por qué has elegido ese constructor?
+
+100
+00:08:56,320 --> 00:09:04,320
+Alguna razón habrá para que hayan tres
+constructores, ¿por qué ese en concreto?
+
+101
+00:09:13,539 --> 00:09:20,240
+Miguel, ¿por qué ese constructor?
+
+102
+00:09:20,241 --> 00:09:26,880
+Porque no me va a servir el del ID.
+
+103
+00:09:26,881 --> 00:09:29,306
+Exacto, el ID lo pone
+automáticamente a la base
+
+104
+00:09:29,330 --> 00:09:39,200
+de datos, entonces el objeto que
+construimos lo construimos sin ID, ¿vale?
+
+105
+00:09:39,499 --> 00:09:47,040
+Vale, creo que tres profesores, ¿no?
+
+106
+00:09:57,859 --> 00:10:04,960
+Vale, entonces, tres profesores, ¿no?
+
+107
+00:10:16,880 --> 00:10:24,880
+Vale, entonces, tres profesores, ¿no?
+
+108
+00:10:34,409 --> 00:10:42,160
+Vale, Javi, ya he creado
+profesores, ¿qué hago ahora?
+
+109
+00:10:52,499 --> 00:10:59,600
+Bueno, guardo.
+
+110
+00:10:59,601 --> 00:11:00,601
+Guardo el profesor.
+
+111
+00:11:08,280 --> 00:11:16,280
+¿Y cómo lo hago?
+
+112
+00:11:24,219 --> 00:11:31,720
+¿Y qué le pongo dentro?
+
+113
+00:11:44,859 --> 00:11:52,760
+¿Y qué le pongo dentro?
+
+114
+00:12:05,204 --> 00:12:12,680
+¿Y qué le pongo dentro?
+
+115
+00:12:27,140 --> 00:12:35,140
+¿Y qué le pongo dentro?
+
+116
+00:12:38,800 --> 00:12:43,806
+Si lo que coge es una
+colección, nosotros lo hemos visto
+
+117
+00:12:43,807 --> 00:12:50,880
+hacerlo individualmente, que
+sería punto safe del profesor.
+
+118
+00:13:06,484 --> 00:13:13,760
+¿Y qué le pongo dentro?
+
+119
+00:13:34,080 --> 00:13:38,068
+Si lo que coge es una
+colección, nosotros lo
+
+120
+00:13:38,092 --> 00:13:49,080
+hemos visto hecho individualmente,
+que sería un punto safe del profesor.
+
+121
+00:14:08,919 --> 00:14:16,720
+Vale, ahora, vamos a ver.
+
+122
+00:14:26,200 --> 00:14:34,200
+Vale, entonces, el mundo por el sexo.
+
+123
+00:14:34,201 --> 00:14:37,200
+No le gusta el sexo.
+
+124
+00:14:42,159 --> 00:14:56,680
+Vale, ahora, pues...
+¿Qué hacía eso?
+
+125
+00:14:56,681 --> 00:15:04,080
+¿Qué hacía esta función?
+
+126
+00:15:04,279 --> 00:15:10,760
+¿Qué hacía esa función?
+
+127
+00:15:12,709 --> 00:15:15,560
+¿Qué hacía esa función?
+
+128
+00:15:15,561 --> 00:15:19,520
+¿Qué hacía esa función?
+
+129
+00:15:20,319 --> 00:15:23,320
+¿Qué hacía esa función?
+
+130
+00:15:26,960 --> 00:15:34,960
+¿Qué hacía esa función?
+
+131
+00:15:49,600 --> 00:15:57,600
+¿Qué hacía esa función?
+
+132
+00:16:07,280 --> 00:16:15,280
+¿Qué hacía esa función?
+
+133
+00:16:29,589 --> 00:16:37,440
+¿Qué hacía esa función?
+
+134
+00:16:45,919 --> 00:16:53,520
+¿Qué hacía esa función?
+
+135
+00:17:01,160 --> 00:17:09,160
+¿Qué hacía esa función?
+
+136
+00:17:21,080 --> 00:17:29,080
+¿Qué hacía esa función?
+
+137
+00:17:32,660 --> 00:17:40,660
+¿Qué hacía esa función?
+
+138
+00:17:50,019 --> 00:17:57,720
+¿Qué hacía esa función?
+
+139
+00:17:57,721 --> 00:17:59,720
+Esto cambia los datos.
+
+140
+00:17:59,721 --> 00:18:04,720
+Carlos, ¿cómo los guardamos?
+
+141
+00:18:04,869 --> 00:18:11,720
+¿Cómo los guardamos?
+
+142
+00:18:12,119 --> 00:18:18,720
+¿Cómo los guardamos?
+
+143
+00:18:19,244 --> 00:18:23,720
+¿Cómo los guardamos?
+
+144
+00:18:37,719 --> 00:18:38,720
+¿Cómo los guardamos?
+
+145
+00:18:45,720 --> 00:18:53,720
+¿Cómo los guardamos?
+
+146
+00:19:00,720 --> 00:19:08,720
+¿Cómo los guardamos?
+
+147
+00:19:15,720 --> 00:19:23,720
+¿Cómo los guardamos?
+
+148
+00:19:30,720 --> 00:19:38,720
+¿Cómo los guardamos?
+
+149
+00:19:45,720 --> 00:19:53,720
+¿Cómo los guardamos?
+
+150
+00:20:00,720 --> 00:20:08,720
+¿Cómo los guardamos?
+
+151
+00:20:17,344 --> 00:20:23,720
+¿Cómo los guardamos?
+
+152
+00:20:30,919 --> 00:20:38,720
+¿Cómo los guardamos?
+
+153
+00:20:45,720 --> 00:20:53,720
+¿Cómo los guardamos?
+
+154
+00:21:01,244 --> 00:21:08,720
+¿Cómo los guardamos?
+
+155
+00:21:16,069 --> 00:21:23,720
+¿Cómo los guardamos?
+
+156
+00:21:25,969 --> 00:21:33,720
+¿Cómo los guardamos?
+
+157
+00:21:40,869 --> 00:21:48,720
+¿Cómo los guardamos?
+
+158
+00:21:56,719 --> 00:22:03,720
+¿Cómo los guardamos?
+
+159
+00:22:10,969 --> 00:22:18,720
+¿Cómo los guardamos?
+
+160
+00:22:25,720 --> 00:22:33,720
+¿Cómo los guardamos?
+
+161
+00:22:41,119 --> 00:22:48,720
+¿Cómo los guardamos?
+
+162
+00:22:55,919 --> 00:23:03,720
+¿Cómo los guardamos?
+
+163
+00:23:10,720 --> 00:23:18,720
+¿Cómo los guardamos?
+
+164
+00:23:20,720 --> 00:23:28,720
+¿Cómo los guardamos?
+
+165
+00:23:35,720 --> 00:23:43,720
+¿Cómo los guardamos?
+
+166
+00:23:50,994 --> 00:23:58,720
+¿Cómo los guardamos?
+
+167
+00:24:08,519 --> 00:24:13,720
+¿Cómo los guardamos?
+
+168
+00:24:21,494 --> 00:24:28,720
+¿Cómo los guardamos?
+
+169
+00:24:35,720 --> 00:24:43,720
+¿Cómo los guardamos?
+
+170
+00:24:50,720 --> 00:24:58,720
+¿Cómo los guardamos?
+
+171
+00:25:06,544 --> 00:25:13,720
+¿Cómo los guardamos?
+
+172
+00:25:20,720 --> 00:25:28,720
+¿Cómo los guardamos?
+
+173
+00:25:35,719 --> 00:25:43,720
+¿Cómo los guardamos?
+
+174
+00:25:50,720 --> 00:25:58,720
+¿Cómo los guardamos?
+
+175
+00:26:05,720 --> 00:26:13,720
+¿Cómo los guardamos?
+
+176
+00:26:20,844 --> 00:26:28,720
+¿Cómo los guardamos?
+
+177
+00:26:36,919 --> 00:26:43,720
+¿Cómo los guardamos?
+
