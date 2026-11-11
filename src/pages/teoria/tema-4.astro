@@ -2,6 +2,7 @@
 import DocsLayout from '../../layouts/DocsLayout.astro';
 import CodeBlock from '../../components/CodeBlock.astro';
 import Callout from '../../components/Callout.astro';
+import { withBase } from '../../utils/paths';
 
 const serviceCode = `@Service
 public class EstudianteService {
@@ -99,7 +100,7 @@ public class EstudianteController {
   section="Teoría · Tema 4"
 >
   <div class="flex flex-wrap gap-3 mb-4">
-    <a href="/teoria/SpringBoot- Tema 4.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+    <a href={withBase('/teoria/SpringBoot- Tema 4.pdf')} target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
       Descargar PDF Tema 4
     </a>
   </div>

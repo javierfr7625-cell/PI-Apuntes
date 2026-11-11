@@ -2,6 +2,7 @@
 import DocsLayout from '../../layouts/DocsLayout.astro';
 import CodeBlock from '../../components/CodeBlock.astro';
 import Callout from '../../components/Callout.astro';
+import { withBase } from '../../utils/paths';
 
 const jsonEjemplo = `{
   "nombre": "Innovación",
@@ -25,10 +26,10 @@ const jsonEjemplo = `{
   section="Teoría · Tema 7"
 >
   <div class="flex flex-wrap gap-3 mb-4">
-    <a href="/teoria/SpringBoot- Tema 7.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
+    <a href={withBase('/teoria/SpringBoot- Tema 7.pdf')} target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700">
       Descargar PDF Tema 7
     </a>
-    <a href="/ejercicios/pi-spring" class="px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-xs font-bold text-emerald-300 border border-emerald-500/30">
+    <a href={withBase('/ejercicios/pi-spring')} class="px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-xs font-bold text-emerald-300 border border-emerald-500/30">
       Ver Código Resuelto (piSpring)
     </a>
   </div>

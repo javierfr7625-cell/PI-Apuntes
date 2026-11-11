@@ -1,5 +1,6 @@
 ---
 import DocsLayout from '../../layouts/DocsLayout.astro';
+import { withBase } from '../../utils/paths';
 
 const slides = [
   {
@@ -94,7 +95,7 @@ const slides = [
           </ul>
         </div>
         <a
-          href={s.file}
+          href={withBase(s.file)}
           download
           class="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold border border-slate-700 transition"
         >

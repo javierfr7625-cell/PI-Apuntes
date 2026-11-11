@@ -1,5 +1,6 @@
 ---
 import DocsLayout from '../../layouts/DocsLayout.astro';
+import { withBase } from '../../utils/paths';
 ---
 
 <DocsLayout
@@ -8,7 +9,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   section="Práctica · Proyectos Reales"
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    <a href="/ejercicios/demo-spring" class="group rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-emerald-500/40 p-6 transition">
+    <a href={withBase('/ejercicios/demo-spring')} class="group rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-emerald-500/40 p-6 transition">
       <span class="px-2.5 py-0.5 text-xs font-bold rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
         Proyecto 1
       </span>
@@ -20,7 +21,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
       </p>
     </a>
 
-    <a href="/ejercicios/pi-spring" class="group rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-cyan-500/40 p-6 transition">
+    <a href={withBase('/ejercicios/pi-spring')} class="group rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-cyan-500/40 p-6 transition">
       <span class="px-2.5 py-0.5 text-xs font-bold rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
         Proyecto 2
       </span>

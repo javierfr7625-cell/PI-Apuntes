@@ -1,6 +1,7 @@
 ---
 import DocsLayout from '../layouts/DocsLayout.astro';
 import Callout from '../components/Callout.astro';
+import { withBase } from '../utils/paths';
 
 const sesiones = [
   {
@@ -124,11 +125,11 @@ const sesiones = [
             <span class="text-xs font-mono text-slate-400">{s.fecha}</span>
           </div>
           <div class="flex gap-2">
-            <a href={s.file} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
+            <a href={withBase(s.file)} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
               Descargar .srt
             </a>
             {s.extraFile && (
-              <a href={s.extraFile} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
+              <a href={withBase(s.extraFile)} download class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">
                 Parte 2 (.srt)
               </a>
             )}

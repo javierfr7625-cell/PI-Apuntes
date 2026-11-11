@@ -1,5 +1,11 @@
 ---
 import { searchIndex } from '../data/navigation';
+import { withBase } from '../utils/paths';
+
+const localizedSearchIndex = searchIndex.map((item) => ({
+  ...item,
+  href: withBase(item.href),
+}));
 ---
 
 <div class="relative w-full max-w-md" id="search-container">
@@ -31,7 +37,7 @@ import { searchIndex } from '../data/navigation';
   </div>
 </div>
 
-<script define:vars={{ searchIndex }}>
+<script define:vars={{ searchIndex: localizedSearchIndex }}>
   const input = document.getElementById('docs-search-input');
   const resultsBox = document.getElementById('docs-search-results');
   const container = document.getElementById('search-container');
